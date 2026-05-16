@@ -19,7 +19,11 @@ from datetime import datetime
 from pathlib import Path
 
 # ========== 配置 ==========
-MX_APIKEY = os.environ.get("MX_APIKEY", "mkt_f-JSym1MjVyEBaoal60UkgLwEd69FhteaSCakjQE8Ic")
+MX_APIKEY = os.environ.get("MX_APIKEY", "")
+if not MX_APIKEY:
+    print("[ERROR] 请设置环境变量 MX_APIKEY")
+    print("  export MX_APIKEY=your_api_key_here")
+    sys.exit(1)
 MX_BASE = "https://mkapi2.dfcfs.com/finskillshub"
 OUTPUT_DIR = Path(__file__).parent
 OUTPUT_FILE = OUTPUT_DIR / "data.json"
