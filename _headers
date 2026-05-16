@@ -1,0 +1,7 @@
+/*
+  X-Frame-Options: ALLOWALL
+  Access-Control-Allow-Origin: *
+
+/data.json
+  Cache-Control: public, max-age=60
+  Access-Control-Allow-Origin: *

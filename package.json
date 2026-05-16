@@ -1,0 +1,13 @@
+{
+  "name": "investment-studio-h5",
+  "version": "0.1.0",
+  "description": "投资小龙虾 — AI五层蛋糕H5监控页",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "refresh": "python3 refresh-data.py",
+    "deploy": "wrangler pages deploy . --project-name=invest-cake"
+  },
+  "keywords": ["investment", "ai", "h5", "wechat"],
+  "author": "投资小龙虾"
+}

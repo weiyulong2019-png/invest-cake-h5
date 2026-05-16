@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#FFFFFF"/>
+  <rect x="20" y="140" width="32" height="40" rx="4" fill="#E8740A" opacity="0.9"/>
+  <rect x="60" y="110" width="32" height="70" rx="4" fill="#E03B3B" opacity="0.9"/>
+  <rect x="100" y="125" width="32" height="55" rx="4" fill="#2B7FD4" opacity="0.9"/>
+  <rect x="140" y="150" width="32" height="30" rx="4" fill="#8E44AD" opacity="0.9"/>
+  <text x="100" y="40" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="16" font-weight="700" fill="#1A1A1A">AI五层蛋糕</text>
+  <text x="100" y="62" text-anchor="middle" font-family="PingFang SC,sans-serif" font-size="11" fill="#666666">投资小龙虾</text>
+  <text x="36" y="135" text-anchor="middle" font-size="9" fill="#E8740A">L1</text>
+  <text x="76" y="105" text-anchor="middle" font-size="9" fill="#E03B3B">L2</text>
+  <text x="116" y="120" text-anchor="middle" font-size="9" fill="#2B7FD4">L3</text>
+  <text x="156" y="145" text-anchor="middle" font-size="9" fill="#8E44AD">L4</text>
+</svg>
