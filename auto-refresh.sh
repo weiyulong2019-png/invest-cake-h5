@@ -32,11 +32,14 @@ unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY
 # 备��Key（auto模式不使用，手动模式需要）
 export MX_APIKEY="mkt_f-JSym1MjVyEBaoal60UkgLwEd69FhteaSCakjQE8Ic"
 
-# 刷新数据 — 默认auto模式，使用AKShare免费源
+# 刷新数据 — 默认auto模式，使用新浪+AKShare免费源
 python3 refresh-data.py
 
+# 刷新自选股行情
+python3 manage-watchlist.py refresh
+
 # 推送到GitHub（Cloudflare Pages自动部署）
-git add data.json
+git add data.json watchlist.json
 git diff --cached --quiet || {
     git commit -m "📈 $(date +%H:%M) 行情更新"
     git push origin main

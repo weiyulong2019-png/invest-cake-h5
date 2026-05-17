@@ -468,18 +468,8 @@ createApp({
       {code:'159338',name:'中证A500ETF',p:'-',c:'0%',cv:0}
     ]);
 
-    // 社群自选股 — 群成员通过OpenClaw添加，自动同步
-    const watchlist=reactive([
-      {code:'002409',name:'雅克科技',p:'-',c:'0%',cv:0,sector:'半导体材料',type:'a',addedBy:'小龙虾'},
-      {code:'002837',name:'英维克',p:'-',c:'0%',cv:0,sector:'AI液冷',type:'a',addedBy:'小龙虾'},
-      {code:'601138',name:'工业富联',p:'-',c:'0%',cv:0,sector:'AI服务器',type:'a',addedBy:'老王'},
-      {code:'300476',name:'胜宏科技',p:'-',c:'0%',cv:0,sector:'高多层PCB',type:'a',addedBy:'小龙虾'},
-      {code:'688008',name:'澜起科技',p:'-',c:'0%',cv:0,sector:'DDR5+CXL',type:'a',addedBy:'阿杰'},
-      {code:'512890',name:'红利低波ETF',p:'-',c:'0%',cv:0,sector:'防御',type:'etf',addedBy:'老王'},
-      {code:'159363',name:'创业板AI ETF',p:'-',c:'0%',cv:0,sector:'AI赛道',type:'etf',addedBy:'小龙虾'},
-      {code:'HK.01810',name:'小米集团-W',p:'-',c:'0%',cv:0,sector:'港股互联网',type:'hk',addedBy:'阿杰'},
-      {code:'HK.09988',name:'阿里巴巴-W',p:'-',c:'0%',cv:0,sector:'港股互联网',type:'hk',addedBy:'小龙虾'},
-    ]);
+    // 社群自选股 — 从watchlist.json动态加载
+    const watchlist=reactive([]);
 
     const filteredWatchlist=computed(()=>{
       let list=watchlist;
@@ -553,6 +543,18 @@ createApp({
        tags:['L3通信','PCB','供需分析']},
     ]);
 
+    // 加载watchlist.json
+    async function loadWatchlist(){
+      try{
+        const resp=await fetch('watchlist.json?t='+Date.now());
+        if(!resp.ok)return;
+        const d=await resp.json();
+        watchlist.length=0;
+        (d.stocks||[]).forEach(s=>watchlist.push(s));
+        console.log('[OpenClaw] 自选股已加载:',watchlist.length,'只');
+      }catch(e){console.log('[OpenClaw] watchlist.json未找到');}
+    }
+
     // 数据加载
     async function refreshData(){
       loading.value=true;
@@ -574,9 +576,6 @@ createApp({
           });
         }
         if(d.etfs){d.etfs.forEach(de=>{const t=etfs.find(i=>i.code===de.code);if(t){t.p=de.p;t.c=de.c;t.cv=de.cv;}});}
-        // 同步行情到自选股
-        const allStocks=[...d.layers.flatMap(l=>l.stocks||[]),...(d.etfs||[]),...(d.hk||[])];
-        watchlist.forEach(w=>{const f=allStocks.find(s=>s.code===w.code);if(f){w.p=f.p;w.c=f.c;w.cv=f.cv;}});
         console.log('[OpenClaw] 数据已刷新:',updateTime.value);
       }catch(e){console.log('[OpenClaw] data.json未找到');}
       finally{loading.value=false;}
@@ -584,7 +583,8 @@ createApp({
 
     onMounted(()=>{
       refreshData();
-      setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15)refreshData();},60000);
+      loadWatchlist();
+      setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();}},60000);
     });
 
     return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,filteredWatchlist,goDetail,goDetail2,dAgents,skills,obFolders,reports,loading,updateTime,marketIdx,refreshData,chgClass};
