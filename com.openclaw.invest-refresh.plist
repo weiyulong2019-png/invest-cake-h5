@@ -9,6 +9,7 @@
         <string>/bin/bash</string>
         <string>/Users/long/.openclaw/投资工作室H5/auto-refresh.sh</string>
     </array>
+    <!-- 每5分钟触发（盘中行情+信号），脚本内部判断时间窗口 -->
     <key>StartInterval</key>
     <integer>300</integer>
     <key>StandardOutPath</key>
@@ -19,6 +20,10 @@
     <dict>
         <key>PATH</key>
         <string>/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
+        <key>LANG</key>
+        <string>en_US.UTF-8</string>
     </dict>
+    <key>RunAtLoad</key>
+    <false/>
 </dict>
 </plist>

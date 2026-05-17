@@ -31,8 +31,15 @@ unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY
 
 export MX_APIKEY="mkt_f-JSym1MjVyEBaoal60UkgLwEd69FhteaSCakjQE8Ic"
 
-# ========== 06:00 盘前信号 ==========
-if [ "$HHMM" = "0600" ]; then
+# ========== 06:00 盘前信号（5分钟间隔容差: 0555-0610） ==========
+if [ "$HHMM" -ge "0555" ] && [ "$HHMM" -le "0610" ]; then
+    # 防重入: 检查今日是否已生成盘前信号
+    TODAY=$(date +%Y%m%d)
+    LOCK="/tmp/openclaw-premarket-${TODAY}.lock"
+    if [ -f "$LOCK" ]; then
+        echo "$(date): 盘前信号已生成，跳过"
+        exit 0
+    fi
     echo "$(date): 盘前信号（美股隔夜+公告）..."
     python3 generate-signals.py
     git add data.json
@@ -40,12 +47,13 @@ if [ "$HHMM" = "0600" ]; then
         git commit -m "🌙 06:00 盘前信号"
         git push origin main
     }
+    touch "$LOCK"
     echo "$(date): 盘前信号完成"
     exit 0
 fi
 
-# ========== 06:01-09:24 非交易时间 ==========
-if [ "$HHMM" -lt "0600" ] || ([ "$HHMM" -gt "0600" ] && [ "$HHMM" -lt "0925" ]); then
+# ========== 非交易时间 ==========
+if [ "$HHMM" -lt "0555" ] || ([ "$HHMM" -gt "0610" ] && [ "$HHMM" -lt "0925" ]); then
     echo "$(date): 非交易时间，跳过"
     exit 0
 fi
