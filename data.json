@@ -26,8 +26,8 @@
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "ETF跟踪指数，参考板块整体方向",
-          "signalTime": "09:25",
+          "signalNote": "站上MA20；MACD红柱；费城半导体暴跌-4.02%；ADX=33.3(强趋势)；预期日波动±2.99%",
+          "signalTime": "05:55",
           "confidence": "低"
         },
         {
@@ -41,15 +41,15 @@
           "cv": -2.97,
           "pe": "-",
           "cap": "-",
-          "signal": "risk",
-          "signalNote": "跌破MA20，MACD绿柱；5日跌6.2%",
-          "signalTime": "09:25",
-          "confidence": "高"
+          "signal": "neutral",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
+          "confidence": "低"
         }
       ],
       "avg": -3.12,
-      "summary": "能源基建板块2只标的整体偏弱（1只风险信号），近5日均跌3.1%，电网投资政策仍为中长期支撑，短期注意技术面回调风险。",
-      "summaryTime": "09:25"
+      "summary": "能源基建板块2只标的，方向不明确，保持观望。",
+      "summaryTime": "05:55"
     },
     {
       "id": "L2",
@@ -68,10 +68,10 @@
           "cv": 0.52,
           "pe": "-",
           "cap": "-",
-          "signal": "buy",
-          "signalNote": "多头排列，RSI偏低(38)；MACD红柱",
-          "signalTime": "09:25",
-          "confidence": "中"
+          "signal": "neutral",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
+          "confidence": "低"
         },
         {
           "code": "002837",
@@ -85,8 +85,8 @@
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "站上MA20，RSI中性(52)；量能不足",
-          "signalTime": "09:25",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
           "confidence": "低"
         },
         {
@@ -101,8 +101,8 @@
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "MA20附近震荡；MACD即将金叉",
-          "signalTime": "09:25",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
           "confidence": "低"
         },
         {
@@ -116,10 +116,10 @@
           "cv": -3.12,
           "pe": "-",
           "cap": "-",
-          "signal": "risk",
-          "signalNote": "空头排列，跌破MA60；5日跌8.1%",
-          "signalTime": "09:25",
-          "confidence": "高"
+          "signal": "neutral",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
+          "confidence": "低"
         },
         {
           "code": "688008",
@@ -132,15 +132,15 @@
           "cv": -6.45,
           "pe": "-",
           "cap": "-",
-          "signal": "risk",
-          "signalNote": "RSI超买后回落(68)；5日跌6.45%，注意获利盘",
-          "signalTime": "09:25",
-          "confidence": "高"
+          "signal": "neutral",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
+          "confidence": "低"
         }
       ],
       "avg": -2.43,
-      "summary": "算力芯片板块5只标的分化明显（1只建仓、2只风险），雅克科技多头排列值得关注，铜冠铜箔/澜起科技短线超跌需防范。",
-      "summaryTime": "09:25"
+      "summary": "算力芯片板块5只标的，方向不明确，保持观望，费城半导体走弱，算力链承压。",
+      "summaryTime": "05:55"
     },
     {
       "id": "L3",
@@ -160,8 +160,8 @@
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "站上MA20，量能平稳；关注PCB订单节点",
-          "signalTime": "09:25",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
           "confidence": "低"
         },
         {
@@ -175,10 +175,10 @@
           "cv": -4.12,
           "pe": "-",
           "cap": "-",
-          "signal": "risk",
-          "signalNote": "MACD绿柱加大；5日跌4.12%",
-          "signalTime": "09:25",
-          "confidence": "高"
+          "signal": "neutral",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
+          "confidence": "低"
         },
         {
           "code": "600487",
@@ -191,15 +191,15 @@
           "cv": -5.68,
           "pe": "-",
           "cap": "-",
-          "signal": "risk",
-          "signalNote": "跌破MA20，空头排列；5日跌5.68%",
-          "signalTime": "09:25",
-          "confidence": "高"
+          "signal": "neutral",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
+          "confidence": "低"
         }
       ],
       "avg": -4.22,
-      "summary": "通信基建板块3只标的整体偏弱（2只风险信号），近5日均跌4.2%，PCB/光通信短期承压，关注超跌反弹机会。",
-      "summaryTime": "09:25"
+      "summary": "通信基建板块3只标的，方向不明确，保持观望，费城半导体走弱，算力链承压。",
+      "summaryTime": "05:55"
     },
     {
       "id": "L4",
@@ -218,15 +218,15 @@
           "cv": 0.37,
           "pe": "-",
           "cap": "-",
-          "signal": "buy",
-          "signalNote": "RSI低位回升(35)；MACD即将金叉；AI应用政策催化",
-          "signalTime": "09:25",
-          "confidence": "中"
+          "signal": "neutral",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
+          "confidence": "低"
         }
       ],
       "avg": 0.37,
-      "summary": "模型层仅1只标的昆仑万维，RSI低位有反弹迹象，AI应用政策面偏暖，可适度关注。",
-      "summaryTime": "09:25"
+      "summary": "模型层板块1只标的，方向不明确，保持观望。",
+      "summaryTime": "05:55"
     },
     {
       "id": "L5",
@@ -246,8 +246,8 @@
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "站上MA20；费城半导体隔夜平稳",
-          "signalTime": "09:25",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
           "confidence": "低"
         },
         {
@@ -261,10 +261,10 @@
           "cv": -3.5,
           "pe": "-",
           "cap": "-",
-          "signal": "risk",
-          "signalNote": "跌破MA20；近5日持续走弱",
-          "signalTime": "09:25",
-          "confidence": "高"
+          "signal": "neutral",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
+          "confidence": "低"
         },
         {
           "code": "HK.09988",
@@ -277,10 +277,10 @@
           "cv": -4.06,
           "pe": "-",
           "cap": "-",
-          "signal": "risk",
-          "signalNote": "MACD绿柱；5日跌4.06%",
-          "signalTime": "09:25",
-          "confidence": "高"
+          "signal": "neutral",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
+          "confidence": "低"
         },
         {
           "code": "HK.01024",
@@ -294,14 +294,14 @@
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "MA20附近震荡；量能萎缩",
-          "signalTime": "09:25",
+          "signalNote": "数据不足，暂无信号",
+          "signalTime": "05:55",
           "confidence": "低"
         }
       ],
       "avg": -3.44,
-      "summary": "应用层4只港股标的整体偏弱，美团/阿里持续走弱，小米相对抗跌，费城半导体隔夜表现平稳，港股跟跌A股情绪。",
-      "summaryTime": "09:25"
+      "summary": "应用层板块4只标的，方向不明确，保持观望。",
+      "summaryTime": "05:55"
     }
   ],
   "etfs": [
@@ -396,5 +396,5 @@
       "cap": "-"
     }
   ],
-  "signalUpdateTime": "2026-05-17 09:25:00"
+  "signalUpdateTime": "2026-05-18 05:55:06"
 }
