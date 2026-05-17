@@ -1011,7 +1011,7 @@ def main():
                             s.update({k: old_s[k] for k in ("p", "c", "cv", "pe", "cap") if k in old_s})
                             inherited += 1
                         # 保留信号数据
-                        for sk in ("signal", "signalNote", "signalTime"):
+                        for sk in ("signal", "signalNote", "signalTime", "confidence"):
                             if sk in old_s and sk not in s:
                                 s[sk] = old_s[sk]
             # ETF

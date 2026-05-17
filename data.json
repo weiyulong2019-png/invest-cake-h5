@@ -27,7 +27,8 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "ETF跟踪指数，参考板块整体方向",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "低"
         },
         {
           "code": "300390",
@@ -42,7 +43,8 @@
           "cap": "-",
           "signal": "risk",
           "signalNote": "跌破MA20，MACD绿柱；5日跌6.2%",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "高"
         }
       ],
       "avg": -3.12,
@@ -68,7 +70,8 @@
           "cap": "-",
           "signal": "buy",
           "signalNote": "多头排列，RSI偏低(38)；MACD红柱",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "中"
         },
         {
           "code": "002837",
@@ -83,7 +86,8 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "站上MA20，RSI中性(52)；量能不足",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "低"
         },
         {
           "code": "601138",
@@ -98,7 +102,8 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "MA20附近震荡；MACD即将金叉",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "低"
         },
         {
           "code": "301217",
@@ -113,7 +118,8 @@
           "cap": "-",
           "signal": "risk",
           "signalNote": "空头排列，跌破MA60；5日跌8.1%",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "高"
         },
         {
           "code": "688008",
@@ -128,7 +134,8 @@
           "cap": "-",
           "signal": "risk",
           "signalNote": "RSI超买后回落(68)；5日跌6.45%，注意获利盘",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "高"
         }
       ],
       "avg": -2.43,
@@ -154,7 +161,8 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "站上MA20，量能平稳；关注PCB订单节点",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "低"
         },
         {
           "code": "300476",
@@ -169,7 +177,8 @@
           "cap": "-",
           "signal": "risk",
           "signalNote": "MACD绿柱加大；5日跌4.12%",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "高"
         },
         {
           "code": "600487",
@@ -184,7 +193,8 @@
           "cap": "-",
           "signal": "risk",
           "signalNote": "跌破MA20，空头排列；5日跌5.68%",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "高"
         }
       ],
       "avg": -4.22,
@@ -210,7 +220,8 @@
           "cap": "-",
           "signal": "buy",
           "signalNote": "RSI低位回升(35)；MACD即将金叉；AI应用政策催化",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "中"
         }
       ],
       "avg": 0.37,
@@ -236,7 +247,8 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "站上MA20；费城半导体隔夜平稳",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "低"
         },
         {
           "code": "HK.03690",
@@ -251,7 +263,8 @@
           "cap": "-",
           "signal": "risk",
           "signalNote": "跌破MA20；近5日持续走弱",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "高"
         },
         {
           "code": "HK.09988",
@@ -266,7 +279,8 @@
           "cap": "-",
           "signal": "risk",
           "signalNote": "MACD绿柱；5日跌4.06%",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "高"
         },
         {
           "code": "HK.01024",
@@ -281,7 +295,8 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "MA20附近震荡；量能萎缩",
-          "signalTime": "09:25"
+          "signalTime": "09:25",
+          "confidence": "低"
         }
       ],
       "avg": -3.44,

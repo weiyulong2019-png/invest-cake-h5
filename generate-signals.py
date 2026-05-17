@@ -1,24 +1,23 @@
 #!/usr/bin/env python3
 """
-OpenClaw 信号生成器
+OpenClaw 信号生成器 v2 — 乘法因子模型
+====================================
+升级自v1(加法模型)，核心改进:
+  1. 硬排除规则: ST/次新/低流动性 → 直接标记为风险
+  2. 乘法因子组合: 单因子极端值可直接压制总分
+  3. ADX趋势过滤: ADX<22时信号降级为中性
+  4. 信号置信度: 高/中/低(基于因子一致性)
+  5. 预期波动提示: 基于ATR的日内波动预估
+  6. ETF独立信号: 不再默认中性
+
 每日调度:
   06:00 — 盘前信号（美股隔夜 + 公告/新闻评估）
-  09:25 — 集合竞价信号（开盘价 vs 均线，量比）
-  10:00/10:30/11:00/11:30 — 盘中更新（技术指标实时）
-  13:00/13:30/14:00/14:30/15:00 — 午后更新
-  15:15 — A股收盘最终信号
-  16:15 — 港股收盘最终信号
+  09:25 — 集合竞价信号
+  整点/半点 — 盘中更新
+  15:15/16:15 — 收盘最终信号
 
-数据来源:
-  - AKShare: 历史K线(MA/RSI/MACD)、美股指数
-  - 新浪HTTP: 实时价格/量比
-
-信号等级:
-  buy(建仓) — 技术面+基本面共振向好
-  neutral(中性) — 无明确方向
-  risk(风险) — 技术面走弱或外部利空
-
-输出: 写入 data.json 的 signal/signalNote/signalTime + layer.summary/summaryTime
+数据来源: AKShare(历史K线) / 新浪HTTP(美股指数备选)
+输出: data.json → signal/signalNote/signalTime/confidence + layer.summary/summaryTime
 """
 
 import os
@@ -49,19 +48,16 @@ HHMM = NOW.strftime("%H%M")
 
 
 # ============================================================
-# 1. 美股指数（AKShare）— 盘前6:00使用
+# 1. 美股指数（AKShare + 新浪备选）
 # ============================================================
 def fetch_us_overnight():
     """获取美股三大指数隔夜涨跌幅 + 费城半导体"""
     results = {}
     try:
         import akshare as ak
-        # 纳指、标普、道琼斯、费城半导体
         indices = {
-            "IXIC": "纳斯达克",
-            "DJI": "道琼斯",
-            "SPX": "标普500",
-            "SOX": "费城半导体"
+            "IXIC": "纳斯达克", "DJI": "道琼斯",
+            "SPX": "标普500", "SOX": "费城半导体"
         }
         for code, name in indices.items():
             try:
@@ -105,7 +101,7 @@ def fetch_us_overnight():
 
 
 # ============================================================
-# 2. A股技术指标（AKShare历史K线 → 计算MA/RSI/MACD）
+# 2. 技术指标计算函数
 # ============================================================
 def calc_ma(closes, period):
     if len(closes) < period:
@@ -130,7 +126,7 @@ def calc_rsi(closes, period=14):
 
 
 def calc_macd(closes, fast=12, slow=26, signal=9):
-    """返回 (MACD, Signal, Histogram)"""
+    """返回 (DIF, DEA, MACD柱)"""
     if len(closes) < slow + signal:
         return None, None, None
 
@@ -153,12 +149,98 @@ def calc_macd(closes, fast=12, slow=26, signal=9):
     return macd_val, signal_val, hist
 
 
+def calc_adx(highs, lows, closes, period=14):
+    """
+    计算ADX(平均趋向指数)
+    ADX < 22: 趋势不明确（震荡市）
+    ADX 22-30: 趋势形成中
+    ADX > 30: 强趋势
+    """
+    n = len(closes)
+    if n < period * 2 + 1:
+        return None
+
+    # True Range
+    tr_list = []
+    plus_dm_list = []
+    minus_dm_list = []
+    for i in range(1, n):
+        h, l, pc = highs[i], lows[i], closes[i - 1]
+        tr = max(h - l, abs(h - pc), abs(l - pc))
+        tr_list.append(tr)
+
+        up_move = highs[i] - highs[i - 1]
+        down_move = lows[i - 1] - lows[i]
+        plus_dm = up_move if (up_move > down_move and up_move > 0) else 0
+        minus_dm = down_move if (down_move > up_move and down_move > 0) else 0
+        plus_dm_list.append(plus_dm)
+        minus_dm_list.append(minus_dm)
+
+    # Wilder平滑
+    def wilder_smooth(data, period):
+        if len(data) < period:
+            return []
+        smoothed = [sum(data[:period])]
+        for i in range(period, len(data)):
+            smoothed.append(smoothed[-1] - smoothed[-1] / period + data[i])
+        return smoothed
+
+    atr_s = wilder_smooth(tr_list, period)
+    plus_dm_s = wilder_smooth(plus_dm_list, period)
+    minus_dm_s = wilder_smooth(minus_dm_list, period)
+
+    if not atr_s or not plus_dm_s or not minus_dm_s:
+        return None
+
+    min_len = min(len(atr_s), len(plus_dm_s), len(minus_dm_s))
+    dx_list = []
+    for i in range(min_len):
+        if atr_s[i] == 0:
+            continue
+        plus_di = 100 * plus_dm_s[i] / atr_s[i]
+        minus_di = 100 * minus_dm_s[i] / atr_s[i]
+        di_sum = plus_di + minus_di
+        if di_sum == 0:
+            continue
+        dx = 100 * abs(plus_di - minus_di) / di_sum
+        dx_list.append(dx)
+
+    if len(dx_list) < period:
+        return None
+
+    # ADX = DX的period日平均
+    adx = sum(dx_list[-period:]) / period
+    return round(adx, 1)
+
+
+def calc_atr(highs, lows, closes, period=14):
+    """计算ATR(平均真实波幅) — 用于预期波动率"""
+    n = len(closes)
+    if n < period + 1:
+        return None
+
+    tr_list = []
+    for i in range(1, n):
+        h, l, pc = highs[i], lows[i], closes[i - 1]
+        tr = max(h - l, abs(h - pc), abs(l - pc))
+        tr_list.append(tr)
+
+    if len(tr_list) < period:
+        return None
+
+    # 简单平均ATR
+    atr = sum(tr_list[-period:]) / period
+    return round(atr, 3)
+
+
+# ============================================================
+# 3. A股/港股/ETF 技术指标获取
+# ============================================================
 def fetch_a_stock_indicators(code):
-    """获取A股技术指标: MA5/MA10/MA20/MA60, RSI14, MACD, 最新价/量比"""
+    """获取A股技术指标: MA/RSI/MACD/ADX/ATR + 基础信息"""
     result = {"code": code, "ok": False}
     try:
         import akshare as ak
-        # 日K线最近120天
         df = ak.stock_zh_a_hist(
             symbol=code, period="daily",
             start_date=(NOW - timedelta(days=180)).strftime("%Y%m%d"),
@@ -169,7 +251,10 @@ def fetch_a_stock_indicators(code):
             return result
 
         closes = df["收盘"].astype(float).tolist()
+        highs = df["最高"].astype(float).tolist()
+        lows = df["最低"].astype(float).tolist()
         volumes = df["成交量"].astype(float).tolist()
+        amounts = df["成交额"].astype(float).tolist() if "成交额" in df.columns else []
         latest = closes[-1]
 
         result["price"] = latest
@@ -179,6 +264,12 @@ def fetch_a_stock_indicators(code):
         result["ma60"] = calc_ma(closes, 60)
         result["rsi"] = calc_rsi(closes, 14)
         result["macd"], result["macd_signal"], result["macd_hist"] = calc_macd(closes)
+        result["adx"] = calc_adx(highs, lows, closes, 14)
+        result["atr"] = calc_atr(highs, lows, closes, 14)
+
+        # ATR占价格百分比 → 预期日波动
+        if result["atr"] and latest > 0:
+            result["atr_pct"] = round(result["atr"] / latest * 100, 2)
 
         # 量比: 今日成交量 / 过去5日均量
         if len(volumes) >= 6:
@@ -189,6 +280,15 @@ def fetch_a_stock_indicators(code):
         # 近5日涨跌幅
         if len(closes) >= 6:
             result["chg5d"] = round((closes[-1] - closes[-6]) / closes[-6] * 100, 2)
+
+        # 日均成交额（20日）— 用于流动性排除
+        if amounts and len(amounts) >= 20:
+            result["avg_amount_20d"] = round(sum(amounts[-20:]) / 20, 0)
+        elif amounts and len(amounts) >= 5:
+            result["avg_amount_20d"] = round(sum(amounts[-5:]) / len(amounts[-5:]), 0)
+
+        # 上市天数（用数据条数估算）
+        result["trading_days"] = len(df)
 
         result["ok"] = True
     except ImportError:
@@ -214,31 +314,123 @@ def fetch_hk_stock_indicators(hk_code):
             return result
 
         closes = df["收盘"].astype(float).tolist()
+        highs = df["最高"].astype(float).tolist()
+        lows = df["最低"].astype(float).tolist()
         latest = closes[-1]
 
         result["price"] = latest
         result["ma5"] = calc_ma(closes, 5)
         result["ma10"] = calc_ma(closes, 10)
         result["ma20"] = calc_ma(closes, 20)
+        result["ma60"] = calc_ma(closes, 60)
         result["rsi"] = calc_rsi(closes, 14)
         result["macd"], result["macd_signal"], result["macd_hist"] = calc_macd(closes)
+        result["adx"] = calc_adx(highs, lows, closes, 14)
+        result["atr"] = calc_atr(highs, lows, closes, 14)
+
+        if result["atr"] and latest > 0:
+            result["atr_pct"] = round(result["atr"] / latest * 100, 2)
+
+        if len(closes) >= 6:
+            result["chg5d"] = round((closes[-1] - closes[-6]) / closes[-6] * 100, 2)
+
         result["ok"] = True
     except Exception as e:
         print(f"[WARN] {hk_code} 港股指标获取失败: {e}")
     return result
 
 
+def fetch_etf_indicators(code):
+    """ETF技术指标 — 与A股同源，但不做ST/次新排除"""
+    result = {"code": code, "ok": False, "is_etf": True}
+    try:
+        import akshare as ak
+        df = ak.fund_etf_hist_sina(symbol=f"sz{code}" if code.startswith("1") else f"sh{code}")
+        if df is None or len(df) < 30:
+            # 降级: 尝试A股接口
+            return fetch_a_stock_indicators(code)
+
+        closes = df["close"].astype(float).tolist()
+        highs = df["high"].astype(float).tolist()
+        lows = df["low"].astype(float).tolist()
+        latest = closes[-1]
+
+        result["price"] = latest
+        result["ma5"] = calc_ma(closes, 5)
+        result["ma10"] = calc_ma(closes, 10)
+        result["ma20"] = calc_ma(closes, 20)
+        result["ma60"] = calc_ma(closes, 60)
+        result["rsi"] = calc_rsi(closes, 14)
+        result["macd"], result["macd_signal"], result["macd_hist"] = calc_macd(closes)
+        result["adx"] = calc_adx(highs, lows, closes, 14)
+        result["atr"] = calc_atr(highs, lows, closes, 14)
+
+        if result["atr"] and latest > 0:
+            result["atr_pct"] = round(result["atr"] / latest * 100, 2)
+
+        if len(closes) >= 6:
+            result["chg5d"] = round((closes[-1] - closes[-6]) / closes[-6] * 100, 2)
+
+        result["ok"] = True
+    except Exception:
+        # ETF sina接口失败，降级到A股接口
+        fallback = fetch_a_stock_indicators(code)
+        fallback["is_etf"] = True
+        return fallback
+    return result
+
+
 # ============================================================
-# 3. 信号判定规则
+# 4. 硬排除规则（"排除比选股更重要"）
 # ============================================================
-def judge_signal(ind, us_data=None, is_premarket=False):
+def should_exclude(ind, stock_name=""):
     """
-    根据技术指标+美股隔夜，判定信号
-    返回 (signal, note)
-    signal: "buy" / "neutral" / "risk"
+    检查是否应该硬排除。
+    返回 (should_exclude: bool, reason: str)
+    """
+    name = stock_name.upper()
+
+    # ST / *ST
+    if "ST" in name or "退" in stock_name:
+        return True, "ST/退市股，风险极高"
+
+    # 次新股: 上市不足60个交易日
+    trading_days = ind.get("trading_days", 999)
+    if trading_days < 60:
+        return True, f"上市仅{trading_days}个交易日，波动不可预测"
+
+    # 低流动性: 20日日均成交额 < 5000万
+    avg_amount = ind.get("avg_amount_20d", None)
+    if avg_amount is not None and avg_amount < 50_000_000:
+        amt_str = f"{avg_amount / 10000:.0f}万"
+        return True, f"日均成交额仅{amt_str}，流动性不足"
+
+    return False, ""
+
+
+# ============================================================
+# 5. 乘法因子信号判定（v2核心）
+# ============================================================
+def judge_signal_v2(ind, us_data=None, is_premarket=False):
+    """
+    乘法因子模型 — 核心思路:
+    每个因子输出一个系数(0.0~2.0), 基线=1.0
+      >1.0 表示看多加成
+      <1.0 表示看空压制
+      =0.0 表示一票否决
+
+    最终 score = f1 * f2 * f3 * ... * fn
+    score > 1.3 → buy
+    score < 0.7 → risk
+    else → neutral
+
+    优势: 单个因子极端值(如RSI超买=0.3)可以直接压制整体,
+    不会被其他因子的加分抵消(加法模型的缺陷)。
+
+    返回 (signal, note, confidence, factors_detail)
     """
     if not ind.get("ok"):
-        return "neutral", "数据不足，暂无信号"
+        return "neutral", "数据不足，暂无信号", "低", {}
 
     price = ind.get("price", 0)
     ma5 = ind.get("ma5")
@@ -249,107 +441,210 @@ def judge_signal(ind, us_data=None, is_premarket=False):
     macd_hist = ind.get("macd_hist")
     vol_ratio = ind.get("vol_ratio")
     chg5d = ind.get("chg5d", 0)
+    adx = ind.get("adx")
+    atr_pct = ind.get("atr_pct")
 
-    score = 0  # 正=看多, 负=看空
+    factors = {}   # 因子名 → 系数
     reasons = []
 
-    # --- 均线系统 ---
+    # --- F1: 均线系统 (权重最大: 0.3~1.8) ---
     if ma5 and ma10 and ma20:
         if price > ma5 > ma10 > ma20:
-            score += 3
+            factors["ma"] = 1.8
             reasons.append("多头排列")
         elif price < ma5 < ma10 < ma20:
-            score -= 3
+            factors["ma"] = 0.3
             reasons.append("空头排列")
         elif price > ma20:
-            score += 1
+            factors["ma"] = 1.2
             reasons.append("站上MA20")
         elif price < ma20:
-            score -= 1
+            factors["ma"] = 0.7
             reasons.append("跌破MA20")
+        else:
+            factors["ma"] = 1.0
+    else:
+        factors["ma"] = 1.0
 
+    # MA60加成/压制
     if ma60 and price:
         if price > ma60:
-            score += 1
+            factors["ma60"] = 1.15
         else:
-            score -= 1
+            factors["ma60"] = 0.85
             reasons.append("跌破MA60")
+    else:
+        factors["ma60"] = 1.0
 
-    # --- RSI ---
+    # --- F2: RSI (0.3~1.5) ---
     if rsi is not None:
-        if rsi < 30:
-            score += 2
-            reasons.append(f"RSI超卖({rsi})")
-        elif rsi < 40:
-            score += 1
+        if rsi < 25:
+            factors["rsi"] = 1.5
+            reasons.append(f"RSI深度超卖({rsi})")
+        elif rsi < 35:
+            factors["rsi"] = 1.25
             reasons.append(f"RSI偏低({rsi})")
-        elif rsi > 75:
-            score -= 2
+        elif rsi > 80:
+            factors["rsi"] = 0.3
+            reasons.append(f"RSI严重超买({rsi})")
+        elif rsi > 70:
+            factors["rsi"] = 0.6
             reasons.append(f"RSI超买({rsi})")
-        elif rsi > 65:
-            score -= 1
+        elif rsi > 60:
+            factors["rsi"] = 0.85
             reasons.append(f"RSI偏高({rsi})")
+        else:
+            factors["rsi"] = 1.0
+    else:
+        factors["rsi"] = 1.0
 
-    # --- MACD ---
+    # --- F3: MACD (0.7~1.3) ---
     if macd_hist is not None:
         if macd_hist > 0:
-            score += 1
+            factors["macd"] = 1.2
             reasons.append("MACD红柱")
         else:
-            score -= 1
+            factors["macd"] = 0.8
             reasons.append("MACD绿柱")
+    else:
+        factors["macd"] = 1.0
 
-    # --- 量比 ---
+    # --- F4: 量比 (0.7~1.3) ---
     if vol_ratio is not None:
         if vol_ratio > 2:
-            reasons.append(f"放量(量比{vol_ratio})")
-            # 放量方向取决于涨跌
             if chg5d > 0:
-                score += 1
+                factors["vol"] = 1.3
+                reasons.append(f"放量上攻(量比{vol_ratio})")
             else:
-                score -= 1
+                factors["vol"] = 0.7
+                reasons.append(f"放量下跌(量比{vol_ratio})")
         elif vol_ratio < 0.5:
-            reasons.append("缩量")
+            factors["vol"] = 0.9
+            reasons.append("极度缩量")
+        else:
+            factors["vol"] = 1.0
+    else:
+        factors["vol"] = 1.0
 
-    # --- 近5日涨跌 ---
-    if chg5d > 8:
-        score -= 1
-        reasons.append(f"5日涨{chg5d}%，短线获利盘")
-    elif chg5d < -8:
-        score += 1
-        reasons.append(f"5日跌{chg5d}%，或有超跌反弹")
+    # --- F5: 近5日动量 (0.7~1.2) ---
+    if chg5d > 10:
+        factors["momentum"] = 0.7
+        reasons.append(f"5日涨{chg5d}%，短线获利盘重")
+    elif chg5d > 5:
+        factors["momentum"] = 0.85
+        reasons.append(f"5日涨{chg5d}%，注意回调")
+    elif chg5d < -10:
+        factors["momentum"] = 1.2
+        reasons.append(f"5日跌{chg5d}%，关注超跌反弹")
+    elif chg5d < -5:
+        factors["momentum"] = 1.1
+        reasons.append(f"5日跌{chg5d}%，或有修复")
+    else:
+        factors["momentum"] = 1.0
 
-    # --- 美股隔夜影响（盘前6:00权重更大）---
+    # --- F6: 美股隔夜影响（盘前权重更大）---
     if us_data and is_premarket:
         sox = us_data.get("SOX", {})
         nasdaq = us_data.get("IXIC", us_data.get("int_nasdaq", {}))
-        if sox.get("chg", 0) < -2:
-            score -= 2
-            reasons.append(f"费城半导体隔夜跌{sox['chg']}%")
+        us_factor = 1.0
+        if sox.get("chg", 0) < -3:
+            us_factor *= 0.6
+            reasons.append(f"费城半导体暴跌{sox['chg']}%")
+        elif sox.get("chg", 0) < -1.5:
+            us_factor *= 0.8
+            reasons.append(f"费城半导体跌{sox['chg']}%")
         elif sox.get("chg", 0) > 2:
-            score += 1
-            reasons.append(f"费城半导体隔夜涨{sox['chg']}%")
-        if nasdaq.get("chg", 0) < -1.5:
-            score -= 1
+            us_factor *= 1.2
+            reasons.append(f"费城半导体涨{sox['chg']}%")
+
+        if nasdaq.get("chg", 0) < -2:
+            us_factor *= 0.8
             reasons.append(f"纳指跌{nasdaq['chg']}%")
-        elif nasdaq.get("chg", 0) > 1.5:
-            score += 1
+        elif nasdaq.get("chg", 0) > 2:
+            us_factor *= 1.15
             reasons.append(f"纳指涨{nasdaq['chg']}%")
 
+        factors["us_overnight"] = round(us_factor, 2)
+    else:
+        factors["us_overnight"] = 1.0
+
+    # --- 计算总分 ---
+    score = 1.0
+    for f in factors.values():
+        score *= f
+    score = round(score, 3)
+
+    # --- ADX趋势过滤器 ---
+    adx_note = ""
+    if adx is not None:
+        if adx < 22:
+            # 震荡市: 无论多空信号都降级为中性
+            adx_note = f"ADX={adx}(震荡市)"
+            if score > 1.3 or score < 0.7:
+                reasons.append(f"{adx_note}，信号降级")
+                score = 1.0  # 强制中性
+        elif adx > 30:
+            adx_note = f"ADX={adx}(强趋势)"
+            # 强趋势时放大信号
+            if score > 1.0:
+                score *= 1.1
+            elif score < 1.0:
+                score *= 0.9
+            score = round(score, 3)
+
     # --- 信号判定 ---
-    if score >= 3:
+    if score >= 1.3:
         signal = "buy"
-    elif score <= -3:
+    elif score <= 0.7:
         signal = "risk"
     else:
         signal = "neutral"
 
-    note = "；".join(reasons[:3]) if reasons else "指标中性，观望为主"
-    return signal, note
+    # --- 置信度评估 ---
+    # 看因子方向一致性: 同向因子越多，置信度越高
+    bullish = sum(1 for f in factors.values() if f > 1.05)
+    bearish = sum(1 for f in factors.values() if f < 0.95)
+    total_factors = len(factors)
+
+    if signal == "buy":
+        consistency = bullish / total_factors if total_factors > 0 else 0
+    elif signal == "risk":
+        consistency = bearish / total_factors if total_factors > 0 else 0
+    else:
+        consistency = 0
+
+    if consistency >= 0.6:
+        confidence = "高"
+    elif consistency >= 0.4:
+        confidence = "中"
+    else:
+        confidence = "低"
+
+    # --- 构建note ---
+    # 预期波动提示
+    vol_hint = ""
+    if atr_pct:
+        if atr_pct > 4:
+            vol_hint = f"预期日波动±{atr_pct}%(高)"
+        elif atr_pct > 2:
+            vol_hint = f"预期日波动±{atr_pct}%"
+        else:
+            vol_hint = f"预期日波动±{atr_pct}%(低)"
+
+    # 取前3个关键reason + 波动提示
+    key_reasons = reasons[:3]
+    if adx_note and adx_note not in " ".join(key_reasons):
+        key_reasons.append(adx_note)
+    if vol_hint:
+        key_reasons.append(vol_hint)
+
+    note = "；".join(key_reasons) if key_reasons else "指标中性，观望为主"
+
+    return signal, note, confidence, factors
 
 
 # ============================================================
-# 4. 生成层级总结
+# 6. 生成层级总结
 # ============================================================
 def generate_layer_summary(layer_id, layer_name, stocks_signals, us_data=None):
     """根据层内所有股票信号生成该层总结"""
@@ -358,18 +653,22 @@ def generate_layer_summary(layer_id, layer_name, stocks_signals, us_data=None):
 
     buy_count = sum(1 for s in stocks_signals if s.get("signal") == "buy")
     risk_count = sum(1 for s in stocks_signals if s.get("signal") == "risk")
-    neutral_count = sum(1 for s in stocks_signals if s.get("signal") == "neutral")
     total = len(stocks_signals)
 
-    # 整体涨跌
     chgs = [s.get("chg5d", 0) for s in stocks_signals if s.get("chg5d") is not None]
     avg_chg = round(sum(chgs) / len(chgs), 2) if chgs else 0
+
+    # 高置信度信号数
+    high_conf = sum(1 for s in stocks_signals if s.get("confidence") == "高")
 
     parts = []
     parts.append(f"{layer_name}板块{total}只标的")
 
     if buy_count > risk_count:
-        parts.append(f"整体偏多（{buy_count}只建仓信号）")
+        parts.append(f"整体偏多（{buy_count}只建仓信号")
+        if high_conf > 0:
+            parts[-1] += f"，{high_conf}只高置信"
+        parts[-1] += "）"
     elif risk_count > buy_count:
         parts.append(f"整体偏弱（{risk_count}只风险信号）")
     else:
@@ -378,22 +677,29 @@ def generate_layer_summary(layer_id, layer_name, stocks_signals, us_data=None):
     if avg_chg > 3:
         parts.append(f"近5日均涨{avg_chg}%，注意追高风险")
     elif avg_chg < -3:
-        parts.append(f"近5日均跌{avg_chg}%，关注超跌反弹机会")
+        parts.append(f"近5日均跌{avg_chg}%，关注超跌反弹")
 
-    # 美股影响
     if us_data:
         sox = us_data.get("SOX", {})
         if sox.get("chg", 0) < -2 and layer_id in ("L2", "L3"):
-            parts.append(f"费城半导体隔夜走弱，半导体/通信链承压")
+            parts.append("费城半导体走弱，算力链承压")
         elif sox.get("chg", 0) > 2 and layer_id in ("L2", "L3"):
-            parts.append(f"费城半导体隔夜走强，提振算力链情绪")
+            parts.append("费城半导体走强，提振算力链")
 
     return "，".join(parts) + "。"
 
 
 # ============================================================
-# 5. 主流程
+# 7. 主流程
 # ============================================================
+def is_etf_code(code):
+    """判断是否为ETF代码"""
+    # A股ETF: 15xxxx(深) / 51xxxx(沪) / 56xxxx(沪)
+    if len(code) == 6 and code[:2] in ("15", "51", "56", "58", "16"):
+        return True
+    return False
+
+
 def main():
     if not DATA_FILE.exists():
         print("[ERROR] data.json不存在")
@@ -403,7 +709,8 @@ def main():
     time_tag = NOW.strftime("%H:%M")
     is_premarket = HHMM < "0925"
 
-    print(f"[信号] 开始生成 — {NOW.strftime('%Y-%m-%d %H:%M')} {'(盘前)' if is_premarket else '(盘中)'}")
+    print(f"[信号v2] 开始生成 — {NOW.strftime('%Y-%m-%d %H:%M')} {'(盘前)' if is_premarket else '(盘中)'}")
+    print(f"[信号v2] 乘法因子模型 + ADX过滤 + 硬排除规则")
 
     # Step 1: 美股隔夜数据
     us_data = {}
@@ -415,7 +722,8 @@ def main():
         else:
             print("[美股] 无数据")
 
-    # Step 2: 遍历每层，获取技术指标 + 生成信号
+    # Step 2: 遍历每层
+    total_excluded = 0
     for layer in data.get("layers", []):
         layer_id = layer["id"]
         layer_name = layer.get("name", layer_id)
@@ -425,33 +733,48 @@ def main():
             code = stock["code"]
             name = stock.get("name", code)
 
-            # 获取技术指标
+            # --- 获取技术指标 ---
             if code.startswith("HK."):
                 ind = fetch_hk_stock_indicators(code)
-            elif code.startswith("1") and len(code) == 6:
-                # ETF — 简化处理，给中性
-                stock["signal"] = "neutral"
-                stock["signalNote"] = "ETF跟踪指数，参考板块整体方向"
-                stock["signalTime"] = time_tag
-                stocks_signals.append({"signal": "neutral", "chg5d": 0})
-                print(f"  [{code}] {name}: 中性(ETF)")
-                continue
+            elif is_etf_code(code):
+                ind = fetch_etf_indicators(code)
             else:
                 ind = fetch_a_stock_indicators(code)
 
-            # 判定信号
-            signal, note = judge_signal(ind, us_data, is_premarket)
+            # --- 硬排除检查（港股和ETF跳过）---
+            if not code.startswith("HK.") and not is_etf_code(code):
+                excluded, excl_reason = should_exclude(ind, name)
+                if excluded:
+                    stock["signal"] = "risk"
+                    stock["signalNote"] = f"[排除] {excl_reason}"
+                    stock["signalTime"] = time_tag
+                    stock["confidence"] = "高"
+                    stocks_signals.append({"signal": "risk", "chg5d": 0, "confidence": "高"})
+                    total_excluded += 1
+                    print(f"  [{code}] {name}: 🚫排除 — {excl_reason}")
+                    continue
+
+            # --- 乘法因子信号判定 ---
+            signal, note, confidence, factors = judge_signal_v2(ind, us_data, is_premarket)
             stock["signal"] = signal
             stock["signalNote"] = note
             stock["signalTime"] = time_tag
+            stock["confidence"] = confidence
 
             stocks_signals.append({
                 "signal": signal,
-                "chg5d": ind.get("chg5d", 0)
+                "chg5d": ind.get("chg5d", 0),
+                "confidence": confidence
             })
 
             label = {"buy": "🟢建仓", "risk": "🔴风险", "neutral": "⚪中性"}[signal]
-            print(f"  [{code}] {name}: {label} — {note}")
+            conf_icon = {"高": "★", "中": "☆", "低": "·"}[confidence]
+            # 打印因子详情
+            f_str = " × ".join(f"{k}={v}" for k, v in factors.items() if v != 1.0)
+            score = 1.0
+            for v in factors.values():
+                score *= v
+            print(f"  [{code}] {name}: {label}({confidence}{conf_icon}) score={score:.2f} [{f_str}] — {note}")
 
         # 生成层级总结
         summary = generate_layer_summary(layer_id, layer_name, stocks_signals, us_data)
@@ -465,7 +788,7 @@ def main():
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    print(f"[信号] 完成，已写入 data.json (信号更新时间: {time_tag})")
+    print(f"\n[信号v2] 完成 — 排除{total_excluded}只 — 已写入 data.json")
 
 
 if __name__ == "__main__":
