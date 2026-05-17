@@ -64,10 +64,15 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
 .st-left{flex:1;}
 .st-name{font-size:13px;font-weight:600;display:flex;align-items:center;gap:4px;}
 .st-code{font-size:11px;color:var(--text3);margin-top:1px;}
+.st-signal{display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:1px 6px;border-radius:3px;margin-top:3px;font-weight:500;}
+.st-signal.buy{background:#E8F5EC;color:#0EA352;}.st-signal.neutral{background:#F5F5F5;color:#999;}.st-signal.risk{background:#FFF0F0;color:#E03B3B;}
+.st-signal-note{font-size:10px;color:var(--text3);margin-top:2px;line-height:1.4;}
 .st-cell{width:72px;text-align:right;}
 .st-price{font-size:14px;font-weight:600;}
 .st-chg{font-size:13px;font-weight:600;}
 .tag-sector{font-size:9px;padding:1px 4px;border-radius:2px;background:#F0F5FF;color:var(--l3);}
+.layer-summary{margin:0 14px 6px;padding:10px 12px;background:#FAFCFF;border-radius:6px;border-left:3px solid var(--l3);font-size:12px;color:var(--text2);line-height:1.7;}
+.layer-summary-time{font-size:10px;color:var(--text3);margin-top:4px;}
 
 .layer-signal{margin:0 14px 10px;padding:8px 10px;border-radius:6px;font-size:11px;line-height:1.6;display:flex;align-items:flex-start;gap:6px;}
 .sig-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:5px;}
@@ -223,16 +228,26 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
         </div>
         <div class="boom-track"><div class="boom-fill" :style="{width:L.boom+'%',background:L.color}"></div></div>
         <div v-show="L.open">
+          <!-- 主题总结 -->
+          <div class="layer-summary" v-if="L.summary" :style="{'border-left-color':L.color}">
+            {{ L.summary }}
+            <div class="layer-summary-time" v-if="L.summaryTime">更新于 {{ L.summaryTime }}</div>
+          </div>
           <div class="stock-table">
-            <div class="st-header"><span>名称/代码</span><span>最新</span><span>涨幅</span><span>PE</span></div>
-            <div class="st-row" v-for="s in L.stocks" :key="s.code" @click="goDetail(s,L)">
+            <div class="st-header"><span>名称/代码</span><span>最新</span><span>涨幅</span><span>信号</span></div>
+            <div class="st-row" v-for="s in L.stocks" :key="s.code" @click="goDetail(s,L)" style="flex-wrap:wrap;">
               <div class="st-left">
                 <div class="st-name">{{ s.name }} <span class="tag-sector">{{ s.sector }}</span></div>
                 <div class="st-code">{{ s.code }}</div>
               </div>
               <div class="st-cell"><div class="st-price" :class="s.cv>0?'up':'down'">{{ s.p }}</div></div>
               <div class="st-cell"><div class="st-chg" :class="s.cv>0?'up':'down'">{{ s.c }}</div></div>
-              <div class="st-cell" style="font-size:12px;color:var(--text2);">{{ s.pe||'-' }}</div>
+              <div class="st-cell">
+                <div class="st-signal" :class="s.signal||'neutral'">{{ signalLabel(s.signal) }}</div>
+              </div>
+              <div v-if="s.signalNote" style="width:100%;padding:0 14px 6px;">
+                <div class="st-signal-note">💡 {{ s.signalNote }}</div>
+              </div>
             </div>
           </div>
           <div class="layer-signal" v-if="L.sig" :style="{background:L.sig.t==='warn'?'#FFF5F5':'#F0FAF4'}">
@@ -419,6 +434,7 @@ createApp({
     const tab=ref('home'),pt=ref('home'),ds=ref(null),sq=ref(''),wlFilter=ref('all');
     const loading=ref(false),updateTime=ref(''),marketIdx=reactive({price:'--',chg:'--'});
     const chgClass=(v)=>String(v).includes('-')?'down':'up';
+    const signalLabel=(s)=>({buy:'建仓',risk:'风险',neutral:'中性'}[s]||'中性');
 
     // 五层蛋糕 — Agent自动挖掘的标的
     const layers=reactive([
@@ -428,6 +444,7 @@ createApp({
          {code:'159326',name:'电网设备ETF',p:'-',c:'0%',cv:0,sector:'电网'},
          {code:'300390',name:'天华新能',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'锂电上游'},
        ],
+       summary:'',summaryTime:'',
        sig:{t:'info',text:'国网2026电网投资+12%，特高压核准加快，L1景气延续。'}},
       {id:'L2',name:'算力芯片',sub:'GPU / HBM / 半导体材料 / 液冷 / 服务器',color:'#E03B3B',boom:72,
        boomLabel:'景气分化',boomColor:'#FFF0F0',boomTextColor:'#E03B3B',avg:0,open:false,
@@ -437,19 +454,19 @@ createApp({
          {code:'601138',name:'工业富联',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'AI服务器'},
          {code:'301217',name:'铜冠铜箔',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'电子铜箔'},
          {code:'688008',name:'澜起科技',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'DDR5+CXL'},
-       ],sig:null},
+       ],summary:'',summaryTime:'',sig:null},
       {id:'L3',name:'通信基建',sub:'光模块 / CPO / 高速PCB / 海缆',color:'#2B7FD4',boom:65,
        boomLabel:'景气中等',boomColor:'#EBF3FF',boomTextColor:'#2B7FD4',avg:0,open:false,
        stocks:[
          {code:'001389',name:'广合科技',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'高速PCB'},
          {code:'300476',name:'胜宏科技',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'高多层PCB'},
          {code:'600487',name:'亨通光电',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'光通信+海缆'},
-       ],sig:null},
+       ],summary:'',summaryTime:'',sig:null},
       {id:'L4',name:'模型层',sub:'大模型 / 训练框架 / AI原生应用',color:'#8E44AD',boom:55,
        boomLabel:'待验证',boomColor:'#F8F0FF',boomTextColor:'#8E44AD',avg:0,open:false,
        stocks:[
          {code:'300418',name:'昆仑万维',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'AI应用/大模型'},
-       ],sig:null},
+       ],summary:'',summaryTime:'',sig:null},
       {id:'L5',name:'应用层',sub:'SaaS+AI / 互联网平台 / 消费科技',color:'#0EA352',boom:60,
        boomLabel:'估值合理',boomColor:'#E8F5EC',boomTextColor:'#0EA352',avg:0,open:false,
        stocks:[
@@ -457,7 +474,7 @@ createApp({
          {code:'HK.03690',name:'美团-W',p:'-',c:'0%',cv:0,sector:'港股互联网'},
          {code:'HK.09988',name:'阿里巴巴-W',p:'-',c:'0%',cv:0,sector:'港股互联网'},
          {code:'HK.01024',name:'快手-W',p:'-',c:'0%',cv:0,sector:'港股互联网'},
-       ],sig:null}
+       ],summary:'',summaryTime:'',sig:null}
     ]);
 
     const etfs=reactive([
@@ -569,9 +586,12 @@ createApp({
             const target=layers.find(l=>l.id===dl.id);
             if(!target)return;
             target.avg=dl.avg||0;
+            if(dl.summary)target.summary=dl.summary;
+            if(dl.summaryTime)target.summaryTime=dl.summaryTime;
             dl.stocks.forEach(ds=>{
               const ts=target.stocks.find(s=>s.code===ds.code);
-              if(ts){ts.p=ds.p;ts.c=ds.c;ts.cv=ds.cv;if(ds.pe&&ds.pe!=='-')ts.pe=ds.pe;if(ds.cap&&ds.cap!=='-')ts.cap=ds.cap;}
+              if(ts){ts.p=ds.p;ts.c=ds.c;ts.cv=ds.cv;if(ds.pe&&ds.pe!=='-')ts.pe=ds.pe;if(ds.cap&&ds.cap!=='-')ts.cap=ds.cap;
+                if(ds.signal)ts.signal=ds.signal;if(ds.signalNote)ts.signalNote=ds.signalNote;if(ds.signalTime)ts.signalTime=ds.signalTime;}
             });
           });
         }
@@ -587,7 +607,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,filteredWatchlist,goDetail,goDetail2,dAgents,skills,obFolders,reports,loading,updateTime,marketIdx,refreshData,chgClass};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,filteredWatchlist,goDetail,goDetail2,dAgents,skills,obFolders,reports,loading,updateTime,marketIdx,refreshData,chgClass,signalLabel};
   }
 }).mount('#app');
 

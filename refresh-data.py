@@ -611,7 +611,7 @@ def _snap_to_display(snap: dict, code: str, name: str, sector: str, held=False, 
     }
 
 
-def build_output_auto():
+def build_output_auto(skip_a=False, skip_hk=False):
     """AUTO模式: 新浪财经HTTP接口为主（绕过代理），AKShare为备选
     新浪优势：HTTP直连，不受Shadowrocket HTTPS拦截影响
     AKShare优势：数据更全（PE/市值），但push2.eastmoney.com可能被代理拦截
@@ -635,29 +635,40 @@ def build_output_auto():
     hk_codes = [s["code"] for s in HK_STOCKS]
 
     # ===== 第1步: 新浪接口获取（主力源） =====
-    print("[1/3] 新浪财经: A股+指数+ETF...")
-    # 指数用s_sh前缀
-    sina_index = fetch_sina_quotes(["000001"])
-    # A股+ETF一起查
-    sina_all = fetch_sina_quotes(all_a_codes + etf_codes)
-    # 港股
-    print("[2/3] 新浪财经: 港股...")
-    sina_hk = fetch_sina_hk(hk_codes)
-
-    print(f"  新浪结果: 指数={'有' if sina_index else '无'}, A股+ETF={len(sina_all)}/{len(all_a_codes)+len(etf_codes)}, 港股={len(sina_hk)}/{len(hk_codes)}")
-
-    # ===== 第2步: AKShare补充PE/市值（如果可用） =====
+    sina_index = {}
+    sina_all = {}
+    sina_hk = {}
     ak_quotes = {}
     ak_etfs_data = {}
-    print("[3/3] AKShare补充PE/市值...")
-    try:
-        ak_quotes = fetch_akshare_quotes(all_a_codes, [])
-    except:
-        pass
-    try:
-        ak_etfs_data = fetch_akshare_etfs(etf_codes)
-    except:
-        pass
+
+    if not skip_a:
+        print("[1/3] 新浪财经: A股+指数+ETF...")
+        sina_index = fetch_sina_quotes(["000001"])
+        sina_all = fetch_sina_quotes(all_a_codes + etf_codes)
+    else:
+        print("[1/3] 跳过A股")
+
+    if not skip_hk:
+        print("[2/3] 新浪财经: 港股...")
+        sina_hk = fetch_sina_hk(hk_codes)
+    else:
+        print("[2/3] 跳过港股")
+
+    print(f"  新浪结果: 指数={'有' if sina_index else '跳过'}, A股+ETF={len(sina_all)}/{len(all_a_codes)+len(etf_codes)}, 港股={len(sina_hk)}/{len(hk_codes)}")
+
+    # ===== 第2步: AKShare补充PE/市值（如果可用） =====
+    if not skip_a:
+        print("[3/3] AKShare补充PE/市值...")
+        try:
+            ak_quotes = fetch_akshare_quotes(all_a_codes, [])
+        except:
+            pass
+        try:
+            ak_etfs_data = fetch_akshare_etfs(etf_codes)
+        except:
+            pass
+    else:
+        print("[3/3] 跳过AKShare")
 
     # ===== 组装大盘指数 =====
     idx = sina_index.get("000001")
@@ -954,6 +965,8 @@ def main():
     parser.add_argument("--manual", action="store_true", help="手动模式: 妙想(问财)+新浪+富途港股")
     parser.add_argument("--hk", action="store_true", help="仅刷新港股（手动模式）")
     parser.add_argument("--a", action="store_true", dest="a_only", help="仅刷新A股（手动模式）")
+    parser.add_argument("--skip-a", action="store_true", help="自动模式下跳过A股（午休/港股延时段）")
+    parser.add_argument("--skip-hk", action="store_true", help="自动模式下跳过港股")
     args = parser.parse_args()
 
     mode = "manual" if (args.manual or args.hk or args.a_only) else "auto"
@@ -964,7 +977,7 @@ def main():
     print()
 
     if mode == "auto":
-        data = build_output_auto()
+        data = build_output_auto(skip_a=args.skip_a, skip_hk=args.skip_hk)
     else:
         data = build_output_manual(skip_a=args.hk, skip_hk=args.a_only)
 
@@ -976,6 +989,14 @@ def main():
             if not data["market"].get("price") and old.get("market", {}).get("price"):
                 data["market"] = old["market"]
                 print("  [继承] 大盘指数沿用上次数据")
+            # 层级summary继承
+            old_layers = {l["id"]: l for l in old.get("layers", [])}
+            for layer in data["layers"]:
+                old_l = old_layers.get(layer["id"])
+                if old_l:
+                    for lk in ("summary", "summaryTime"):
+                        if lk in old_l and lk not in layer:
+                            layer[lk] = old_l[lk]
             # A股各层
             old_stocks = {}
             for layer in old.get("layers", []):
@@ -984,10 +1005,15 @@ def main():
             inherited = 0
             for layer in data["layers"]:
                 for s in layer["stocks"]:
-                    if s["p"] == "-" and s["code"] in old_stocks and old_stocks[s["code"]]["p"] != "-":
-                        old_s = old_stocks[s["code"]]
-                        s.update({k: old_s[k] for k in ("p", "c", "cv", "pe", "cap") if k in old_s})
-                        inherited += 1
+                    old_s = old_stocks.get(s["code"])
+                    if old_s:
+                        if s["p"] == "-" and old_s.get("p", "-") != "-":
+                            s.update({k: old_s[k] for k in ("p", "c", "cv", "pe", "cap") if k in old_s})
+                            inherited += 1
+                        # 保留信号数据
+                        for sk in ("signal", "signalNote", "signalTime"):
+                            if sk in old_s and sk not in s:
+                                s[sk] = old_s[sk]
             # ETF
             old_etfs = {e["code"]: e for e in old.get("etfs", [])}
             for e in data["etfs"]:
