@@ -249,6 +249,115 @@ def fetch_sina_hk(codes: list) -> dict:
     return results
 
 
+# ========== 腾讯行情备用源 ==========
+
+def fetch_tencent_quotes(codes: list) -> dict:
+    """腾讯行情HTTP接口 — 新浪失败时的备用源
+    格式: http://qt.gtimg.cn/q=sh600519,sz000001
+    返回: {code: {"price","chg","cv","pe","cap"}, ...}
+    """
+    if not codes:
+        return {}
+
+    tc_codes = []
+    code_map = {}
+    for c in codes:
+        if c.startswith(("6", "5")):
+            tc = f"sh{c}"
+        else:
+            tc = f"sz{c}"
+        tc_codes.append(tc)
+        code_map[tc] = c
+
+    results = {}
+    for i in range(0, len(tc_codes), 30):
+        batch = tc_codes[i:i+30]
+        url = f"http://qt.gtimg.cn/q={','.join(batch)}"
+        try:
+            resp = _requests.get(url, timeout=8)
+            resp.encoding = "gbk"
+            for line in resp.text.strip().split("\n"):
+                if "=" not in line or "~" not in line:
+                    continue
+                parts = line.split("=", 1)
+                fields = parts[1].strip('";\n').split("~")
+                if len(fields) < 45:
+                    continue
+                try:
+                    code = fields[2]
+                    price = float(fields[3]) if fields[3] else 0
+                    chg_pct = float(fields[32]) if fields[32] else 0
+                    pe = float(fields[39]) if fields[39] else 0
+                    cap = float(fields[45]) if len(fields) > 45 and fields[45] else 0
+                    results[code] = {
+                        "price": str(round(price, 2)) if price else "-",
+                        "chg": f"+{chg_pct}%" if chg_pct > 0 else f"{chg_pct}%",
+                        "cv": chg_pct,
+                        "pe": str(round(pe, 1)) if pe > 0 else "-",
+                        "cap": f"{round(cap, 1)}亿" if cap > 0 else "-",
+                    }
+                except (ValueError, IndexError):
+                    pass
+            if i + 30 < len(tc_codes):
+                time.sleep(0.3)
+        except Exception as e:
+            print(f"  [WARN] 腾讯行情接口失败: {e}")
+    return results
+
+
+def fetch_tencent_hk(codes: list) -> dict:
+    """腾讯港股行情备用源
+    格式: http://qt.gtimg.cn/q=r_hk01810
+    """
+    if not codes:
+        return {}
+
+    tc_codes = []
+    code_map = {}
+    for c in codes:
+        num = c.replace("HK.", "")
+        tc = f"r_hk{num}"
+        tc_codes.append(tc)
+        code_map[tc] = c
+
+    results = {}
+    url = f"http://qt.gtimg.cn/q={','.join(tc_codes)}"
+    try:
+        resp = _requests.get(url, timeout=8)
+        resp.encoding = "gbk"
+        for line in resp.text.strip().split("\n"):
+            if "=" not in line or "~" not in line:
+                continue
+            parts = line.split("=", 1)
+            var_name = parts[0].split("_str_")[-1] if "_str_" in parts[0] else ""
+            fields = parts[1].strip('";\n').split("~")
+            if len(fields) < 10:
+                continue
+            orig_code = code_map.get(var_name, "")
+            if not orig_code:
+                # 尝试从fields提取
+                for tc, oc in code_map.items():
+                    if tc.replace("r_hk", "") in str(fields[:5]):
+                        orig_code = oc
+                        break
+            if not orig_code:
+                continue
+            try:
+                price = float(fields[3]) if fields[3] else 0
+                chg_pct = float(fields[32]) if len(fields) > 32 and fields[32] else 0
+                results[orig_code] = {
+                    "price": str(round(price, 3)) if price else "-",
+                    "chg": f"+{chg_pct}%" if chg_pct > 0 else f"{chg_pct}%",
+                    "cv": chg_pct,
+                    "pe": "-", "cap": "-",
+                }
+            except (ValueError, IndexError):
+                pass
+    except Exception as e:
+        print(f"  [WARN] 腾讯港股接口失败: {e}")
+    return results
+
+
 # ========== AKShare 免费数据源（auto模式） ==========
 
 def fetch_akshare_quotes(codes: list, names: list) -> dict:
@@ -655,6 +764,23 @@ def build_output_auto(skip_a=False, skip_hk=False):
         print("[2/3] 跳过港股")
 
     print(f"  新浪结果: 指数={'有' if sina_index else '跳过'}, A股+ETF={len(sina_all)}/{len(all_a_codes)+len(etf_codes)}, 港股={len(sina_hk)}/{len(hk_codes)}")
+
+    # ===== 第1.5步: 腾讯行情补充新浪缺失 =====
+    if not skip_a:
+        missing_a = [c for c in (all_a_codes + etf_codes) if c not in sina_all]
+        if missing_a:
+            print(f"[1.5/3] 腾讯行情补充{len(missing_a)}个新浪缺失...")
+            tc_quotes = fetch_tencent_quotes(missing_a)
+            sina_all.update(tc_quotes)
+            print(f"  腾讯补充: {len(tc_quotes)}/{len(missing_a)}")
+
+    if not skip_hk:
+        missing_hk = [c for c in hk_codes if c not in sina_hk]
+        if missing_hk:
+            print(f"[1.5/3] 腾讯港股补充{len(missing_hk)}个缺失...")
+            tc_hk = fetch_tencent_hk(missing_hk)
+            sina_hk.update(tc_hk)
+            print(f"  腾讯港股补充: {len(tc_hk)}/{len(missing_hk)}")
 
     # ===== 第2步: AKShare补充PE/市值（如果可用） =====
     if not skip_a:

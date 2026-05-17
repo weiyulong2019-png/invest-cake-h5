@@ -411,7 +411,7 @@ def should_exclude(ind, stock_name=""):
 # ============================================================
 # 5. 乘法因子信号判定（v2核心）
 # ============================================================
-def judge_signal_v2(ind, us_data=None, is_premarket=False):
+def judge_signal_v2(ind, us_data=None, is_premarket=False, enhancement=None):
     """
     乘法因子模型 — 核心思路:
     每个因子输出一个系数(0.0~2.0), 基线=1.0
@@ -426,6 +426,11 @@ def judge_signal_v2(ind, us_data=None, is_premarket=False):
 
     优势: 单个因子极端值(如RSI超买=0.3)可以直接压制整体,
     不会被其他因子的加分抵消(加法模型的缺陷)。
+
+    enhancement: 信号增强数据包(来自data-sources.py)
+      - northbound: 北向资金持仓变化
+      - unlock: 解禁数据
+      - on_dragon_tiger: 是否上龙虎榜
 
     返回 (signal, note, confidence, factors_detail)
     """
@@ -567,6 +572,54 @@ def judge_signal_v2(ind, us_data=None, is_premarket=False):
         factors["us_overnight"] = round(us_factor, 2)
     else:
         factors["us_overnight"] = 1.0
+
+    # --- F7: 北向资金 (0.7~1.25) ---
+    if enhancement and enhancement.get("northbound", {}).get("ok"):
+        nb = enhancement["northbound"]
+        if nb.get("trend") == "增持":
+            factors["northbound"] = 1.2
+            reasons.append(f"北向增持(+{nb.get('hold_chg',0)}%)")
+        elif nb.get("trend") == "减持":
+            hold_chg = abs(nb.get("hold_chg", 0))
+            if hold_chg > 0.5:
+                factors["northbound"] = 0.7
+                reasons.append(f"北向大幅减持(-{hold_chg}%)")
+            else:
+                factors["northbound"] = 0.85
+                reasons.append(f"北向小幅减持(-{hold_chg}%)")
+        else:
+            factors["northbound"] = 1.0
+    else:
+        factors["northbound"] = 1.0
+
+    # --- F8: 解禁压力 (0.5~1.0) ---
+    if enhancement and enhancement.get("unlock", {}).get("has_unlock"):
+        unlock = enhancement["unlock"]
+        ratio = unlock.get("ratio", 0)
+        risk_lvl = unlock.get("risk_level", "低")
+        if risk_lvl == "高":
+            factors["unlock"] = 0.5
+            reasons.append(f"30天内解禁{ratio}%(高风险)")
+        elif risk_lvl == "中":
+            factors["unlock"] = 0.75
+            reasons.append(f"30天内解禁{ratio}%")
+        else:
+            factors["unlock"] = 0.9
+    else:
+        factors["unlock"] = 1.0
+
+    # --- F9: 龙虎榜(信息性，不直接参与评分但记录) ---
+    if enhancement and enhancement.get("on_dragon_tiger"):
+        detail = enhancement.get("dragon_tiger_detail", {})
+        net_buy = detail.get("net_buy", 0)
+        if net_buy > 0:
+            factors["dragon_tiger"] = 1.1
+            reasons.append("龙虎榜净买入")
+        else:
+            factors["dragon_tiger"] = 0.9
+            reasons.append("龙虎榜净卖出")
+    else:
+        factors["dragon_tiger"] = 1.0
 
     # --- 计算总分 ---
     score = 1.0
@@ -710,7 +763,48 @@ def main():
     is_premarket = HHMM < "0925"
 
     print(f"[信号v2] 开始生成 — {NOW.strftime('%Y-%m-%d %H:%M')} {'(盘前)' if is_premarket else '(盘中)'}")
-    print(f"[信号v2] 乘法因子模型 + ADX过滤 + 硬排除规则")
+    print(f"[信号v2] 乘法因子模型 + ADX过滤 + 硬排除 + 北向/解禁/龙虎榜")
+
+    # 导入信号增强模块
+    try:
+        from importlib.util import spec_from_file_location, module_from_spec
+        ds_path = Path(__file__).parent / "data-sources.py"
+        spec = spec_from_file_location("data_sources", ds_path)
+        ds = module_from_spec(spec)
+        spec.loader.exec_module(ds)
+        has_ds = True
+        print("[数据源] 六层数据源模块已加载")
+    except Exception as e:
+        has_ds = False
+        print(f"[数据源] 增强模块不可用: {e}")
+
+    # 预加载市场级增强数据(只加载一次，所有股票共用)
+    northbound_flow = {}
+    dragon_tiger_codes = set()
+    unlock_map = {}
+    if has_ds:
+        try:
+            northbound_flow = ds.fetch_northbound_flow()
+            if northbound_flow.get("ok"):
+                print(f"[北向] {northbound_flow.get('trend','')} 净流入{northbound_flow.get('net_flow',0)}亿 连续{northbound_flow.get('consecutive',0)}天")
+        except Exception as e:
+            print(f"[北向] 获取失败: {e}")
+
+        try:
+            lhb = ds.fetch_dragon_tiger()
+            dragon_tiger_codes = {item["code"] for item in lhb}
+            if lhb:
+                print(f"[龙虎榜] 今日{len(lhb)}只上榜")
+        except Exception as e:
+            print(f"[龙虎榜] 获取失败: {e}")
+
+        try:
+            unlocks = ds.fetch_unlock_schedule(30)
+            unlock_map = {u["code"]: u for u in unlocks}
+            if unlocks:
+                print(f"[解禁] 未来30天{len(unlocks)}只有解禁")
+        except Exception as e:
+            print(f"[解禁] 获取失败: {e}")
 
     # Step 1: 美股隔夜数据
     us_data = {}
@@ -754,8 +848,33 @@ def main():
                     print(f"  [{code}] {name}: 🚫排除 — {excl_reason}")
                     continue
 
+            # --- 构建信号增强包 ---
+            enhancement = None
+            if has_ds and not code.startswith("HK."):
+                enhancement = {"northbound": {"ok": False}, "unlock": {"has_unlock": False}, "on_dragon_tiger": False}
+                # 北向个股持仓(A股主板才查)
+                try:
+                    nb_stock = ds.fetch_northbound_stock_holding(code)
+                    if nb_stock.get("ok"):
+                        enhancement["northbound"] = nb_stock
+                except:
+                    pass
+                # 解禁(从预加载map查)
+                if code in unlock_map:
+                    u = unlock_map[code]
+                    ratio = u.get("unlock_ratio", 0)
+                    enhancement["unlock"] = {
+                        "has_unlock": True,
+                        "date": u.get("date", ""),
+                        "ratio": ratio,
+                        "risk_level": "高" if ratio > 5 else ("中" if ratio > 1 else "低"),
+                    }
+                # 龙虎榜(从预加载set查)
+                if code in dragon_tiger_codes:
+                    enhancement["on_dragon_tiger"] = True
+
             # --- 乘法因子信号判定 ---
-            signal, note, confidence, factors = judge_signal_v2(ind, us_data, is_premarket)
+            signal, note, confidence, factors = judge_signal_v2(ind, us_data, is_premarket, enhancement)
             stock["signal"] = signal
             stock["signalNote"] = note
             stock["signalTime"] = time_tag
