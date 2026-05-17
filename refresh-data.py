@@ -4,13 +4,13 @@
 
 模式:
   python3 refresh-data.py              # auto模式：AKShare免费源，适合分钟级定时
-  python3 refresh-data.py --manual     # 手动模式：富途OpenD+妙想，数据更精确
+  python3 refresh-data.py --manual     # 手动模式：妙想(问财)+新浪+富途港股
   python3 refresh-data.py --hk         # 仅港股（手动模式）
   python3 refresh-data.py --a          # 仅A股（手动模式）
 
 数据源优先级:
   auto模式:   AKShare（免费无限制） → 继承旧数据
-  manual模式: 富途OpenD（精确） → 妙想API（备选） → 继承旧数据
+  manual模式: 妙想API/问财（A股主数据，含PE/市值） → 新浪HTTP（备选） → 富途OpenD（仅港股） → 继承旧数据
 
 输出: 同目录下 data.json
 """
@@ -170,8 +170,8 @@ def fetch_sina_quotes(codes: list) -> dict:
                 if var_name.startswith("s_"):
                     # 指数简略格式: 名称,当前点位,涨跌点数,涨跌幅,成交量,成交额
                     if len(fields) >= 4:
-                        price = fields[1]
-                        cv = float(fields[3]) if fields[3] else 0
+                        price = str(round(float(fields[1]), 2)) if fields[1] else "-"
+                        cv = round(float(fields[3]), 2) if fields[3] else 0
                         results[orig_code] = {
                             "price": price, "chg": f"+{cv}%" if cv > 0 else f"{cv}%",
                             "cv": cv, "pe": "-", "cap": "-"
@@ -771,8 +771,10 @@ def build_output_auto():
 
 
 def build_output_manual(skip_a=False, skip_hk=False):
-    """MANUAL模式: 使用富途OpenD+妙想，数据更精确
-    数据源策略: 富途OpenD为主 → 妙想API为备选
+    """MANUAL模式: 妙想(问财)为A股主数据源 + 富途OpenD仅港股
+    数据源策略:
+      A股/指数/ETF: 妙想API(问财数据，含PE/市值) → 新浪HTTP(备选价格) → 继承
+      港股: 富途OpenD → 继承
     """
     now = datetime.now()
     output = {
@@ -784,43 +786,101 @@ def build_output_manual(skip_a=False, skip_hk=False):
         "hk": [],
     }
 
-    # ===== 第1步: 收集所有需要查询的富途代码 =====
-    all_futu_codes = []
-    if not skip_a:
-        all_futu_codes.append("SH.000001")  # 上证综指
+    # ===== 第1步: 妙想API获取A股行情（含PE/市值） =====
+    mx_all = {}  # name -> {price, chg, pe, cap}
+    if not skip_a and MX_APIKEY:
+        # 收集所有A股+ETF名称，分批查询（每批最多8个）
+        all_a_items = []
         for layer_info in HOLDINGS.values():
             for s in layer_info["stocks"]:
-                all_futu_codes.append(code_to_futu(s["code"]))
+                all_a_items.append(s)
         for e in ETFS:
-            all_futu_codes.append(code_to_futu(e["code"]))
-    if not skip_hk:
-        for s in HK_STOCKS:
-            all_futu_codes.append(s["futu"])
+            all_a_items.append(e)
 
-    # ===== 第2步: 一次性从富途获取所有行情 =====
-    futu_data = {}  # code -> snapshot dict
-    if all_futu_codes:
-        print(f"[1/3] 富途OpenD获取行情（{len(all_futu_codes)}个标的）...")
-        snapshots = fetch_futu_snapshots(all_futu_codes)
-        for snap in snapshots:
-            futu_data[snap["code"]] = snap
-        print(f"  成功获取: {len(futu_data)}/{len(all_futu_codes)}")
+        # 分批调用妙想API
+        batch_size = 8
+        for i in range(0, len(all_a_items), batch_size):
+            batch = all_a_items[i:i + batch_size]
+            names = [s["name"] for s in batch]
+            codes = [s["code"] for s in batch]
+            batch_num = i // batch_size + 1
+            total_batches = (len(all_a_items) + batch_size - 1) // batch_size
+            print(f"[1/4] 妙想API获取A股行情（批次 {batch_num}/{total_batches}）...")
+            batch_quotes = fetch_a_stock_quotes(codes, names)
+            mx_all.update(batch_quotes)
+            if i + batch_size < len(all_a_items):
+                time.sleep(0.5)  # 避免请求过快
+
+        hit = sum(1 for v in mx_all.values() if v.get("price"))
+        print(f"  妙想命中: {hit}/{len(all_a_items)}")
+    elif not skip_a:
+        print("[1/4] 妙想API未配置KEY，跳过")
     else:
-        print("[1/3] 无需获取行情")
+        print("[1/4] 跳过A股（仅港股模式）")
 
-    # ===== 第3步: 大盘指数 =====
-    idx_snap = futu_data.get("SH.000001")
-    if idx_snap:
-        price = idx_snap["last_price"]
-        prev = idx_snap["prev_close"]
-        cv = round((price - prev) / prev * 100, 2) if prev else 0
-        output["market"]["price"] = str(round(price, 2))
-        output["market"]["chg"] = f"+{cv}%" if cv > 0 else f"{cv}%"
-        print(f"  大盘: {price} ({output['market']['chg']})")
-
-    # ===== 第4步: A股各层 =====
+    # ===== 第2步: 新浪HTTP补充缺失A股价格 =====
+    sina_data = {}
     if not skip_a:
-        print("[2/3] 组装A股 + ETF行情...")
+        # 收集妙想未命中的标的，用新浪补充
+        all_a_codes = ["000001"]  # 上证综指
+        for layer_info in HOLDINGS.values():
+            for s in layer_info["stocks"]:
+                all_a_codes.append(s["code"])
+        for e in ETFS:
+            all_a_codes.append(e["code"])
+
+        print(f"[2/4] 新浪HTTP补充行情（{len(all_a_codes)}个标的）...")
+        sina_data = fetch_sina_quotes(all_a_codes)
+        sina_hit = sum(1 for v in sina_data.values() if v.get("price") and v["price"] != "-")
+        print(f"  新浪命中: {sina_hit}/{len(all_a_codes)}")
+
+    # ===== 第3步: 组装A股数据（妙想优先 → 新浪备选） =====
+    def _mx_sina_to_display(item_cfg, is_etf=False):
+        """将妙想+新浪数据组装为H5显示格式"""
+        code = item_cfg["code"]
+        name = item_cfg["name"]
+        sector = item_cfg.get("sector", "")
+        held = item_cfg.get("held", False)
+        pick = item_cfg.get("pick", False)
+
+        # 优先妙想数据（有PE/市值）
+        mx = mx_all.get(name, {})
+        sina = sina_data.get(code, {})
+
+        price = mx.get("price") or sina.get("price", "-")
+        pe = mx.get("pe") or sina.get("pe", "-")
+        cap = mx.get("cap") or sina.get("cap", "-")
+
+        # 涨跌幅: 优先妙想，备选新浪
+        chg_str = mx.get("chg") or sina.get("chg", "0%")
+        try:
+            cv = float(str(chg_str).replace("%", "").replace("+", ""))
+        except:
+            cv = 0
+        chg_display = f"+{cv}%" if cv > 0 else f"{cv}%"
+
+        result = {
+            "code": code, "name": name, "sector": sector,
+            "p": str(price) if price else "-",
+            "c": chg_display, "cv": cv,
+        }
+        if not is_etf:
+            result["held"] = held
+            result["pick"] = pick
+            result["pe"] = str(pe) if pe and pe != "-" else "-"
+            result["cap"] = str(cap) if cap and cap != "-" else "-"
+        return result
+
+    if not skip_a:
+        print("[3/4] 组装A股 + ETF行情...")
+        # 大盘指数（新浪）
+        idx_sina = sina_data.get("000001", {})
+        if idx_sina.get("price"):
+            output["market"]["price"] = idx_sina["price"]
+            output["market"]["chg"] = idx_sina.get("chg", "0%")
+            print(f"  大盘: {idx_sina['price']} ({idx_sina.get('chg', '-')})")
+
+        # 各层股票
         for layer_id, layer_info in HOLDINGS.items():
             stocks = layer_info["stocks"]
             if not stocks:
@@ -834,10 +894,7 @@ def build_output_manual(skip_a=False, skip_hk=False):
             total_chg = 0
             count = 0
             for s in stocks:
-                futu_code = code_to_futu(s["code"])
-                snap = futu_data.get(futu_code)
-                item = _snap_to_display(snap, s["code"], s["name"], s["sector"],
-                                        s.get("held", False), s.get("pick", False))
+                item = _mx_sina_to_display(s)
                 layer_stocks.append(item)
                 total_chg += item["cv"]
                 count += 1
@@ -850,32 +907,35 @@ def build_output_manual(skip_a=False, skip_hk=False):
 
         # ETF行情
         for e in ETFS:
-            futu_code = code_to_futu(e["code"])
-            snap = futu_data.get(futu_code)
-            item = _snap_to_display(snap, e["code"], e["name"], e["sector"])
+            item = _mx_sina_to_display(e, is_etf=True)
             output["etfs"].append({
                 "code": item["code"], "name": item["name"], "sector": item["sector"],
                 "p": item["p"], "c": item["c"], "cv": item["cv"]
             })
     else:
-        print("[2/3] 跳过A股行情")
+        print("[3/4] 跳过A股行情")
         for layer_id, layer_info in HOLDINGS.items():
             output["layers"].append({
                 "id": layer_id, "name": layer_info["name"], "sub": layer_info["sub"],
                 "color": layer_info["color"], "stocks": [], "avg": 0
             })
 
-    # ===== 第5步: 港股 =====
+    # ===== 第4步: 港股（富途OpenD） =====
     hk_result = []
     if not skip_hk:
-        print("[3/3] 组装港股行情...")
+        futu_hk_codes = [s["futu"] for s in HK_STOCKS]
+        print(f"[4/4] 富途OpenD获取港股（{len(futu_hk_codes)}个标的）...")
+        snapshots = fetch_futu_snapshots(futu_hk_codes)
+        futu_hk = {snap["code"]: snap for snap in snapshots}
+        print(f"  成功获取: {len(futu_hk)}/{len(futu_hk_codes)}")
+
         for s in HK_STOCKS:
-            snap = futu_data.get(s["futu"])
+            snap = futu_hk.get(s["futu"])
             item = _snap_to_display(snap, s["code"], s["name"], s["sector"],
                                     s.get("held", False))
             hk_result.append(item)
     else:
-        print("[3/3] 跳过港股行情")
+        print("[4/4] 跳过港股行情")
 
     output["hk"] = hk_result
 
@@ -886,43 +946,12 @@ def build_output_manual(skip_a=False, skip_hk=False):
         vals = [s["cv"] for s in hk_result if s["cv"] != 0]
         l5["avg"] = round(sum(vals) / len(vals), 2) if vals else 0
 
-    # ===== 备选: 妙想API补充缺失数据 =====
-    if not skip_a and MX_APIKEY:
-        missing = []
-        for layer in output["layers"]:
-            for s in layer["stocks"]:
-                if s["p"] == "-" and not s["code"].startswith("HK."):
-                    missing.append(s)
-        for e in output["etfs"]:
-            if e["p"] == "-":
-                missing.append(e)
-        if missing:
-            print(f"  [备选] 妙想API补充 {len(missing)} 个缺失标的...")
-            names = [m["name"] for m in missing]
-            codes = [m["code"] for m in missing]
-            mx_quotes = fetch_a_stock_quotes(codes, names)
-            for m in missing:
-                q = mx_quotes.get(m["name"])
-                if q and q.get("price"):
-                    m["p"] = q["price"]
-                    chg = q.get("chg", "0%")
-                    try:
-                        cv = float(chg.replace("%", "").replace("+", ""))
-                    except:
-                        cv = 0
-                    m["c"] = f"+{cv}%" if cv > 0 else f"{cv}%"
-                    m["cv"] = cv
-                    if "pe" in m:
-                        m["pe"] = q.get("pe", "-")
-                    if "cap" in m:
-                        m["cap"] = q.get("cap", "-")
-
     return output
 
 
 def main():
     parser = argparse.ArgumentParser(description="投资工作室H5数据刷新")
-    parser.add_argument("--manual", action="store_true", help="手动模式: 富途OpenD+妙想（精确）")
+    parser.add_argument("--manual", action="store_true", help="手动模式: 妙想(问财)+新浪+富途港股")
     parser.add_argument("--hk", action="store_true", help="仅刷新港股（手动模式）")
     parser.add_argument("--a", action="store_true", dest="a_only", help="仅刷新A股（手动模式）")
     args = parser.parse_args()
@@ -931,7 +960,7 @@ def main():
 
     print(f"=== 投资工作室H5 数据刷新 ===")
     print(f"时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"模式: {'🔧 手动（富途+妙想）' if mode == 'manual' else '⚡ 自动（AKShare免费源）'}")
+    print(f"模式: {'🔧 手动（妙想+新浪+富途港股）' if mode == 'manual' else '⚡ 自动（新浪+AKShare）'}")
     print()
 
     if mode == "auto":
