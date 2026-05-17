@@ -25,6 +25,22 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 
+# ========== 绕过代理（eastmoney等国内源不需要翻墙） ==========
+# Shadowrocket等VPN通过Network Extension在系统层拦截，环境变量无法绕过
+# 必须在requests.Session层面禁用trust_env，阻止它读取系统代理配置
+for _k in ("http_proxy", "https_proxy", "HTTP_PROXY", "HTTPS_PROXY", "all_proxy", "ALL_PROXY"):
+    os.environ.pop(_k, None)
+os.environ["NO_PROXY"] = "*"
+os.environ["no_proxy"] = "*"
+
+import requests as _requests
+_original_session_init = _requests.Session.__init__
+def _patched_session_init(self, *args, **kwargs):
+    _original_session_init(self, *args, **kwargs)
+    self.trust_env = False  # 不读取系统代理
+    self.proxies = {"http": None, "https": None}  # 强制直连
+_requests.Session.__init__ = _patched_session_init
+
 # ========== 配置 ==========
 MX_APIKEY = os.environ.get("MX_APIKEY", "")
 MX_BASE = "https://mkapi2.dfcfs.com/finskillshub"
@@ -104,6 +120,133 @@ def code_to_futu(code: str) -> str:
         return f"SH.{code}"
     else:
         return f"SZ.{code}"
+
+
+# ========== 新浪财经直连接口（备选，绕过push2.eastmoney.com） ==========
+
+def fetch_sina_quotes(codes: list) -> dict:
+    """通过新浪财经HTTP接口获取A股/指数/ETF实时行情（不走HTTPS代理）
+    新浪接口格式: http://hq.sinajs.cn/list=sh600519,sz000001
+    返回: {code: {"price","chg","cv","pe","cap"}, ...}
+    """
+    if not codes:
+        return {}
+
+    # 构造新浪代码: 6开头/5开头->sh, 其他->sz
+    sina_codes = []
+    code_map = {}  # sina_code -> original_code
+    for code in codes:
+        if code.startswith(("6", "5")):
+            sc = f"sh{code}"
+        elif code.startswith("0") and len(code) == 6 and code[:3] == "000":
+            # 指数代码 000001 -> s_sh000001
+            sc = f"s_sh{code}"
+        else:
+            sc = f"sz{code}"
+        sina_codes.append(sc)
+        code_map[sc] = code
+
+    results = {}
+    # 分批每次30个
+    for i in range(0, len(sina_codes), 30):
+        batch = sina_codes[i:i+30]
+        url = f"http://hq.sinajs.cn/list={','.join(batch)}"
+        headers = {"Referer": "http://finance.sina.com.cn"}
+        try:
+            resp = _requests.get(url, headers=headers, timeout=10)
+            resp.encoding = "gbk"
+            for line in resp.text.strip().split("\n"):
+                if "=" not in line or '=""' in line:
+                    continue
+                # var hq_str_sh600519="贵州茅台,1820.00,...";
+                parts = line.split("=", 1)
+                var_name = parts[0].replace("var hq_str_", "").strip()
+                data_str = parts[1].strip().strip('"').strip(";").strip('"')
+                if not data_str:
+                    continue
+                fields = data_str.split(",")
+                orig_code = code_map.get(var_name, var_name.replace("sh", "").replace("sz", "").replace("s_", ""))
+
+                if var_name.startswith("s_"):
+                    # 指数简略格式: 名称,当前点位,涨跌点数,涨跌幅,成交量,成交额
+                    if len(fields) >= 4:
+                        price = fields[1]
+                        cv = float(fields[3]) if fields[3] else 0
+                        results[orig_code] = {
+                            "price": price, "chg": f"+{cv}%" if cv > 0 else f"{cv}%",
+                            "cv": cv, "pe": "-", "cap": "-"
+                        }
+                else:
+                    # 完整格式: 0名称,1今开,2昨收,3当前,4最高,5最低,...
+                    if len(fields) >= 32:
+                        price = fields[3]
+                        prev_close = float(fields[2]) if fields[2] else 0
+                        cur_price = float(fields[3]) if fields[3] else 0
+                        if prev_close > 0 and cur_price > 0:
+                            cv = round((cur_price - prev_close) / prev_close * 100, 2)
+                        else:
+                            cv = 0
+                        # 新浪不直接提供PE和市值，留空
+                        results[orig_code] = {
+                            "price": str(round(cur_price, 2)) if cur_price else "-",
+                            "chg": f"+{cv}%" if cv > 0 else f"{cv}%",
+                            "cv": cv, "pe": "-", "cap": "-"
+                        }
+            if i + 30 < len(sina_codes):
+                time.sleep(0.5)
+        except Exception as e:
+            print(f"  [WARN] 新浪接口失败: {e}")
+
+    return results
+
+
+def fetch_sina_hk(codes: list) -> dict:
+    """通过新浪获取港股行情
+    格式: http://hq.sinajs.cn/list=rt_hk01810
+    """
+    if not codes:
+        return {}
+    sina_codes = []
+    code_map = {}
+    for code in codes:
+        hk_num = code.replace("HK.", "")
+        sc = f"rt_hk{hk_num}"
+        sina_codes.append(sc)
+        code_map[sc] = code
+
+    results = {}
+    url = f"http://hq.sinajs.cn/list={','.join(sina_codes)}"
+    headers = {"Referer": "http://finance.sina.com.cn"}
+    try:
+        resp = _requests.get(url, headers=headers, timeout=10)
+        resp.encoding = "gbk"
+        for line in resp.text.strip().split("\n"):
+            if "=" not in line or '=""' in line:
+                continue
+            parts = line.split("=", 1)
+            var_name = parts[0].replace("var hq_str_", "").strip()
+            data_str = parts[1].strip().strip('"').strip(";").strip('"')
+            if not data_str:
+                continue
+            fields = data_str.split(",")
+            orig_code = code_map.get(var_name, "")
+            # 港股格式: 0简称,1英文名,2今开,3昨收,4最高,5最低,6当前价,...
+            if len(fields) >= 9 and orig_code:
+                cur_price = float(fields[6]) if fields[6] else 0
+                prev_close = float(fields[3]) if fields[3] else 0
+                if prev_close > 0 and cur_price > 0:
+                    cv = round((cur_price - prev_close) / prev_close * 100, 2)
+                else:
+                    cv = 0
+                results[orig_code] = {
+                    "price": str(round(cur_price, 2)) if cur_price else "-",
+                    "chg": f"+{cv}%" if cv > 0 else f"{cv}%",
+                    "cv": cv, "pe": "-", "cap": "-"
+                }
+    except Exception as e:
+        print(f"  [WARN] 新浪港股接口失败: {e}")
+
+    return results
 
 
 # ========== AKShare 免费数据源（auto模式） ==========
@@ -469,7 +612,10 @@ def _snap_to_display(snap: dict, code: str, name: str, sector: str, held=False, 
 
 
 def build_output_auto():
-    """AUTO模式: 使用AKShare免费数据源，适合分钟级自动刷新"""
+    """AUTO模式: 新浪财经HTTP接口为主（绕过代理），AKShare为备选
+    新浪优势：HTTP直连，不受Shadowrocket HTTPS拦截影响
+    AKShare优势：数据更全（PE/市值），但push2.eastmoney.com可能被代理拦截
+    """
     now = datetime.now()
     output = {
         "updateTime": now.strftime("%Y-%m-%d %H:%M:%S"),
@@ -480,22 +626,49 @@ def build_output_auto():
         "hk": [],
     }
 
-    # ===== 大盘指数 =====
-    print("[1/4] AKShare: 上证综指...")
-    idx = fetch_akshare_index()
+    # ===== 收集所有A股代码 =====
+    all_a_codes = []
+    for layer_info in HOLDINGS.values():
+        for s in layer_info["stocks"]:
+            all_a_codes.append(s["code"])
+    etf_codes = [e["code"] for e in ETFS]
+    hk_codes = [s["code"] for s in HK_STOCKS]
+
+    # ===== 第1步: 新浪接口获取（主力源） =====
+    print("[1/3] 新浪财经: A股+指数+ETF...")
+    # 指数用s_sh前缀
+    sina_index = fetch_sina_quotes(["000001"])
+    # A股+ETF一起查
+    sina_all = fetch_sina_quotes(all_a_codes + etf_codes)
+    # 港股
+    print("[2/3] 新浪财经: 港股...")
+    sina_hk = fetch_sina_hk(hk_codes)
+
+    print(f"  新浪结果: 指数={'有' if sina_index else '无'}, A股+ETF={len(sina_all)}/{len(all_a_codes)+len(etf_codes)}, 港股={len(sina_hk)}/{len(hk_codes)}")
+
+    # ===== 第2步: AKShare补充PE/市值（如果可用） =====
+    ak_quotes = {}
+    ak_etfs_data = {}
+    print("[3/3] AKShare补充PE/市值...")
+    try:
+        ak_quotes = fetch_akshare_quotes(all_a_codes, [])
+    except:
+        pass
+    try:
+        ak_etfs_data = fetch_akshare_etfs(etf_codes)
+    except:
+        pass
+
+    # ===== 组装大盘指数 =====
+    idx = sina_index.get("000001")
+    if not idx:
+        idx = fetch_akshare_index()  # fallback
     if idx:
         output["market"]["price"] = idx["price"]
         output["market"]["chg"] = idx["chg"]
         print(f"  大盘: {idx['price']} ({idx['chg']})")
 
-    # ===== A股各层 =====
-    print("[2/4] AKShare: A股标的...")
-    all_a_codes = []
-    for layer_info in HOLDINGS.values():
-        for s in layer_info["stocks"]:
-            all_a_codes.append(s["code"])
-    ak_quotes = fetch_akshare_quotes(all_a_codes, [])
-
+    # ===== 组装A股各层 =====
     for layer_id, layer_info in HOLDINGS.items():
         stocks = layer_info["stocks"]
         if not stocks:
@@ -509,19 +682,31 @@ def build_output_auto():
         total_chg = 0
         count = 0
         for s in stocks:
-            q = ak_quotes.get(s["code"])
-            if q:
-                cv = q["cv"]
+            code = s["code"]
+            # 优先新浪价格，AKShare补充PE/市值
+            sina_q = sina_all.get(code)
+            ak_q = ak_quotes.get(code)
+            if sina_q and sina_q["price"] != "-":
+                cv = sina_q["cv"]
                 item = {
-                    "code": s["code"], "name": s["name"], "sector": s["sector"],
+                    "code": code, "name": s["name"], "sector": s["sector"],
                     "held": s.get("held", False), "pick": s.get("pick", False),
-                    "p": q["price"], "c": q["chg"], "cv": cv,
-                    "pe": q.get("pe", "-"), "cap": q.get("cap", "-"),
+                    "p": sina_q["price"], "c": sina_q["chg"], "cv": cv,
+                    "pe": ak_q["pe"] if ak_q else "-",
+                    "cap": ak_q["cap"] if ak_q else "-",
+                }
+            elif ak_q and ak_q["price"] != "-":
+                cv = ak_q["cv"]
+                item = {
+                    "code": code, "name": s["name"], "sector": s["sector"],
+                    "held": s.get("held", False), "pick": s.get("pick", False),
+                    "p": ak_q["price"], "c": ak_q["chg"], "cv": cv,
+                    "pe": ak_q.get("pe", "-"), "cap": ak_q.get("cap", "-"),
                 }
             else:
                 cv = 0
                 item = {
-                    "code": s["code"], "name": s["name"], "sector": s["sector"],
+                    "code": code, "name": s["name"], "sector": s["sector"],
                     "held": s.get("held", False), "pick": s.get("pick", False),
                     "p": "-", "c": "0%", "cv": 0, "pe": "-", "cap": "-",
                 }
@@ -536,35 +721,36 @@ def build_output_auto():
         })
 
     # ===== ETF =====
-    print("[3/4] AKShare: ETF...")
-    etf_codes = [e["code"] for e in ETFS]
-    ak_etfs = fetch_akshare_etfs(etf_codes)
     for e in ETFS:
-        q = ak_etfs.get(e["code"])
-        if q:
+        code = e["code"]
+        sina_q = sina_all.get(code)
+        ak_q = ak_etfs_data.get(code)
+        if sina_q and sina_q["price"] != "-":
             output["etfs"].append({
-                "code": e["code"], "name": e["name"], "sector": e["sector"],
-                "p": q["price"], "c": q["chg"], "cv": q["cv"],
+                "code": code, "name": e["name"], "sector": e["sector"],
+                "p": sina_q["price"], "c": sina_q["chg"], "cv": sina_q["cv"],
+            })
+        elif ak_q:
+            output["etfs"].append({
+                "code": code, "name": e["name"], "sector": e["sector"],
+                "p": ak_q["price"], "c": ak_q["chg"], "cv": ak_q["cv"],
             })
         else:
             output["etfs"].append({
-                "code": e["code"], "name": e["name"], "sector": e["sector"],
+                "code": code, "name": e["name"], "sector": e["sector"],
                 "p": "-", "c": "0%", "cv": 0,
             })
 
     # ===== 港股 =====
-    print("[4/4] AKShare: 港股...")
-    hk_codes = [s["code"] for s in HK_STOCKS]
-    ak_hk = fetch_akshare_hk(hk_codes)
     hk_result = []
     for s in HK_STOCKS:
-        q = ak_hk.get(s["code"])
-        if q:
+        q = sina_hk.get(s["code"])
+        if q and q["price"] != "-":
             hk_result.append({
                 "code": s["code"], "name": s["name"], "sector": s["sector"],
                 "held": s.get("held", False), "pick": s.get("pick", False),
                 "p": q["price"], "c": q["chg"], "cv": q["cv"],
-                "pe": q.get("pe", "-"), "cap": q.get("cap", "-"),
+                "pe": "-", "cap": "-",
             })
         else:
             hk_result.append({

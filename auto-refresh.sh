@@ -26,7 +26,10 @@ fi
 
 echo "$(date): 开始刷新行情（AKShare自动模式）..."
 
-# 备用Key（auto模式不使用，手动模式需要）
+# 绕过代理（eastmoney.com不需要翻墙，走直连更快）
+unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY
+
+# 备��Key（auto模式不使用，手动模式需要）
 export MX_APIKEY="mkt_f-JSym1MjVyEBaoal60UkgLwEd69FhteaSCakjQE8Ic"
 
 # 刷新数据 — 默认auto模式，使用AKShare免费源
