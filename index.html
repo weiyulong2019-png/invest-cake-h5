@@ -6,42 +6,42 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<!-- 微信分享 -->
-<meta property="og:title" content="投资小龙虾 — AI五层蛋糕监控">
-<meta property="og:description" content="AI多Agent实时监控五层蛋糕投资框架：能源基建→算力芯片→通信基建→模型层→应用层">
+<meta property="og:title" content="OpenClaw — AI投研工作室">
+<meta property="og:description" content="AI多Agent穿透式投研：能源基建→算力芯片→通信基建→模型层→应用层">
 <meta property="og:image" content="./share-thumb.png">
-<title>投资小龙虾 — AI五层蛋糕</title>
-<!-- 微信JS-SDK（分享能力） -->
+<title>OpenClaw — AI投研工作室</title>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
 <script src="https://fastly.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
 <style>
 :root{
   --red:#E03B3B; --green:#0EA352; --bg:#F5F5F5; --white:#FFFFFF;
   --text:#1A1A1A; --text2:#666666; --text3:#999999; --border:#EEEEEE;
+  --accent:#E03B3B; --accent2:#FF8A5C;
   --l1:#E8740A; --l2:#E03B3B; --l3:#2B7FD4; --l4:#8E44AD; --l5:#0EA352;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html{height:100%;-webkit-text-size-adjust:100%;}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;padding-bottom:calc(52px + env(safe-area-inset-bottom,0px));font-size:14px;min-height:100%;-webkit-overflow-scrolling:touch;}
 
-/* 顶部 */
 .header{background:var(--white);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
 .header-left h1{font-size:17px;font-weight:700;color:var(--text);}
 .header-left .idx{font-size:12px;margin-top:2px;}
 .idx-val{font-weight:700;margin-right:4px;}
 .header-right{display:flex;gap:16px;align-items:center;}
-.header-icon{width:28px;height:28px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:14px;}
+.header-icon{width:28px;height:28px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;}
 
-/* Tab切换 */
-.tabs{display:flex;background:var(--white);border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;}
-.tab{padding:10px 14px;font-size:13px;color:var(--text2);white-space:nowrap;position:relative;flex-shrink:0;}
-.tab.active{color:var(--red);font-weight:700;}
-.tab.active::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:20px;height:2px;background:var(--red);border-radius:1px;}
+/* 主题Tab */
+.theme-tabs{display:flex;background:var(--white);border-bottom:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.theme-tab{padding:10px 16px;font-size:13px;color:var(--text2);white-space:nowrap;position:relative;flex-shrink:0;cursor:pointer;}
+.theme-tab.active{color:var(--accent);font-weight:700;}
+.theme-tab.active::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:24px;height:2px;background:var(--accent);border-radius:1px;}
+.theme-tab.coming{color:var(--text3);opacity:0.5;}
+.theme-tab.coming::before{content:'即将';font-size:9px;position:absolute;top:4px;right:4px;color:var(--accent2);font-weight:500;}
 
 /* 蛋糕层 */
 .cake-wrap{padding:8px;}
 .layer-card{background:var(--white);border-radius:8px;margin-bottom:8px;overflow:hidden;}
-.layer-top{padding:12px 14px;display:flex;align-items:center;}
+.layer-top{padding:12px 14px;display:flex;align-items:center;cursor:pointer;}
 .layer-badge{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;margin-right:10px;flex-shrink:0;}
 .layer-info{flex:1;}
 .layer-name{font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;}
@@ -51,31 +51,24 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
 .layer-boom{font-size:10px;color:var(--text3);margin-top:2px;}
 .layer-arrow{font-size:12px;color:var(--text3);margin-left:10px;transition:transform .2s;}
 .layer-arrow.open{transform:rotate(180deg);}
-
-/* 景气度条 */
 .boom-track{height:3px;background:var(--border);border-radius:2px;margin:0 14px 6px;}
 .boom-fill{height:100%;border-radius:2px;transition:width .4s;}
 
-/* 展开的股票列表 — 同花顺风格表格 */
+/* 股票列表 */
 .stock-table{border-top:1px solid var(--border);}
 .st-header{display:flex;padding:6px 14px;font-size:11px;color:var(--text3);background:#FAFAFA;}
 .st-header span:first-child{flex:1;}
 .st-header span{width:72px;text-align:right;}
-.st-row{display:flex;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);}
+.st-row{display:flex;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);cursor:pointer;}
 .st-row:last-child{border-bottom:none;}
 .st-left{flex:1;}
 .st-name{font-size:13px;font-weight:600;display:flex;align-items:center;gap:4px;}
-.st-code{font-size:11px;color:var(--text3);margin-top:1px;display:flex;align-items:center;gap:4px;}
+.st-code{font-size:11px;color:var(--text3);margin-top:1px;}
 .st-cell{width:72px;text-align:right;}
 .st-price{font-size:14px;font-weight:600;}
 .st-chg{font-size:13px;font-weight:600;}
+.tag-sector{font-size:9px;padding:1px 4px;border-radius:2px;background:#F0F5FF;color:var(--l3);}
 
-/* 标签 */
-.tag-held{font-size:9px;padding:1px 4px;border-radius:2px;background:#FFF0F0;color:var(--red);}
-.tag-watch{font-size:9px;padding:1px 4px;border-radius:2px;background:#F0F0F0;color:var(--text3);}
-.tag-pickaxe{font-size:9px;padding:1px 4px;border-radius:2px;background:#FFF5EB;color:var(--l1);}
-
-/* 层级信号条 */
 .layer-signal{margin:0 14px 10px;padding:8px 10px;border-radius:6px;font-size:11px;line-height:1.6;display:flex;align-items:flex-start;gap:6px;}
 .sig-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:5px;}
 
@@ -85,26 +78,17 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
 .insight-title{font-size:13px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:4px;}
 .insight-text{font-size:12px;color:var(--text2);line-height:1.8;}
 
-/* 自选股 */
-.watchlist-section{padding:8px;}
-.wl-title{font-size:13px;font-weight:700;color:var(--text2);padding:8px 6px 4px;}
-.wl-card{background:var(--white);border-radius:8px;overflow:hidden;margin-bottom:8px;}
-.wl-row{display:flex;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);}
-.wl-row:last-child{border-bottom:none;}
-.wl-info{flex:1;}.wl-name{font-size:13px;font-weight:600;display:flex;align-items:center;gap:4px;}
-.wl-code{font-size:11px;color:var(--text3);margin-top:1px;}
-.wl-right{text-align:right;}.wl-price{font-size:14px;font-weight:600;}.wl-chg{font-size:12px;font-weight:600;margin-top:1px;}
-.wl-status{font-size:9px;padding:1px 5px;border-radius:2px;}
-.ws-g{background:#E8F5EC;color:var(--green);}.ws-y{background:#FFF5EB;color:var(--l1);}.ws-r{background:#FFF0F0;color:var(--red);}
-
-/* 搜索 */
-.search-bar{padding:8px 12px;background:var(--white);border-bottom:1px solid var(--border);}
-.search-inner{background:var(--bg);border-radius:18px;padding:7px 12px;display:flex;align-items:center;gap:6px;}
-.search-inner input{border:none;outline:none;flex:1;font-size:13px;background:transparent;}
+/* ETF快览 */
+.etf-bar{padding:0 8px 8px;}
+.etf-scroll{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:4px 0;}
+.etf-chip{flex-shrink:0;background:var(--white);border-radius:8px;padding:10px 14px;min-width:120px;}
+.etf-name{font-size:12px;font-weight:600;white-space:nowrap;}
+.etf-price{font-size:14px;font-weight:700;margin-top:4px;}
+.etf-chg{font-size:11px;font-weight:600;margin-top:2px;}
 
 /* 详情页 */
 .det-top{background:var(--white);padding:14px 16px;border-bottom:1px solid var(--border);}
-.det-back{font-size:13px;color:var(--text2);margin-bottom:8px;}
+.det-back{font-size:13px;color:var(--text2);margin-bottom:8px;cursor:pointer;}
 .det-name{font-size:16px;font-weight:700;}.det-code{font-size:12px;color:var(--text3);}
 .det-price-area{margin-top:8px;}
 .det-big-price{font-size:28px;font-weight:700;}
@@ -121,30 +105,64 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
 .ag-icon{width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
 .ag-name{font-size:12px;font-weight:700;}.ag-text{font-size:11px;color:var(--text2);margin-top:2px;line-height:1.6;}
 
-/* 策略页 */
-.strat-section{padding:8px 12px;}
-.strat-card{background:var(--white);border-radius:8px;overflow:hidden;margin-bottom:8px;}
-.strat-row{display:flex;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border);}
-.strat-row:last-child{border-bottom:none;}
-.ds-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);}
-.ds-row:last-child{border-bottom:none;}
-.ds-name{font-size:13px;font-weight:600;}.ds-sub{font-size:11px;color:var(--text3);margin-top:1px;}
-.ds-badge{font-size:10px;padding:2px 8px;border-radius:4px;}
+/* 自选股 — 社群共享 */
+.wl-section{padding:8px 12px;}
+.wl-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.wl-count{font-size:11px;color:var(--text3);}
+.search-bar{padding:8px 12px;background:var(--white);border-bottom:1px solid var(--border);}
+.search-inner{background:var(--bg);border-radius:18px;padding:7px 12px;display:flex;align-items:center;gap:6px;}
+.search-inner input{border:none;outline:none;flex:1;font-size:13px;background:transparent;}
+.wl-card{background:var(--white);border-radius:8px;overflow:hidden;margin-bottom:8px;}
+.wl-row{display:flex;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);cursor:pointer;}
+.wl-row:last-child{border-bottom:none;}
+.wl-info{flex:1;}.wl-name{font-size:13px;font-weight:600;display:flex;align-items:center;gap:4px;}
+.wl-code{font-size:11px;color:var(--text3);margin-top:1px;}
+.wl-right{text-align:right;}.wl-price{font-size:14px;font-weight:600;}.wl-chg{font-size:12px;font-weight:600;margin-top:1px;}
+.wl-from{font-size:9px;padding:1px 5px;border-radius:2px;background:#F0F0F0;color:var(--text3);}
+.wl-tabs{display:flex;background:var(--white);border-bottom:1px solid var(--border);overflow-x:auto;}
+.wl-tab{padding:10px 14px;font-size:13px;color:var(--text2);white-space:nowrap;position:relative;flex-shrink:0;cursor:pointer;}
+.wl-tab.active{color:var(--accent);font-weight:700;}
+.wl-tab.active::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:20px;height:2px;background:var(--accent);border-radius:1px;}
 
-/* 底部tab — iOS safe area */
+/* 策略 — Skills说明 */
+.skill-section{padding:8px 12px;}
+.skill-card{background:var(--white);border-radius:8px;overflow:hidden;margin-bottom:8px;}
+.skill-row{padding:14px;border-bottom:1px solid var(--border);}
+.skill-row:last-child{border-bottom:none;}
+.skill-name{font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;}
+.skill-desc{font-size:12px;color:var(--text2);margin-top:6px;line-height:1.8;}
+.skill-tag{font-size:9px;padding:2px 6px;border-radius:3px;background:#F0F0F0;color:var(--text3);}
+.skill-trigger{margin-top:8px;padding:8px 10px;background:var(--bg);border-radius:6px;font-size:11px;color:var(--text2);font-family:'SF Mono','Menlo',monospace;}
+.skill-trigger b{color:var(--accent);font-weight:600;}
+
+/* 研究 — Obsidian知识库 */
+.research-section{padding:8px 12px;}
+.report-card{background:var(--white);border-radius:8px;padding:14px;margin-bottom:8px;cursor:pointer;}
+.report-date{font-size:11px;color:var(--text3);}
+.report-title{font-size:14px;font-weight:700;margin-top:4px;}
+.report-summary{font-size:12px;color:var(--text2);margin-top:6px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.report-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+.report-tag{font-size:10px;padding:2px 8px;border-radius:4px;background:var(--bg);color:var(--text2);}
+.report-folder{background:var(--white);border-radius:8px;overflow:hidden;margin-bottom:8px;}
+.report-folder-row{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--border);cursor:pointer;}
+.report-folder-row:last-child{border-bottom:none;}
+.folder-icon{font-size:18px;flex-shrink:0;}
+.folder-info{flex:1;}.folder-name{font-size:13px;font-weight:600;}.folder-sub{font-size:11px;color:var(--text3);margin-top:1px;}
+.folder-count{font-size:12px;color:var(--text3);}
+.empty-state{text-align:center;padding:40px 20px;color:var(--text3);font-size:13px;}
+
+/* 底部tab */
 .tab-bar{position:fixed;bottom:0;left:0;right:0;height:calc(52px + env(safe-area-inset-bottom,0px));padding-bottom:env(safe-area-inset-bottom,0px);background:var(--white);border-top:1px solid var(--border);display:flex;z-index:100;}
-.tb-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:var(--text3);text-decoration:none;}
-.tb-item.active{color:var(--red);}
+.tb-item{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:var(--text3);text-decoration:none;cursor:pointer;}
+.tb-item.active{color:var(--accent);}
 .tb-item .tbi{font-size:18px;margin-bottom:1px;}
 
 .page{display:none;}.page.active{display:block;}
 .up{color:var(--red);}.down{color:var(--green);}
 .risk-notice{font-size:10px;color:var(--text3);text-align:center;padding:12px;line-height:1.5;}
-
-/* 加载状态 */
-.loading-bar{position:fixed;top:0;left:0;right:0;height:2px;z-index:200;background:linear-gradient(90deg,var(--red),#FF8A5C,var(--red));background-size:200%;animation:shimmer 1.2s infinite;}
+.loading-bar{position:fixed;top:0;left:0;right:0;height:2px;z-index:200;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent));background-size:200%;animation:shimmer 1.2s infinite;}
 @keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
-.data-badge{display:inline-block;font-size:9px;padding:1px 6px;border-radius:8px;background:#F0F0F0;color:var(--text3);margin-left:4px;}
+.section-title{font-size:13px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
 </style>
 </head>
 <body>
@@ -152,35 +170,41 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
 <div id="app">
   <div class="loading-bar" v-if="loading"></div>
 
-  <!-- ===== 首页：五层蛋糕 ===== -->
+  <!-- ===== 首页：OpenClaw自动挖掘 ===== -->
   <div class="page" :class="{active:tab==='home'}">
     <div class="header">
       <div class="header-left">
-        <h1>AI五层蛋糕</h1>
+        <h1>OpenClaw 投研</h1>
         <div class="idx">
-          <span class="idx-val" :class="String(marketIdx.chg).includes('-')?'down':'up'">上证 {{ marketIdx.price }}</span>
-          <span :class="String(marketIdx.chg).includes('-')?'down':'up'">{{ marketIdx.chg }}</span>
+          <span class="idx-val" :class="chgClass(marketIdx.chg)">上证 {{ marketIdx.price }}</span>
+          <span :class="chgClass(marketIdx.chg)">{{ marketIdx.chg }}</span>
           <span v-if="updateTime" style="font-size:10px;color:var(--text3);margin-left:6px;">{{ updateTime.slice(11,16) }}</span>
         </div>
       </div>
       <div class="header-right">
         <div class="header-icon" @click="refreshData()" :style="{opacity:loading?0.4:1}">🔄</div>
-        <div class="header-icon">🔍</div>
       </div>
     </div>
 
-    <div class="tabs">
-      <div class="tab" :class="{active:homeFilter==='all'}" @click="homeFilter='all'">总览</div>
-      <div class="tab" :class="{active:homeFilter==='L1'}" @click="homeFilter='L1'">L1能源</div>
-      <div class="tab" :class="{active:homeFilter==='L2'}" @click="homeFilter='L2'">L2算力</div>
-      <div class="tab" :class="{active:homeFilter==='L3'}" @click="homeFilter='L3'">L3通信</div>
-      <div class="tab" :class="{active:homeFilter==='L4'}" @click="homeFilter='L4'">L4模型</div>
-      <div class="tab" :class="{active:homeFilter==='L5'}" @click="homeFilter='L5'">L5应用</div>
-      <div class="tab" :class="{active:homeFilter==='pick'}" @click="homeFilter='pick'">卖水人</div>
+    <div class="theme-tabs">
+      <div class="theme-tab active">AI产业链</div>
+      <div class="theme-tab coming">新能源</div>
+      <div class="theme-tab coming">商业航天</div>
+      <div class="theme-tab coming">消费医药</div>
+    </div>
+
+    <div class="etf-bar">
+      <div class="etf-scroll">
+        <div class="etf-chip" v-for="e in etfs" :key="e.code">
+          <div class="etf-name">{{ e.name }}</div>
+          <div class="etf-price" :class="e.cv>0?'up':'down'">{{ e.p }}</div>
+          <div class="etf-chg" :class="e.cv>0?'up':'down'">{{ e.c }}</div>
+        </div>
+      </div>
     </div>
 
     <div class="cake-wrap">
-      <div class="layer-card" v-for="L in filteredLayers" :key="L.id">
+      <div class="layer-card" v-for="L in layers" :key="L.id">
         <div class="layer-top" @click="L.open=!L.open">
           <div class="layer-badge" :style="{background:L.color}">{{ L.id }}</div>
           <div class="layer-info">
@@ -197,27 +221,13 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
           </div>
           <div class="layer-arrow" :class="{open:L.open}">▼</div>
         </div>
-
-        <div class="boom-track">
-          <div class="boom-fill" :style="{width:L.boom+'%',background:L.color}"></div>
-        </div>
-
+        <div class="boom-track"><div class="boom-fill" :style="{width:L.boom+'%',background:L.color}"></div></div>
         <div v-show="L.open">
           <div class="stock-table">
-            <div class="st-header">
-              <span>名称/代码</span>
-              <span>最新</span>
-              <span>涨幅</span>
-              <span>PE</span>
-            </div>
+            <div class="st-header"><span>名称/代码</span><span>最新</span><span>涨幅</span><span>PE</span></div>
             <div class="st-row" v-for="s in L.stocks" :key="s.code" @click="goDetail(s,L)">
               <div class="st-left">
-                <div class="st-name">
-                  {{ s.name }}
-                  <span class="tag-pickaxe" v-if="s.pick">⛏卖水人</span>
-                  <span class="tag-held" v-if="s.held">持仓</span>
-                  <span class="tag-watch" v-if="!s.held">观察</span>
-                </div>
+                <div class="st-name">{{ s.name }} <span class="tag-sector">{{ s.sector }}</span></div>
                 <div class="st-code">{{ s.code }}</div>
               </div>
               <div class="st-cell"><div class="st-price" :class="s.cv>0?'up':'down'">{{ s.p }}</div></div>
@@ -225,9 +235,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
               <div class="st-cell" style="font-size:12px;color:var(--text2);">{{ s.pe||'-' }}</div>
             </div>
           </div>
-
-          <div class="layer-signal" v-if="L.sig"
-               :style="{background:L.sig.t==='warn'?'#FFF5F5':'#F0FAF4'}">
+          <div class="layer-signal" v-if="L.sig" :style="{background:L.sig.t==='warn'?'#FFF5F5':'#F0FAF4'}">
             <div class="sig-dot" :style="{background:L.sig.t==='warn'?'var(--red)':'var(--green)'}"></div>
             <span :style="{color:L.sig.t==='warn'?'var(--red)':'var(--green)'}">{{ L.sig.text }}</span>
           </div>
@@ -239,25 +247,22 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
       <div class="insight-card">
         <div class="insight-title">🧠 AI汇总Agent</div>
         <div class="insight-text">
-          全市场回调，五层蛋糕中<b style="color:var(--l1)">L1能源</b>跌幅最大但政策确定性最高；
-          <b style="color:var(--l2)">L2算力</b>分化严重，铜冠铜箔PE 420x需减仓；
-          <b style="color:var(--l3)">L3通信</b>胜宏科技破位。建议：防御增配L1电网，L2/L3等企稳。
-        </div>
-      </div>
-      <div class="insight-card">
-        <div class="insight-title">⛏ 卖水人追踪</div>
-        <div class="insight-text">
-          雅克科技（半导体材料）、英维克（液冷散热）、工业富联（服务器代工）——无论哪家AI公司胜出都受益。卖水人持仓占比约35%。
+          五层蛋糕中<b :style="{color:'var(--l1)'}">L1能源</b>政策确定性最高；
+          <b :style="{color:'var(--l2)'}">L2算力</b>景气分化，高PE标的需警惕；
+          <b :style="{color:'var(--l3)'}">L3通信</b>关注PCB/光模块技术突破节点。
         </div>
       </div>
     </div>
-    <div class="risk-notice">⚠️ 以上信息基于AI多Agent分析，不构成投资建议。投资有风险，决策需谨慎。</div>
+    <div class="risk-notice">⚠️ 以上标的由OpenClaw Agent自动挖掘，不构成投资建议。</div>
   </div>
 
-  <!-- ===== 自选股 ===== -->
+  <!-- ===== 自选股 — 社群共享 ===== -->
   <div class="page" :class="{active:tab==='watchlist'}">
     <div class="header">
-      <div class="header-left"><h1>自选股</h1></div>
+      <div class="header-left"><h1>社群自选</h1></div>
+      <div class="header-right">
+        <div class="header-icon" style="font-size:12px;background:var(--accent);color:#fff;width:auto;padding:0 10px;border-radius:14px;">+ 添加</div>
+      </div>
     </div>
     <div class="search-bar">
       <div class="search-inner">
@@ -265,22 +270,23 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
         <input placeholder="搜索代码/名称" v-model="sq">
       </div>
     </div>
-    <div class="tabs">
-      <div class="tab" :class="{active:wlFilter==='all'}" @click="wlFilter='all'">全部</div>
-      <div class="tab" :class="{active:wlFilter==='held'}" @click="wlFilter='held'">持仓股</div>
-      <div class="tab" :class="{active:wlFilter==='etf'}" @click="wlFilter='etf'">ETF</div>
-      <div class="tab" :class="{active:wlFilter==='hk'}" @click="wlFilter='hk'">港股</div>
-      <div class="tab" :class="{active:wlFilter==='cand'}" @click="wlFilter='cand'">候选</div>
+    <div class="wl-tabs">
+      <div class="wl-tab" :class="{active:wlFilter==='all'}" @click="wlFilter='all'">全部</div>
+      <div class="wl-tab" :class="{active:wlFilter==='a'}" @click="wlFilter='a'">A股</div>
+      <div class="wl-tab" :class="{active:wlFilter==='etf'}" @click="wlFilter='etf'">ETF</div>
+      <div class="wl-tab" :class="{active:wlFilter==='hk'}" @click="wlFilter='hk'">港股</div>
     </div>
 
-    <div class="watchlist-section" v-for="g in filteredGroups" :key="g.t">
-      <div class="wl-title">{{ g.t }}</div>
-      <div class="wl-card">
-        <div class="wl-row" v-for="s in filt(g.items)" :key="s.code" @click="goDetail2(s)">
+    <div class="wl-section">
+      <div class="wl-header">
+        <div class="wl-count">共 {{ filteredWatchlist.length }} 只</div>
+      </div>
+      <div class="wl-card" v-if="filteredWatchlist.length">
+        <div class="wl-row" v-for="s in filteredWatchlist" :key="s.code" @click="goDetail2(s)">
           <div class="wl-info">
             <div class="wl-name">
               {{ s.name }}
-              <span class="wl-status" :class="s.sc" v-if="s.sl">{{ s.sl }}</span>
+              <span class="wl-from" v-if="s.addedBy">{{ s.addedBy }}</span>
             </div>
             <div class="wl-code">{{ s.code }} · {{ s.sector }}</div>
           </div>
@@ -290,7 +296,13 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
           </div>
         </div>
       </div>
+      <div v-else class="empty-state">
+        <div style="font-size:32px;margin-bottom:8px;">⭐</div>
+        <div>暂无自选股</div>
+        <div style="margin-top:4px;font-size:12px;">在OpenClaw群聊中发送"加自选 股票名/代码"<br>即可同步到这里</div>
+      </div>
     </div>
+    <div class="risk-notice">群成员通过OpenClaw添加的自选股自动同步至此</div>
   </div>
 
   <!-- ===== 详情 ===== -->
@@ -305,18 +317,17 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
       </div>
       <div class="det-tags">
         <div class="det-tag" v-if="ds.layerName">{{ ds.layerName }}</div>
-        <div class="det-tag" v-if="ds.pe">PE {{ ds.pe }}</div>
-        <div class="det-tag" v-if="ds.cap">市值 {{ ds.cap }}亿</div>
-        <div class="det-tag" v-if="ds.pick">⛏ 卖水人</div>
+        <div class="det-tag" v-if="ds.pe && ds.pe!=='-'">PE {{ ds.pe }}</div>
+        <div class="det-tag" v-if="ds.cap && ds.cap!=='-'">市值 {{ ds.cap }}</div>
       </div>
     </div>
-    <div class="metrics" v-if="ds.pe">
+    <div class="metrics" v-if="ds.pe && ds.pe!=='-'">
       <div class="m-cell"><div class="m-label">PE(TTM)</div><div class="m-val">{{ ds.pe }}</div></div>
-      <div class="m-cell"><div class="m-label">市值(亿)</div><div class="m-val">{{ ds.cap||'-' }}</div></div>
+      <div class="m-cell"><div class="m-label">市值</div><div class="m-val">{{ ds.cap||'-' }}</div></div>
       <div class="m-cell"><div class="m-label">涨跌幅</div><div class="m-val" :class="ds.cv>0?'up':'down'">{{ ds.c }}</div></div>
     </div>
     <div class="agent-section">
-      <div style="font-size:13px;font-weight:700;margin-bottom:6px;">🤖 AI多维分析</div>
+      <div class="section-title">🤖 AI多维分析</div>
       <div class="agent-card">
         <div class="ag-row" v-for="a in dAgents" :key="a.n">
           <div class="ag-icon" :style="{background:a.bg}">{{ a.e }}</div>
@@ -327,88 +338,77 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
     <div class="risk-notice">⚠️ AI分析不构成投资建议，投资有风险，决策需谨慎。</div>
   </div>
 
-  <!-- ===== 策略 ===== -->
+  <!-- ===== 策略 — Skills说明 ===== -->
   <div class="page" :class="{active:tab==='strategy'}">
-    <div class="header"><div class="header-left"><h1>策略中心</h1></div></div>
-    <div class="strat-section">
-      <div style="font-size:13px;font-weight:700;margin-bottom:6px;">运行中Agent</div>
-      <div class="strat-card">
-        <div class="strat-row" v-for="a in agents" :key="a.n">
-          <div class="ag-icon" :style="{background:a.bg}">{{ a.e }}</div>
-          <div style="flex:1">
-            <div class="ag-name">{{ a.n }}</div>
-            <div class="ag-text">{{ a.d }}</div>
-            <div style="margin-top:3px;display:flex;gap:8px;align-items:center;">
-              <span style="font-size:10px;padding:1px 6px;border-radius:3px;background:#E8F5EC;color:var(--green);">● 在线</span>
-              <span style="font-size:10px;color:var(--text3);">{{ a.s }}</span>
-            </div>
+    <div class="header"><div class="header-left"><h1>Skills</h1></div></div>
+    <div class="skill-section">
+      <div style="padding:8px 0;font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:8px;">
+        以下是OpenClaw当前支持的投研Skills。在飞书群或OpenClaw对话中触发即可使用。
+      </div>
+
+      <div class="skill-card" v-for="s in skills" :key="s.name">
+        <div class="skill-row">
+          <div class="skill-name">
+            {{ s.icon }} {{ s.name }}
+            <span class="skill-tag">{{ s.category }}</span>
+            <span class="skill-tag" :style="{background:s.ready?'#E8F5EC':'#FFF0F0',color:s.ready?'var(--green)':'var(--red)'}">{{ s.ready?'可用':'开发中' }}</span>
+          </div>
+          <div class="skill-desc">{{ s.desc }}</div>
+          <div class="skill-trigger" v-if="s.trigger">
+            <b>触发方式：</b>{{ s.trigger }}
+          </div>
+          <div class="skill-trigger" v-if="s.example" style="margin-top:4px;">
+            <b>示例：</b>{{ s.example }}
           </div>
         </div>
       </div>
-      <div style="font-size:13px;font-weight:700;margin:12px 0 6px;">数据源</div>
-      <div style="background:var(--white);border-radius:8px;overflow:hidden;">
-        <div class="ds-row" v-for="d in dsList" :key="d.n">
-          <div><div class="ds-name">{{ d.n }}</div><div class="ds-sub">{{ d.sub }}</div></div>
-          <span class="ds-badge" :style="{background:d.ok?'#E8F5EC':'#FFF0F0',color:d.ok?'var(--green)':'var(--red)'}">{{ d.ok?'● 正常':'● 待接' }}</span>
-        </div>
-      </div>
     </div>
   </div>
 
-  <!-- ===== 我的 ===== -->
-  <div class="page" :class="{active:tab==='profile'}">
-    <div class="header"><div class="header-left"><h1>我的</h1></div></div>
-    <div style="padding:20px 16px;">
-      <div style="background:var(--white);border-radius:12px;padding:20px 16px;display:flex;align-items:center;gap:14px;">
-        <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--red),#FF8A5C);display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;">🐉</div>
-        <div>
-          <div style="font-size:16px;font-weight:700;">投资小龙虾</div>
-          <div style="font-size:12px;color:var(--text3);margin-top:2px;">AI五层蛋糕体系 · 12-18月周期</div>
+  <!-- ===== 研究 — Obsidian知识库 ===== -->
+  <div class="page" :class="{active:tab==='research'}">
+    <div class="header"><div class="header-left"><h1>研究</h1></div></div>
+    <div class="research-section">
+      <!-- 知识库目录 -->
+      <div class="section-title">📂 Obsidian 知识库</div>
+      <div class="report-folder">
+        <div class="report-folder-row" v-for="f in obFolders" :key="f.name">
+          <div class="folder-icon">{{ f.icon }}</div>
+          <div class="folder-info">
+            <div class="folder-name">{{ f.name }}</div>
+            <div class="folder-sub">{{ f.desc }}</div>
+          </div>
+          <div class="folder-count">{{ f.count }} 篇</div>
         </div>
       </div>
-    </div>
-    <div style="padding:0 16px;">
-      <div style="background:var(--white);border-radius:8px;overflow:hidden;">
-        <div style="display:flex;text-align:center;padding:16px 0;border-bottom:1px solid var(--border);">
-          <div style="flex:1;"><div style="font-size:18px;font-weight:700;color:var(--red);">14</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">持仓标的</div></div>
-          <div style="flex:1;"><div style="font-size:18px;font-weight:700;">5</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">运行Agent</div></div>
-          <div style="flex:1;"><div style="font-size:18px;font-weight:700;color:var(--green);">4/5</div><div style="font-size:11px;color:var(--text3);margin-top:2px;">数据源正常</div></div>
-        </div>
-        <div style="padding:14px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:13px;">投资框架</span><span style="font-size:12px;color:var(--text3);">五层蛋糕 + 卖水人 →</span>
-        </div>
-        <div style="padding:14px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:13px;">仓位管理</span><span style="font-size:12px;color:var(--text3);">分层管理 · 27%现金 →</span>
-        </div>
-        <div style="padding:14px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:13px;">飞书群Bot</span><span style="font-size:12px;color:var(--green);">● 已连接</span>
-        </div>
-        <div style="padding:14px 16px;display:flex;justify-content:space-between;align-items:center;">
-          <span style="font-size:13px;">OpenClaw版本</span><span style="font-size:12px;color:var(--text3);">2026.3.23</span>
+
+      <!-- 最新报告 -->
+      <div class="section-title" style="margin-top:12px;">📝 最新研究报告</div>
+      <div v-if="reports.length">
+        <div class="report-card" v-for="r in reports" :key="r.id">
+          <div class="report-date">{{ r.date }} · {{ r.source }}</div>
+          <div class="report-title">{{ r.title }}</div>
+          <div class="report-summary">{{ r.summary }}</div>
+          <div class="report-tags">
+            <div class="report-tag" v-for="t in r.tags" :key="t">{{ t }}</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div style="padding:16px;">
-      <div style="background:var(--white);border-radius:8px;overflow:hidden;">
-        <div style="padding:14px 16px;border-bottom:1px solid var(--border);font-size:13px;font-weight:600;">我的投资原则</div>
-        <div style="padding:12px 16px;font-size:12px;color:var(--text2);line-height:1.8;">
-          • 买入前必须回答"这个公司2030年会怎样"<br>
-          • 确定性8/10以上才给核心仓位（≤25%）<br>
-          • AI辅助分析，但买卖决策必须是自己的判断<br>
-          • 大额浮盈>100%强制利润保护<br>
-          • 不追高溢价ETF，不给无退出条件的建议
-        </div>
+      <div v-else class="empty-state">
+        <div style="font-size:32px;margin-bottom:8px;">📚</div>
+        <div>知识库尚未接入</div>
+        <div style="margin-top:4px;font-size:12px;">接入Obsidian后，研究报告将自动同步至此</div>
       </div>
     </div>
-    <div class="risk-notice">版本 v0.1 · 投资小龙虾 © 2026</div>
+    <div class="risk-notice">研究报告来源于Obsidian知识库，由Agent自动生成或人工整理</div>
   </div>
 
-  <!-- TabBar -->
+  <!-- TabBar — 4个tab -->
   <div class="tab-bar">
-    <a class="tb-item" :class="{active:tab==='home'}" @click="tab='home'"><span class="tbi">🎂</span>蛋糕</a>
+    <a class="tb-item" :class="{active:tab==='home'}" @click="tab='home'"><span class="tbi">🎂</span>首页</a>
     <a class="tb-item" :class="{active:tab==='watchlist'}" @click="tab='watchlist'"><span class="tbi">⭐</span>自选</a>
-    <a class="tb-item" :class="{active:tab==='strategy'}" @click="tab='strategy'"><span class="tbi">🤖</span>策略</a>
-    <a class="tb-item" :class="{active:tab==='profile'}" @click="tab='profile'"><span class="tbi">👤</span>我的</a>
+    <a class="tb-item" :class="{active:tab==='strategy'}" @click="tab='strategy'"><span class="tbi">🛠</span>策略</a>
+    <a class="tb-item" :class="{active:tab==='research'}" @click="tab='research'"><span class="tbi">📝</span>研究</a>
   </div>
 </div>
 
@@ -416,143 +416,144 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
 const{createApp,ref,computed,reactive,onMounted}=Vue;
 createApp({
   setup(){
-    const tab=ref('home'),pt=ref('home'),sq=ref(''),ds=ref(null);
-    const homeFilter=ref('all'),wlFilter=ref('all');
+    const tab=ref('home'),pt=ref('home'),ds=ref(null),sq=ref(''),wlFilter=ref('all');
     const loading=ref(false),updateTime=ref(''),marketIdx=reactive({price:'--',chg:'--'});
+    const chgClass=(v)=>String(v).includes('-')?'down':'up';
 
-    // 五层蛋糕
+    // 五层蛋糕 — Agent自动挖掘的标的
     const layers=reactive([
       {id:'L1',name:'能源基建',sub:'电网 / 特高压 / 电力设备',color:'#E8740A',boom:78,
-       boomLabel:'高景气',boomColor:'#FFF5EB',boomTextColor:'#E8740A',avg:-2.54,open:true,
+       boomLabel:'高景气',boomColor:'#FFF5EB',boomTextColor:'#E8740A',avg:0,open:true,
        stocks:[
-         {code:'159326',name:'电网设备ETF',p:'2.042',c:'-3.27%',cv:-3.27,held:true,sector:'电网'},
-         {code:'300390',name:'天华新能',p:'93.65',c:'-2.97%',cv:-2.97,pe:'59.4',cap:'778',held:true,sector:'锂电上游'},
+         {code:'159326',name:'电网设备ETF',p:'-',c:'0%',cv:0,sector:'电网'},
+         {code:'300390',name:'天华新能',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'锂电上游'},
        ],
        sig:{t:'info',text:'国网2026电网投资+12%，特高压核准加快，L1景气延续。'}},
       {id:'L2',name:'算力芯片',sub:'GPU / HBM / 半导体材料 / 液冷 / 服务器',color:'#E03B3B',boom:72,
-       boomLabel:'景气分化',boomColor:'#FFF0F0',boomTextColor:'#E03B3B',avg:-1.68,open:false,
+       boomLabel:'景气分化',boomColor:'#FFF0F0',boomTextColor:'#E03B3B',avg:0,open:false,
        stocks:[
-         {code:'002409',name:'雅克科技',p:'107.46',c:'+0.52%',cv:0.52,pe:'50.8',cap:'511',held:true,pick:true,sector:'半导体材料'},
-         {code:'002837',name:'英维克',p:'100.49',c:'-1.67%',cv:-1.67,pe:'203.5',cap:'982',held:true,pick:true,sector:'AI液冷'},
-         {code:'601138',name:'工业富联',p:'67.62',c:'-1.43%',cv:-1.43,pe:'33.0',cap:'13420',held:true,pick:true,sector:'AI服务器'},
-         {code:'301217',name:'铜冠铜箔',p:'83.20',c:'-3.12%',cv:-3.12,pe:'420',cap:'690',held:true,sector:'电子铜箔'},
-         {code:'688008',name:'澜起科技',p:'247.98',c:'-6.45%',cv:-6.45,pe:'118.5',held:false,sector:'DDR5+CXL'},
-       ],
-       sig:{t:'warn',text:'铜冠铜箔PE 420x风险极高，建议减仓。英维克PE 203x需警惕回落。'}},
+         {code:'002409',name:'雅克科技',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'半导体材料'},
+         {code:'002837',name:'英维克',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'AI液冷'},
+         {code:'601138',name:'工业富联',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'AI服务器'},
+         {code:'301217',name:'铜冠铜箔',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'电子铜箔'},
+         {code:'688008',name:'澜起科技',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'DDR5+CXL'},
+       ],sig:null},
       {id:'L3',name:'通信基建',sub:'光模块 / CPO / 高速PCB / 海缆',color:'#2B7FD4',boom:65,
-       boomLabel:'景气中等',boomColor:'#EBF3FF',boomTextColor:'#2B7FD4',avg:-4.22,open:false,
+       boomLabel:'景气中等',boomColor:'#EBF3FF',boomTextColor:'#2B7FD4',avg:0,open:false,
        stocks:[
-         {code:'001389',name:'广合科技',p:'180.68',c:'-2.86%',cv:-2.86,pe:'73.1',cap:'854',held:true,sector:'高速PCB'},
-         {code:'300476',name:'胜宏科技',p:'340.22',c:'-4.12%',cv:-4.12,pe:'71.5',cap:'3344',held:true,sector:'高多层PCB'},
-         {code:'600487',name:'亨通光电',p:'69.80',c:'-5.68%',cv:-5.68,pe:'53.3',held:false,pick:true,sector:'光通信+海缆'},
-       ],
-       sig:{t:'warn',text:'胜宏MA5下穿MA20+MACD死叉。亨通光电逼近65止损线。'}},
+         {code:'001389',name:'广合科技',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'高速PCB'},
+         {code:'300476',name:'胜宏科技',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'高多层PCB'},
+         {code:'600487',name:'亨通光电',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'光通信+海缆'},
+       ],sig:null},
       {id:'L4',name:'模型层',sub:'大模型 / 训练框架 / AI原生应用',color:'#8E44AD',boom:55,
-       boomLabel:'待验证',boomColor:'#F8F0FF',boomTextColor:'#8E44AD',avg:-0.89,open:false,
+       boomLabel:'待验证',boomColor:'#F8F0FF',boomTextColor:'#8E44AD',avg:0,open:false,
        stocks:[
-         {code:'300418',name:'昆仑万维',p:'49.21',c:'+0.37%',cv:0.37,pe:'亏损',cap:'618',held:true,sector:'AI应用/大模型'},
-       ],
-       sig:{t:'warn',text:'昆仑万维PE亏损，深套中。阿贝尔标准：不为AI而AI，需验证商业化。'}},
+         {code:'300418',name:'昆仑万维',p:'-',c:'0%',cv:0,pe:'-',cap:'-',sector:'AI应用/大模型'},
+       ],sig:null},
       {id:'L5',name:'应用层',sub:'SaaS+AI / 互联网平台 / 消费科技',color:'#0EA352',boom:60,
-       boomLabel:'估值合理',boomColor:'#E8F5EC',boomTextColor:'#0EA352',avg:-2.27,open:false,
+       boomLabel:'估值合理',boomColor:'#E8F5EC',boomTextColor:'#0EA352',avg:0,open:false,
        stocks:[
-         {code:'HK.01810',name:'小米集团-W',p:'30.94',c:'-2.46%',cv:-2.46,held:true,sector:'港股互联网'},
-         {code:'HK.03690',name:'美团-W',p:'83.95',c:'-2.04%',cv:-2.04,held:true,sector:'港股互联网'},
-         {code:'HK.09988',name:'阿里巴巴-W',p:'132.30',c:'-4.06%',cv:-4.06,held:true,sector:'港股互联网'},
-         {code:'HK.01024',name:'快手-W',p:'49.58',c:'-2.50%',cv:-2.50,held:true,sector:'港股互联网'},
-       ],
-       sig:{t:'info',text:'港股AI赋能正向：美团配送效率+15%，阿里云收入重回双位数增长。'}}
+         {code:'HK.01810',name:'小米集团-W',p:'-',c:'0%',cv:0,sector:'港股互联网'},
+         {code:'HK.03690',name:'美团-W',p:'-',c:'0%',cv:0,sector:'港股互联网'},
+         {code:'HK.09988',name:'阿里巴巴-W',p:'-',c:'0%',cv:0,sector:'港股互联网'},
+         {code:'HK.01024',name:'快手-W',p:'-',c:'0%',cv:0,sector:'港股互联网'},
+       ],sig:null}
     ]);
 
-    // 首页层级过滤
-    const filteredLayers=computed(()=>{
-      if(homeFilter.value==='all')return layers;
-      if(homeFilter.value==='pick'){
-        // 卖水人视图：筛选出有pick标记的股票，扁平化到一个虚拟层
-        const pickStocks=[];
-        layers.forEach(L=>{L.stocks.forEach(s=>{if(s.pick)pickStocks.push({...s,held:true});});});
-        if(!pickStocks.length)return[];
-        return[{id:'⛏',name:'卖水人标的',sub:'无论哪家AI公司成功都能赚钱',color:'#E8740A',boom:70,
-          boomLabel:'核心配置',boomColor:'#FFF5EB',boomTextColor:'#E8740A',avg:
-          pickStocks.reduce((a,s)=>a+s.cv,0)/pickStocks.length,open:true,stocks:pickStocks,
-          sig:{t:'info',text:'卖水人持仓占比~35%。雅克(材料)+英维克(液冷)+工业富联(代工)+亨通(光缆)。'}}];
-      }
-      return layers.filter(L=>L.id===homeFilter.value);
-    });
+    const etfs=reactive([
+      {code:'512890',name:'红利低波ETF',p:'-',c:'0%',cv:0},
+      {code:'159363',name:'创业板AI ETF',p:'-',c:'0%',cv:0},
+      {code:'516510',name:'云计算ETF',p:'-',c:'0%',cv:0},
+      {code:'159326',name:'电网设备ETF',p:'-',c:'0%',cv:0},
+      {code:'159338',name:'中证A500ETF',p:'-',c:'0%',cv:0}
+    ]);
 
-    // 自选股分组过滤
-    const filteredGroups=computed(()=>{
-      if(wlFilter.value==='all')return groups.value;
-      if(wlFilter.value==='held')return groups.value.filter(g=>g.t.includes('A股'));
-      if(wlFilter.value==='etf')return groups.value.filter(g=>g.t.includes('ETF'));
-      if(wlFilter.value==='hk')return groups.value.filter(g=>g.t.includes('港股'));
-      if(wlFilter.value==='cand')return[{t:'🔍 候选标的',items:[
-        {code:'688008',name:'澜起科技',p:'247.98',c:'-6.45%',cv:-6.45,sector:'DDR5+CXL',sl:'候选',sc:'ws-y',pe:'118.5'},
-        {code:'600487',name:'亨通光电',p:'69.80',c:'-5.68%',cv:-5.68,sector:'光通信+海缆',sl:'候选',sc:'ws-y',pe:'53.3',pick:true}
-      ]}];
-      return groups.value;
+    // 社群自选股 — 群成员通过OpenClaw添加，自动同步
+    const watchlist=reactive([
+      {code:'002409',name:'雅克科技',p:'-',c:'0%',cv:0,sector:'半导体材料',type:'a',addedBy:'小龙虾'},
+      {code:'002837',name:'英维克',p:'-',c:'0%',cv:0,sector:'AI液冷',type:'a',addedBy:'小龙虾'},
+      {code:'601138',name:'工业富联',p:'-',c:'0%',cv:0,sector:'AI服务器',type:'a',addedBy:'老王'},
+      {code:'300476',name:'胜宏科技',p:'-',c:'0%',cv:0,sector:'高多层PCB',type:'a',addedBy:'小龙虾'},
+      {code:'688008',name:'澜起科技',p:'-',c:'0%',cv:0,sector:'DDR5+CXL',type:'a',addedBy:'阿杰'},
+      {code:'512890',name:'红利低波ETF',p:'-',c:'0%',cv:0,sector:'防御',type:'etf',addedBy:'老王'},
+      {code:'159363',name:'创业板AI ETF',p:'-',c:'0%',cv:0,sector:'AI赛道',type:'etf',addedBy:'小龙虾'},
+      {code:'HK.01810',name:'小米集团-W',p:'-',c:'0%',cv:0,sector:'港股互联网',type:'hk',addedBy:'阿杰'},
+      {code:'HK.09988',name:'阿里巴巴-W',p:'-',c:'0%',cv:0,sector:'港股互联网',type:'hk',addedBy:'小龙虾'},
+    ]);
+
+    const filteredWatchlist=computed(()=>{
+      let list=watchlist;
+      if(wlFilter.value==='a')list=watchlist.filter(s=>s.type==='a');
+      else if(wlFilter.value==='etf')list=watchlist.filter(s=>s.type==='etf');
+      else if(wlFilter.value==='hk')list=watchlist.filter(s=>s.type==='hk');
+      if(sq.value){const q=sq.value.toLowerCase();list=list.filter(s=>s.name.includes(q)||s.code.toLowerCase().includes(q));}
+      return list;
     });
 
     const goDetail=(s,L)=>{ds.value={...s,layerName:L.id+' '+L.name};pt.value=tab.value;tab.value='detail';};
-    const goDetail2=(s)=>{ds.value=s;pt.value=tab.value;tab.value='detail';};
+    const goDetail2=(s)=>{ds.value={...s};pt.value=tab.value;tab.value='detail';};
 
-    // 自选股
-    const groups=ref([
-      {t:'🇨🇳 A股持仓',items:[
-        {code:'002409',name:'雅克科技',p:'107.46',c:'+0.52%',cv:0.52,sector:'半导体材料',sl:'持仓',sc:'ws-g',pe:'50.8',cap:'511',pick:true},
-        {code:'002837',name:'英维克',p:'100.49',c:'-1.67%',cv:-1.67,sector:'AI液冷',sl:'持仓',sc:'ws-g',pe:'203.5',cap:'982',pick:true},
-        {code:'001389',name:'广合科技',p:'180.68',c:'-2.86%',cv:-2.86,sector:'高速PCB',sl:'持仓',sc:'ws-y',pe:'73.1',cap:'854'},
-        {code:'300390',name:'天华新能',p:'93.65',c:'-2.97%',cv:-2.97,sector:'锂电上游',sl:'持仓',sc:'ws-y',pe:'59.4',cap:'778'},
-        {code:'300476',name:'胜宏科技',p:'340.22',c:'-4.12%',cv:-4.12,sector:'高多层PCB',sl:'⚠️',sc:'ws-r',pe:'71.5',cap:'3344'},
-        {code:'301217',name:'铜冠铜箔',p:'83.20',c:'-3.12%',cv:-3.12,sector:'电子铜箔',sl:'⚠️',sc:'ws-r',pe:'420',cap:'690'},
-        {code:'300418',name:'昆仑万维',p:'49.21',c:'+0.37%',cv:0.37,sector:'AI应用',sl:'深套',sc:'ws-r',pe:'亏损',cap:'618'},
-        {code:'601600',name:'中国铝业',p:'10.93',c:'-5.86%',cv:-5.86,sector:'周期-铝',sl:'轻仓',sc:'ws-y',pe:'12.8',cap:'1875'},
-        {code:'601138',name:'工业富联',p:'67.62',c:'-1.43%',cv:-1.43,sector:'AI服务器',sl:'新仓',sc:'ws-g',pe:'33.0',cap:'13420',pick:true}
-      ]},
-      {t:'📦 ETF',items:[
-        {code:'512890',name:'红利低波ETF',p:'1.167',c:'-0.77%',cv:-0.77,sector:'防御'},
-        {code:'159363',name:'创业板AI ETF',p:'1.387',c:'-1.14%',cv:-1.14,sector:'AI赛道'},
-        {code:'516510',name:'云计算ETF',p:'1.891',c:'-0.94%',cv:-0.94,sector:'AI云'},
-        {code:'159326',name:'电网设备ETF',p:'2.042',c:'-3.27%',cv:-3.27,sector:'电网'},
-        {code:'159338',name:'中证A500ETF',p:'1.295',c:'-1.22%',cv:-1.22,sector:'宽基'}
-      ]},
-      {t:'🇭🇰 港股',items:[
-        {code:'HK.01810',name:'小米集团-W',p:'30.94',c:'-2.46%',cv:-2.46,sector:'港股互联网'},
-        {code:'HK.03690',name:'美团-W',p:'83.95',c:'-2.04%',cv:-2.04,sector:'港股互联网'},
-        {code:'HK.09988',name:'阿里巴巴-W',p:'132.30',c:'-4.06%',cv:-4.06,sector:'港股互联网'},
-        {code:'HK.01024',name:'快手-W',p:'49.58',c:'-2.50%',cv:-2.50,sector:'港股互联网',sl:'浮亏-34%',sc:'ws-r'}
-      ]}
-    ]);
-    const filt=(items)=>{if(!sq.value)return items;const q=sq.value.toLowerCase();return items.filter(s=>s.name.includes(q)||s.code.toLowerCase().includes(q));};
-
-    // 详情Agent
     const dAgents=computed(()=>{
       if(!ds.value)return[];const n=ds.value.name;
       return[
         {n:'基本面',e:'📈',bg:'#FFF5EB',t:`${n}赛道景气度需关注下季业绩指引。PE ${ds.value.pe||'N/A'}。`},
         {n:'技术面',e:'📊',bg:'#F5F5F5',t:`当前价${ds.value.p}，短期均线${ds.value.cv>0?'多头':'空头'}排列。`},
-        {n:'风险',e:'⚠️',bg:'#FFF0F0',t:`组合集中度和同赛道相关性需关注。${Number(ds.value.pe)>100?'PE偏高，估值回调风险。':''}`},
+        {n:'风险',e:'⚠️',bg:'#FFF0F0',t:`同赛道相关性需关注。${Number(ds.value.pe)>100?'PE偏高，估值回调风险。':''}`},
         {n:'宏观',e:'🌍',bg:'#E8F5EC',t:`行业政策中性偏正，跟踪海外关税和国内产业政策变化。`}
       ];
     });
 
-    // 策略
-    const agents=ref([
-      {n:'基本面Agent',e:'📈',bg:'#FFF5EB',d:'财报/护城河/赛道/估值',s:'妙想+问财'},
-      {n:'技术面Agent',e:'📊',bg:'#F5F5F5',d:'K线/均线/MACD/量价',s:'妙想+富途'},
-      {n:'风险Agent',e:'⚠️',bg:'#FFF0F0',d:'止损/仓位/黑天鹅/集中度',s:'全数据源'},
-      {n:'宏观Agent',e:'🌍',bg:'#E8F5EC',d:'政策/流动性/赛道β/全球联动',s:'问财宏观'},
-      {n:'汇总Agent',e:'🧠',bg:'#F8F0FF',d:'综合四维分析+操作提示',s:'多Agent聚合'}
-    ]);
-    const dsList=ref([
-      {n:'妙想（东方财富）',sub:'A股行情/财务/选股/资讯',ok:true},
-      {n:'问财（同花顺）',sub:'A股兜底/宏观/研报',ok:true},
-      {n:'富途OpenD',sub:'港股行情/异动/情绪',ok:true},
-      {n:'飞书Bot',sub:'群聊交互/文件同步',ok:true},
-      {n:'卡方T0券池',sub:'飞书文件夹同步',ok:false}
+    // Skills说明 — 让用户看清楚有哪些能力
+    const skills=ref([
+      {icon:'📈',name:'妙想选股',category:'数据查询',ready:true,
+       desc:'基于东方财富妙想API，支持自然语言查询A股行情、财务指标、研报摘要。可按条件筛选标的池。',
+       trigger:'在对话中发送选股条件',
+       example:'"帮我查PE低于30的HBM概念股" 或 "雅克科技最新财务数据"'},
+      {icon:'🔍',name:'问财查询',category:'数据查询',ready:true,
+       desc:'对接同花顺问财，支持条件选股、宏观数据查询、行业对比分析。返回结构化数据表格。',
+       trigger:'在对话中描述查询条件',
+       example:'"问财查询近5日涨幅前10的AI概念股" 或 "查询半导体行业PE分位"'},
+      {icon:'📊',name:'富途行情',category:'实时行情',ready:true,
+       desc:'通过富途OpenD获取港股实时快照、盘口数据。支持批量查询多只港股。',
+       trigger:'查询港股相关数据时自动触发',
+       example:'"小米集团最新行情" 或 "港股互联网板块今日表现"'},
+      {icon:'📡',name:'新浪行情',category:'实时行情',ready:true,
+       desc:'新浪财经HTTP接口，A股/港股/指数实时行情。免费无限制，自动定时刷新。',
+       trigger:'定时自动执行（每5分钟），无需手动触发',
+       example:'交易时段自动更新首页所有标的价格'},
+      {icon:'🧮',name:'估值分析',category:'分析工具',ready:false,
+       desc:'PE/PB/PEG/DCF多维估值对比，支持历史分位数和同行横向对比。输出估值评级和安全边际。',
+       trigger:'对话中提到估值、安全边际等关键词',
+       example:'"分析工业富联的估值水平" 或 "对比L2层标的的PEG"'},
+      {icon:'🤖',name:'五层蛋糕挖掘',category:'Agent',ready:false,
+       desc:'AI Agent自动拆解投资主题，按产业链层级（基建→芯片→通信→模型→应用）挖掘标的。',
+       trigger:'新增主题时自动触发，或手动请求',
+       example:'"用五层蛋糕框架分析商业航天赛道"'},
+      {icon:'📋',name:'研报生成',category:'Agent',ready:false,
+       desc:'收盘后自动生成当日复盘研报，包含各层涨跌分析、异动标的、策略建议。输出至Obsidian。',
+       trigger:'每个交易日收盘后自动执行',
+       example:'自动产出"YYYY-MM-DD AI产业链日度复盘"'},
     ]);
 
-    // 从data.json加载实时数据
+    // Obsidian知识库目录
+    const obFolders=ref([
+      {icon:'📊',name:'日度复盘',desc:'每日收盘后Agent自动生成',count:0},
+      {icon:'📈',name:'周度报告',desc:'每周五AI汇总Agent生成周报',count:0},
+      {icon:'🔬',name:'深度研究',desc:'单标的/赛道深度分析',count:2},
+      {icon:'📌',name:'投资笔记',desc:'手动整理的投资思考',count:0},
+    ]);
+
+    // 研究报告（来自Obsidian，后端接入后动态加载）
+    const reports=ref([
+      {id:'1',date:'2026-05-17',source:'深度研究',title:'AI产业链周度复盘：算力分化加剧',
+       summary:'本周AI产业链呈现明显分化，L1能源基建受政策驱动保持韧性，L2算力芯片内部HBM与传统半导体走势背离，L3通信PCB龙头破位需警惕...',
+       tags:['AI产业链','周度','L2算力']},
+      {id:'2',date:'2026-05-16',source:'深度研究',title:'PCB赛道深度：高速铜箔的供需拐点',
+       summary:'全球AI服务器出货量增长带动高层数PCB需求，胜宏科技/广合科技订单能见度延伸至Q3，但铜箔环节供给释放压力加大...',
+       tags:['L3通信','PCB','供需分析']},
+    ]);
+
+    // 数据加载
     async function refreshData(){
       loading.value=true;
       try{
@@ -561,7 +562,6 @@ createApp({
         const d=await resp.json();
         updateTime.value=d.updateTime||'';
         if(d.market){marketIdx.price=d.market.price||'--';marketIdx.chg=d.market.chg||'--';}
-        // 更新五层蛋糕
         if(d.layers&&d.layers.length){
           d.layers.forEach(dl=>{
             const target=layers.find(l=>l.id===dl.id);
@@ -569,60 +569,32 @@ createApp({
             target.avg=dl.avg||0;
             dl.stocks.forEach(ds=>{
               const ts=target.stocks.find(s=>s.code===ds.code);
-              if(ts){ts.p=ds.p;ts.c=ds.c;ts.cv=ds.cv;ts.pe=ds.pe||ts.pe;ts.cap=ds.cap||ts.cap;}
+              if(ts){ts.p=ds.p;ts.c=ds.c;ts.cv=ds.cv;if(ds.pe&&ds.pe!=='-')ts.pe=ds.pe;if(ds.cap&&ds.cap!=='-')ts.cap=ds.cap;}
             });
           });
         }
-        // 更新自选股
-        if(d.layers){
-          const allStocks=d.layers.flatMap(l=>l.stocks||[]);
-          groups.value.forEach(g=>{
-            g.items.forEach(item=>{
-              const fresh=allStocks.find(s=>s.code===item.code)||(d.etfs||[]).find(s=>s.code===item.code);
-              if(fresh){item.p=fresh.p;item.c=fresh.c;item.cv=fresh.cv;}
-            });
-          });
-        }
-        // 更新ETF
-        if(d.etfs){
-          const etfGroup=groups.value.find(g=>g.t.includes('ETF'));
-          if(etfGroup){
-            d.etfs.forEach(de=>{
-              const t=etfGroup.items.find(i=>i.code===de.code);
-              if(t){t.p=de.p;t.c=de.c;t.cv=de.cv;}
-            });
-          }
-        }
-        console.log('[H5] 数据已刷新:',updateTime.value);
-      }catch(e){
-        console.log('[H5] data.json未找到，使用静态数据');
-      }finally{loading.value=false;}
+        if(d.etfs){d.etfs.forEach(de=>{const t=etfs.find(i=>i.code===de.code);if(t){t.p=de.p;t.c=de.c;t.cv=de.cv;}});}
+        // 同步行情到自选股
+        const allStocks=[...d.layers.flatMap(l=>l.stocks||[]),...(d.etfs||[]),...(d.hk||[])];
+        watchlist.forEach(w=>{const f=allStocks.find(s=>s.code===w.code);if(f){w.p=f.p;w.c=f.c;w.cv=f.cv;}});
+        console.log('[OpenClaw] 数据已刷新:',updateTime.value);
+      }catch(e){console.log('[OpenClaw] data.json未找到');}
+      finally{loading.value=false;}
     }
 
     onMounted(()=>{
       refreshData();
-      // 交易时段每60秒自动刷新
-      setInterval(()=>{
-        const h=new Date().getHours();
-        if(h>=9&&h<=15)refreshData();
-      },60000);
+      setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15)refreshData();},60000);
     });
 
-    return{tab,pt,sq,ds,layers,filteredLayers,homeFilter,wlFilter,filteredGroups,goDetail,goDetail2,groups,filt,dAgents,agents,dsList,loading,updateTime,marketIdx,refreshData};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,filteredWatchlist,goDetail,goDetail2,dAgents,skills,obFolders,reports,loading,updateTime,marketIdx,refreshData,chgClass};
   }
 }).mount('#app');
 
-// 微信JS-SDK分享配置（需后端签名，此处为结构预留）
 if(window.wx&&window.__wxConfig){
   wx.ready(function(){
-    const shareData={
-      title:'AI五层蛋糕 — 投资小龙虾',
-      desc:'AI多Agent实时监控：能源→算力→通信→模型→应用，五层穿透式投资框架',
-      link:window.location.href,
-      imgUrl:window.location.origin+'/share-thumb.png'
-    };
-    wx.updateAppMessageShareData(shareData);
-    wx.updateTimelineShareData(shareData);
+    const shareData={title:'OpenClaw — AI投研工作室',desc:'AI多Agent穿透式投研：能源→算力→通信→模型→应用',link:window.location.href,imgUrl:window.location.origin+'/share-thumb.png'};
+    wx.updateAppMessageShareData(shareData);wx.updateTimelineShareData(shareData);
   });
 }
 </script>
