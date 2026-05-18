@@ -1,11 +1,11 @@
 {
-  "updateTime": "2026-05-17 21:24:04",
-  "timestamp": 1779024244,
+  "updateTime": "2026-05-18 09:25:27",
+  "timestamp": 1779067527,
   "market": {
     "index": "上证综指",
     "indexCode": "000001.SH",
-    "price": "4135.3894",
-    "chg": "-1.02%"
+    "price": "4120.14",
+    "chg": "-0.37%"
   },
   "layers": [
     {
@@ -20,14 +20,14 @@
           "sector": "电网",
           "held": true,
           "pick": false,
-          "p": "2.04",
-          "c": "-3.27%",
-          "cv": -3.27,
+          "p": "2.03",
+          "c": "-0.44%",
+          "cv": -0.44,
           "pe": "-",
           "cap": "-",
-          "signal": "neutral",
-          "signalNote": "站上MA20；MACD红柱；费城半导体暴跌-4.02%；ADX=33.3(强趋势)；预期日波动±2.99%",
-          "signalTime": "05:55",
+          "signal": "buy",
+          "signalNote": "站上MA20；MACD红柱；ADX=33.3(强趋势)；预期日波动±2.99%",
+          "signalTime": "09:26",
           "confidence": "低"
         },
         {
@@ -36,20 +36,20 @@
           "sector": "锂电上游",
           "held": true,
           "pick": false,
-          "p": "93.65",
-          "c": "-2.97%",
-          "cv": -2.97,
+          "p": "94.47",
+          "c": "+0.88%",
+          "cv": 0.88,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalTime": "09:26",
           "confidence": "低"
         }
       ],
-      "avg": -3.12,
-      "summary": "能源基建板块2只标的，方向不明确，保持观望。",
-      "summaryTime": "05:55"
+      "avg": 0.22,
+      "summary": "能源基建板块2只标的，整体偏多（1只建仓信号）。",
+      "summaryTime": "09:26"
     },
     {
       "id": "L2",
@@ -63,14 +63,14 @@
           "sector": "半导体材料",
           "held": true,
           "pick": true,
-          "p": "107.46",
-          "c": "+0.52%",
-          "cv": 0.52,
+          "p": "117.14",
+          "c": "+9.01%",
+          "cv": 9.01,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalTime": "09:26",
           "confidence": "低"
         },
         {
@@ -79,14 +79,14 @@
           "sector": "AI液冷",
           "held": true,
           "pick": true,
-          "p": "100.49",
-          "c": "-1.67%",
-          "cv": -1.67,
+          "p": "100.51",
+          "c": "+0.02%",
+          "cv": 0.02,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalNote": "跌破MA20；跌破MA60；MACD红柱；ADX=12.9(震荡市)；预期日波动±5.14%(高)",
+          "signalTime": "09:26",
           "confidence": "低"
         },
         {
@@ -95,14 +95,14 @@
           "sector": "AI服务器",
           "held": true,
           "pick": true,
-          "p": "67.62",
-          "c": "-1.43%",
-          "cv": -1.43,
+          "p": "65.88",
+          "c": "-2.57%",
+          "cv": -2.57,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalNote": "站上MA20；MACD绿柱；极度缩量；ADX=34.9(强趋势)；预期日波动±5.16%(高)",
+          "signalTime": "09:26",
           "confidence": "低"
         },
         {
@@ -111,14 +111,14 @@
           "sector": "电子铜箔",
           "held": true,
           "pick": false,
-          "p": "83.2",
-          "c": "-3.12%",
-          "cv": -3.12,
+          "p": "83.14",
+          "c": "-0.07%",
+          "cv": -0.07,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalNote": "站上MA20；RSI超买(73.1)；MACD红柱；ADX=74.9(强趋势)；预期日波动±11.13%(高)",
+          "signalTime": "09:26",
           "confidence": "低"
         },
         {
@@ -127,20 +127,20 @@
           "sector": "DDR5+CXL",
           "held": false,
           "pick": false,
-          "p": "247.98",
-          "c": "-6.45%",
-          "cv": -6.45,
+          "p": "247.2",
+          "c": "-0.31%",
+          "cv": -0.31,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalNote": "站上MA20；RSI超买(77.9)；MACD红柱；ADX=58.3(强趋势)；预期日波动±7.09%(高)",
+          "signalTime": "09:26",
           "confidence": "低"
         }
       ],
-      "avg": -2.43,
+      "avg": 1.22,
       "summary": "算力芯片板块5只标的，方向不明确，保持观望，费城半导体走弱，算力链承压。",
-      "summaryTime": "05:55"
+      "summaryTime": "09:26"
     },
     {
       "id": "L3",
@@ -154,14 +154,14 @@
           "sector": "高速PCB",
           "held": true,
           "pick": false,
-          "p": "180.68",
-          "c": "-2.86%",
-          "cv": -2.86,
+          "p": "178.51",
+          "c": "-1.2%",
+          "cv": -1.2,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalTime": "09:26",
           "confidence": "低"
         },
         {
@@ -170,14 +170,14 @@
           "sector": "高多层PCB",
           "held": true,
           "pick": false,
-          "p": "340.22",
-          "c": "-4.12%",
-          "cv": -4.12,
+          "p": "336.6",
+          "c": "-1.06%",
+          "cv": -1.06,
           "pe": "-",
           "cap": "-",
-          "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signal": "risk",
+          "signalNote": "跌破MA20；MACD绿柱；极度缩量；ADX=46.6(强趋势)；预期日波动±6.17%(高)",
+          "signalTime": "09:26",
           "confidence": "低"
         },
         {
@@ -186,20 +186,20 @@
           "sector": "光通信+海缆",
           "held": false,
           "pick": true,
-          "p": "69.8",
-          "c": "-5.68%",
-          "cv": -5.68,
+          "p": "69.01",
+          "c": "-1.13%",
+          "cv": -1.13,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalNote": "站上MA20；MACD绿柱；极度缩量；ADX=43.9(强趋势)；预期日波动±6.52%(高)",
+          "signalTime": "09:26",
           "confidence": "低"
         }
       ],
-      "avg": -4.22,
-      "summary": "通信基建板块3只标的，方向不明确，保持观望，费城半导体走弱，算力链承压。",
-      "summaryTime": "05:55"
+      "avg": -1.13,
+      "summary": "通信基建板块3只标的，整体偏弱（1只风险信号），近5日均跌-6.33%，关注超跌反弹，费城半导体走弱，算力链承压。",
+      "summaryTime": "09:26"
     },
     {
       "id": "L4",
@@ -213,20 +213,20 @@
           "sector": "AI应用/大模型",
           "held": true,
           "pick": false,
-          "p": "49.21",
-          "c": "+0.37%",
-          "cv": 0.37,
+          "p": "48.85",
+          "c": "-0.73%",
+          "cv": -0.73,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalNote": "空头排列；跌破MA60；MACD绿柱；ADX=9.6(震荡市)；预期日波动±5.04%(高)",
+          "signalTime": "09:26",
           "confidence": "低"
         }
       ],
-      "avg": 0.37,
-      "summary": "模型层板块1只标的，方向不明确，保持观望。",
-      "summaryTime": "05:55"
+      "avg": -0.73,
+      "summary": "模型层板块1只标的，方向不明确，保持观望，近5日均跌-9.75%，关注超跌反弹。",
+      "summaryTime": "09:26"
     },
     {
       "id": "L5",
@@ -240,14 +240,14 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "30.7",
-          "c": "-3.22%",
-          "cv": -3.22,
+          "p": "31.0",
+          "c": "+0.98%",
+          "cv": 0.98,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalNote": "跌破MA20；跌破MA60；MACD红柱；ADX=11.9(震荡市)；预期日波动±3.58%",
+          "signalTime": "09:26",
           "confidence": "低"
         },
         {
@@ -256,14 +256,14 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "82.7",
-          "c": "-3.5%",
-          "cv": -3.5,
+          "p": "82.2",
+          "c": "-0.6%",
+          "cv": -0.6,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalNote": "跌破MA20；跌破MA60；MACD绿柱；ADX=15.4(震荡市)；预期日波动±3.48%",
+          "signalTime": "09:26",
           "confidence": "低"
         },
         {
@@ -272,14 +272,14 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "132.3",
-          "c": "-4.06%",
-          "cv": -4.06,
+          "p": "130.4",
+          "c": "-1.44%",
+          "cv": -1.44,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalNote": "跌破MA20；跌破MA60；MACD绿柱；ADX=10.2(震荡市)；预期日波动±3.98%",
+          "signalTime": "09:26",
           "confidence": "低"
         },
         {
@@ -288,20 +288,20 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "49.34",
-          "c": "-2.97%",
-          "cv": -2.97,
+          "p": "48.18",
+          "c": "-2.35%",
+          "cv": -2.35,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "05:55",
+          "signalNote": "站上MA20；跌破MA60；RSI偏高(61.0)；ADX=31.1(强趋势)；预期日波动±5.56%(高)",
+          "signalTime": "09:26",
           "confidence": "低"
         }
       ],
-      "avg": -3.44,
-      "summary": "应用层板块4只标的，方向不明确，保持观望。",
-      "summaryTime": "05:55"
+      "avg": -0.85,
+      "summary": "应用层板块4只标的，方向不明确，保持观望，近5日均跌-3.5%，关注超跌反弹。",
+      "summaryTime": "09:26"
     }
   ],
   "etfs": [
@@ -309,41 +309,41 @@
       "code": "512890",
       "name": "红利低波ETF",
       "sector": "防御",
-      "p": "1.17",
-      "c": "-0.77%",
-      "cv": -0.77
+      "p": "1.16",
+      "c": "-0.26%",
+      "cv": -0.26
     },
     {
       "code": "159363",
       "name": "创业板AI ETF",
       "sector": "AI赛道",
-      "p": "1.39",
-      "c": "-1.14%",
-      "cv": -1.14
+      "p": "1.37",
+      "c": "-1.37%",
+      "cv": -1.37
     },
     {
       "code": "516510",
       "name": "云计算ETF",
       "sector": "AI云",
-      "p": "1.89",
-      "c": "-0.94%",
-      "cv": -0.94
+      "p": "1.87",
+      "c": "-1.0%",
+      "cv": -1.0
     },
     {
       "code": "159326",
       "name": "电网设备ETF",
       "sector": "电网",
-      "p": "2.04",
-      "c": "-3.27%",
-      "cv": -3.27
+      "p": "2.03",
+      "c": "-0.44%",
+      "cv": -0.44
     },
     {
       "code": "159338",
       "name": "中证A500ETF",
       "sector": "宽基",
       "p": "1.29",
-      "c": "-1.22%",
-      "cv": -1.22
+      "c": "-0.23%",
+      "cv": -0.23
     }
   ],
   "hk": [
@@ -353,11 +353,15 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "30.7",
-      "c": "-3.22%",
-      "cv": -3.22,
+      "p": "31.0",
+      "c": "+0.98%",
+      "cv": 0.98,
       "pe": "-",
-      "cap": "-"
+      "cap": "-",
+      "signal": "neutral",
+      "signalNote": "数据不足，暂无信号",
+      "signalTime": "05:55",
+      "confidence": "低"
     },
     {
       "code": "HK.03690",
@@ -365,11 +369,15 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "82.7",
-      "c": "-3.5%",
-      "cv": -3.5,
+      "p": "82.2",
+      "c": "-0.6%",
+      "cv": -0.6,
       "pe": "-",
-      "cap": "-"
+      "cap": "-",
+      "signal": "neutral",
+      "signalNote": "数据不足，暂无信号",
+      "signalTime": "05:55",
+      "confidence": "低"
     },
     {
       "code": "HK.09988",
@@ -377,11 +385,15 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "132.3",
-      "c": "-4.06%",
-      "cv": -4.06,
+      "p": "130.4",
+      "c": "-1.44%",
+      "cv": -1.44,
       "pe": "-",
-      "cap": "-"
+      "cap": "-",
+      "signal": "neutral",
+      "signalNote": "数据不足，暂无信号",
+      "signalTime": "05:55",
+      "confidence": "低"
     },
     {
       "code": "HK.01024",
@@ -389,12 +401,16 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "49.34",
-      "c": "-2.97%",
-      "cv": -2.97,
+      "p": "48.18",
+      "c": "-2.35%",
+      "cv": -2.35,
       "pe": "-",
-      "cap": "-"
+      "cap": "-",
+      "signal": "neutral",
+      "signalNote": "数据不足，暂无信号",
+      "signalTime": "05:55",
+      "confidence": "低"
     }
   ],
-  "signalUpdateTime": "2026-05-18 05:55:06"
+  "signalUpdateTime": "2026-05-18 09:26:04"
 }
