@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-05-19 11:30:31",
-  "timestamp": 1779161431,
+  "updateTime": "2026-05-19 11:35:54",
+  "timestamp": 1779161754,
   "market": {
     "index": "上证综指",
     "indexCode": "000001.SH",
@@ -360,7 +360,7 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "10:31",
+      "signalTime": "11:30",
       "confidence": "低"
     },
     {
@@ -376,7 +376,7 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "10:31",
+      "signalTime": "11:30",
       "confidence": "低"
     },
     {
@@ -392,7 +392,7 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "10:31",
+      "signalTime": "11:30",
       "confidence": "低"
     },
     {
@@ -408,9 +408,8 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "10:31",
+      "signalTime": "11:30",
       "confidence": "低"
     }
-  ],
-  "signalUpdateTime": "2026-05-19 11:30:49"
+  ]
 }
