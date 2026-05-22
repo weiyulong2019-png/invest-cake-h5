@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-05-22 11:35:00",
-  "timestamp": 1779420900,
+  "updateTime": "2026-05-22 11:40:07",
+  "timestamp": 1779421207,
   "market": {
     "index": "上证综指",
     "indexCode": "000001.SH",
@@ -240,9 +240,9 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "30.1",
-          "c": "+1.48%",
-          "cv": 1.48,
+          "p": "30.12",
+          "c": "+1.55%",
+          "cv": 1.55,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
@@ -299,7 +299,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 0.95,
+      "avg": 0.97,
       "summary": "应用层板块4只标的，方向不明确，保持观望。",
       "summaryTime": "06:08"
     }
@@ -353,9 +353,9 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "30.1",
-      "c": "+1.48%",
-      "cv": 1.48,
+      "p": "30.12",
+      "c": "+1.55%",
+      "cv": 1.55,
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
