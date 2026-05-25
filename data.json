@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-05-25 15:15:09",
-  "timestamp": 1779693309,
+  "updateTime": "2026-05-25 15:43:45",
+  "timestamp": 1779695025,
   "market": {
     "index": "上证综指",
     "indexCode": "000001.SH",
@@ -47,7 +47,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 1.28,
+      "avg": 0.0,
       "summary": "能源基建板块2只标的，方向不明确，保持观望。",
       "summaryTime": "15:15"
     },
@@ -138,7 +138,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 5.1,
+      "avg": 0.0,
       "summary": "算力芯片板块5只标的，方向不明确，保持观望。",
       "summaryTime": "15:15"
     },
@@ -197,7 +197,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 0.19,
+      "avg": 0.0,
       "summary": "通信基建板块3只标的，方向不明确，保持观望。",
       "summaryTime": "15:15"
     },
@@ -224,7 +224,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 4.24,
+      "avg": 0.0,
       "summary": "模型层板块1只标的，方向不明确，保持观望。",
       "summaryTime": "15:15"
     },
@@ -360,7 +360,7 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "14:01",
+      "signalTime": "15:15",
       "confidence": "低"
     },
     {
@@ -376,7 +376,7 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "14:01",
+      "signalTime": "15:15",
       "confidence": "低"
     },
     {
@@ -392,7 +392,7 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "14:01",
+      "signalTime": "15:15",
       "confidence": "低"
     },
     {
@@ -408,9 +408,8 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "14:01",
+      "signalTime": "15:15",
       "confidence": "低"
     }
-  ],
-  "signalUpdateTime": "2026-05-25 15:15:40"
+  ]
 }
