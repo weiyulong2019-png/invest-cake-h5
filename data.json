@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-05-27 11:30:57",
-  "timestamp": 1779852657,
+  "updateTime": "2026-05-27 11:36:48",
+  "timestamp": 1779853008,
   "market": {
     "index": "上证综指",
     "indexCode": "000001.SH",
@@ -47,7 +47,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 0.57,
+      "avg": 0.0,
       "summary": "能源基建板块2只标的，整体偏弱（1只风险信号）。",
       "summaryTime": "11:31"
     },
@@ -138,7 +138,7 @@
           "confidence": "低"
         }
       ],
-      "avg": -0.16,
+      "avg": 0.0,
       "summary": "算力芯片板块5只标的，整体偏多（4只建仓信号），近5日均涨3.44%，注意追高风险。",
       "summaryTime": "11:31"
     },
@@ -197,7 +197,7 @@
           "confidence": "低"
         }
       ],
-      "avg": -1.24,
+      "avg": 0.0,
       "summary": "通信基建板块3只标的，方向不明确，保持观望，近5日均涨4.26%，注意追高风险。",
       "summaryTime": "11:31"
     },
@@ -224,7 +224,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 0.86,
+      "avg": 0.0,
       "summary": "模型层板块1只标的，方向不明确，保持观望。",
       "summaryTime": "11:31"
     },
@@ -240,9 +240,9 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "29.02",
-          "c": "-2.49%",
-          "cv": -2.49,
+          "p": "29.04",
+          "c": "-2.42%",
+          "cv": -2.42,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
@@ -256,9 +256,9 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "77.75",
-          "c": "-1.33%",
-          "cv": -1.33,
+          "p": "77.7",
+          "c": "-1.4%",
+          "cv": -1.4,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
@@ -272,9 +272,9 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "124.0",
-          "c": "-2.82%",
-          "cv": -2.82,
+          "p": "124.1",
+          "c": "-2.74%",
+          "cv": -2.74,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
@@ -288,9 +288,9 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "45.24",
-          "c": "-1.22%",
-          "cv": -1.22,
+          "p": "45.26",
+          "c": "-1.18%",
+          "cv": -1.18,
           "pe": "-",
           "cap": "-",
           "signal": "risk",
@@ -299,7 +299,7 @@
           "confidence": "低"
         }
       ],
-      "avg": -1.97,
+      "avg": -1.94,
       "summary": "应用层板块4只标的，整体偏弱（1只风险信号），近5日均跌-6.45%，关注超跌反弹。",
       "summaryTime": "11:31"
     }
@@ -353,14 +353,14 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "29.02",
-      "c": "-2.49%",
-      "cv": -2.49,
+      "p": "29.04",
+      "c": "-2.42%",
+      "cv": -2.42,
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
-      "signalNote": "数据不足，暂无信号",
-      "signalTime": "10:00",
+      "signalNote": "空头排列；跌破MA60；RSI偏低(31.8)；ADX=12.7(震荡市)；预期日波动±3.43%",
+      "signalTime": "11:31",
       "confidence": "低"
     },
     {
@@ -369,14 +369,14 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "77.75",
-      "c": "-1.33%",
-      "cv": -1.33,
+      "p": "77.7",
+      "c": "-1.4%",
+      "cv": -1.4,
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
-      "signalNote": "空头排列；跌破MA60；MACD绿柱；ADX=15.6(震荡市)；预期日波动±3.83%",
-      "signalTime": "10:00",
+      "signalNote": "空头排列；跌破MA60；MACD绿柱；ADX=15.6(震荡市)；预期日波动±3.85%",
+      "signalTime": "11:31",
       "confidence": "低"
     },
     {
@@ -385,14 +385,14 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "124.0",
-      "c": "-2.82%",
-      "cv": -2.82,
+      "p": "124.1",
+      "c": "-2.74%",
+      "cv": -2.74,
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
-      "signalNote": "空头排列；跌破MA60；MACD绿柱；ADX=10.6(震荡市)；预期日波动±4.15%(高)",
-      "signalTime": "10:00",
+      "signalNote": "空头排列；跌破MA60；MACD绿柱；ADX=10.7(震荡市)；预期日波动±4.28%(高)",
+      "signalTime": "11:31",
       "confidence": "低"
     },
     {
@@ -401,16 +401,15 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "45.24",
-      "c": "-1.22%",
-      "cv": -1.22,
+      "p": "45.26",
+      "c": "-1.18%",
+      "cv": -1.18,
       "pe": "-",
       "cap": "-",
-      "signal": "neutral",
-      "signalNote": "数据不足，暂无信号",
-      "signalTime": "10:00",
+      "signal": "risk",
+      "signalNote": "跌破MA20；跌破MA60；MACD绿柱；预期日波动±6.3%(高)",
+      "signalTime": "11:31",
       "confidence": "低"
     }
-  ],
-  "signalUpdateTime": "2026-05-27 11:31:25"
+  ]
 }
