@@ -27,7 +27,7 @@
           "cap": "-",
           "signal": "risk",
           "signalNote": "跌破MA20；MACD绿柱；预期日波动±3.5%",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         },
         {
@@ -43,13 +43,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         }
       ],
       "avg": 0.0,
       "summary": "能源基建板块2只标的，整体偏弱（1只风险信号）。",
-      "summaryTime": "06:04"
+      "summaryTime": "06:10"
     },
     {
       "id": "L2",
@@ -70,7 +70,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         },
         {
@@ -86,7 +86,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         },
         {
@@ -102,7 +102,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         },
         {
@@ -118,7 +118,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         },
         {
@@ -134,13 +134,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         }
       ],
       "avg": 0.0,
       "summary": "算力芯片板块5只标的，方向不明确，保持观望。",
-      "summaryTime": "06:04"
+      "summaryTime": "06:10"
     },
     {
       "id": "L3",
@@ -161,7 +161,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         },
         {
@@ -177,7 +177,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         },
         {
@@ -193,13 +193,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         }
       ],
       "avg": 0.0,
       "summary": "通信基建板块3只标的，方向不明确，保持观望。",
-      "summaryTime": "06:04"
+      "summaryTime": "06:10"
     },
     {
       "id": "L4",
@@ -220,13 +220,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         }
       ],
       "avg": 0.0,
       "summary": "模型层板块1只标的，方向不明确，保持观望。",
-      "summaryTime": "06:04"
+      "summaryTime": "06:10"
     },
     {
       "id": "L5",
@@ -247,7 +247,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         },
         {
@@ -263,7 +263,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         },
         {
@@ -279,7 +279,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         },
         {
@@ -295,13 +295,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "06:04",
+          "signalTime": "06:10",
           "confidence": "低"
         }
       ],
       "avg": -0.22,
       "summary": "应用层板块4只标的，方向不明确，保持观望。",
-      "summaryTime": "06:04"
+      "summaryTime": "06:10"
     }
   ],
   "etfs": [
@@ -412,5 +412,5 @@
       "confidence": "低"
     }
   ],
-  "signalUpdateTime": "2026-06-01 06:04:43"
+  "signalUpdateTime": "2026-06-01 06:10:30"
 }
