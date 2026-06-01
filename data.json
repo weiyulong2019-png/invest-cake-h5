@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-06-01 09:46:49",
-  "timestamp": 1780278409,
+  "updateTime": "2026-06-01 09:53:34",
+  "timestamp": 1780278814,
   "market": {
     "index": "上证综指",
     "indexCode": "000001.SH",
@@ -47,7 +47,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 1.49,
+      "avg": 0.0,
       "summary": "能源基建板块2只标的，整体偏弱（1只风险信号）。",
       "summaryTime": "06:10"
     },
@@ -138,7 +138,7 @@
           "confidence": "低"
         }
       ],
-      "avg": -2.45,
+      "avg": 0.0,
       "summary": "算力芯片板块5只标的，方向不明确，保持观望。",
       "summaryTime": "06:10"
     },
@@ -197,7 +197,7 @@
           "confidence": "低"
         }
       ],
-      "avg": -3.95,
+      "avg": 0.0,
       "summary": "通信基建板块3只标的，方向不明确，保持观望。",
       "summaryTime": "06:10"
     },
@@ -224,7 +224,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 1.96,
+      "avg": 0.0,
       "summary": "模型层板块1只标的，方向不明确，保持观望。",
       "summaryTime": "06:10"
     },
