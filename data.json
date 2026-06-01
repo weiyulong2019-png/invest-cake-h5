@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-06-01 15:15:29",
-  "timestamp": 1780298129,
+  "updateTime": "2026-06-01 15:21:24",
+  "timestamp": 1780298484,
   "market": {
     "index": "上证综指",
     "indexCode": "000001.SH",
@@ -47,7 +47,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 0.73,
+      "avg": 0.0,
       "summary": "能源基建板块2只标的，整体偏弱（1只风险信号）。",
       "summaryTime": "15:15"
     },
@@ -138,7 +138,7 @@
           "confidence": "低"
         }
       ],
-      "avg": -4.67,
+      "avg": 0.0,
       "summary": "算力芯片板块5只标的，方向不明确，保持观望。",
       "summaryTime": "15:15"
     },
@@ -197,7 +197,7 @@
           "confidence": "低"
         }
       ],
-      "avg": -5.45,
+      "avg": 0.0,
       "summary": "通信基建板块3只标的，方向不明确，保持观望。",
       "summaryTime": "15:15"
     },
@@ -224,7 +224,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 2.44,
+      "avg": 0.0,
       "summary": "模型层板块1只标的，方向不明确，保持观望。",
       "summaryTime": "15:15"
     },
@@ -240,9 +240,9 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "28.78",
-          "c": "+2.64%",
-          "cv": 2.64,
+          "p": "28.76",
+          "c": "+2.57%",
+          "cv": 2.57,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
@@ -256,9 +256,9 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "78.85",
-          "c": "+7.35%",
-          "cv": 7.35,
+          "p": "78.8",
+          "c": "+7.28%",
+          "cv": 7.28,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
@@ -272,9 +272,9 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "123.6",
-          "c": "+2.23%",
-          "cv": 2.23,
+          "p": "123.7",
+          "c": "+2.32%",
+          "cv": 2.32,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
@@ -299,7 +299,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 3.8,
+      "avg": 3.79,
       "summary": "应用层板块4只标的，方向不明确，保持观望。",
       "summaryTime": "15:15"
     }
@@ -353,14 +353,14 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "28.78",
-      "c": "+2.64%",
-      "cv": 2.64,
+      "p": "28.76",
+      "c": "+2.57%",
+      "cv": 2.57,
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "13:30",
+      "signalTime": "15:15",
       "confidence": "低"
     },
     {
@@ -369,14 +369,14 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "78.85",
-      "c": "+7.35%",
-      "cv": 7.35,
+      "p": "78.8",
+      "c": "+7.28%",
+      "cv": 7.28,
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "13:30",
+      "signalTime": "15:15",
       "confidence": "低"
     },
     {
@@ -385,14 +385,14 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "123.6",
-      "c": "+2.23%",
-      "cv": 2.23,
+      "p": "123.7",
+      "c": "+2.32%",
+      "cv": 2.32,
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "13:30",
+      "signalTime": "15:15",
       "confidence": "低"
     },
     {
@@ -408,9 +408,8 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "13:30",
+      "signalTime": "15:15",
       "confidence": "低"
     }
-  ],
-  "signalUpdateTime": "2026-06-01 15:15:57"
+  ]
 }
