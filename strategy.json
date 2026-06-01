@@ -1,0 +1,2577 @@
+{
+  "updateTime": "2026-06-02 01:49:10",
+  "timestamp": 1780336150,
+  "mode": "dry-run",
+  "disclaimer": "公开策略数据看板，仅含聚合/结构化信息，不构成投资建议。",
+  "waterSellers": {
+    "available": false,
+    "note": "暂无结构化数据源（卖水人报告为散文，按铁律不硬解析）",
+    "items": []
+  },
+  "chainTree": {
+    "available": true,
+    "note": "",
+    "chain": "ai_server",
+    "entry": "整机与机柜集成",
+    "stats": {
+      "total_nodes": 46,
+      "nodes_with_targets": 37,
+      "nodes_todo": 9,
+      "total_targets": 67
+    },
+    "segments": [
+      {
+        "name": "整机与机柜集成",
+        "tier": 0,
+        "depth": 0,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "601138",
+            "name": "工业富联",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300442",
+            "name": "润泽科技",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "000034",
+            "name": "神州数码",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "算力模块(GPU/CPU/加速卡)",
+        "tier": 1,
+        "depth": 1,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "688041",
+            "name": "海光信息",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "先进封装(CoWoS/SoIC)",
+        "tier": 2,
+        "depth": 2,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "002156",
+            "name": "通富微电",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "600584",
+            "name": "长电科技",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "封装基板与中介层材料",
+        "tier": 3,
+        "depth": 3,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "002409",
+            "name": "雅克科技",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "封装设备",
+        "tier": 3,
+        "depth": 3,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "002371",
+            "name": "北方华创",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "ABF味之素膜",
+        "tier": 3,
+        "depth": 3,
+        "kind": "raw",
+        "holdings": [
+          {
+            "code": "603186",
+            "name": "华正新材",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "石英材料",
+        "tier": 3,
+        "depth": 3,
+        "kind": "raw",
+        "holdings": [
+          {
+            "code": "603688",
+            "name": "石英股份",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "GPU裸片代工",
+        "tier": 2,
+        "depth": 2,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "688126",
+            "name": "沪硅产业",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "IC载板(ABF/BT)",
+        "tier": 2,
+        "depth": 2,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "002436",
+            "name": "兴森科技",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "ABF味之素膜",
+        "tier": 3,
+        "depth": 3,
+        "kind": "raw",
+        "holdings": [
+          {
+            "code": "603186",
+            "name": "华正新材",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "高端覆铜板材料",
+        "tier": 3,
+        "depth": 3,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "688519",
+            "name": "南亚新材",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "铜连接(高速铜缆/连接器)",
+        "tier": 2,
+        "depth": 2,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "002130",
+            "name": "沃尔核材",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300913",
+            "name": "兆龙互连",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "铜箔",
+        "tier": 3,
+        "depth": 3,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "600110",
+            "name": "诺德股份",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "电解铜箔",
+        "tier": 3,
+        "depth": 3,
+        "kind": "raw",
+        "holdings": [
+          {
+            "code": "301217",
+            "name": "铜冠铜箔",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "光模块",
+        "tier": 2,
+        "depth": 2,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "300308",
+            "name": "中际旭创",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300502",
+            "name": "新易盛",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300394",
+            "name": "天孚通信",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "光芯片(EML/VCSEL/硅光)",
+        "tier": 3,
+        "depth": 3,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "688498",
+            "name": "源杰科技",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "688313",
+            "name": "仕佳光子",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "688048",
+            "name": "长光华芯",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "002281",
+            "name": "光迅科技",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "光纤光缆",
+        "tier": 3,
+        "depth": 3,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "601869",
+            "name": "长飞光纤",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "600487",
+            "name": "亨通光电",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "光纤预制棒",
+        "tier": 3,
+        "depth": 4,
+        "kind": "raw",
+        "holdings": [
+          {
+            "code": "600522",
+            "name": "中天科技",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "石英材料",
+        "tier": 3,
+        "depth": 4,
+        "kind": "raw",
+        "holdings": [
+          {
+            "code": "603688",
+            "name": "石英股份",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "光器件(透镜/隔离器)",
+        "tier": 3,
+        "depth": 3,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "688400",
+            "name": "凌云光",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "交换芯片(NVSwitch)",
+        "tier": 2,
+        "depth": 2,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "688702",
+            "name": "盛科通信",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "高速PCB(HDI/高多层)",
+        "tier": 2,
+        "depth": 2,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "002463",
+            "name": "沪电股份",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "002916",
+            "name": "深南电路",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300476",
+            "name": "胜宏科技",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "603228",
+            "name": "景旺电子",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "001389",
+            "name": "广合科技",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "603629",
+            "name": "利通电子",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "002384",
+            "name": "东山精密",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "高频高速覆铜板(CCL)",
+        "tier": 3,
+        "depth": 3,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "600183",
+            "name": "生益科技",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "电子级玻纤布",
+        "tier": 3,
+        "depth": 4,
+        "kind": "raw",
+        "holdings": [
+          {
+            "code": "002080",
+            "name": "中材科技",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "600176",
+            "name": "中国巨石",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "603256",
+            "name": "宏和科技",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300395",
+            "name": "菲利华",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "电解铜箔",
+        "tier": 3,
+        "depth": 4,
+        "kind": "raw",
+        "holdings": [
+          {
+            "code": "301217",
+            "name": "铜冠铜箔",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "特种树脂(碳氢/PPO)",
+        "tier": 3,
+        "depth": 4,
+        "kind": "raw",
+        "holdings": [
+          {
+            "code": "601208",
+            "name": "东材科技",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "605589",
+            "name": "圣泉集团",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "高频高速覆铜板(CCL)",
+        "tier": 3,
+        "depth": 2,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "600183",
+            "name": "生益科技",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "电源管理芯片(PMIC/VR)",
+        "tier": 2,
+        "depth": 2,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "688141",
+            "name": "杰华特",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "功率半导体晶圆",
+        "tier": 3,
+        "depth": 3,
+        "kind": "raw",
+        "holdings": [
+          {
+            "code": "688396",
+            "name": "华润微",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "600460",
+            "name": "士兰微",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "高密度电源模块",
+        "tier": 2,
+        "depth": 2,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "002851",
+            "name": "麦格米特",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300870",
+            "name": "欧陆通",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "002364",
+            "name": "中恒电气",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "散热模块",
+        "tier": 1,
+        "depth": 1,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "301018",
+            "name": "申菱环境",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "液冷板/快接头",
+        "tier": 2,
+        "depth": 2,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "002837",
+            "name": "英维克",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300499",
+            "name": "高澜股份",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "氟化液/冷却液",
+        "tier": 3,
+        "depth": 3,
+        "kind": "raw",
+        "holdings": [
+          {
+            "code": "600160",
+            "name": "巨化股份",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300037",
+            "name": "新宙邦",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "导热界面材料(TIM)",
+        "tier": 2,
+        "depth": 2,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "300684",
+            "name": "中石科技",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300602",
+            "name": "飞荣达",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "存储模块(HBM/SSD)",
+        "tier": 1,
+        "depth": 1,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "603986",
+            "name": "兆易创新",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300475",
+            "name": "香农芯创",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "000021",
+            "name": "深科技",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "存储接口芯片",
+        "tier": 2,
+        "depth": 2,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "688008",
+            "name": "澜起科技",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "封装材料",
+        "tier": 2,
+        "depth": 2,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "688535",
+            "name": "华海诚科",
+            "is_leader": true,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "688300",
+            "name": "联瑞新材",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300054",
+            "name": "鼎龙股份",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      }
+    ],
+    "non_consensus": [],
+    "upstream_todo": [
+      {
+        "segment": "BT树脂",
+        "tier": 3
+      },
+      {
+        "segment": "高频高速覆铜板",
+        "tier": 3
+      },
+      {
+        "segment": "磁性元件/电容",
+        "tier": 2
+      },
+      {
+        "segment": "铜铝散热材料",
+        "tier": 3
+      },
+      {
+        "segment": "CDU/manifold",
+        "tier": 2
+      },
+      {
+        "segment": "HBM晶圆",
+        "tier": 2
+      }
+    ],
+    "theme": "AI服务器",
+    "consensus_live": false,
+    "key": "ai_server",
+    "label": "AI服务器"
+  },
+  "chains": {
+    "ai_server": {
+      "available": true,
+      "note": "",
+      "chain": "ai_server",
+      "entry": "整机与机柜集成",
+      "stats": {
+        "total_nodes": 46,
+        "nodes_with_targets": 37,
+        "nodes_todo": 9,
+        "total_targets": 67
+      },
+      "segments": [
+        {
+          "name": "整机与机柜集成",
+          "tier": 0,
+          "depth": 0,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "601138",
+              "name": "工业富联",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300442",
+              "name": "润泽科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "000034",
+              "name": "神州数码",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "算力模块(GPU/CPU/加速卡)",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688041",
+              "name": "海光信息",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "先进封装(CoWoS/SoIC)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002156",
+              "name": "通富微电",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600584",
+              "name": "长电科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "封装基板与中介层材料",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "002409",
+              "name": "雅克科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "封装设备",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "002371",
+              "name": "北方华创",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "ABF味之素膜",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "603186",
+              "name": "华正新材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "石英材料",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "603688",
+              "name": "石英股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "GPU裸片代工",
+          "tier": 2,
+          "depth": 2,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "688126",
+              "name": "沪硅产业",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "IC载板(ABF/BT)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002436",
+              "name": "兴森科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "ABF味之素膜",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "603186",
+              "name": "华正新材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高端覆铜板材料",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "688519",
+              "name": "南亚新材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "铜连接(高速铜缆/连接器)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002130",
+              "name": "沃尔核材",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300913",
+              "name": "兆龙互连",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "铜箔",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "600110",
+              "name": "诺德股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "电解铜箔",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "301217",
+              "name": "铜冠铜箔",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "光模块",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300308",
+              "name": "中际旭创",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300502",
+              "name": "新易盛",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300394",
+              "name": "天孚通信",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "光芯片(EML/VCSEL/硅光)",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "688498",
+              "name": "源杰科技",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688313",
+              "name": "仕佳光子",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688048",
+              "name": "长光华芯",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002281",
+              "name": "光迅科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "光纤光缆",
+          "tier": 3,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "601869",
+              "name": "长飞光纤",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600487",
+              "name": "亨通光电",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "光纤预制棒",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "600522",
+              "name": "中天科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "石英材料",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "603688",
+              "name": "石英股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "光器件(透镜/隔离器)",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "688400",
+              "name": "凌云光",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "交换芯片(NVSwitch)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "688702",
+              "name": "盛科通信",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高速PCB(HDI/高多层)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002463",
+              "name": "沪电股份",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002916",
+              "name": "深南电路",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300476",
+              "name": "胜宏科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "603228",
+              "name": "景旺电子",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "001389",
+              "name": "广合科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "603629",
+              "name": "利通电子",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002384",
+              "name": "东山精密",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高频高速覆铜板(CCL)",
+          "tier": 3,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "600183",
+              "name": "生益科技",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "电子级玻纤布",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002080",
+              "name": "中材科技",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600176",
+              "name": "中国巨石",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "603256",
+              "name": "宏和科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300395",
+              "name": "菲利华",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "电解铜箔",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "301217",
+              "name": "铜冠铜箔",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种树脂(碳氢/PPO)",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "601208",
+              "name": "东材科技",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "605589",
+              "name": "圣泉集团",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高频高速覆铜板(CCL)",
+          "tier": 3,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "600183",
+              "name": "生益科技",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "电源管理芯片(PMIC/VR)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688141",
+              "name": "杰华特",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "功率半导体晶圆",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "688396",
+              "name": "华润微",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600460",
+              "name": "士兰微",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高密度电源模块",
+          "tier": 2,
+          "depth": 2,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "002851",
+              "name": "麦格米特",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300870",
+              "name": "欧陆通",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002364",
+              "name": "中恒电气",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "散热模块",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "301018",
+              "name": "申菱环境",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "液冷板/快接头",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002837",
+              "name": "英维克",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300499",
+              "name": "高澜股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "氟化液/冷却液",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "600160",
+              "name": "巨化股份",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300037",
+              "name": "新宙邦",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "导热界面材料(TIM)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "300684",
+              "name": "中石科技",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300602",
+              "name": "飞荣达",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "存储模块(HBM/SSD)",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "603986",
+              "name": "兆易创新",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300475",
+              "name": "香农芯创",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "000021",
+              "name": "深科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "存储接口芯片",
+          "tier": 2,
+          "depth": 2,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "688008",
+              "name": "澜起科技",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "封装材料",
+          "tier": 2,
+          "depth": 2,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "688535",
+              "name": "华海诚科",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688300",
+              "name": "联瑞新材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300054",
+              "name": "鼎龙股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        }
+      ],
+      "non_consensus": [],
+      "upstream_todo": [
+        {
+          "segment": "BT树脂",
+          "tier": 3
+        },
+        {
+          "segment": "高频高速覆铜板",
+          "tier": 3
+        },
+        {
+          "segment": "磁性元件/电容",
+          "tier": 2
+        },
+        {
+          "segment": "铜铝散热材料",
+          "tier": 3
+        },
+        {
+          "segment": "CDU/manifold",
+          "tier": 2
+        },
+        {
+          "segment": "HBM晶圆",
+          "tier": 2
+        }
+      ],
+      "theme": "AI服务器",
+      "consensus_live": false,
+      "key": "ai_server",
+      "label": "AI服务器"
+    },
+    "humanoid_robot": {
+      "available": true,
+      "note": "",
+      "chain": "humanoid_robot",
+      "entry": "整机集成",
+      "stats": {
+        "total_nodes": 35,
+        "nodes_with_targets": 6,
+        "nodes_todo": 29,
+        "total_targets": 10
+      },
+      "segments": [
+        {
+          "name": "整机集成",
+          "tier": 0,
+          "depth": 0,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300607",
+              "name": "拓斯达",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "谐波减速器",
+          "tier": 2,
+          "depth": 2,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "688017",
+              "name": "绿的谐波",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "空心杯电机",
+          "tier": 2,
+          "depth": 2,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "603728",
+              "name": "鸣志电器",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300660",
+              "name": "江苏雷利",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "873593",
+              "name": "鼎智科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "六维力矩传感器",
+          "tier": 2,
+          "depth": 2,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "603662",
+              "name": "柯力传感",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "机器视觉",
+          "tier": 2,
+          "depth": 2,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "688686",
+              "name": "奥普特",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688400",
+              "name": "凌云光",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "运动控制器",
+          "tier": 2,
+          "depth": 2,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "300124",
+              "name": "汇川技术",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002747",
+              "name": "埃斯顿",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        }
+      ],
+      "non_consensus": [],
+      "upstream_todo": [
+        {
+          "segment": "轴承钢/精密轴承材料",
+          "tier": 3
+        },
+        {
+          "segment": "无框电机",
+          "tier": 2
+        },
+        {
+          "segment": "稀土永磁材料",
+          "tier": 3
+        },
+        {
+          "segment": "编码器",
+          "tier": 2
+        },
+        {
+          "segment": "精密轴承",
+          "tier": 2
+        },
+        {
+          "segment": "轴承钢/精密轴承材料",
+          "tier": 3
+        },
+        {
+          "segment": "行星滚柱丝杠",
+          "tier": 2
+        },
+        {
+          "segment": "精密磨削/滚珠丝杠材料",
+          "tier": 3
+        },
+        {
+          "segment": "无框电机",
+          "tier": 2
+        },
+        {
+          "segment": "编码器",
+          "tier": 2
+        },
+        {
+          "segment": "精密轴承",
+          "tier": 2
+        },
+        {
+          "segment": "稀土永磁材料",
+          "tier": 3
+        },
+        {
+          "segment": "微型丝杠",
+          "tier": 2
+        },
+        {
+          "segment": "精密磨削/滚珠丝杠材料",
+          "tier": 3
+        },
+        {
+          "segment": "触觉传感器",
+          "tier": 2
+        },
+        {
+          "segment": "应变片/弹性体",
+          "tier": 3
+        },
+        {
+          "segment": "行星齿轮箱",
+          "tier": 2
+        },
+        {
+          "segment": "应变片/弹性体",
+          "tier": 3
+        },
+        {
+          "segment": "触觉传感器",
+          "tier": 2
+        },
+        {
+          "segment": "IMU惯性传感器",
+          "tier": 2
+        }
+      ],
+      "theme": "人形机器人",
+      "consensus_live": false,
+      "key": "humanoid_robot",
+      "label": "人形机器人"
+    },
+    "power_grid": {
+      "available": true,
+      "note": "",
+      "chain": "power_grid",
+      "entry": "数据中心供电(终端)",
+      "stats": {
+        "total_nodes": 21,
+        "nodes_with_targets": 0,
+        "nodes_todo": 21,
+        "total_targets": 0
+      },
+      "segments": [],
+      "non_consensus": [],
+      "upstream_todo": [
+        {
+          "segment": "特高压/GSU升压变与输配",
+          "tier": 2
+        },
+        {
+          "segment": "电工钢(取向硅钢)",
+          "tier": 3
+        },
+        {
+          "segment": "变压器绕组铜线",
+          "tier": 3
+        },
+        {
+          "segment": "绝缘材料(变压器油/纸/树脂)",
+          "tier": 3
+        },
+        {
+          "segment": "中高压开关柜/GIS",
+          "tier": 2
+        },
+        {
+          "segment": "绝缘材料(变压器油/纸/树脂)",
+          "tier": 3
+        },
+        {
+          "segment": "变压器绕组铜线",
+          "tier": 3
+        },
+        {
+          "segment": "中压配电设备",
+          "tier": 2
+        },
+        {
+          "segment": "变压器绕组铜线",
+          "tier": 3
+        },
+        {
+          "segment": "绝缘材料(变压器油/纸/树脂)",
+          "tier": 3
+        },
+        {
+          "segment": "UPS不间断电源",
+          "tier": 2
+        },
+        {
+          "segment": "HVDC高压直流供电",
+          "tier": 2
+        },
+        {
+          "segment": "液冷(冷板/快接头/CDU)",
+          "tier": 2
+        },
+        {
+          "segment": "氟化液/冷却液",
+          "tier": 3
+        },
+        {
+          "segment": "铜铝散热材料",
+          "tier": 3
+        },
+        {
+          "segment": "储能(电池/PCS-调峰备电)",
+          "tier": 2
+        },
+        {
+          "segment": "变压器绕组铜线",
+          "tier": 3
+        }
+      ],
+      "theme": "电网电力",
+      "consensus_live": false,
+      "key": "power_grid",
+      "label": "电网"
+    },
+    "new_energy": {
+      "available": true,
+      "note": "",
+      "chain": "new_energy",
+      "entry": "终端(电动车/光储装机)",
+      "stats": {
+        "total_nodes": 46,
+        "nodes_with_targets": 0,
+        "nodes_todo": 46,
+        "total_targets": 0
+      },
+      "segments": [],
+      "non_consensus": [],
+      "upstream_todo": [
+        {
+          "segment": "锂电隔膜",
+          "tier": 2
+        },
+        {
+          "segment": "基膜原料(聚乙烯/聚丙烯)",
+          "tier": 3
+        },
+        {
+          "segment": "涂覆材料(勃姆石/PVDF)",
+          "tier": 3
+        },
+        {
+          "segment": "锂电电解液",
+          "tier": 2
+        },
+        {
+          "segment": "电解液添加剂(LiFSI/VC)",
+          "tier": 3
+        },
+        {
+          "segment": "氟化工原料(氢氟酸/氟盐)",
+          "tier": 3
+        },
+        {
+          "segment": "六氟磷酸锂(LiPF6)",
+          "tier": 3
+        },
+        {
+          "segment": "正极材料(三元/磷酸铁锂)",
+          "tier": 2
+        },
+        {
+          "segment": "碳酸锂/氢氧化锂",
+          "tier": 3
+        },
+        {
+          "segment": "钴/镍(三元用)",
+          "tier": 3
+        },
+        {
+          "segment": "磷酸铁(铁锂用)",
+          "tier": 3
+        },
+        {
+          "segment": "负极材料(石墨)",
+          "tier": 2
+        },
+        {
+          "segment": "针状焦/石油焦",
+          "tier": 3
+        },
+        {
+          "segment": "石墨化加工",
+          "tier": 3
+        },
+        {
+          "segment": "电解液添加剂(LiFSI/VC)",
+          "tier": 3
+        },
+        {
+          "segment": "锂电铜箔",
+          "tier": 2
+        },
+        {
+          "segment": "电解铜(阴极铜)",
+          "tier": 3
+        },
+        {
+          "segment": "电池结构件",
+          "tier": 2
+        },
+        {
+          "segment": "铝材/钢材(结构件用)",
+          "tier": 3
+        },
+        {
+          "segment": "硅片",
+          "tier": 2
+        }
+      ],
+      "theme": "新能源",
+      "consensus_live": false,
+      "key": "new_energy",
+      "label": "新能源"
+    },
+    "commercial_space": {
+      "available": true,
+      "note": "",
+      "chain": "commercial_space",
+      "entry": "卫星互联网运营与终端",
+      "stats": {
+        "total_nodes": 23,
+        "nodes_with_targets": 22,
+        "nodes_todo": 1,
+        "total_targets": 29
+      },
+      "segments": [
+        {
+          "name": "卫星互联网运营与终端",
+          "tier": 0,
+          "depth": 0,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "601698",
+              "name": "中国卫通",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "卫星制造(平台/载荷)",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "600118",
+              "name": "中国卫星",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "相控阵T-R组件",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688375",
+              "name": "国博电子",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688270",
+              "name": "臻镭科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "001270",
+              "name": "铖昌科技(*ST铖昌)",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "星载芯片",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "301117",
+              "name": "佳缘科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "星载芯片",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "301117",
+              "name": "佳缘科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "星间激光通信",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688066",
+              "name": "航天宏图",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高温合金",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300034",
+              "name": "钢研高纳",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002149",
+              "name": "西部材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "卫星平台结构与电源",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "600879",
+              "name": "航天电子",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "碳纤维复合材料",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300699",
+              "name": "光威复材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高温合金",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300034",
+              "name": "钢研高纳",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002149",
+              "name": "西部材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "地面站与测控",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002465",
+              "name": "海格通信",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "测控通信设备",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "600879",
+              "name": "航天电子",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 2,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "用户终端(相控阵平板天线)",
+          "tier": 2,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300045",
+              "name": "华力创通",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300762",
+              "name": "上海瀚讯",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "相控阵T-R组件",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688375",
+              "name": "国博电子",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688270",
+              "name": "臻镭科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "001270",
+              "name": "铖昌科技(*ST铖昌)",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 2,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        }
+      ],
+      "non_consensus": [],
+      "upstream_todo": [
+        {
+          "segment": "卫星推进",
+          "tier": 2
+        }
+      ],
+      "theme": "商业航天",
+      "consensus_live": false,
+      "key": "commercial_space",
+      "label": "商业航天"
+    },
+    "innovative_drug": {
+      "available": true,
+      "note": "",
+      "chain": "innovative_drug",
+      "entry": "创新药资产与出海BD(终端)",
+      "stats": {
+        "total_nodes": 26,
+        "nodes_with_targets": 0,
+        "nodes_todo": 26,
+        "total_targets": 0
+      },
+      "segments": [],
+      "non_consensus": [],
+      "upstream_todo": [
+        {
+          "segment": "合同研发(CRO-临床前/临床)",
+          "tier": 2
+        },
+        {
+          "segment": "科研试剂(分子/细胞/抗体)",
+          "tier": 2
+        },
+        {
+          "segment": "酶与生物原料",
+          "tier": 3
+        },
+        {
+          "segment": "实验耗材(高端塑料/滤膜)",
+          "tier": 3
+        },
+        {
+          "segment": "生物反应器(一次性/不锈钢)",
+          "tier": 2
+        },
+        {
+          "segment": "特种设备零部件",
+          "tier": 3
+        },
+        {
+          "segment": "实验耗材(高端塑料/滤膜)",
+          "tier": 3
+        },
+        {
+          "segment": "层析填料/层析介质",
+          "tier": 2
+        },
+        {
+          "segment": "层析基质/特种树脂",
+          "tier": 3
+        },
+        {
+          "segment": "酶与生物原料",
+          "tier": 3
+        },
+        {
+          "segment": "细胞培养基",
+          "tier": 2
+        },
+        {
+          "segment": "酶与生物原料",
+          "tier": 3
+        },
+        {
+          "segment": "实验耗材(高端塑料/滤膜)",
+          "tier": 3
+        },
+        {
+          "segment": "实验动物与模型",
+          "tier": 3
+        },
+        {
+          "segment": "合同生产(CDMO-工艺/制剂)",
+          "tier": 2
+        },
+        {
+          "segment": "特色原料药/高壁垒中间体",
+          "tier": 2
+        },
+        {
+          "segment": "大宗原料药(议价弱)",
+          "tier": 2
+        }
+      ],
+      "theme": "创新药",
+      "consensus_live": false,
+      "key": "innovative_drug",
+      "label": "创新药"
+    }
+  },
+  "chainOrder": [
+    "ai_server",
+    "humanoid_robot",
+    "power_grid",
+    "new_energy",
+    "commercial_space",
+    "innovative_drug"
+  ],
+  "defaultChain": "ai_server",
+  "usMapping": {
+    "available": true,
+    "note": "行情未取到（离线/外网不可用）",
+    "chain": "ai_server",
+    "threshold": 10.0,
+    "quote_ok": false,
+    "anchors": [
+      {
+        "ticker": "NVDA",
+        "cn_name": "英伟达",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "TSM",
+        "cn_name": "台积电",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "MU",
+        "cn_name": "美光",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "AVGO",
+        "cn_name": "博通",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "MSFT",
+        "cn_name": "微软",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "AMD",
+        "cn_name": "超威半导体(AMD)",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "AAPL",
+        "cn_name": "苹果",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "GOOGL",
+        "cn_name": "谷歌(Alphabet)",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "META",
+        "cn_name": "Meta(脸书)",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "AMZN",
+        "cn_name": "亚马逊",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "TSLA",
+        "cn_name": "特斯拉",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "ASML",
+        "cn_name": "阿斯麦(ASML)",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "SMCI",
+        "cn_name": "超微电脑(SMCI)",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "DELL",
+        "cn_name": "戴尔",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "ARM",
+        "cn_name": "安谋(ARM)",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "AMAT",
+        "cn_name": "应用材料",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "LRCX",
+        "cn_name": "泛林集团(Lam Research)",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "KLAC",
+        "cn_name": "科磊(KLA)",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "MRVL",
+        "cn_name": "迈威尔(Marvell)",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "ANET",
+        "cn_name": "Arista Networks",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "COHR",
+        "cn_name": "高意(Coherent)",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "MPWR",
+        "cn_name": "芯源系统(MPS)",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      },
+      {
+        "ticker": "VRT",
+        "cn_name": "维谛技术(Vertiv)",
+        "change": null,
+        "status": "行情未取到",
+        "big_mover": false
+      }
+    ],
+    "big_movers": []
+  },
+  "funding": {
+    "available": true,
+    "note": "一级市场融资库暂无记录",
+    "months": 12,
+    "total_events": 0,
+    "layers": []
+  },
+  "winRate": {
+    "available": true,
+    "note": "",
+    "min_samples": 5,
+    "scanners": [
+      {
+        "scanner": "HistoricalReplay",
+        "count": 9936,
+        "decided": 9659,
+        "win_rate": 0.526,
+        "avg_ret_5d": 0.0142,
+        "note": ""
+      },
+      {
+        "scanner": "FactorAgent",
+        "count": 36,
+        "decided": 8,
+        "win_rate": 0.75,
+        "avg_ret_5d": -0.01,
+        "note": ""
+      },
+      {
+        "scanner": "OpportunityScanner",
+        "count": 38,
+        "decided": 0,
+        "win_rate": null,
+        "avg_ret_5d": null,
+        "note": "样本不足 5"
+      }
+    ]
+  }
+}

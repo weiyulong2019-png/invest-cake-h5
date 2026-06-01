@@ -38,6 +38,21 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
 .theme-tab.coming{color:var(--text3);opacity:0.5;}
 .theme-tab.coming::before{content:'即将';font-size:9px;position:absolute;top:4px;right:4px;color:var(--accent2);font-weight:500;}
 
+/* 今日关注卡片 */
+.brief-wrap{padding:8px 8px 0;}
+.brief-card{background:var(--white);border-radius:8px;padding:12px 14px;}
+.brief-head{display:flex;align-items:baseline;gap:6px;margin-bottom:10px;}
+.brief-title{font-size:14px;font-weight:700;}
+.brief-time{font-size:10px;color:var(--text3);margin-left:auto;}
+.brief-item{display:flex;gap:8px;padding:9px 0;border-top:1px dashed var(--border);}
+.brief-item:first-of-type{border-top:none;}
+.brief-emoji{font-size:16px;flex-shrink:0;line-height:1.4;}
+.brief-body{flex:1;min-width:0;}
+.brief-it-title{font-size:13px;font-weight:600;line-height:1.4;}
+.brief-it-detail{font-size:11px;color:var(--text2);margin-top:2px;line-height:1.6;}
+.brief-it-tag{display:inline-block;font-size:9px;padding:1px 6px;border-radius:3px;margin-top:4px;font-weight:500;}
+.brief-empty{text-align:center;padding:14px 8px;color:var(--text3);font-size:12px;}
+
 /* 蛋糕层 */
 .cake-wrap{padding:8px;}
 .layer-card{background:var(--white);border-radius:8px;margin-bottom:8px;overflow:hidden;}
@@ -130,6 +145,116 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
 .wl-tab.active{color:var(--accent);font-weight:700;}
 .wl-tab.active::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:20px;height:2px;background:var(--accent);border-radius:1px;}
 
+/* 策略看板 — 引擎数据联动 */
+.strat-section{padding:8px 12px;}
+.strat-block{background:var(--white);border-radius:8px;padding:12px 14px;margin-bottom:8px;}
+.strat-head{font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;margin-bottom:8px;}
+.strat-head .badge{font-size:9px;padding:1px 6px;border-radius:3px;font-weight:500;margin-left:auto;}
+.strat-note{font-size:11px;color:var(--text3);line-height:1.6;padding:6px 0;}
+.strat-stat{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--text2);margin-bottom:8px;}
+.strat-stat b{color:var(--text);font-weight:700;}
+.seg-item{padding:8px 0;border-top:1px dashed var(--border);}
+.seg-name{font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px;}
+.seg-tier{font-size:9px;padding:1px 5px;border-radius:3px;background:#F0F0F0;color:var(--text3);}
+.hold-chip{display:inline-flex;align-items:center;gap:3px;font-size:11px;padding:2px 7px;border-radius:4px;margin:4px 4px 0 0;background:var(--bg);}
+.hold-chip.nc{background:#E8F5EC;color:var(--green);font-weight:600;}
+.hold-chip.crowded{background:#FFF0F0;color:var(--red);}
+.us-row{display:flex;align-items:center;padding:7px 0;border-top:1px dashed var(--border);font-size:12px;}
+.us-row:first-of-type{border-top:none;}
+.us-name{flex:1;font-weight:600;}
+.us-ticker{font-size:10px;color:var(--text3);margin-left:4px;font-weight:400;}
+.us-chg{width:70px;text-align:right;font-weight:600;}
+.us-status{width:80px;text-align:right;font-size:10px;color:var(--text3);}
+.wr-row{display:flex;align-items:center;padding:8px 0;border-top:1px dashed var(--border);}
+.wr-row:first-of-type{border-top:none;}
+.wr-name{flex:1;font-size:12px;font-weight:600;}
+.wr-name .sub{font-size:10px;color:var(--text3);font-weight:400;margin-top:1px;}
+.wr-val{text-align:right;}
+.wr-pct{font-size:15px;font-weight:700;}
+.wr-pct.na{font-size:11px;color:var(--text3);font-weight:400;}
+.fund-row{display:flex;align-items:center;padding:8px 0;border-top:1px dashed var(--border);font-size:12px;}
+.fund-name{flex:1;}
+.fund-track{height:6px;background:var(--border);border-radius:3px;margin-top:4px;overflow:hidden;}
+.fund-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--accent2),var(--accent));transition:width .4s;}
+.strat-empty{text-align:center;padding:24px 12px;color:var(--text3);font-size:12px;}
+
+/* 策略 — 证据等级徽章 */
+.ev-badge{display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;padding:0 3px;border-radius:3px;font-size:9px;font-weight:800;color:#fff;flex-shrink:0;}
+.ev-A{background:var(--green);}.ev-B{background:var(--l3);}.ev-C{background:#E8A30A;}.ev-D{background:var(--text3);}
+
+/* 策略 — 产业链折叠树 */
+.tree-wrap{margin-top:4px;}
+.tree-node{border-top:1px dashed var(--border);}
+.tree-node:first-child{border-top:none;}
+.tree-row{display:flex;align-items:center;gap:6px;padding:9px 0;cursor:pointer;min-height:40px;}
+.tree-toggle{width:16px;text-align:center;font-size:10px;color:var(--text3);flex-shrink:0;transition:transform .2s;}
+.tree-toggle.open{transform:rotate(90deg);}
+.tree-toggle.leaf{color:var(--border);}
+.tree-seg{flex:1;font-size:12px;font-weight:600;display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.tree-kind{font-size:9px;padding:1px 5px;border-radius:3px;background:#F0F0F0;color:var(--text3);font-weight:500;}
+.tree-cnt{font-size:10px;color:var(--text3);font-weight:400;}
+.tree-children{padding-left:14px;}
+.tree-holds{display:flex;flex-wrap:wrap;gap:6px;padding:2px 0 8px 22px;}
+.tgt-chip{display:inline-flex;align-items:center;gap:3px;font-size:11px;padding:4px 9px;border-radius:6px;background:var(--bg);cursor:pointer;border:1px solid transparent;}
+.tgt-chip:active{opacity:.6;}
+.tgt-chip.nc{background:#E8F5EC;color:var(--green);font-weight:700;border-color:#bfe6cd;}
+.tgt-chip.crowded{background:#FFF0F0;color:var(--red);}
+.tgt-chip .crown{font-size:11px;}
+
+/* 策略 — 产业链横向 chip tab */
+.chain-tabs{display:flex;gap:8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:2px 0 10px;margin:0 -2px;}
+.chain-chip{flex-shrink:0;padding:6px 12px;border-radius:16px;font-size:12px;font-weight:500;color:var(--text2);background:var(--bg);white-space:nowrap;cursor:pointer;border:1px solid transparent;}
+.chain-chip.active{background:var(--accent);color:#fff;font-weight:700;}
+
+/* 策略 — 可折叠区块头 */
+.strat-head.collapsible{cursor:pointer;margin-bottom:0;}
+.strat-head .fold-arrow{font-size:11px;color:var(--text3);margin-left:8px;flex-shrink:0;}
+.strat-head.collapsible.open{margin-bottom:8px;}
+
+/* 策略 — 横向条形（胜率/融资） */
+.bar-row{padding:9px 0;border-top:1px dashed var(--border);}
+.bar-row:first-child{border-top:none;}
+.bar-top{display:flex;align-items:baseline;justify-content:space-between;font-size:12px;}
+.bar-label{font-weight:600;display:flex;align-items:center;gap:5px;}
+.bar-label .sub{font-size:10px;color:var(--text3);font-weight:400;}
+.bar-val{font-size:14px;font-weight:700;}
+.bar-val.na{font-size:11px;font-weight:400;color:var(--text3);}
+.bar-track{height:7px;background:var(--border);border-radius:4px;margin-top:5px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:4px;transition:width .5s;}
+.bar-row.dim{opacity:.45;}
+
+/* 策略 — 美股锚卡片 */
+.us-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:4px;}
+.us-card{background:var(--bg);border-radius:8px;padding:10px;cursor:default;border:1px solid transparent;transition:border-color .2s;}
+.us-card.clickable{cursor:pointer;border-color:#f0d0d0;}
+.us-card.clickable:active{opacity:.65;}
+.us-card-name{font-size:12px;font-weight:700;display:flex;align-items:center;gap:4px;}
+.us-card-tk{font-size:10px;color:var(--text3);font-weight:400;margin-top:1px;}
+.us-card-chg{font-size:16px;font-weight:700;margin-top:6px;}
+.us-card-chg.na{font-size:11px;font-weight:400;color:var(--text3);}
+.us-card-st{font-size:10px;color:var(--text3);margin-top:2px;}
+.us-card-more{font-size:10px;color:var(--accent);margin-top:4px;font-weight:600;}
+
+/* 策略 — 底部弹层 bottom sheet */
+.sheet-mask{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:300;opacity:0;transition:opacity .25s;}
+.sheet-mask.show{opacity:1;}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:301;background:var(--white);border-radius:16px 16px 0 0;padding:8px 18px calc(20px + env(safe-area-inset-bottom,0px));transform:translateY(100%);transition:transform .28s cubic-bezier(.2,.8,.2,1);max-height:80vh;overflow-y:auto;-webkit-overflow-scrolling:touch;}
+.sheet.show{transform:translateY(0);}
+.sheet-grip{width:36px;height:4px;border-radius:2px;background:var(--border);margin:6px auto 12px;}
+.sheet-title{font-size:18px;font-weight:700;display:flex;align-items:center;gap:8px;}
+.sheet-code{font-size:12px;color:var(--text3);margin-top:2px;}
+.sheet-kv{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.sheet-kv:last-child{border-bottom:none;}
+.sheet-kv .k{color:var(--text2);}
+.sheet-kv .v{font-weight:600;display:flex;align-items:center;gap:6px;}
+.sheet-close{width:100%;margin-top:16px;padding:12px;border:none;border-radius:10px;background:var(--bg);color:var(--text2);font-size:14px;font-weight:600;cursor:pointer;}
+
+/* 全局 — 下拉刷新 */
+.ptr-ind{text-align:center;font-size:11px;color:var(--text3);overflow:hidden;transition:height .15s;}
+.ptr-ind .spin{display:inline-block;}
+.ptr-ind.loading .spin{animation:ptrspin .8s linear infinite;}
+@keyframes ptrspin{to{transform:rotate(360deg);}}
+
 /* 策略 — Skills说明 */
 .skill-section{padding:8px 12px;}
 .skill-card{background:var(--white);border-radius:8px;overflow:hidden;margin-bottom:8px;}
@@ -206,6 +331,27 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
           <div class="etf-price" :class="e.cv>0?'up':'down'">{{ e.p }}</div>
           <div class="etf-chg" :class="e.cv>0?'up':'down'">{{ e.c }}</div>
         </div>
+      </div>
+    </div>
+
+    <!-- 📌 今日关注 -->
+    <div class="brief-wrap">
+      <div class="brief-card">
+        <div class="brief-head">
+          <span class="brief-title">📌 今日关注</span>
+          <span class="brief-time" v-if="brief.date || brief.updateTime">{{ brief.date }}<template v-if="brief.updateTime"> · {{ brief.updateTime.slice(11,16) }}</template></span>
+        </div>
+        <template v-if="brief.available && brief.items && brief.items.length">
+          <div class="brief-item" v-for="(it,i) in brief.items" :key="i">
+            <span class="brief-emoji">{{ briefEmoji(it.type) }}</span>
+            <div class="brief-body">
+              <div class="brief-it-title">{{ it.title }}</div>
+              <div class="brief-it-detail" v-if="it.detail">{{ it.detail }}</div>
+              <span class="brief-it-tag" v-if="it.tag" :style="briefTagStyle(it.type)">{{ it.tag }}</span>
+            </div>
+          </div>
+        </template>
+        <div v-else class="brief-empty">今日暂无摘要</div>
       </div>
     </div>
 
@@ -354,11 +500,187 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
     <div class="risk-notice">⚠️ AI分析不构成投资建议，投资有风险，决策需谨慎。</div>
   </div>
 
-  <!-- ===== 策略 — Skills说明 ===== -->
+  <!-- ===== 策略看板 — 引擎数据联动 ===== -->
   <div class="page" :class="{active:tab==='strategy'}">
-    <div class="header"><div class="header-left"><h1>Skills</h1></div></div>
+    <div class="header">
+      <div class="header-left">
+        <h1>策略看板</h1>
+        <div class="idx" v-if="strat.updateTime" style="color:var(--text3);">
+          引擎数据 · {{ strat.updateTime.slice(5,16) }}
+        </div>
+        <div class="idx" v-else style="color:var(--text3);">引擎数据 · 等待同步</div>
+      </div>
+      <div class="header-right">
+        <div class="header-icon" @click="loadStrategy()" :style="{opacity:stratLoading?0.4:1}">🔄</div>
+      </div>
+    </div>
+
+    <!-- 下拉刷新指示器 -->
+    <div class="ptr-ind" :class="{loading:stratLoading}"
+         :style="{height:(stratLoading?28:ptrPull)+'px',lineHeight:(stratLoading?28:ptrPull)+'px'}">
+      <span class="spin">🔄</span>
+      {{ stratLoading?'刷新中…':(ptrPull>=ptrThreshold?'松开刷新':'下拉刷新') }}
+    </div>
+
+    <div class="strat-section"
+         @touchstart="ptrStart" @touchmove="ptrMove" @touchend="ptrEnd">
+      <div v-if="!stratReady && !stratLoading" class="strat-empty">
+        <div style="font-size:32px;margin-bottom:8px;">📊</div>
+        <div>策略数据尚未生成</div>
+        <div style="margin-top:4px;">运行 <b>strategy-feed.py</b> 后将自动同步至此</div>
+      </div>
+
+      <template v-if="stratReady">
+        <!-- 🌲 产业链折叠树 -->
+        <div class="strat-block">
+          <div class="strat-head">🌲 产业链树 · 非共识机会
+            <span class="badge" :style="badgeStyle(curChain.available)">{{ curChain.available?'已联动':'暂无数据' }}</span>
+          </div>
+          <!-- 横向产业链 chip tab（仅新数据 chains 存在时显示） -->
+          <div class="chain-tabs" v-if="hasChains">
+            <div class="chain-chip" v-for="key in chainOrder" :key="key"
+                 :class="{active:activeChain===key}" @click="selectChain(key)">
+              {{ chainLabel(key) }}
+            </div>
+          </div>
+          <template v-if="curChain.available && chainNodes.length">
+            <div class="strat-stat">
+              <span>环节 <b>{{ (curChain.stats&&curChain.stats.nodes_with_targets)||0 }}</b>/{{ (curChain.stats&&curChain.stats.total_nodes)||0 }}</span>
+              <span>A股标的 <b>{{ (curChain.stats&&curChain.stats.total_targets)||0 }}</b></span>
+              <span>非共识 <b>{{ (curChain.non_consensus||[]).length }}</b></span>
+            </div>
+            <div style="font-size:10px;color:var(--text3);margin-bottom:6px;">{{ curChain.label?(curChain.label+' 链'):('主题 '+(curChain.theme||'—')) }} · 点环节展开上下游，点标的看详情 · 🔥绿底=非共识</div>
+            <div class="tree-wrap">
+              <div class="tree-node" v-for="n in chainNodes" :key="n._id" v-show="n._visible">
+                <div class="tree-row" :style="{paddingLeft:(n.depth*14)+'px'}" @click="toggleNode(n)">
+                  <span class="tree-toggle" :class="{open:n._open, leaf:!n._hasChildren}">{{ n._hasChildren?'▶':'·' }}</span>
+                  <span class="tree-seg">{{ n.name }}
+                    <span class="tree-kind">{{ kindLabel(n.kind) }}·t{{ n.tier }}</span>
+                    <span class="tree-cnt" v-if="n.holdings&&n.holdings.length">{{ n.holdings.length }}标的</span>
+                  </span>
+                </div>
+                <div class="tree-holds" v-show="n._open && n.holdings && n.holdings.length">
+                  <span class="tgt-chip" :class="consClass(h.consensus_state)" v-for="h in n.holdings" :key="h.code"
+                        @click.stop="openTarget(h,n)">
+                    <span class="crown" v-if="h.is_leader">👑</span>
+                    <span v-if="h.consensus_state==='non_consensus'">🔥</span>{{ h.name }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </template>
+          <div v-else class="strat-note">{{ chainEmptyNote }}</div>
+        </div>
+
+        <!-- 🇺🇸 美股 → A股映射（可折叠） -->
+        <div class="strat-block">
+          <div class="strat-head collapsible" :class="{open:usFold}" @click="usFold=!usFold">🇺🇸 美股 → A股
+            <span class="badge" :style="badgeStyle(strat.usMapping.available)">{{ strat.usMapping.available?(strat.usMapping.quote_ok?'实时':'行情离线'):'暂无数据' }}</span>
+            <span class="fold-arrow">{{ usFold?'▼':'▶' }}</span>
+          </div>
+          <template v-if="usFold">
+          <template v-if="strat.usMapping.available && strat.usMapping.anchors && strat.usMapping.anchors.length">
+            <div class="strat-note" v-if="!strat.usMapping.quote_ok" style="padding-top:0;">{{ strat.usMapping.note }} · 涨幅≥{{ strat.usMapping.threshold||10 }}% 可点开映射A股链</div>
+            <div class="us-grid">
+              <div class="us-card" v-for="a in strat.usMapping.anchors" :key="a.ticker"
+                   :class="{clickable:canExpandAnchor(a)}" @click="toggleAnchor(a)">
+                <div class="us-card-name">{{ a.cn_name }}<span v-if="a.big_mover">🔥</span></div>
+                <div class="us-card-tk">{{ a.ticker }}</div>
+                <div class="us-card-chg" :class="a.change===null?'na':(a.change>0?'up':'down')">
+                  {{ a.change===null?'行情未取到':((a.change>0?'+':'')+a.change+'%') }}
+                </div>
+                <div class="us-card-st">{{ a.status }}</div>
+                <div class="us-card-more" v-if="canExpandAnchor(a)">{{ usOpen===a.ticker?'收起 ▲':'看A股链 ▼' }}</div>
+              </div>
+            </div>
+            <div v-for="m in strat.usMapping.big_movers" :key="m.ticker" v-show="usOpen===m.ticker"
+                 style="margin-top:10px;padding-top:8px;border-top:1px solid var(--border);">
+              <div style="font-size:12px;font-weight:700;">🔥 {{ m.cn_name }} +{{ m.change }}% → A股链</div>
+              <div v-if="m.note" class="strat-note">{{ m.note }}</div>
+              <div class="seg-item" v-for="s in (m.segments||[])" :key="s.name">
+                <div class="seg-name">{{ s.name }} <span class="seg-tier">tier{{ s.tier }}</span></div>
+                <div class="tree-holds" style="padding-left:0;">
+                  <span class="tgt-chip" :class="consClass(h.consensus_state)" v-for="h in s.holdings" :key="h.code" @click="openTarget(h,s)">
+                    <span class="crown" v-if="h.is_leader">👑</span>{{ h.name }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </template>
+          <div v-else class="strat-note">{{ strat.usMapping.note || '暂无映射数据，建设中' }}</div>
+          </template>
+        </div>
+
+        <!-- 📊 各扫描器胜率 -->
+        <div class="strat-block">
+          <div class="strat-head">📊 信号胜率（聚合）
+            <span class="badge" :style="badgeStyle(strat.winRate.available && strat.winRate.scanners.length)">{{ (strat.winRate.available && strat.winRate.scanners.length)?'已联动':'暂无数据' }}</span>
+          </div>
+          <template v-if="strat.winRate.available && strat.winRate.scanners.length">
+            <div class="bar-row" v-for="w in strat.winRate.scanners" :key="w.scanner" :class="{dim:w.win_rate===null}">
+              <div class="bar-top">
+                <span class="bar-label">{{ w.scanner }} <span class="sub">{{ w.decided }}/{{ w.count }} 已裁决</span></span>
+                <span class="bar-val" :class="w.win_rate===null?'na':(w.win_rate>=0.5?'up':'down')">
+                  {{ w.win_rate===null?(w.note||'样本不足'):(Math.round(w.win_rate*100)+'%') }}
+                </span>
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" :style="{width:(w.win_rate===null?0:Math.round(w.win_rate*100))+'%',background:w.win_rate===null?'var(--text3)':(w.win_rate>=0.5?'var(--red)':'var(--green)')}"></div>
+              </div>
+              <div v-if="w.avg_ret_5d!==null && w.avg_ret_5d!==undefined" style="font-size:10px;color:var(--text3);margin-top:3px;">平均5日收益 {{ (w.avg_ret_5d*100).toFixed(1) }}%</div>
+            </div>
+          </template>
+          <div v-else class="strat-note">{{ strat.winRate.note || '暂无胜率数据，建设中' }}</div>
+        </div>
+
+        <!-- 💰 一级市场融资热度 -->
+        <div class="strat-block">
+          <div class="strat-head">💰 一级市场融资热度
+            <span class="badge" :style="badgeStyle(strat.funding.available && strat.funding.layers.length)">{{ (strat.funding.available&&strat.funding.layers.length)?'已联动':'暂无数据' }}</span>
+          </div>
+          <template v-if="strat.funding.available && strat.funding.layers.length">
+            <div class="strat-stat"><span>近{{ strat.funding.months }}月 · 事件 <b>{{ strat.funding.total_events }}</b><template v-if="strat.funding.total_amount_display"> · 总额 <b>{{ strat.funding.total_amount_display }}</b></template></span></div>
+            <div class="bar-row" v-for="f in strat.funding.layers" :key="f.layer">
+              <div class="bar-top">
+                <span class="bar-label">{{ f.label }} <span class="sub">{{ f.events }}笔 · 占比{{ f.share_pct }}%</span></span>
+                <span class="bar-val">{{ '🔥'.repeat(Math.max(0,f.heat||0))||'·' }}</span>
+              </div>
+              <div class="fund-track"><div class="fund-fill" :style="{width:Math.min(100,f.share_pct||0)+'%'}"></div></div>
+            </div>
+          </template>
+          <div v-else class="strat-note">{{ strat.funding.note || '一级库暂无记录' }}</div>
+        </div>
+
+        <!-- 🪣 卖水人榜 -->
+        <div class="strat-block">
+          <div class="strat-head">🪣 卖水人榜 · Top 环节
+            <span class="badge" :style="badgeStyle(strat.waterSellers.available && strat.waterSellers.items.length)">{{ (strat.waterSellers.available && strat.waterSellers.items.length)?'已联动':'建设中' }}</span>
+          </div>
+          <template v-if="strat.waterSellers.available && strat.waterSellers.items.length">
+            <div class="seg-item" v-for="(w,i) in strat.waterSellers.items" :key="w.segment">
+              <div class="seg-name">
+                <span class="tree-cnt">#{{ i+1 }}</span>{{ w.segment }}
+                <span class="ev-badge" :class="'ev-'+(w.evidence||'D')" v-if="w.evidence">{{ w.evidence }}</span>
+              </div>
+              <div class="tree-holds" style="padding-left:0;">
+                <span class="tgt-chip" v-for="c in (w.ashares||[])" :key="(c.code||c)"
+                      @click="openTarget(typeof c==='object'?c:{name:c,segment:w.segment},w)">
+                  {{ typeof c==='object'?c.name:c }}
+                </span>
+              </div>
+            </div>
+          </template>
+          <div v-else class="strat-note">{{ strat.waterSellers.note || '建设中（待结构化）' }}</div>
+        </div>
+      </template>
+
+      <div class="risk-notice">{{ strat.disclaimer || '公开策略数据看板，仅含聚合/结构化信息，不构成投资建议。' }}</div>
+    </div>
+
+    <!-- ===== Skills说明（说明区，常驻） ===== -->
     <div class="skill-section">
-      <div style="padding:8px 0;font-size:12px;color:var(--text2);line-height:1.6;margin-bottom:8px;">
+      <div class="section-title" style="margin-top:4px;">🛠 OpenClaw 投研 Skills</div>
+      <div style="padding:0 0 8px;font-size:12px;color:var(--text2);line-height:1.6;">
         以下是OpenClaw当前支持的投研Skills。在飞书群或OpenClaw对话中触发即可使用。
       </div>
 
@@ -426,6 +748,36 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
     <a class="tb-item" :class="{active:tab==='strategy'}" @click="tab='strategy'"><span class="tbi">🛠</span>策略</a>
     <a class="tb-item" :class="{active:tab==='research'}" @click="tab='research'"><span class="tbi">📝</span>研究</a>
   </div>
+
+  <!-- ===== 标的底部弹层 bottom sheet ===== -->
+  <div class="sheet-mask" :class="{show:sheet.show}" v-show="sheet.open" @click="closeSheet"></div>
+  <div class="sheet" :class="{show:sheet.show}" v-show="sheet.open">
+    <div class="sheet-grip"></div>
+    <div class="sheet-title">
+      <span class="crown" v-if="sheet.data.is_leader">👑</span>{{ sheet.data.name || '—' }}
+      <span v-if="sheet.data.consensus_state==='non_consensus'">🔥</span>
+    </div>
+    <div class="sheet-code">{{ sheet.data.code || '代码未知' }}</div>
+    <div style="margin-top:14px;">
+      <div class="sheet-kv"><span class="k">代码</span><span class="v">{{ sheet.data.code || '—' }}</span></div>
+      <div class="sheet-kv"><span class="k">名称</span><span class="v">{{ sheet.data.name || '—' }}</span></div>
+      <div class="sheet-kv"><span class="k">所在环节</span><span class="v">{{ sheet.data.segment || '—' }}</span></div>
+      <div class="sheet-kv" v-if="sheet.data.tree_path"><span class="k">链路路径</span><span class="v" style="font-weight:400;font-size:11px;max-width:60%;text-align:right;">{{ sheet.data.tree_path }}</span></div>
+      <div class="sheet-kv"><span class="k">共识状态</span>
+        <span class="v">
+          <span class="hold-chip" :class="consClass(sheet.data.consensus_state)" style="margin:0;">{{ consLabel(sheet.data.consensus_state) }}</span>
+        </span>
+      </div>
+      <div class="sheet-kv"><span class="k">是否龙头</span><span class="v">{{ sheet.data.is_leader?'👑 龙头':'—' }}</span></div>
+      <div class="sheet-kv"><span class="k">证据等级</span>
+        <span class="v">
+          <span class="ev-badge" :class="'ev-'+(sheet.data.evidence||'D')">{{ sheet.data.evidence || 'D' }}</span>
+          {{ evLabel(sheet.data.evidence) }}
+        </span>
+      </div>
+    </div>
+    <button class="sheet-close" @click="closeSheet">关闭</button>
+  </div>
 </div>
 
 <script>
@@ -436,6 +788,99 @@ createApp({
     const loading=ref(false),updateTime=ref(''),marketIdx=reactive({price:'--',chg:'--'});
     const chgClass=(v)=>String(v).includes('-')?'down':'up';
     const signalLabel=(s)=>({buy:'建仓',risk:'风险',neutral:'中性'}[s]||'中性');
+
+    // 📌 今日关注 — daily_brief.json（优雅降级，取不到不报错）
+    const brief=reactive({date:'',updateTime:'',items:[],available:false});
+    const briefEmoji=(t)=>({water_seller:'🥤',watchlist:'⭐',funding:'💰',signal:'📈',us_map:'🇺🇸'}[t]||'📌');
+    const briefTagStyle=(t)=>{
+      const m={water_seller:['#FFF5EB','#E8740A'],watchlist:['#FFFBEB','#E8A30A'],
+               funding:['#FFF0F0','#E03B3B'],signal:['#E8F5EC','#0EA352'],us_map:['#EBF3FF','#2B7FD4']};
+      const c=m[t]||['#F0F0F0','#999'];return{background:c[0],color:c[1]};
+    };
+
+    // 策略看板 — strategy.json（引擎数据联动，公开聚合）
+    const stratLoading=ref(false),stratReady=ref(false);
+    const strat=reactive({updateTime:'',disclaimer:'',
+      waterSellers:{available:false,note:'',items:[]},
+      chainTree:{available:false,note:'',stats:{},segments:[],non_consensus:[]},
+      chains:null,chainOrder:[],defaultChain:'',
+      usMapping:{available:false,note:'',quote_ok:false,anchors:[],big_movers:[]},
+      funding:{available:false,note:'',months:12,total_events:0,layers:[]},
+      winRate:{available:false,note:'',scanners:[]}});
+
+    // 产业链 chip tab 状态 + 美股块折叠状态
+    const activeChain=ref(''),usFold=ref(false);
+    const hasChains=computed(()=>!!(strat.chains && strat.chainOrder && strat.chainOrder.length));
+    const chainOrder=computed(()=>strat.chainOrder||[]);
+    const chainLabel=(k)=>(strat.chains&&strat.chains[k]&&strat.chains[k].label)||k;
+    // 当前链：新数据用 chains[activeChain]，旧数据回退 chainTree
+    const curChain=computed(()=>{
+      if(hasChains.value && activeChain.value && strat.chains[activeChain.value])return strat.chains[activeChain.value];
+      return strat.chainTree;
+    });
+    const selectChain=(k)=>{activeChain.value=k;Object.keys(treeOpen).forEach(id=>delete treeOpen[id]);};
+    // 树空态文案：available 但 segments 空 = 占位链；否则用 note
+    const chainEmptyNote=computed(()=>{
+      const c=curChain.value;
+      if(c && c.available && (!c.segments || !c.segments.length))return '该链图谱待补（环节已建，A股标的待确认）';
+      return (c && c.note) || '暂无产业链数据，建设中';
+    });
+    const badgeStyle=(ok)=>ok?{background:'#E8F5EC',color:'var(--green)'}:{background:'#F0F0F0',color:'var(--text3)'};
+    const consClass=(s)=>s==='non_consensus'?'nc':(s==='crowded'?'crowded':'');
+    const consLabel=(s)=>({non_consensus:'🟢 非共识（被忽略）',crowded:'🔴 拥挤',normal:'中性',unknown:'未标注'}[s]||'未标注');
+    const evLabel=(e)=>({A:'强证据',B:'中等',C:'偏弱',D:'待补充'}[e]||'待补充');
+    const kindLabel=(k)=>({tree:'枝',leaf:'叶',raw:'原料'}[k]||(k||'节点'));
+
+    // 产业链折叠树 — 把扁平 segments(带 depth) 构造成可折叠树
+    const treeOpen=reactive({});  // _id -> bool
+    const chainNodes=computed(()=>{
+      const segs=(curChain.value&&curChain.value.segments)||[];
+      if(!segs.length)return[];
+      // 构造节点 + 基于 depth 的父子关系（最近的 depth-1 前驱为父）
+      const nodes=segs.map((s,i)=>({...s,_id:i,depth:s.depth||0,_parent:-1,_hasChildren:false}));
+      const stack=[];  // 每个深度的最近节点索引
+      nodes.forEach((n,i)=>{
+        while(stack.length && nodes[stack[stack.length-1]].depth>=n.depth)stack.pop();
+        if(stack.length){n._parent=stack[stack.length-1];nodes[n._parent]._hasChildren=true;}
+        stack.push(i);
+      });
+      // 计算 open / visible
+      return nodes.map(n=>{
+        const open=treeOpen[n._id]!==undefined?treeOpen[n._id]:(n.depth===0);
+        let visible=true,p=n._parent;
+        while(p>=0){const po=treeOpen[p]!==undefined?treeOpen[p]:(nodes[p].depth===0);if(!po){visible=false;break;}p=nodes[p]._parent;}
+        return{...n,_open:open,_visible:visible};
+      });
+    });
+    const toggleNode=(n)=>{if(!n._hasChildren && !(n.holdings&&n.holdings.length))return;treeOpen[n._id]=!n._open;};
+
+    // 美股锚 → A股链 下钻
+    const usOpen=ref('');
+    const canExpandAnchor=(a)=>a && a.big_mover && (strat.usMapping.big_movers||[]).some(m=>m.ticker===a.ticker);
+    const toggleAnchor=(a)=>{if(!canExpandAnchor(a))return;usOpen.value=usOpen.value===a.ticker?'':a.ticker;};
+
+    // 底部弹层
+    const sheet=reactive({open:false,show:false,data:{}});
+    const openTarget=(h,seg)=>{
+      const nc=(curChain.value&&curChain.value.non_consensus)||[];
+      const hit=nc.find(x=>x.code===h.code);
+      sheet.data={...h,segment:h.segment||(seg&&seg.name)||'',tree_path:h.tree_path||(hit&&hit.tree_path)||''};
+      sheet.open=true;requestAnimationFrame(()=>{sheet.show=true;});
+    };
+    const closeSheet=()=>{sheet.show=false;setTimeout(()=>{sheet.open=false;},280);};
+
+    // 下拉刷新
+    const ptrPull=ref(0),ptrThreshold=40;let ptrStartY=0,ptrActive=false;
+    const ptrStart=(e)=>{ptrActive=(window.scrollY<=0);ptrStartY=e.touches?e.touches[0].clientY:0;};
+    const ptrMove=(e)=>{
+      if(!ptrActive||stratLoading.value)return;
+      const y=e.touches?e.touches[0].clientY:0,d=y-ptrStartY;
+      if(d>0&&window.scrollY<=0){ptrPull.value=Math.min(70,d*0.5);}else{ptrPull.value=0;}
+    };
+    const ptrEnd=()=>{
+      if(ptrPull.value>=ptrThreshold&&!stratLoading.value)loadStrategy();
+      ptrPull.value=0;ptrActive=false;
+    };
 
     // 五层蛋糕 — Agent自动挖掘的标的
     const layers=reactive([
@@ -569,6 +1014,39 @@ createApp({
       }catch(e){console.log('[OpenClaw] watchlist.json未找到');}
     }
 
+    // 加载strategy.json（策略看板）
+    async function loadStrategy(){
+      stratLoading.value=true;
+      try{
+        const resp=await fetch('strategy.json?t='+Date.now());
+        if(!resp.ok)throw new Error('no strategy.json');
+        const d=await resp.json();
+        strat.updateTime=d.updateTime||'';
+        strat.disclaimer=d.disclaimer||'';
+        ['waterSellers','chainTree','usMapping','funding','winRate'].forEach(k=>{if(d[k])Object.assign(strat[k],d[k]);});
+        // 多产业链（新数据）；旧数据无此字段则保持 null，自动回退 chainTree
+        if(d.chains){strat.chains=d.chains;strat.chainOrder=d.chainOrder||Object.keys(d.chains);strat.defaultChain=d.defaultChain||strat.chainOrder[0]||'';
+          if(!activeChain.value||!strat.chains[activeChain.value])activeChain.value=strat.defaultChain;}
+        stratReady.value=true;
+        console.log('[OpenClaw] 策略看板已加载:',strat.updateTime);
+      }catch(e){console.log('[OpenClaw] strategy.json未找到');}
+      finally{stratLoading.value=false;}
+    }
+
+    // 加载daily_brief.json（今日关注，优雅降级）
+    async function loadBrief(){
+      try{
+        const resp=await fetch('daily_brief.json?t='+Date.now());
+        if(!resp.ok)return;
+        const d=await resp.json();
+        brief.date=d.date||'';
+        brief.updateTime=d.updateTime||'';
+        brief.items=Array.isArray(d.items)?d.items:[];
+        brief.available=d.available!==false;
+        console.log('[OpenClaw] 今日关注已加载:',brief.items.length,'条');
+      }catch(e){console.log('[OpenClaw] daily_brief.json未找到');}
+    }
+
     // 数据加载
     async function refreshData(){
       loading.value=true;
@@ -601,10 +1079,12 @@ createApp({
     onMounted(()=>{
       refreshData();
       loadWatchlist();
-      setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();}},60000);
+      loadStrategy();
+      loadBrief();
+      setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,filteredWatchlist,goDetail,goDetail2,dAgents,skills,obFolders,reports,loading,updateTime,marketIdx,refreshData,chgClass,signalLabel};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,filteredWatchlist,goDetail,goDetail2,dAgents,skills,obFolders,reports,loading,updateTime,marketIdx,refreshData,chgClass,signalLabel,brief,briefEmoji,briefTagStyle,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,kindLabel,chainNodes,toggleNode,usOpen,canExpandAnchor,toggleAnchor,sheet,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,usFold,hasChains,chainOrder,chainLabel,curChain,selectChain,chainEmptyNote};
   }
 }).mount('#app');
 
