@@ -1,7 +1,7 @@
 {
-  "updateTime": "2026-06-02 01:49:10",
-  "timestamp": 1780336150,
-  "mode": "dry-run",
+  "updateTime": "2026-06-02 11:21:22",
+  "timestamp": 1780370482,
+  "mode": "live",
   "disclaimer": "公开策略数据看板，仅含聚合/结构化信息，不构成投资建议。",
   "waterSellers": {
     "available": false,
@@ -27,22 +27,22 @@
         "kind": "tree",
         "holdings": [
           {
-            "code": "601138",
-            "name": "工业富联",
-            "is_leader": true,
-            "consensus_state": "unknown"
+            "code": "000034",
+            "name": "神州数码",
+            "is_leader": false,
+            "consensus_state": "non_consensus"
           },
           {
             "code": "300442",
             "name": "润泽科技",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
           },
           {
-            "code": "000034",
-            "name": "神州数码",
-            "is_leader": false,
-            "consensus_state": "unknown"
+            "code": "601138",
+            "name": "工业富联",
+            "is_leader": true,
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -247,22 +247,22 @@
         "kind": "tree",
         "holdings": [
           {
+            "code": "300394",
+            "name": "天孚通信",
+            "is_leader": false,
+            "consensus_state": "normal"
+          },
+          {
             "code": "300308",
             "name": "中际旭创",
             "is_leader": true,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           },
           {
             "code": "300502",
             "name": "新易盛",
             "is_leader": false,
-            "consensus_state": "unknown"
-          },
-          {
-            "code": "300394",
-            "name": "天孚通信",
-            "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -276,25 +276,25 @@
             "code": "688498",
             "name": "源杰科技",
             "is_leader": true,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           },
           {
             "code": "688313",
             "name": "仕佳光子",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           },
           {
             "code": "688048",
             "name": "长光华芯",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           },
           {
             "code": "002281",
             "name": "光迅科技",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -381,46 +381,46 @@
         "kind": "tree",
         "holdings": [
           {
-            "code": "002463",
-            "name": "沪电股份",
-            "is_leader": true,
-            "consensus_state": "unknown"
+            "code": "001389",
+            "name": "广合科技",
+            "is_leader": false,
+            "consensus_state": "non_consensus"
           },
           {
             "code": "002916",
             "name": "深南电路",
             "is_leader": false,
-            "consensus_state": "unknown"
-          },
-          {
-            "code": "300476",
-            "name": "胜宏科技",
-            "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
           },
           {
             "code": "603228",
             "name": "景旺电子",
             "is_leader": false,
-            "consensus_state": "unknown"
-          },
-          {
-            "code": "001389",
-            "name": "广合科技",
-            "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
           },
           {
             "code": "603629",
             "name": "利通电子",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
+          },
+          {
+            "code": "002463",
+            "name": "沪电股份",
+            "is_leader": true,
+            "consensus_state": "crowded"
+          },
+          {
+            "code": "300476",
+            "name": "胜宏科技",
+            "is_leader": false,
+            "consensus_state": "crowded"
           },
           {
             "code": "002384",
             "name": "东山精密",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -448,25 +448,25 @@
             "code": "002080",
             "name": "中材科技",
             "is_leader": true,
-            "consensus_state": "unknown"
-          },
-          {
-            "code": "600176",
-            "name": "中国巨石",
-            "is_leader": true,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
           },
           {
             "code": "603256",
             "name": "宏和科技",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
+          },
+          {
+            "code": "600176",
+            "name": "中国巨石",
+            "is_leader": true,
+            "consensus_state": "crowded"
           },
           {
             "code": "300395",
             "name": "菲利华",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -559,22 +559,22 @@
         "kind": "leaf",
         "holdings": [
           {
-            "code": "002851",
-            "name": "麦格米特",
-            "is_leader": true,
-            "consensus_state": "unknown"
-          },
-          {
             "code": "300870",
             "name": "欧陆通",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
+          },
+          {
+            "code": "002851",
+            "name": "麦格米特",
+            "is_leader": true,
+            "consensus_state": "crowded"
           },
           {
             "code": "002364",
             "name": "中恒电气",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -659,22 +659,22 @@
         "kind": "tree",
         "holdings": [
           {
-            "code": "603986",
-            "name": "兆易创新",
-            "is_leader": false,
-            "consensus_state": "unknown"
-          },
-          {
             "code": "300475",
             "name": "香农芯创",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
           },
           {
             "code": "000021",
             "name": "深科技",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
+          },
+          {
+            "code": "603986",
+            "name": "兆易创新",
+            "is_leader": false,
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -719,7 +719,22 @@
         ]
       }
     ],
-    "non_consensus": [],
+    "non_consensus": [
+      {
+        "code": "000034",
+        "name": "神州数码",
+        "segment": "整机与机柜集成",
+        "tier": 0,
+        "tree_path": "整机与机柜集成"
+      },
+      {
+        "code": "001389",
+        "name": "广合科技",
+        "segment": "高速PCB(HDI/高多层)",
+        "tier": 2,
+        "tree_path": "整机与机柜集成 → PCB与载板模块 → 高速PCB(HDI/高多层)"
+      }
+    ],
     "upstream_todo": [
       {
         "segment": "BT树脂",
@@ -747,7 +762,7 @@
       }
     ],
     "theme": "AI服务器",
-    "consensus_live": false,
+    "consensus_live": true,
     "key": "ai_server",
     "label": "AI服务器"
   },
@@ -771,22 +786,22 @@
           "kind": "tree",
           "holdings": [
             {
-              "code": "601138",
-              "name": "工业富联",
-              "is_leader": true,
-              "consensus_state": "unknown"
+              "code": "000034",
+              "name": "神州数码",
+              "is_leader": false,
+              "consensus_state": "non_consensus"
             },
             {
               "code": "300442",
               "name": "润泽科技",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
             },
             {
-              "code": "000034",
-              "name": "神州数码",
-              "is_leader": false,
-              "consensus_state": "unknown"
+              "code": "601138",
+              "name": "工业富联",
+              "is_leader": true,
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -991,22 +1006,22 @@
           "kind": "tree",
           "holdings": [
             {
+              "code": "300394",
+              "name": "天孚通信",
+              "is_leader": false,
+              "consensus_state": "normal"
+            },
+            {
               "code": "300308",
               "name": "中际旭创",
               "is_leader": true,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             },
             {
               "code": "300502",
               "name": "新易盛",
               "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "300394",
-              "name": "天孚通信",
-              "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -1020,25 +1035,25 @@
               "code": "688498",
               "name": "源杰科技",
               "is_leader": true,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             },
             {
               "code": "688313",
               "name": "仕佳光子",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             },
             {
               "code": "688048",
               "name": "长光华芯",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             },
             {
               "code": "002281",
               "name": "光迅科技",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -1125,46 +1140,46 @@
           "kind": "tree",
           "holdings": [
             {
-              "code": "002463",
-              "name": "沪电股份",
-              "is_leader": true,
-              "consensus_state": "unknown"
+              "code": "001389",
+              "name": "广合科技",
+              "is_leader": false,
+              "consensus_state": "non_consensus"
             },
             {
               "code": "002916",
               "name": "深南电路",
               "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "300476",
-              "name": "胜宏科技",
-              "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
             },
             {
               "code": "603228",
               "name": "景旺电子",
               "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "001389",
-              "name": "广合科技",
-              "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
             },
             {
               "code": "603629",
               "name": "利通电子",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
+            },
+            {
+              "code": "002463",
+              "name": "沪电股份",
+              "is_leader": true,
+              "consensus_state": "crowded"
+            },
+            {
+              "code": "300476",
+              "name": "胜宏科技",
+              "is_leader": false,
+              "consensus_state": "crowded"
             },
             {
               "code": "002384",
               "name": "东山精密",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -1192,25 +1207,25 @@
               "code": "002080",
               "name": "中材科技",
               "is_leader": true,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "600176",
-              "name": "中国巨石",
-              "is_leader": true,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
             },
             {
               "code": "603256",
               "name": "宏和科技",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
+            },
+            {
+              "code": "600176",
+              "name": "中国巨石",
+              "is_leader": true,
+              "consensus_state": "crowded"
             },
             {
               "code": "300395",
               "name": "菲利华",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -1303,22 +1318,22 @@
           "kind": "leaf",
           "holdings": [
             {
-              "code": "002851",
-              "name": "麦格米特",
-              "is_leader": true,
-              "consensus_state": "unknown"
-            },
-            {
               "code": "300870",
               "name": "欧陆通",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
+            },
+            {
+              "code": "002851",
+              "name": "麦格米特",
+              "is_leader": true,
+              "consensus_state": "crowded"
             },
             {
               "code": "002364",
               "name": "中恒电气",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -1403,22 +1418,22 @@
           "kind": "tree",
           "holdings": [
             {
-              "code": "603986",
-              "name": "兆易创新",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
               "code": "300475",
               "name": "香农芯创",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
             },
             {
               "code": "000021",
               "name": "深科技",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
+            },
+            {
+              "code": "603986",
+              "name": "兆易创新",
+              "is_leader": false,
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -1463,7 +1478,22 @@
           ]
         }
       ],
-      "non_consensus": [],
+      "non_consensus": [
+        {
+          "code": "000034",
+          "name": "神州数码",
+          "segment": "整机与机柜集成",
+          "tier": 0,
+          "tree_path": "整机与机柜集成"
+        },
+        {
+          "code": "001389",
+          "name": "广合科技",
+          "segment": "高速PCB(HDI/高多层)",
+          "tier": 2,
+          "tree_path": "整机与机柜集成 → PCB与载板模块 → 高速PCB(HDI/高多层)"
+        }
+      ],
       "upstream_todo": [
         {
           "segment": "BT树脂",
@@ -1491,7 +1521,7 @@
         }
       ],
       "theme": "AI服务器",
-      "consensus_live": false,
+      "consensus_live": true,
       "key": "ai_server",
       "label": "AI服务器"
     },
@@ -2377,161 +2407,645 @@
         "cn_name": "英伟达",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 0,
+          "sells": 15,
+          "grants": 0,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "Dabiri John",
+            "relationship": "isDirector",
+            "date": "2026-05-27",
+            "dir": "卖出"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "TSM",
         "cn_name": "台积电",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 6,
+          "sells": 2,
+          "grants": 0,
+          "net_dir": "净买入",
+          "latest": {
+            "owner": "Mii Yuh-Jier",
+            "relationship": "isOfficer",
+            "date": "2026-05-22",
+            "dir": "授予/其它"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "MU",
         "cn_name": "美光",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 0,
+          "sells": 58,
+          "grants": 0,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "GOMO STEVEN J",
+            "relationship": "isDirector",
+            "date": "2026-05-11",
+            "dir": "卖出"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "AVGO",
         "cn_name": "博通",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 0,
+          "sells": 1,
+          "grants": 6,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "SAMUELI HENRY",
+            "relationship": "isDirector",
+            "date": "2026-04-21",
+            "dir": "授予/其它"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "MSFT",
         "cn_name": "微软",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 0,
+          "sells": 6,
+          "grants": 1,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "Jolla Alice L.",
+            "relationship": "isOfficer",
+            "date": "2026-06-01",
+            "dir": "授予/其它"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "AMD",
         "cn_name": "超威半导体(AMD)",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 3,
+          "sells": 35,
+          "grants": 3,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "Norrod Forrest Eugene",
+            "relationship": "isOfficer",
+            "date": "2026-05-20",
+            "dir": "授予/其它"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "AAPL",
         "cn_name": "苹果",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 2,
+          "sells": 15,
+          "grants": 0,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "LEVINSON ARTHUR D",
+            "relationship": "isDirector",
+            "date": "2026-05-27",
+            "dir": "卖出"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "GOOGL",
         "cn_name": "谷歌(Alphabet)",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 6,
+          "sells": 11,
+          "grants": 0,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "Shriram Kavitark Ram",
+            "relationship": "isDirector",
+            "date": "2026-05-29",
+            "dir": "授予/其它"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "META",
         "cn_name": "Meta(脸书)",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 11,
+          "sells": 26,
+          "grants": 0,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "Mahoney Curtis J.",
+            "relationship": "isOfficer",
+            "date": "2026-05-27",
+            "dir": "卖出"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "AMZN",
         "cn_name": "亚马逊",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 14,
+          "sells": 36,
+          "grants": 0,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "Jassy Andrew R",
+            "relationship": "isDirector,isOfficer",
+            "date": "2026-05-21",
+            "dir": "授予/其它"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "TSLA",
         "cn_name": "特斯拉",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 6,
+          "sells": 40,
+          "grants": 0,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "Taneja Vaibhav",
+            "relationship": "isOfficer",
+            "date": "2026-05-13",
+            "dir": "授予/其它"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "ASML",
         "cn_name": "阿斯麦(ASML)",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": false,
+          "note": "未取到",
+          "buys": 0,
+          "sells": 0,
+          "grants": 0,
+          "net_dir": null,
+          "latest": null
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "SMCI",
         "cn_name": "超微电脑(SMCI)",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 8,
+          "sells": 18,
+          "grants": 4,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "Liang Charles",
+            "relationship": "isDirector,isOfficer,isTenPercentOwner",
+            "date": "2026-05-26",
+            "dir": "授予/其它"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "DELL",
         "cn_name": "戴尔",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": false,
+          "note": "未取到",
+          "buys": 0,
+          "sells": 0,
+          "grants": 0,
+          "net_dir": null,
+          "latest": null
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "ARM",
         "cn_name": "安谋(ARM)",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 0,
+          "sells": 8,
+          "grants": 0,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "Abbey William",
+            "relationship": "isOfficer",
+            "date": "2026-05-28",
+            "dir": "卖出"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "AMAT",
         "cn_name": "应用材料",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": true,
+          "note": "",
+          "buys": 0,
+          "sells": 4,
+          "grants": 2,
+          "net_dir": "净卖出",
+          "latest": {
+            "owner": "BRUNER JUDY",
+            "relationship": "isDirector",
+            "date": "2026-05-26",
+            "dir": "卖出"
+          }
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "LRCX",
         "cn_name": "泛林集团(Lam Research)",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": false,
+          "note": "未取到",
+          "buys": 0,
+          "sells": 0,
+          "grants": 0,
+          "net_dir": null,
+          "latest": null
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "KLAC",
         "cn_name": "科磊(KLA)",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": false,
+          "note": "未取到",
+          "buys": 0,
+          "sells": 0,
+          "grants": 0,
+          "net_dir": null,
+          "latest": null
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "MRVL",
         "cn_name": "迈威尔(Marvell)",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": false,
+          "note": "未取到",
+          "buys": 0,
+          "sells": 0,
+          "grants": 0,
+          "net_dir": null,
+          "latest": null
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "ANET",
         "cn_name": "Arista Networks",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": false,
+          "note": "未取到",
+          "buys": 0,
+          "sells": 0,
+          "grants": 0,
+          "net_dir": null,
+          "latest": null
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "COHR",
         "cn_name": "高意(Coherent)",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": false,
+          "note": "未取到",
+          "buys": 0,
+          "sells": 0,
+          "grants": 0,
+          "net_dir": null,
+          "latest": null
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "MPWR",
         "cn_name": "芯源系统(MPS)",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": false,
+          "note": "未取到",
+          "buys": 0,
+          "sells": 0,
+          "grants": 0,
+          "net_dir": null,
+          "latest": null
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       },
       {
         "ticker": "VRT",
         "cn_name": "维谛技术(Vertiv)",
         "change": null,
         "status": "行情未取到",
-        "big_mover": false
+        "big_mover": false,
+        "insider": {
+          "available": false,
+          "note": "未取到",
+          "buys": 0,
+          "sells": 0,
+          "grants": 0,
+          "net_dir": null,
+          "latest": null
+        },
+        "institution": {
+          "available": false,
+          "note": "未取到",
+          "holders": []
+        },
+        "sentiment": {
+          "available": false,
+          "note": "未取到"
+        }
       }
     ],
     "big_movers": []
@@ -2552,13 +3066,13 @@
         "scanner": "HistoricalReplay",
         "count": 9936,
         "decided": 9659,
-        "win_rate": 0.526,
-        "avg_ret_5d": 0.0142,
+        "win_rate": 0.525,
+        "avg_ret_5d": 0.0141,
         "note": ""
       },
       {
         "scanner": "FactorAgent",
-        "count": 36,
+        "count": 54,
         "decided": 8,
         "win_rate": 0.75,
         "avg_ret_5d": -0.01,
@@ -2573,5 +3087,262 @@
         "note": "样本不足 5"
       }
     ]
+  },
+  "intel": {
+    "available": true,
+    "note": "",
+    "rss": {
+      "available": true,
+      "note": "",
+      "generated_at": "2026-06-02T11:21:02+08:00",
+      "ok_count": 52,
+      "source_count": 54,
+      "items": [
+        {
+          "title": "SEC Announces Four New Members of Investor Advisory Committee",
+          "link": "https://www.sec.gov/newsroom/press-releases/2026-50-sec-announces-four-new-members-investor-advisory-committee",
+          "published": "Mon, 01 Jun 2026 12:39:44 -0400",
+          "source": "SEC Press Releases",
+          "category": "REGULATORY",
+          "evidence_grade": "B"
+        },
+        {
+          "title": "SEC Proposes Rescission of Climate-Related Disclosure Rules",
+          "link": "https://www.sec.gov/newsroom/press-releases/2026-49-sec-proposes-rescission-climate-related-disclosure-rules",
+          "published": "Fri, 29 May 2026 10:50:00 -0400",
+          "source": "SEC Press Releases",
+          "category": "REGULATORY",
+          "evidence_grade": "B"
+        },
+        {
+          "title": "SEC Investor Advisory Committee to Host June 4 Meeting",
+          "link": "https://www.sec.gov/newsroom/press-releases/2026-48-sec-investor-advisory-committee-host-june-4-meeting",
+          "published": "Wed, 27 May 2026 10:59:13 -0400",
+          "source": "SEC Press Releases",
+          "category": "REGULATORY",
+          "evidence_grade": "B"
+        },
+        {
+          "title": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260528a.htm",
+          "published": "Thu, 28 May 2026 15:00:00 GMT",
+          "source": "Federal Reserve Press",
+          "category": "REGULATORY",
+          "evidence_grade": "B"
+        },
+        {
+          "title": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260526a.htm",
+          "published": "Tue, 26 May 2026 18:00:00 GMT",
+          "source": "Federal Reserve Press",
+          "category": "REGULATORY",
+          "evidence_grade": "B"
+        },
+        {
+          "title": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm",
+          "published": "Fri, 22 May 2026 20:15:00 GMT",
+          "source": "Federal Reserve Press",
+          "category": "REGULATORY",
+          "evidence_grade": "B"
+        },
+        {
+          "title": "ECB Consumer Expectations Survey results – April 2026",
+          "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260601~bf8026bfc2.en.html",
+          "published": "Mon, 01 Jun 2026 10:00:00 +0200",
+          "source": "ECB Press",
+          "category": "REGULATORY",
+          "evidence_grade": "B"
+        },
+        {
+          "title": "Isabel Schnabel: From money market funds to stablecoins: lessons for central banks",
+          "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260601~38dffe5ec5.en.html",
+          "published": "Mon, 01 Jun 2026 02:10:00 +0200",
+          "source": "ECB Press",
+          "category": "REGULATORY",
+          "evidence_grade": "B"
+        },
+        {
+          "title": "Luis de Guindos: Interview with Expansión",
+          "link": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in260531~f648dbde70.en.html",
+          "published": "Sun, 31 May 2026 16:00:00 +0200",
+          "source": "ECB Press",
+          "category": "REGULATORY",
+          "evidence_grade": "B"
+        },
+        {
+          "title": "Statistical Notice 2026/04 - BEEDS User Acceptance Testing (UAT) Environment – Statistical Taxonomy v1.3.1 FINAL",
+          "link": "https://www.bankofengland.co.uk/statistics/notice/2026/statistical-notice-2026-04",
+          "published": "Tue, 26 May 2026 14:03:58 +0100",
+          "source": "Bank of England News",
+          "category": "REGULATORY",
+          "evidence_grade": "B"
+        },
+        {
+          "title": "FCA and Bank of England set out shared vision for tokenisation in UK wholesale markets",
+          "link": "https://www.bankofengland.co.uk/news/2026/may/fca-and-boe-set-out-shared-vision-for-tokenisation-in-uk-wholesale-markets",
+          "published": "Mon, 18 May 2026 09:06:58 +0100",
+          "source": "Bank of England News",
+          "category": "REGULATORY",
+          "evidence_grade": "B"
+        },
+        {
+          "title": "PRA announces ring-fence change to reduce costs",
+          "link": "https://www.bankofengland.co.uk/news/2026/may/pra-announces-ring-fence-change-to-reduce-costs",
+          "published": "Mon, 18 May 2026 00:00:00 +0100",
+          "source": "Bank of England News",
+          "category": "REGULATORY",
+          "evidence_grade": "B"
+        }
+      ]
+    },
+    "polymarket": {
+      "available": true,
+      "note": "隐含概率=市场对事件发生概率的真金白银定价; 仅作非共识/事件链信号",
+      "generated_at": "2026-06-02T11:21:02.339374+08:00",
+      "market_count": 140,
+      "events": [
+        {
+          "theme": "fed_rates",
+          "market": "Will the Fed decrease interest rates by 50+ bps after the June 2026 meeting?",
+          "outcome": "Yes",
+          "implied_prob": 0.0045,
+          "implied_pct": 0.4,
+          "change_24h": -0.001,
+          "volume_usdc": 12841318.77,
+          "end_date": "2026-06-17T00:00:00Z"
+        },
+        {
+          "theme": "fed_rates",
+          "market": "Will the Fed increase interest rates by 50+ bps after the June 2026 meeting?",
+          "outcome": "Yes",
+          "implied_prob": 0.0015,
+          "implied_pct": 0.1,
+          "change_24h": null,
+          "volume_usdc": 12016747.87,
+          "end_date": "2026-06-17T00:00:00Z"
+        },
+        {
+          "theme": "inflation",
+          "market": "US recession by end of 2026?",
+          "outcome": "Yes",
+          "implied_prob": 0.215,
+          "implied_pct": 21.5,
+          "change_24h": 0.015,
+          "volume_usdc": 1528992.52,
+          "end_date": "2027-01-31T00:00:00Z"
+        },
+        {
+          "theme": "inflation",
+          "market": "Will inflation reach more than 4% in 2026?",
+          "outcome": "Yes",
+          "implied_prob": 0.9775,
+          "implied_pct": 97.8,
+          "change_24h": 0.001,
+          "volume_usdc": 246879.86,
+          "end_date": "2026-12-31T00:00:00Z"
+        },
+        {
+          "theme": "ai",
+          "market": "Will xAI have the best AI model at the end of June 2026?",
+          "outcome": "Yes",
+          "implied_prob": 0.0035,
+          "implied_pct": 0.4,
+          "change_24h": -0.001,
+          "volume_usdc": 1309852.25,
+          "end_date": "2026-06-30T00:00:00Z"
+        },
+        {
+          "theme": "ai",
+          "market": "Will Anthropic have the best AI model at the end of June 2026?",
+          "outcome": "Yes",
+          "implied_prob": 0.8205,
+          "implied_pct": 82.0,
+          "change_24h": -0.0115,
+          "volume_usdc": 1235642.42,
+          "end_date": "2026-06-30T00:00:00Z"
+        },
+        {
+          "theme": "geopolitics",
+          "market": "Will the U.S. invade Iran before 2027?",
+          "outcome": "Yes",
+          "implied_prob": 0.165,
+          "implied_pct": 16.5,
+          "change_24h": 0.01,
+          "volume_usdc": 33558639.07,
+          "end_date": "2026-12-31T00:00:00Z"
+        },
+        {
+          "theme": "geopolitics",
+          "market": "Will China invade Taiwan by end of 2026?",
+          "outcome": "Yes",
+          "implied_prob": 0.0655,
+          "implied_pct": 6.6,
+          "change_24h": -0.001,
+          "volume_usdc": 31703191.68,
+          "end_date": "2026-12-31T00:00:00Z"
+        },
+        {
+          "theme": "election",
+          "market": "Will LeBron James win the 2028 US Presidential Election?",
+          "outcome": "Yes",
+          "implied_prob": 0.0065,
+          "implied_pct": 0.7,
+          "change_24h": null,
+          "volume_usdc": 51365258.54,
+          "end_date": "2028-11-07T00:00:00Z"
+        },
+        {
+          "theme": "election",
+          "market": "Will Tim Walz win the 2028 US Presidential Election?",
+          "outcome": "Yes",
+          "implied_prob": 0.0065,
+          "implied_pct": 0.7,
+          "change_24h": null,
+          "volume_usdc": 41984644.63,
+          "end_date": "2028-11-07T00:00:00Z"
+        },
+        {
+          "theme": "tech_corp",
+          "market": "Will Tesla be the largest company in the world by market cap on June 30?",
+          "outcome": "Yes",
+          "implied_prob": 0.0015,
+          "implied_pct": 0.1,
+          "change_24h": null,
+          "volume_usdc": 3750840.54,
+          "end_date": "2026-06-30T00:00:00Z"
+        },
+        {
+          "theme": "tech_corp",
+          "market": "Will Amazon be the largest company in the world by market cap on June 30?",
+          "outcome": "Yes",
+          "implied_prob": 0.0005,
+          "implied_pct": 0.1,
+          "change_24h": null,
+          "volume_usdc": 3489281.79,
+          "end_date": "2026-06-30T00:00:00Z"
+        },
+        {
+          "theme": "crypto",
+          "market": "Will Bitcoin hit $150k by June 30, 2026?",
+          "outcome": "Yes",
+          "implied_prob": 0.0045,
+          "implied_pct": 0.4,
+          "change_24h": -0.001,
+          "volume_usdc": 19180633.58,
+          "end_date": "2026-07-01T04:00:00Z"
+        },
+        {
+          "theme": "crypto",
+          "market": "Will Bitcoin reach $250,000 by December 31, 2026?",
+          "outcome": "Yes",
+          "implied_prob": 0.018,
+          "implied_pct": 1.8,
+          "change_24h": -0.0105,
+          "volume_usdc": 5030515.12,
+          "end_date": "2027-01-01T05:00:00Z"
+        }
+      ]
+    }
   }
 }

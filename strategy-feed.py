@@ -43,6 +43,15 @@ OUTPUT_FILE = HERE / "strategy.json"
 # workspace-main 引擎路径（只读 import）。固定相对定位，找不到则该区块降级。
 WORKSPACE_SCRIPTS = Path("/Users/long/.openclaw/workspace-main/scripts")
 
+# P0 数据模块的产出目录（本脚本【只读】这些 JSON，绝不运行/修改其源码）。
+#   美股情报: scripts/data/us_intel/  (sec_edgar / us_quote / 13F / 社媒情绪)
+#   宏观情报: scripts/data/intel/     (rss_intel / polymarket_odds)
+US_INTEL_DIR = WORKSPACE_SCRIPTS / "data" / "us_intel"
+INTEL_DIR = WORKSPACE_SCRIPTS / "data" / "intel"
+
+# 上游降级骨架里出现这些 status 即视为「未取到」（不当成真数据）。
+_DEGRADED_STATUS = {"degraded", "error", "parse_error", "empty"}
+
 DEFAULT_CHAIN = "ai_server"
 DEFAULT_THRESHOLD = 10.0
 
@@ -178,6 +187,200 @@ def build_all_chains(dry_run: bool) -> dict:
     return {"chains": chains, "chainOrder": order, "defaultChain": DEFAULT_CHAIN}
 
 
+# ─────────────────── P0 情报数据：只读 us_intel / intel 产出 ───────────────────
+def _read_json_safe(path: Path) -> dict | None:
+    """只读一个 JSON 文件；不存在/解析失败 → None（不抛、不编造）。"""
+    try:
+        if not path.is_file():
+            return None
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _is_ok(payload: dict | None) -> bool:
+    """上游 payload 是否为有效（非降级）数据。"""
+    if not isinstance(payload, dict):
+        return False
+    return str(payload.get("status", "ok")).lower() not in _DEGRADED_STATUS
+
+
+def summarize_insider(ticker: str) -> dict:
+    """读 data/us_intel/sec_all_<T>.json 的 Form4 内部人交易 → 公开安全摘要。
+
+    只输出聚合方向与笔数（买/卖/授予笔数、最近一笔方向/日期/角色），
+    **绝不输出任何个人持仓量/成本**（这是公开看板）。模块未产出 → available=False。
+    """
+    out = {"available": False, "note": "未取到", "buys": 0, "sells": 0,
+           "grants": 0, "net_dir": None, "latest": None}
+    safe = "".join(c if c.isalnum() else "_" for c in ticker)
+    payload = _read_json_safe(US_INTEL_DIR / f"sec_all_{safe}.json")
+    if payload is None:
+        payload = _read_json_safe(US_INTEL_DIR / f"sec_insiders_{safe}.json")
+        ins = payload if _is_ok(payload) else None
+    else:
+        ins = (payload.get("parts", {}) or {}).get("insiders")
+    if not _is_ok(ins):
+        return out
+    filings = ins.get("insider_filings") or []
+    if not filings:
+        out.update({"available": True, "note": "近期无内部人交易记录"})
+        return out
+    buys = sells = grants = 0
+    latest = None
+    for f in filings:
+        for t in f.get("transactions") or []:
+            code = (t.get("code") or "").upper()
+            acq = (t.get("acquired_disposed") or "").upper()
+            # P=公开市场买入, S=卖出, A=授予, M=期权行权; 以 A/D 兜底方向
+            if code == "P" or (code not in ("S",) and acq == "A" and code != "A"):
+                buys += 1
+            elif code == "S" or acq == "D":
+                sells += 1
+            elif code == "A":
+                grants += 1
+        if latest is None and (f.get("transactions") or []):
+            t0 = f["transactions"][0]
+            latest = {
+                "owner": f.get("owner"),
+                "relationship": f.get("relationship"),
+                "date": t0.get("date") or f.get("filing_date"),
+                "dir": "买入" if (t0.get("code") or "").upper() == "P"
+                       else ("卖出" if (t0.get("code") or "").upper() == "S"
+                             else "授予/其它"),
+            }
+    net = None
+    if buys or sells:
+        net = "净买入" if buys > sells else ("净卖出" if sells > buys else "买卖均衡")
+    out.update({"available": True, "note": "",
+                "buys": buys, "sells": sells, "grants": grants,
+                "net_dir": net, "latest": latest})
+    return out
+
+
+def summarize_institution(ticker: str) -> dict:
+    """13F 机构持仓（按持有标的反查）。
+
+    当前 us_intel/sec_edgar 的 13F 接口以【机构 CIK】为键，并非按被持标的反查，
+    故无现成 per-ticker 机构持仓产出 → 诚实标 available=False / 未取到（不脑补）。
+    若未来上游产出 data/us_intel/inst_by_ticker_<T>.json（含 holders 字段）则自动接上。
+    """
+    out = {"available": False, "note": "未取到", "holders": []}
+    safe = "".join(c if c.isalnum() else "_" for c in ticker)
+    payload = _read_json_safe(US_INTEL_DIR / f"inst_by_ticker_{safe}.json")
+    if not _is_ok(payload):
+        return out
+    holders = payload.get("holders") or payload.get("top_holders") or []
+    if not holders:
+        out["note"] = "暂无 13F 持仓记录"
+        return out
+    out.update({"available": True, "note": "",
+                "holders": [{"name": h.get("filer") or h.get("name"),
+                             "shares": h.get("shares"),
+                             "value_usd_k": h.get("value_usd_k")}
+                            for h in holders[:5]]})
+    return out
+
+
+def summarize_sentiment(ticker: str) -> dict:
+    """散户情绪（StockTwits / Reddit）。
+
+    上游 us_social_sentiment 模块若未产出 → available=False / 未取到（不编造）。
+    约定输出 data/us_intel/social_sentiment.json，形如:
+      {"status":"ok","tickers":{"NVDA":{"score":..,"bullish_pct":..,"msg_count":..,
+                                        "source":"stocktwits","trend":".."}}}
+    """
+    out = {"available": False, "note": "未取到"}
+    payload = _read_json_safe(US_INTEL_DIR / "social_sentiment.json")
+    if not _is_ok(payload):
+        return out
+    row = (payload.get("tickers", {}) or {}).get(ticker.upper())
+    if not isinstance(row, dict) or str(row.get("status", "ok")).lower() in _DEGRADED_STATUS:
+        return out
+    out.update({"available": True, "note": "",
+                "score": row.get("score"),
+                "bullish_pct": row.get("bullish_pct"),
+                "msg_count": row.get("msg_count"),
+                "source": row.get("source"),
+                "trend": row.get("trend")})
+    return out
+
+
+def build_intel(top_rss: int = 12, top_poly: int = 2) -> dict:
+    """📰 情报速递块：聚合 RSS 最新头条 + Polymarket 事件赔率（皆为公开数据）。
+
+    只读 scripts/data/intel/{rss_latest,polymarket_latest}.json；
+    任一未产出/降级 → 该子块标 available=False / 未取到，整块不报错。
+    """
+    block = {"available": False, "note": "未取到",
+             "rss": {"available": False, "note": "未取到", "generated_at": None, "items": []},
+             "polymarket": {"available": False, "note": "未取到", "generated_at": None, "events": []}}
+
+    # ── RSS 头条（按源聚合后取最新 N 条，保留来源与证据等级）──
+    rss = _read_json_safe(INTEL_DIR / "rss_latest.json")
+    if isinstance(rss, dict) and rss.get("feeds"):
+        items = []
+        for feed in rss.get("feeds", []):
+            if feed.get("status") != "ok":
+                continue
+            for it in feed.get("items", [])[:3]:  # 每源最多 3 条，保多样性
+                items.append({
+                    "title": it.get("title", ""),
+                    "link": it.get("link", ""),
+                    "published": it.get("published", ""),
+                    "source": feed.get("name") or feed.get("source_org") or feed.get("rss_id"),
+                    "category": feed.get("category", ""),
+                    "evidence_grade": feed.get("evidence_grade", ""),
+                })
+        if items:
+            block["rss"] = {
+                "available": True, "note": "",
+                "generated_at": rss.get("generated_at"),
+                "ok_count": rss.get("ok_count"),
+                "source_count": rss.get("source_count"),
+                "items": items[:top_rss],
+            }
+        else:
+            block["rss"]["note"] = "RSS 源均降级/无条目"
+
+    # ── Polymarket 赔率（每主题取成交额最高的 N 个事件）──
+    poly = _read_json_safe(INTEL_DIR / "polymarket_latest.json")
+    if isinstance(poly, dict) and not poly.get("degraded") and poly.get("themes"):
+        events = []
+        for theme, markets in poly.get("themes", {}).items():
+            if not markets:
+                continue
+            ranked = sorted(markets, key=lambda m: m.get("volume_usdc") or 0, reverse=True)
+            for m in ranked[:top_poly]:
+                prob = m.get("implied_prob")
+                events.append({
+                    "theme": theme,
+                    "market": m.get("market", ""),
+                    "outcome": m.get("outcome", ""),
+                    "implied_prob": prob,
+                    "implied_pct": round(prob * 100, 1) if isinstance(prob, (int, float)) else None,
+                    "change_24h": m.get("change_24h"),
+                    "volume_usdc": m.get("volume_usdc"),
+                    "end_date": m.get("end_date"),
+                })
+        if events:
+            block["polymarket"] = {
+                "available": True, "note": poly.get("note", ""),
+                "generated_at": poly.get("asof"),
+                "market_count": poly.get("market_count"),
+                "events": events,
+            }
+        else:
+            block["polymarket"]["note"] = "无可用事件"
+    elif isinstance(poly, dict) and poly.get("degraded"):
+        block["polymarket"]["note"] = "Polymarket 取数降级（未取到）"
+
+    block["available"] = block["rss"]["available"] or block["polymarket"]["available"]
+    if block["available"]:
+        block["note"] = ""
+    return block
+
+
 # ───────────────────────── 2) 美股→A股映射 ─────────────────────────
 def build_us_mapping(chain: str, threshold: float, dry_run: bool) -> dict:
     """调 us_ash_mapping：中文名/涨幅/状态/≥阈值大涨的A股链。
@@ -220,6 +423,11 @@ def build_us_mapping(chain: str, threshold: float, dry_run: bool) -> dict:
                 "change": round(chg, 2) if isinstance(chg, (int, float)) else None,
                 "status": status,
                 "big_mover": bool(chg is not None and chg >= threshold),
+                # P0 增强：内部人(Form4) / 机构(13F) / 散户情绪。模块未产出则各自 available=False。
+                # 全程只读公开数据，绝不含个人持仓量。
+                "insider": summarize_insider(ticker),
+                "institution": summarize_institution(ticker),
+                "sentiment": summarize_sentiment(ticker),
             }
             anchor_rows.append(row)
             if row["big_mover"]:
@@ -441,9 +649,19 @@ def main() -> int:
     print(f"      {'OK' if win_rate['available'] else 'SKIP'} · "
           f"scanner {len(win_rate.get('scanners', []))} · {win_rate.get('note') or '—'}")
 
-    print("[5/5] 卖水人（仅结构化源） ...")
+    print("[5/6] 卖水人（仅结构化源） ...")
     water = build_water_sellers()
     print(f"      {'OK' if water['available'] else 'SKIP'} · {water.get('note') or '—'}")
+
+    print("[6/6] 情报速递（RSS 头条 + Polymarket 赔率，只读 P0 产出） ...")
+    intel = build_intel()
+    print(f"      {'OK' if intel['available'] else 'SKIP'} · "
+          f"RSS {len(intel['rss'].get('items', []))} 条 / "
+          f"Polymarket {len(intel['polymarket'].get('events', []))} 事件 · "
+          f"{intel.get('note') or '—'}")
+    # 美股锚增强字段命中情况（只统计，不打印任何持仓量）
+    enr = [a for a in us_mapping.get("anchors", []) if a.get("insider", {}).get("available")]
+    print(f"      美股锚内部人增强命中: {len(enr)}/{len(us_mapping.get('anchors', []))}")
 
     out = {
         "updateTime": now.strftime("%Y-%m-%d %H:%M:%S"),
@@ -458,12 +676,13 @@ def main() -> int:
         "usMapping": us_mapping,
         "funding": funding,
         "winRate": win_rate,
+        "intel": intel,                     # 📰 情报速递：RSS 头条 + Polymarket 赔率
     }
 
     OUTPUT_FILE.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print()
     print(f"✅ 已写入: {OUTPUT_FILE}")
-    available = [k for k in ("waterSellers", "chainTree", "usMapping", "funding", "winRate")
+    available = [k for k in ("waterSellers", "chainTree", "usMapping", "funding", "winRate", "intel")
                  if out[k].get("available")]
     print(f"   可用区块: {', '.join(available) if available else '（全部降级，无可用区块）'}")
     return 0

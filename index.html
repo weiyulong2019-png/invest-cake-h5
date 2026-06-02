@@ -234,6 +234,34 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
 .us-card-chg.na{font-size:11px;font-weight:400;color:var(--text3);}
 .us-card-st{font-size:10px;color:var(--text3);margin-top:2px;}
 .us-card-more{font-size:10px;color:var(--accent);margin-top:4px;font-weight:600;}
+/* 美股锚 P0 增强：内部人/机构/散户情绪 小标签 */
+.us-meta{margin-top:6px;display:flex;flex-direction:column;gap:2px;}
+.us-meta-row{font-size:10px;color:var(--text3);display:flex;align-items:center;gap:4px;line-height:1.4;}
+.us-meta-row .mk{flex-shrink:0;opacity:.7;}
+.us-meta-row .mv{font-weight:600;color:var(--text2);}
+.us-meta-row .mv.buy{color:var(--green);}
+.us-meta-row .mv.sell{color:var(--red);}
+.us-meta-row .mv.na{font-weight:400;color:var(--text3);}
+
+/* 📰 情报速递卡 */
+.intel-sub{font-size:12px;font-weight:700;color:var(--text2);margin:10px 0 4px;display:flex;align-items:center;gap:6px;}
+.intel-sub:first-child{margin-top:2px;}
+.intel-sub .badge{font-size:9px;padding:1px 6px;border-radius:3px;font-weight:500;margin-left:auto;}
+.intel-item{padding:8px 0;border-top:1px dashed var(--border);}
+.intel-item:first-of-type{border-top:none;}
+.intel-news a{font-size:12px;color:var(--text);font-weight:600;line-height:1.45;text-decoration:none;display:block;}
+.intel-news a:active{opacity:.6;}
+.intel-news-meta{font-size:10px;color:var(--text3);margin-top:3px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.intel-ev{font-size:9px;padding:0 4px;border-radius:3px;background:var(--bg);color:var(--text2);}
+.poly-row{display:flex;align-items:flex-start;gap:8px;}
+.poly-prob{flex-shrink:0;width:46px;text-align:center;font-size:15px;font-weight:700;color:var(--accent);}
+.poly-prob .pu{display:block;font-size:9px;font-weight:400;color:var(--text3);}
+.poly-body{flex:1;min-width:0;}
+.poly-q{font-size:11px;color:var(--text);line-height:1.4;}
+.poly-meta{font-size:9px;color:var(--text3);margin-top:2px;display:flex;gap:6px;flex-wrap:wrap;}
+.poly-chg.up{color:var(--green);}
+.poly-chg.down{color:var(--red);}
+.poly-theme{font-size:9px;padding:0 5px;border-radius:3px;background:var(--bg);color:var(--text2);flex-shrink:0;}
 
 /* 策略 — 底部弹层 bottom sheet */
 .sheet-mask{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:300;opacity:0;transition:opacity .25s;}
@@ -318,13 +346,11 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
     </div>
 
     <div class="theme-tabs">
-      <div class="theme-tab active">AI产业链</div>
-      <div class="theme-tab coming">新能源</div>
-      <div class="theme-tab coming">商业航天</div>
-      <div class="theme-tab coming">消费医药</div>
+      <div class="theme-tab" v-for="t in homeTabs" :key="t.key"
+           :class="{active:homeTab===t.key}" @click="selectHomeTab(t.key)">{{ t.label }}</div>
     </div>
 
-    <div class="etf-bar">
+    <div class="etf-bar" v-show="homeTab==='ai_server'">
       <div class="etf-scroll">
         <div class="etf-chip" v-for="e in etfs" :key="e.code">
           <div class="etf-name">{{ e.name }}</div>
@@ -355,7 +381,8 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
       </div>
     </div>
 
-    <div class="cake-wrap">
+    <!-- AI产业链：五层蛋糕（仅 AI tab） -->
+    <div class="cake-wrap" v-show="homeTab==='ai_server'">
       <div class="layer-card" v-for="L in layers" :key="L.id">
         <div class="layer-top" @click="L.open=!L.open">
           <div class="layer-badge" :style="{background:L.color}">{{ L.id }}</div>
@@ -405,7 +432,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
       </div>
     </div>
 
-    <div class="insight-wrap">
+    <div class="insight-wrap" v-show="homeTab==='ai_server'">
       <div class="insight-card">
         <div class="insight-title">🧠 AI汇总Agent</div>
         <div class="insight-text">
@@ -415,7 +442,46 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
         </div>
       </div>
     </div>
-    <div class="risk-notice">⚠️ 以上标的由OpenClaw Agent自动挖掘，不构成投资建议。</div>
+
+    <!-- 其它产业链：产业链树（复用 strategy.json chains[homeTab]） -->
+    <div class="strat-section" v-show="homeTab!=='ai_server'">
+      <div class="strat-block">
+        <div class="strat-head">🌲 {{ chainLabel(homeTab) }}产业链树 · 非共识机会
+          <span class="badge" :style="badgeStyle(curChain.available)">{{ curChain.available?'已联动':'暂无数据' }}</span>
+        </div>
+        <div v-if="!stratReady && !hasChains" class="strat-note">产业链数据尚未生成，运行 strategy-feed.py 后将自动同步。</div>
+        <template v-else-if="curChain.available && chainNodes.length">
+          <div class="strat-stat">
+            <span>环节 <b>{{ (curChain.stats&&curChain.stats.nodes_with_targets)||0 }}</b>/{{ (curChain.stats&&curChain.stats.total_nodes)||0 }}</span>
+            <span>A股标的 <b>{{ (curChain.stats&&curChain.stats.total_targets)||0 }}</b></span>
+            <span>非共识 <b>{{ (curChain.non_consensus||[]).length }}</b></span>
+          </div>
+          <div style="font-size:10px;color:var(--text3);margin-bottom:6px;">{{ curChain.label?(curChain.label+' 链'):('主题 '+(curChain.theme||'—')) }} · 点环节展开上下游，点标的看详情 · 🔥绿底=非共识</div>
+          <div class="tree-wrap">
+            <div class="tree-node" v-for="n in chainNodes" :key="n._id" v-show="n._visible">
+              <div class="tree-row" :style="{paddingLeft:(n.depth*14)+'px'}" @click="toggleNode(n)">
+                <span class="tree-toggle" :class="{open:n._open, leaf:!n._hasChildren}">{{ n._hasChildren?'▶':'·' }}</span>
+                <span class="tree-seg">{{ n.name }}
+                  <span class="tree-kind">{{ kindLabel(n.kind) }}·t{{ n.tier }}</span>
+                  <span class="tree-cnt" v-if="n.holdings&&n.holdings.length">{{ n.holdings.length }}标的</span>
+                </span>
+              </div>
+              <div class="tree-holds" v-show="n._open && n.holdings && n.holdings.length">
+                <span class="tgt-chip" :class="consClass(h.consensus_state)" v-for="h in n.holdings" :key="h.code"
+                      @click.stop="openTarget(h,n)">
+                  <span class="crown" v-if="h.is_leader">👑</span>
+                  <span v-if="h.consensus_state==='non_consensus'">🔥</span>{{ h.name }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </template>
+        <div v-else class="strat-note">{{ chainEmptyNote }}</div>
+      </div>
+      <div class="risk-notice">⚠️ 以上标的由OpenClaw Agent自动挖掘，不构成投资建议。</div>
+    </div>
+
+    <div class="risk-notice" v-show="homeTab==='ai_server'">⚠️ 以上标的由OpenClaw Agent自动挖掘，不构成投资建议。</div>
   </div>
 
   <!-- ===== 自选股 — 社群共享 ===== -->
@@ -531,46 +597,8 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
       </div>
 
       <template v-if="stratReady">
-        <!-- 🌲 产业链折叠树 -->
-        <div class="strat-block">
-          <div class="strat-head">🌲 产业链树 · 非共识机会
-            <span class="badge" :style="badgeStyle(curChain.available)">{{ curChain.available?'已联动':'暂无数据' }}</span>
-          </div>
-          <!-- 横向产业链 chip tab（仅新数据 chains 存在时显示） -->
-          <div class="chain-tabs" v-if="hasChains">
-            <div class="chain-chip" v-for="key in chainOrder" :key="key"
-                 :class="{active:activeChain===key}" @click="selectChain(key)">
-              {{ chainLabel(key) }}
-            </div>
-          </div>
-          <template v-if="curChain.available && chainNodes.length">
-            <div class="strat-stat">
-              <span>环节 <b>{{ (curChain.stats&&curChain.stats.nodes_with_targets)||0 }}</b>/{{ (curChain.stats&&curChain.stats.total_nodes)||0 }}</span>
-              <span>A股标的 <b>{{ (curChain.stats&&curChain.stats.total_targets)||0 }}</b></span>
-              <span>非共识 <b>{{ (curChain.non_consensus||[]).length }}</b></span>
-            </div>
-            <div style="font-size:10px;color:var(--text3);margin-bottom:6px;">{{ curChain.label?(curChain.label+' 链'):('主题 '+(curChain.theme||'—')) }} · 点环节展开上下游，点标的看详情 · 🔥绿底=非共识</div>
-            <div class="tree-wrap">
-              <div class="tree-node" v-for="n in chainNodes" :key="n._id" v-show="n._visible">
-                <div class="tree-row" :style="{paddingLeft:(n.depth*14)+'px'}" @click="toggleNode(n)">
-                  <span class="tree-toggle" :class="{open:n._open, leaf:!n._hasChildren}">{{ n._hasChildren?'▶':'·' }}</span>
-                  <span class="tree-seg">{{ n.name }}
-                    <span class="tree-kind">{{ kindLabel(n.kind) }}·t{{ n.tier }}</span>
-                    <span class="tree-cnt" v-if="n.holdings&&n.holdings.length">{{ n.holdings.length }}标的</span>
-                  </span>
-                </div>
-                <div class="tree-holds" v-show="n._open && n.holdings && n.holdings.length">
-                  <span class="tgt-chip" :class="consClass(h.consensus_state)" v-for="h in n.holdings" :key="h.code"
-                        @click.stop="openTarget(h,n)">
-                    <span class="crown" v-if="h.is_leader">👑</span>
-                    <span v-if="h.consensus_state==='non_consensus'">🔥</span>{{ h.name }}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </template>
-          <div v-else class="strat-note">{{ chainEmptyNote }}</div>
-        </div>
+        <!-- 产业链树已上移至首页顶部 tab（按所选产业链展示） -->
+        <div class="strat-note" style="padding:4px 2px 8px;">🌲 各产业链图谱 · 非共识机会已移至「首页」顶部 tab，按产业链切换查看。</div>
 
         <!-- 🇺🇸 美股 → A股映射（可折叠） -->
         <div class="strat-block">
@@ -590,6 +618,32 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
                   {{ a.change===null?'行情未取到':((a.change>0?'+':'')+a.change+'%') }}
                 </div>
                 <div class="us-card-st">{{ a.status }}</div>
+                <!-- P0 增强：内部人(Form4) / 机构(13F) / 散户情绪。优雅降级标"未取到"。公开看板不含持仓量。 -->
+                <div class="us-meta">
+                  <div class="us-meta-row">
+                    <span class="mk">内部人</span>
+                    <span v-if="a.insider && a.insider.available && a.insider.net_dir"
+                          class="mv" :class="a.insider.net_dir==='净买入'?'buy':(a.insider.net_dir==='净卖出'?'sell':'')">
+                      {{ a.insider.net_dir }}（买{{ a.insider.buys }}/卖{{ a.insider.sells }}）
+                    </span>
+                    <span v-else-if="a.insider && a.insider.available" class="mv">{{ a.insider.note||'近期无' }}</span>
+                    <span v-else class="mv na">未取到</span>
+                  </div>
+                  <div class="us-meta-row">
+                    <span class="mk">机构</span>
+                    <span v-if="a.institution && a.institution.available && a.institution.holders && a.institution.holders.length"
+                          class="mv">{{ a.institution.holders.length }} 家披露持仓</span>
+                    <span v-else class="mv na">未取到</span>
+                  </div>
+                  <div class="us-meta-row">
+                    <span class="mk">散户</span>
+                    <span v-if="a.sentiment && a.sentiment.available"
+                          class="mv" :class="(a.sentiment.bullish_pct>=50)?'buy':(a.sentiment.bullish_pct<50?'sell':'')">
+                      {{ a.sentiment.bullish_pct!=null?('看多'+a.sentiment.bullish_pct+'%'):(a.sentiment.trend||'有数据') }}
+                    </span>
+                    <span v-else class="mv na">未取到</span>
+                  </div>
+                </div>
                 <div class="us-card-more" v-if="canExpandAnchor(a)">{{ usOpen===a.ticker?'收起 ▲':'看A股链 ▼' }}</div>
               </div>
             </div>
@@ -671,6 +725,55 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,'PingFang 
             </div>
           </template>
           <div v-else class="strat-note">{{ strat.waterSellers.note || '建设中（待结构化）' }}</div>
+        </div>
+
+        <!-- 📰 情报速递（RSS 头条 + Polymarket 事件概率，公开数据） -->
+        <div class="strat-block">
+          <div class="strat-head">📰 情报速递
+            <span class="badge" :style="badgeStyle(strat.intel.available)">{{ strat.intel.available?'已联动':'暂无数据' }}</span>
+          </div>
+          <template v-if="strat.intel.available">
+            <!-- RSS 头条 -->
+            <div class="intel-sub">📡 实时头条
+              <span class="badge" :style="badgeStyle(strat.intel.rss.available)">{{ strat.intel.rss.available?(strat.intel.rss.ok_count+'源'):'未取到' }}</span>
+            </div>
+            <template v-if="strat.intel.rss.available && strat.intel.rss.items.length">
+              <div class="intel-item intel-news" v-for="(n,i) in strat.intel.rss.items" :key="'rss'+i">
+                <a :href="n.link" target="_blank" rel="noopener">{{ n.title }}</a>
+                <div class="intel-news-meta">
+                  <span>{{ n.source }}</span>
+                  <span class="intel-ev" v-if="n.evidence_grade">{{ n.evidence_grade }}级</span>
+                  <span v-if="n.published">· {{ n.published }}</span>
+                </div>
+              </div>
+            </template>
+            <div v-else class="strat-note">{{ strat.intel.rss.note || '未取到' }}</div>
+
+            <!-- Polymarket 事件概率 -->
+            <div class="intel-sub">🎲 事件概率 · Polymarket
+              <span class="badge" :style="badgeStyle(strat.intel.polymarket.available)">{{ strat.intel.polymarket.available?'真金白银':'未取到' }}</span>
+            </div>
+            <template v-if="strat.intel.polymarket.available && strat.intel.polymarket.events.length">
+              <div class="intel-item" v-for="(p,i) in strat.intel.polymarket.events" :key="'poly'+i">
+                <div class="poly-row">
+                  <div class="poly-prob">{{ p.implied_pct!=null?p.implied_pct:'—' }}<span class="pu">{{ p.outcome }}概率%</span></div>
+                  <div class="poly-body">
+                    <div class="poly-q">{{ p.market }}</div>
+                    <div class="poly-meta">
+                      <span class="poly-theme">{{ p.theme }}</span>
+                      <span v-if="p.change_24h!=null" class="poly-chg" :class="p.change_24h>0?'up':(p.change_24h<0?'down':'')">
+                        24h {{ p.change_24h>0?'+':'' }}{{ (p.change_24h*100).toFixed(1) }}pt
+                      </span>
+                      <span v-if="p.end_date">截止 {{ (p.end_date||'').slice(0,10) }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="strat-note" style="padding-bottom:0;">隐含概率=市场真金白银定价；仅作非共识/事件链信号，不构成投资建议。</div>
+            </template>
+            <div v-else class="strat-note">{{ strat.intel.polymarket.note || '未取到' }}</div>
+          </template>
+          <div v-else class="strat-note">{{ strat.intel.note || '情报源未就绪（外网/沙箱拦截时优雅降级）' }}</div>
         </div>
       </template>
 
@@ -806,10 +909,27 @@ createApp({
       chains:null,chainOrder:[],defaultChain:'',
       usMapping:{available:false,note:'',quote_ok:false,anchors:[],big_movers:[]},
       funding:{available:false,note:'',months:12,total_events:0,layers:[]},
-      winRate:{available:false,note:'',scanners:[]}});
+      winRate:{available:false,note:'',scanners:[]},
+      intel:{available:false,note:'',rss:{available:false,note:'',items:[]},polymarket:{available:false,note:'',events:[]}}});
 
     // 产业链 chip tab 状态 + 美股块折叠状态
     const activeChain=ref(''),usFold=ref(false);
+
+    // 首页顶部产业链 tab（与 strategy.json chains key 对齐）
+    const homeTab=ref('ai_server');
+    const homeTabs=ref([
+      {key:'ai_server',label:'AI产业链'},
+      {key:'new_energy',label:'新能源'},
+      {key:'commercial_space',label:'商业航天'},
+      {key:'innovative_drug',label:'创新药'},
+      {key:'humanoid_robot',label:'机器人'},
+      {key:'power_grid',label:'电网'},
+    ]);
+    const selectHomeTab=(k)=>{
+      homeTab.value=k;
+      // 非 AI tab 复用产业链树渲染：把 activeChain 指向所选链
+      if(k!=='ai_server'){activeChain.value=k;Object.keys(treeOpen).forEach(id=>delete treeOpen[id]);}
+    };
     const hasChains=computed(()=>!!(strat.chains && strat.chainOrder && strat.chainOrder.length));
     const chainOrder=computed(()=>strat.chainOrder||[]);
     const chainLabel=(k)=>(strat.chains&&strat.chains[k]&&strat.chains[k].label)||k;
@@ -1023,7 +1143,7 @@ createApp({
         const d=await resp.json();
         strat.updateTime=d.updateTime||'';
         strat.disclaimer=d.disclaimer||'';
-        ['waterSellers','chainTree','usMapping','funding','winRate'].forEach(k=>{if(d[k])Object.assign(strat[k],d[k]);});
+        ['waterSellers','chainTree','usMapping','funding','winRate','intel'].forEach(k=>{if(d[k])Object.assign(strat[k],d[k]);});
         // 多产业链（新数据）；旧数据无此字段则保持 null，自动回退 chainTree
         if(d.chains){strat.chains=d.chains;strat.chainOrder=d.chainOrder||Object.keys(d.chains);strat.defaultChain=d.defaultChain||strat.chainOrder[0]||'';
           if(!activeChain.value||!strat.chains[activeChain.value])activeChain.value=strat.defaultChain;}
@@ -1084,7 +1204,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,filteredWatchlist,goDetail,goDetail2,dAgents,skills,obFolders,reports,loading,updateTime,marketIdx,refreshData,chgClass,signalLabel,brief,briefEmoji,briefTagStyle,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,kindLabel,chainNodes,toggleNode,usOpen,canExpandAnchor,toggleAnchor,sheet,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,usFold,hasChains,chainOrder,chainLabel,curChain,selectChain,chainEmptyNote};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,filteredWatchlist,goDetail,goDetail2,dAgents,skills,obFolders,reports,loading,updateTime,marketIdx,refreshData,chgClass,signalLabel,brief,briefEmoji,briefTagStyle,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,kindLabel,chainNodes,toggleNode,usOpen,canExpandAnchor,toggleAnchor,sheet,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,usFold,hasChains,chainOrder,chainLabel,curChain,selectChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab};
   }
 }).mount('#app');
 
