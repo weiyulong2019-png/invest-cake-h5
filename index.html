@@ -454,7 +454,7 @@ a:active{opacity:.6;}
             <div class="layer-sub">{{ L.sub }}</div>
           </div>
           <div class="layer-right">
-            <div class="layer-pct" :class="chgClass(L.avg)">{{ L.avg>0?'+':'' }}{{ L.avg }}%</div>
+            <div class="layer-pct" :class="L.avg?chgClass(L.avg):'flat'">{{ L.avg?((L.avg>0?'+':'')+L.avg+'%'):'—' }}</div>
             <div class="layer-boom">景气{{ L.boom }}%</div>
           </div>
           <div class="layer-arrow" :class="{open:L.open}">▼</div>
