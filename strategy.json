@@ -1,12 +1,190 @@
 {
-  "updateTime": "2026-06-02 11:21:22",
-  "timestamp": 1780370482,
+  "updateTime": "2026-06-02 19:17:07",
+  "timestamp": 1780399027,
   "mode": "live",
   "disclaimer": "公开策略数据看板，仅含聚合/结构化信息，不构成投资建议。",
   "waterSellers": {
-    "available": false,
-    "note": "暂无结构化数据源（卖水人报告为散文，按铁律不硬解析）",
-    "items": []
+    "available": true,
+    "note": "卖水人热门环节(代码双源核验, 证据C; 量化景气未取到不硬凑)",
+    "as_of": "2026-06-02",
+    "items": [
+      {
+        "segment": "AI服务器·高速铜连接(柜内互联)",
+        "chain": "ai_server",
+        "tickers": [
+          {
+            "code": "603256",
+            "name": "宏和科技",
+            "role": "电子级玻纤布(高速CCL上游)"
+          }
+        ],
+        "logic": "GB200机柜内用铜不用光,高速铜缆/连接器是确定性增量,谁做AI服务器都得用,路线中立。",
+        "evidence_grade": "C"
+      },
+      {
+        "segment": "AI服务器·高频高速覆铜板(CCL)",
+        "chain": "ai_server",
+        "tickers": [
+          {
+            "code": "600183",
+            "name": "生益科技",
+            "role": "高速CCL龙头(M6/M7/M8等级)"
+          }
+        ],
+        "logic": "AI服务器PCB规格升级直接拉动高速CCL,是PCB链的核心上游卡点材料,路线中立卖铲子。",
+        "evidence_grade": "C"
+      },
+      {
+        "segment": "AI服务器·光模块",
+        "chain": "ai_server",
+        "tickers": [
+          {
+            "code": "300308",
+            "name": "中际旭创",
+            "role": "800G/1.6T光模块全球龙头"
+          },
+          {
+            "code": "300502",
+            "name": "新易盛",
+            "role": "高速光模块"
+          }
+        ],
+        "logic": "跨机柜/跨集群互联带宽需求暴增,光模块为全球稀缺产能,A股占据全球龙头地位。",
+        "evidence_grade": "C"
+      },
+      {
+        "segment": "AI服务器·液冷温控(机柜级)",
+        "chain": "ai_server",
+        "tickers": [
+          {
+            "code": "002837",
+            "name": "英维克",
+            "role": "数据中心/机柜级液冷温控龙头"
+          }
+        ],
+        "logic": "功耗密度上升迫使风冷转液冷,冷板/快接头/CDU是确定性升级,不赌哪家GPU。",
+        "evidence_grade": "C"
+      },
+      {
+        "segment": "能源层·电网电力设备(变压器/开关GIS)",
+        "chain": "ai_server",
+        "tickers": [
+          {
+            "code": "600089",
+            "name": "特变电工",
+            "role": "变压器/输变电龙头"
+          },
+          {
+            "code": "601179",
+            "name": "中国西电",
+            "role": "开关/GIS龙头"
+          }
+        ],
+        "logic": "AI数据中心电力需求激增使变压器/开关成为『100%瓶颈』,交期拉长至数年,路线中立卖铲子。",
+        "evidence_grade": "C"
+      },
+      {
+        "segment": "新能源·逆变器/储能PCS",
+        "chain": "ai_server",
+        "tickers": [
+          {
+            "code": "300274",
+            "name": "阳光电源",
+            "role": "全球逆变器+储能系统龙头"
+          }
+        ],
+        "logic": "逆变器格局好(中国主导)+认证壁垒+路线中立(不赌哪种电池化学),是新能源链里少数接近卖水人的中游。",
+        "evidence_grade": "C"
+      },
+      {
+        "segment": "新能源·光伏银浆(去银为王)",
+        "chain": "ai_server",
+        "tickers": [
+          {
+            "code": "688503",
+            "name": "聚和材料",
+            "role": "光伏银浆国产龙头"
+          }
+        ],
+        "logic": "组件/硅片过剩价格战,但银浆配方+份额壁垒强、路线中立,是光伏链真卖水点。",
+        "evidence_grade": "C"
+      },
+      {
+        "segment": "新能源·高纯石英砂(光伏最上游)",
+        "chain": "ai_server",
+        "tickers": [
+          {
+            "code": "603688",
+            "name": "石英股份",
+            "role": "全球高纯石英砂三寡头之一(内层砂国产唯一)"
+          }
+        ],
+        "logic": "光伏链最上游最硬卡点,内层砂稀缺寡头格局,半导体石英延伸;但周期波动大。",
+        "evidence_grade": "C"
+      },
+      {
+        "segment": "创新药·CXO外包(卖铲子核心)",
+        "chain": "innovative_drug",
+        "tickers": [
+          {
+            "code": "603259",
+            "name": "药明康德",
+            "role": "CRDMO一体化龙头"
+          },
+          {
+            "code": "002821",
+            "name": "凯莱英",
+            "role": "小分子CDMO龙头"
+          }
+        ],
+        "logic": "不赌哪个药/靶点成功,CXO收全行业研发外包的钱,资格壁垒(GMP/FDA)+合同黏性强,经典卖铲子。",
+        "evidence_grade": "C"
+      },
+      {
+        "segment": "创新药·上游科研投入(层析填料/培养基)",
+        "chain": "innovative_drug",
+        "tickers": [
+          {
+            "code": "688690",
+            "name": "纳微科技",
+            "role": "色谱/层析填料国产龙头"
+          },
+          {
+            "code": "688293",
+            "name": "奥浦迈",
+            "role": "细胞培养基龙头"
+          }
+        ],
+        "logic": "卖水中的卖水:路线中立,行业总研发活动量一扩张即受益,国产替代逻辑。",
+        "evidence_grade": "C"
+      },
+      {
+        "segment": "物理AI·智能驾驶域控(具身落地)",
+        "chain": "physical_ai",
+        "tickers": [
+          {
+            "code": "002920",
+            "name": "德赛西威",
+            "role": "智能驾驶域控制器龙头"
+          }
+        ],
+        "logic": "智能驾驶是物理AI最大量产市场,域控Tier1是渗透率提升的确定性受益、路线中立。",
+        "evidence_grade": "C"
+      },
+      {
+        "segment": "物理AI·人形机器人执行件(谐波/丝杠)",
+        "chain": "physical_ai",
+        "tickers": [
+          {
+            "code": "688017",
+            "name": "绿的谐波",
+            "role": "谐波减速器龙头"
+          }
+        ],
+        "logic": "人形机器人核心壁垒环节,精密加工+认证黏性,不赌哪家整机厂量产成功。",
+        "evidence_grade": "C"
+      }
+    ]
   },
   "chainTree": {
     "available": true,
@@ -14,10 +192,10 @@
     "chain": "ai_server",
     "entry": "整机与机柜集成",
     "stats": {
-      "total_nodes": 46,
-      "nodes_with_targets": 37,
-      "nodes_todo": 9,
-      "total_targets": 67
+      "total_nodes": 54,
+      "nodes_with_targets": 44,
+      "nodes_todo": 10,
+      "total_targets": 83
     },
     "segments": [
       {
@@ -717,6 +895,158 @@
             "consensus_state": "unknown"
           }
         ]
+      },
+      {
+        "name": "电网电力设备(变压器/特高压/开关GIS)",
+        "tier": 2,
+        "depth": 2,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "600089",
+            "name": "特变电工",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "601179",
+            "name": "中国西电",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "600312",
+            "name": "平高电气",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "600406",
+            "name": "国电南瑞",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "600875",
+            "name": "东方电气",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "电工钢(取向硅钢)",
+        "tier": 3,
+        "depth": 3,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "600019",
+            "name": "宝钢股份",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "000825",
+            "name": "太钢不锈",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "机柜级供电与液冷",
+        "tier": 2,
+        "depth": 2,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "002837",
+            "name": "英维克",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300499",
+            "name": "高澜股份",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "新能源供给(储能/逆变器/绿电)",
+        "tier": 2,
+        "depth": 2,
+        "kind": "tree",
+        "holdings": [
+          {
+            "code": "300274",
+            "name": "阳光电源",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300750",
+            "name": "宁德时代",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "锂电隔膜",
+        "tier": 3,
+        "depth": 3,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "002812",
+            "name": "恩捷股份",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "300568",
+            "name": "星源材质",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "光伏银浆",
+        "tier": 3,
+        "depth": 3,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "688503",
+            "name": "聚和材料",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          },
+          {
+            "code": "002079",
+            "name": "苏州固锝",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
+      },
+      {
+        "name": "高纯石英砂/石英坩埚",
+        "tier": 3,
+        "depth": 3,
+        "kind": "leaf",
+        "holdings": [
+          {
+            "code": "603688",
+            "name": "石英股份",
+            "is_leader": false,
+            "consensus_state": "unknown"
+          }
+        ]
       }
     ],
     "non_consensus": [
@@ -773,10 +1103,10 @@
       "chain": "ai_server",
       "entry": "整机与机柜集成",
       "stats": {
-        "total_nodes": 46,
-        "nodes_with_targets": 37,
-        "nodes_todo": 9,
-        "total_targets": 67
+        "total_nodes": 54,
+        "nodes_with_targets": 44,
+        "nodes_todo": 10,
+        "total_targets": 83
       },
       "segments": [
         {
@@ -1476,6 +1806,158 @@
               "consensus_state": "unknown"
             }
           ]
+        },
+        {
+          "name": "电网电力设备(变压器/特高压/开关GIS)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "600089",
+              "name": "特变电工",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "601179",
+              "name": "中国西电",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600312",
+              "name": "平高电气",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600406",
+              "name": "国电南瑞",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600875",
+              "name": "东方电气",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "电工钢(取向硅钢)",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "600019",
+              "name": "宝钢股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "000825",
+              "name": "太钢不锈",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "机柜级供电与液冷",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002837",
+              "name": "英维克",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300499",
+              "name": "高澜股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "新能源供给(储能/逆变器/绿电)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300274",
+              "name": "阳光电源",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300750",
+              "name": "宁德时代",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "锂电隔膜",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "002812",
+              "name": "恩捷股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300568",
+              "name": "星源材质",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "光伏银浆",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "688503",
+              "name": "聚和材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002079",
+              "name": "苏州固锝",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高纯石英砂/石英坩埚",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "603688",
+              "name": "石英股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
         }
       ],
       "non_consensus": [
@@ -1525,16 +2007,16 @@
       "key": "ai_server",
       "label": "AI服务器"
     },
-    "humanoid_robot": {
+    "physical_ai": {
       "available": true,
       "note": "",
-      "chain": "humanoid_robot",
+      "chain": "physical_ai",
       "entry": "整机集成",
       "stats": {
-        "total_nodes": 35,
-        "nodes_with_targets": 6,
-        "nodes_todo": 29,
-        "total_targets": 10
+        "total_nodes": 43,
+        "nodes_with_targets": 9,
+        "nodes_todo": 34,
+        "total_targets": 18
       },
       "segments": [
         {
@@ -1546,6 +2028,46 @@
             {
               "code": "300607",
               "name": "拓斯达",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "具身智能大脑(端到端模型/域控/SoC)",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300496",
+              "name": "中科创达",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688088",
+              "name": "虹软科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "运动控制器",
+          "tier": 2,
+          "depth": 2,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "300124",
+              "name": "汇川技术",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002747",
+              "name": "埃斯顿",
               "is_leader": false,
               "consensus_state": "unknown"
             }
@@ -1644,10 +2166,46 @@
               "consensus_state": "unknown"
             }
           ]
+        },
+        {
+          "name": "自动驾驶(智能驾驶域控/线控底盘)",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002920",
+              "name": "德赛西威",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688326",
+              "name": "经纬恒润-W",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "601689",
+              "name": "拓普集团",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "603197",
+              "name": "保隆科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
         }
       ],
       "non_consensus": [],
       "upstream_todo": [
+        {
+          "segment": "主控芯片(SoC)",
+          "tier": 2
+        },
         {
           "segment": "轴承钢/精密轴承材料",
           "tier": 3
@@ -1723,204 +2281,12 @@
         {
           "segment": "触觉传感器",
           "tier": 2
-        },
-        {
-          "segment": "IMU惯性传感器",
-          "tier": 2
         }
       ],
       "theme": "人形机器人",
       "consensus_live": false,
-      "key": "humanoid_robot",
-      "label": "人形机器人"
-    },
-    "power_grid": {
-      "available": true,
-      "note": "",
-      "chain": "power_grid",
-      "entry": "数据中心供电(终端)",
-      "stats": {
-        "total_nodes": 21,
-        "nodes_with_targets": 0,
-        "nodes_todo": 21,
-        "total_targets": 0
-      },
-      "segments": [],
-      "non_consensus": [],
-      "upstream_todo": [
-        {
-          "segment": "特高压/GSU升压变与输配",
-          "tier": 2
-        },
-        {
-          "segment": "电工钢(取向硅钢)",
-          "tier": 3
-        },
-        {
-          "segment": "变压器绕组铜线",
-          "tier": 3
-        },
-        {
-          "segment": "绝缘材料(变压器油/纸/树脂)",
-          "tier": 3
-        },
-        {
-          "segment": "中高压开关柜/GIS",
-          "tier": 2
-        },
-        {
-          "segment": "绝缘材料(变压器油/纸/树脂)",
-          "tier": 3
-        },
-        {
-          "segment": "变压器绕组铜线",
-          "tier": 3
-        },
-        {
-          "segment": "中压配电设备",
-          "tier": 2
-        },
-        {
-          "segment": "变压器绕组铜线",
-          "tier": 3
-        },
-        {
-          "segment": "绝缘材料(变压器油/纸/树脂)",
-          "tier": 3
-        },
-        {
-          "segment": "UPS不间断电源",
-          "tier": 2
-        },
-        {
-          "segment": "HVDC高压直流供电",
-          "tier": 2
-        },
-        {
-          "segment": "液冷(冷板/快接头/CDU)",
-          "tier": 2
-        },
-        {
-          "segment": "氟化液/冷却液",
-          "tier": 3
-        },
-        {
-          "segment": "铜铝散热材料",
-          "tier": 3
-        },
-        {
-          "segment": "储能(电池/PCS-调峰备电)",
-          "tier": 2
-        },
-        {
-          "segment": "变压器绕组铜线",
-          "tier": 3
-        }
-      ],
-      "theme": "电网电力",
-      "consensus_live": false,
-      "key": "power_grid",
-      "label": "电网"
-    },
-    "new_energy": {
-      "available": true,
-      "note": "",
-      "chain": "new_energy",
-      "entry": "终端(电动车/光储装机)",
-      "stats": {
-        "total_nodes": 46,
-        "nodes_with_targets": 0,
-        "nodes_todo": 46,
-        "total_targets": 0
-      },
-      "segments": [],
-      "non_consensus": [],
-      "upstream_todo": [
-        {
-          "segment": "锂电隔膜",
-          "tier": 2
-        },
-        {
-          "segment": "基膜原料(聚乙烯/聚丙烯)",
-          "tier": 3
-        },
-        {
-          "segment": "涂覆材料(勃姆石/PVDF)",
-          "tier": 3
-        },
-        {
-          "segment": "锂电电解液",
-          "tier": 2
-        },
-        {
-          "segment": "电解液添加剂(LiFSI/VC)",
-          "tier": 3
-        },
-        {
-          "segment": "氟化工原料(氢氟酸/氟盐)",
-          "tier": 3
-        },
-        {
-          "segment": "六氟磷酸锂(LiPF6)",
-          "tier": 3
-        },
-        {
-          "segment": "正极材料(三元/磷酸铁锂)",
-          "tier": 2
-        },
-        {
-          "segment": "碳酸锂/氢氧化锂",
-          "tier": 3
-        },
-        {
-          "segment": "钴/镍(三元用)",
-          "tier": 3
-        },
-        {
-          "segment": "磷酸铁(铁锂用)",
-          "tier": 3
-        },
-        {
-          "segment": "负极材料(石墨)",
-          "tier": 2
-        },
-        {
-          "segment": "针状焦/石油焦",
-          "tier": 3
-        },
-        {
-          "segment": "石墨化加工",
-          "tier": 3
-        },
-        {
-          "segment": "电解液添加剂(LiFSI/VC)",
-          "tier": 3
-        },
-        {
-          "segment": "锂电铜箔",
-          "tier": 2
-        },
-        {
-          "segment": "电解铜(阴极铜)",
-          "tier": 3
-        },
-        {
-          "segment": "电池结构件",
-          "tier": 2
-        },
-        {
-          "segment": "铝材/钢材(结构件用)",
-          "tier": 3
-        },
-        {
-          "segment": "硅片",
-          "tier": 2
-        }
-      ],
-      "theme": "新能源",
-      "consensus_live": false,
-      "key": "new_energy",
-      "label": "新能源"
+      "key": "physical_ai",
+      "label": "物理AI"
     },
     "commercial_space": {
       "available": true,
@@ -2304,17 +2670,154 @@
       "entry": "创新药资产与出海BD(终端)",
       "stats": {
         "total_nodes": 26,
-        "nodes_with_targets": 0,
-        "nodes_todo": 26,
-        "total_targets": 0
+        "nodes_with_targets": 7,
+        "nodes_todo": 19,
+        "total_targets": 14
       },
-      "segments": [],
+      "segments": [
+        {
+          "name": "CXO外包(CRO/CDMO)",
+          "tier": 1,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "603259",
+              "name": "药明康德",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002821",
+              "name": "凯莱英",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "合同研发(CRO-临床前/临床)",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300347",
+              "name": "泰格医药",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300759",
+              "name": "康龙化成",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "603127",
+              "name": "昭衍新药",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "生物反应器(一次性/不锈钢)",
+          "tier": 2,
+          "depth": 5,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300358",
+              "name": "楚天科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300171",
+              "name": "东富龙",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "层析填料/层析介质",
+          "tier": 2,
+          "depth": 5,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688690",
+              "name": "纳微科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "细胞培养基",
+          "tier": 2,
+          "depth": 5,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688293",
+              "name": "奥浦迈",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "合同生产(CDMO-工艺/制剂)",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002821",
+              "name": "凯莱英",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "603259",
+              "name": "药明康德",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300363",
+              "name": "博腾股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "CXO外包(CRO/CDMO)",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "603259",
+              "name": "药明康德",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002821",
+              "name": "凯莱英",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        }
+      ],
       "non_consensus": [],
       "upstream_todo": [
-        {
-          "segment": "合同研发(CRO-临床前/临床)",
-          "tier": 2
-        },
         {
           "segment": "科研试剂(分子/细胞/抗体)",
           "tier": 2
@@ -2328,10 +2831,6 @@
           "tier": 3
         },
         {
-          "segment": "生物反应器(一次性/不锈钢)",
-          "tier": 2
-        },
-        {
           "segment": "特种设备零部件",
           "tier": 3
         },
@@ -2340,20 +2839,12 @@
           "tier": 3
         },
         {
-          "segment": "层析填料/层析介质",
-          "tier": 2
-        },
-        {
           "segment": "层析基质/特种树脂",
           "tier": 3
         },
         {
           "segment": "酶与生物原料",
           "tier": 3
-        },
-        {
-          "segment": "细胞培养基",
-          "tier": 2
         },
         {
           "segment": "酶与生物原料",
@@ -2366,10 +2857,6 @@
         {
           "segment": "实验动物与模型",
           "tier": 3
-        },
-        {
-          "segment": "合同生产(CDMO-工艺/制剂)",
-          "tier": 2
         },
         {
           "segment": "特色原料药/高壁垒中间体",
@@ -2388,9 +2875,7 @@
   },
   "chainOrder": [
     "ai_server",
-    "humanoid_robot",
-    "power_grid",
-    "new_energy",
+    "physical_ai",
     "commercial_space",
     "innovative_drug"
   ],
@@ -3072,7 +3557,7 @@
       },
       {
         "scanner": "FactorAgent",
-        "count": 54,
+        "count": 64,
         "decided": 8,
         "win_rate": 0.75,
         "avg_ret_5d": -0.01,
@@ -3080,7 +3565,7 @@
       },
       {
         "scanner": "OpportunityScanner",
-        "count": 38,
+        "count": 41,
         "decided": 0,
         "win_rate": null,
         "avg_ret_5d": null,
@@ -3099,79 +3584,89 @@
       "source_count": 54,
       "items": [
         {
-          "title": "SEC Announces Four New Members of Investor Advisory Committee",
+          "title": "SEC 宣布 四名 新成员 的投资者咨询委员会",
+          "title_en": "SEC Announces Four New Members of Investor Advisory Committee",
           "link": "https://www.sec.gov/newsroom/press-releases/2026-50-sec-announces-four-new-members-investor-advisory-committee",
           "published": "Mon, 01 Jun 2026 12:39:44 -0400",
-          "source": "SEC Press Releases",
+          "source": "美国证监会(SEC)新闻",
           "category": "REGULATORY",
           "evidence_grade": "B"
         },
         {
-          "title": "SEC Proposes Rescission of Climate-Related Disclosure Rules",
+          "title": "SEC 提议 撤销 的气候相关信息披露规则",
+          "title_en": "SEC Proposes Rescission of Climate-Related Disclosure Rules",
           "link": "https://www.sec.gov/newsroom/press-releases/2026-49-sec-proposes-rescission-climate-related-disclosure-rules",
           "published": "Fri, 29 May 2026 10:50:00 -0400",
-          "source": "SEC Press Releases",
+          "source": "美国证监会(SEC)新闻",
           "category": "REGULATORY",
           "evidence_grade": "B"
         },
         {
-          "title": "SEC Investor Advisory Committee to Host June 4 Meeting",
+          "title": "SEC 投资者咨询委员会 将主办 June 4 会议",
+          "title_en": "SEC Investor Advisory Committee to Host June 4 Meeting",
           "link": "https://www.sec.gov/newsroom/press-releases/2026-48-sec-investor-advisory-committee-host-june-4-meeting",
           "published": "Wed, 27 May 2026 10:59:13 -0400",
-          "source": "SEC Press Releases",
+          "source": "美国证监会(SEC)新闻",
           "category": "REGULATORY",
           "evidence_grade": "B"
         },
         {
-          "title": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
+          "title": "美联储理事会对以下对象采取执法行动： 前雇员 的Atlantic Union Bank、前雇员 的Frost Bank　[机器未译·原文]",
+          "title_en": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
           "link": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260528a.htm",
           "published": "Thu, 28 May 2026 15:00:00 GMT",
-          "source": "Federal Reserve Press",
+          "source": "美联储新闻",
           "category": "REGULATORY",
           "evidence_grade": "B"
         },
         {
-          "title": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
+          "title": "纪要： Board's 贴现率会议 时间：April 20、29, 2026",
+          "title_en": "Minutes of the Board's discount rate meeting on April 20 and 29, 2026",
           "link": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260526a.htm",
           "published": "Tue, 26 May 2026 18:00:00 GMT",
-          "source": "Federal Reserve Press",
+          "source": "美联储新闻",
           "category": "REGULATORY",
           "evidence_grade": "B"
         },
         {
-          "title": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
+          "title": "Kevin Warsh 宣誓就职 任 主席、a 美联储理事会理事,、the Federal Open Market Committee unanimously selects Warsh 任 its 主席　[机器未译·原文]",
+          "title_en": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
           "link": "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm",
           "published": "Fri, 22 May 2026 20:15:00 GMT",
-          "source": "Federal Reserve Press",
+          "source": "美联储新闻",
           "category": "REGULATORY",
           "evidence_grade": "B"
         },
         {
-          "title": "ECB Consumer Expectations Survey results – April 2026",
+          "title": "ECB Consumer Expectations Survey results – April 2026　[机器未译·原文]",
+          "title_en": "ECB Consumer Expectations Survey results – April 2026",
           "link": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260601~bf8026bfc2.en.html",
           "published": "Mon, 01 Jun 2026 10:00:00 +0200",
-          "source": "ECB Press",
+          "source": "欧洲央行(ECB)新闻",
           "category": "REGULATORY",
           "evidence_grade": "B"
         },
         {
-          "title": "Isabel Schnabel: From money market funds to stablecoins: lessons for central banks",
+          "title": "Isabel Schnabel: From money market funds to stablecoins: lessons for central banks　[机器未译·原文]",
+          "title_en": "Isabel Schnabel: From money market funds to stablecoins: lessons for central banks",
           "link": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260601~38dffe5ec5.en.html",
           "published": "Mon, 01 Jun 2026 02:10:00 +0200",
-          "source": "ECB Press",
+          "source": "欧洲央行(ECB)新闻",
           "category": "REGULATORY",
           "evidence_grade": "B"
         },
         {
-          "title": "Luis de Guindos: Interview with Expansión",
+          "title": "Luis de Guindos: Interview 与 Expansión　[机器未译·原文]",
+          "title_en": "Luis de Guindos: Interview with Expansión",
           "link": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in260531~f648dbde70.en.html",
           "published": "Sun, 31 May 2026 16:00:00 +0200",
-          "source": "ECB Press",
+          "source": "欧洲央行(ECB)新闻",
           "category": "REGULATORY",
           "evidence_grade": "B"
         },
         {
-          "title": "Statistical Notice 2026/04 - BEEDS User Acceptance Testing (UAT) Environment – Statistical Taxonomy v1.3.1 FINAL",
+          "title": "Statistical Notice 2026/04 - BEEDS User Acceptance Testing (UAT) Environment – Statistical Taxonomy v1.3.1 FINAL　[机器未译·原文]",
+          "title_en": "Statistical Notice 2026/04 - BEEDS User Acceptance Testing (UAT) Environment – Statistical Taxonomy v1.3.1 FINAL",
           "link": "https://www.bankofengland.co.uk/statistics/notice/2026/statistical-notice-2026-04",
           "published": "Tue, 26 May 2026 14:03:58 +0100",
           "source": "Bank of England News",
@@ -3179,7 +3674,8 @@
           "evidence_grade": "B"
         },
         {
-          "title": "FCA and Bank of England set out shared vision for tokenisation in UK wholesale markets",
+          "title": "FCA、Bank 的England set out shared vision for tokenisation in UK wholesale markets　[机器未译·原文]",
+          "title_en": "FCA and Bank of England set out shared vision for tokenisation in UK wholesale markets",
           "link": "https://www.bankofengland.co.uk/news/2026/may/fca-and-boe-set-out-shared-vision-for-tokenisation-in-uk-wholesale-markets",
           "published": "Mon, 18 May 2026 09:06:58 +0100",
           "source": "Bank of England News",
@@ -3187,7 +3683,8 @@
           "evidence_grade": "B"
         },
         {
-          "title": "PRA announces ring-fence change to reduce costs",
+          "title": "PRA announces ring-fence change to reduce costs　[机器未译·原文]",
+          "title_en": "PRA announces ring-fence change to reduce costs",
           "link": "https://www.bankofengland.co.uk/news/2026/may/pra-announces-ring-fence-change-to-reduce-costs",
           "published": "Mon, 18 May 2026 00:00:00 +0100",
           "source": "Bank of England News",
@@ -3203,9 +3700,11 @@
       "market_count": 140,
       "events": [
         {
-          "theme": "fed_rates",
-          "market": "Will the Fed decrease interest rates by 50+ bps after the June 2026 meeting?",
-          "outcome": "Yes",
+          "theme": "美联储利率",
+          "theme_key": "fed_rates",
+          "market": "美联储在2026年6月会议后降息 50+ 基点?",
+          "market_en": "Will the Fed decrease interest rates by 50+ bps after the June 2026 meeting?",
+          "outcome": "是",
           "implied_prob": 0.0045,
           "implied_pct": 0.4,
           "change_24h": -0.001,
@@ -3213,9 +3712,11 @@
           "end_date": "2026-06-17T00:00:00Z"
         },
         {
-          "theme": "fed_rates",
-          "market": "Will the Fed increase interest rates by 50+ bps after the June 2026 meeting?",
-          "outcome": "Yes",
+          "theme": "美联储利率",
+          "theme_key": "fed_rates",
+          "market": "美联储在2026年6月会议后加息 50+ 基点?",
+          "market_en": "Will the Fed increase interest rates by 50+ bps after the June 2026 meeting?",
+          "outcome": "是",
           "implied_prob": 0.0015,
           "implied_pct": 0.1,
           "change_24h": null,
@@ -3223,9 +3724,11 @@
           "end_date": "2026-06-17T00:00:00Z"
         },
         {
-          "theme": "inflation",
-          "market": "US recession by end of 2026?",
-          "outcome": "Yes",
+          "theme": "通胀",
+          "theme_key": "inflation",
+          "market": "2026年底前美国陷入衰退?",
+          "market_en": "US recession by end of 2026?",
+          "outcome": "是",
           "implied_prob": 0.215,
           "implied_pct": 21.5,
           "change_24h": 0.015,
@@ -3233,9 +3736,11 @@
           "end_date": "2027-01-31T00:00:00Z"
         },
         {
-          "theme": "inflation",
-          "market": "Will inflation reach more than 4% in 2026?",
-          "outcome": "Yes",
+          "theme": "通胀",
+          "theme_key": "inflation",
+          "market": "2026年通胀超过 4%?",
+          "market_en": "Will inflation reach more than 4% in 2026?",
+          "outcome": "是",
           "implied_prob": 0.9775,
           "implied_pct": 97.8,
           "change_24h": 0.001,
@@ -3243,9 +3748,11 @@
           "end_date": "2026-12-31T00:00:00Z"
         },
         {
-          "theme": "ai",
-          "market": "Will xAI have the best AI model at the end of June 2026?",
-          "outcome": "Yes",
+          "theme": "人工智能",
+          "theme_key": "ai",
+          "market": "xAI在2026年6月底拥有最强AI模型?",
+          "market_en": "Will xAI have the best AI model at the end of June 2026?",
+          "outcome": "是",
           "implied_prob": 0.0035,
           "implied_pct": 0.4,
           "change_24h": -0.001,
@@ -3253,9 +3760,11 @@
           "end_date": "2026-06-30T00:00:00Z"
         },
         {
-          "theme": "ai",
-          "market": "Will Anthropic have the best AI model at the end of June 2026?",
-          "outcome": "Yes",
+          "theme": "人工智能",
+          "theme_key": "ai",
+          "market": "Anthropic在2026年6月底拥有最强AI模型?",
+          "market_en": "Will Anthropic have the best AI model at the end of June 2026?",
+          "outcome": "是",
           "implied_prob": 0.8205,
           "implied_pct": 82.0,
           "change_24h": -0.0115,
@@ -3263,9 +3772,11 @@
           "end_date": "2026-06-30T00:00:00Z"
         },
         {
-          "theme": "geopolitics",
-          "market": "Will the U.S. invade Iran before 2027?",
-          "outcome": "Yes",
+          "theme": "地缘政治",
+          "theme_key": "geopolitics",
+          "market": "美国在2027年前入侵伊朗?",
+          "market_en": "Will the U.S. invade Iran before 2027?",
+          "outcome": "是",
           "implied_prob": 0.165,
           "implied_pct": 16.5,
           "change_24h": 0.01,
@@ -3273,9 +3784,11 @@
           "end_date": "2026-12-31T00:00:00Z"
         },
         {
-          "theme": "geopolitics",
-          "market": "Will China invade Taiwan by end of 2026?",
-          "outcome": "Yes",
+          "theme": "地缘政治",
+          "theme_key": "geopolitics",
+          "market": "中国在2026年底前入侵台湾?",
+          "market_en": "Will China invade Taiwan by end of 2026?",
+          "outcome": "是",
           "implied_prob": 0.0655,
           "implied_pct": 6.6,
           "change_24h": -0.001,
@@ -3283,9 +3796,11 @@
           "end_date": "2026-12-31T00:00:00Z"
         },
         {
-          "theme": "election",
-          "market": "Will LeBron James win the 2028 US Presidential Election?",
-          "outcome": "Yes",
+          "theme": "选举",
+          "theme_key": "election",
+          "market": "勒布朗·詹姆斯赢得2028年美国总统大选?",
+          "market_en": "Will LeBron James win the 2028 US Presidential Election?",
+          "outcome": "是",
           "implied_prob": 0.0065,
           "implied_pct": 0.7,
           "change_24h": null,
@@ -3293,9 +3808,11 @@
           "end_date": "2028-11-07T00:00:00Z"
         },
         {
-          "theme": "election",
-          "market": "Will Tim Walz win the 2028 US Presidential Election?",
-          "outcome": "Yes",
+          "theme": "选举",
+          "theme_key": "election",
+          "market": "蒂姆·沃尔兹赢得2028年美国总统大选?",
+          "market_en": "Will Tim Walz win the 2028 US Presidential Election?",
+          "outcome": "是",
           "implied_prob": 0.0065,
           "implied_pct": 0.7,
           "change_24h": null,
@@ -3303,9 +3820,11 @@
           "end_date": "2028-11-07T00:00:00Z"
         },
         {
-          "theme": "tech_corp",
-          "market": "Will Tesla be the largest company in the world by market cap on June 30?",
-          "outcome": "Yes",
+          "theme": "科技公司",
+          "theme_key": "tech_corp",
+          "market": "特斯拉在6月30日成为全球市值最大公司?",
+          "market_en": "Will Tesla be the largest company in the world by market cap on June 30?",
+          "outcome": "是",
           "implied_prob": 0.0015,
           "implied_pct": 0.1,
           "change_24h": null,
@@ -3313,9 +3832,11 @@
           "end_date": "2026-06-30T00:00:00Z"
         },
         {
-          "theme": "tech_corp",
-          "market": "Will Amazon be the largest company in the world by market cap on June 30?",
-          "outcome": "Yes",
+          "theme": "科技公司",
+          "theme_key": "tech_corp",
+          "market": "亚马逊在6月30日成为全球市值最大公司?",
+          "market_en": "Will Amazon be the largest company in the world by market cap on June 30?",
+          "outcome": "是",
           "implied_prob": 0.0005,
           "implied_pct": 0.1,
           "change_24h": null,
@@ -3323,9 +3844,11 @@
           "end_date": "2026-06-30T00:00:00Z"
         },
         {
-          "theme": "crypto",
-          "market": "Will Bitcoin hit $150k by June 30, 2026?",
-          "outcome": "Yes",
+          "theme": "加密货币",
+          "theme_key": "crypto",
+          "market": "比特币涨至 $150k?",
+          "market_en": "Will Bitcoin hit $150k by June 30, 2026?",
+          "outcome": "是",
           "implied_prob": 0.0045,
           "implied_pct": 0.4,
           "change_24h": -0.001,
@@ -3333,9 +3856,11 @@
           "end_date": "2026-07-01T04:00:00Z"
         },
         {
-          "theme": "crypto",
-          "market": "Will Bitcoin reach $250,000 by December 31, 2026?",
-          "outcome": "Yes",
+          "theme": "加密货币",
+          "theme_key": "crypto",
+          "market": "比特币涨至 $250,000?",
+          "market_en": "Will Bitcoin reach $250,000 by December 31, 2026?",
+          "outcome": "是",
           "implied_prob": 0.018,
           "implied_pct": 1.8,
           "change_24h": -0.0105,
@@ -3343,6 +3868,6043 @@
           "end_date": "2027-01-01T05:00:00Z"
         }
       ]
+    }
+  },
+  "heldEtfCodes": [
+    "516630",
+    "159246",
+    "560390",
+    "159516",
+    "515880"
+  ],
+  "heldStocks": {
+    "available": true,
+    "note": "",
+    "items": [
+      {
+        "code": "300418",
+        "name": "昆仑万维",
+        "type": "a",
+        "held": true
+      },
+      {
+        "code": "002371",
+        "name": "北方华创",
+        "type": "a",
+        "held": true,
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "封装设备",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片"
+      },
+      {
+        "code": "300390",
+        "name": "天华新能",
+        "type": "a",
+        "held": true
+      },
+      {
+        "code": "300442",
+        "name": "润泽科技",
+        "type": "a",
+        "held": true,
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "整机与机柜集成",
+        "tier": 0,
+        "cakeLayer": "L5",
+        "cakeLayerName": "L5 应用层"
+      },
+      {
+        "code": "000960",
+        "name": "锡业股份",
+        "type": "a",
+        "held": true
+      },
+      {
+        "code": "601138",
+        "name": "工业富联",
+        "type": "a",
+        "held": true,
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "整机与机柜集成",
+        "tier": 0,
+        "cakeLayer": "L5",
+        "cakeLayerName": "L5 应用层"
+      },
+      {
+        "code": "688008",
+        "name": "澜起科技",
+        "type": "a",
+        "held": true,
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "存储接口芯片",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建"
+      },
+      {
+        "code": "600487",
+        "name": "亨通光电",
+        "type": "a",
+        "held": true,
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光纤光缆",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片"
+      },
+      {
+        "code": "002049",
+        "name": "紫光国微",
+        "type": "a",
+        "held": true
+      },
+      {
+        "code": "516630",
+        "name": "云计ETF",
+        "type": "etf",
+        "held": true
+      },
+      {
+        "code": "159246",
+        "name": "创业板AI ETF",
+        "type": "etf",
+        "held": true
+      },
+      {
+        "code": "560390",
+        "name": "电网设备ETF",
+        "type": "etf",
+        "held": true
+      },
+      {
+        "code": "159516",
+        "name": "半导体设备ETF国泰",
+        "type": "etf",
+        "held": true
+      },
+      {
+        "code": "515880",
+        "name": "通信ETF国泰",
+        "type": "etf",
+        "held": true
+      },
+      {
+        "code": "09988",
+        "name": "阿里巴巴-W",
+        "type": "hk",
+        "held": true
+      },
+      {
+        "code": "01024",
+        "name": "快手-W",
+        "type": "hk",
+        "held": true
+      },
+      {
+        "code": "01093",
+        "name": "石药集团",
+        "type": "hk",
+        "held": true
+      }
+    ]
+  },
+  "usAshIndex": {
+    "available": true,
+    "note": "",
+    "byCode": {
+      "688041": [
+        {
+          "ticker": "NVDA",
+          "cn_name": "英伟达",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "AMD",
+          "cn_name": "超威半导体",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "ARM",
+          "cn_name": "安谋",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        }
+      ],
+      "002156": [
+        {
+          "ticker": "NVDA",
+          "cn_name": "英伟达",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "TSM",
+          "cn_name": "台积电",
+          "change": null,
+          "big_mover": false,
+          "segment": "先进封装(CoWoS/SoIC)"
+        },
+        {
+          "ticker": "AMD",
+          "cn_name": "超威半导体",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "ARM",
+          "cn_name": "安谋",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        }
+      ],
+      "600584": [
+        {
+          "ticker": "NVDA",
+          "cn_name": "英伟达",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "TSM",
+          "cn_name": "台积电",
+          "change": null,
+          "big_mover": false,
+          "segment": "先进封装(CoWoS/SoIC)"
+        },
+        {
+          "ticker": "AMD",
+          "cn_name": "超威半导体",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "ARM",
+          "cn_name": "安谋",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        }
+      ],
+      "002409": [
+        {
+          "ticker": "NVDA",
+          "cn_name": "英伟达",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "TSM",
+          "cn_name": "台积电",
+          "change": null,
+          "big_mover": false,
+          "segment": "先进封装(CoWoS/SoIC)"
+        },
+        {
+          "ticker": "AMD",
+          "cn_name": "超威半导体",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "ARM",
+          "cn_name": "安谋",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        }
+      ],
+      "002371": [
+        {
+          "ticker": "NVDA",
+          "cn_name": "英伟达",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "TSM",
+          "cn_name": "台积电",
+          "change": null,
+          "big_mover": false,
+          "segment": "先进封装(CoWoS/SoIC)"
+        },
+        {
+          "ticker": "AMD",
+          "cn_name": "超威半导体",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "ARM",
+          "cn_name": "安谋",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "AMAT",
+          "cn_name": "应用材料",
+          "change": null,
+          "big_mover": false,
+          "segment": "封装设备"
+        },
+        {
+          "ticker": "LRCX",
+          "cn_name": "泛林集团",
+          "change": null,
+          "big_mover": false,
+          "segment": "封装设备"
+        },
+        {
+          "ticker": "KLAC",
+          "cn_name": "科磊",
+          "change": null,
+          "big_mover": false,
+          "segment": "封装设备"
+        }
+      ],
+      "603186": [
+        {
+          "ticker": "NVDA",
+          "cn_name": "英伟达",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "TSM",
+          "cn_name": "台积电",
+          "change": null,
+          "big_mover": false,
+          "segment": "先进封装(CoWoS/SoIC)"
+        },
+        {
+          "ticker": "AMD",
+          "cn_name": "超威半导体",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "ARM",
+          "cn_name": "安谋",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        }
+      ],
+      "603688": [
+        {
+          "ticker": "NVDA",
+          "cn_name": "英伟达",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "TSM",
+          "cn_name": "台积电",
+          "change": null,
+          "big_mover": false,
+          "segment": "先进封装(CoWoS/SoIC)"
+        },
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "AMD",
+          "cn_name": "超威半导体",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "ARM",
+          "cn_name": "安谋",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "COHR",
+          "cn_name": "高意",
+          "change": null,
+          "big_mover": false,
+          "segment": "光模块"
+        }
+      ],
+      "688126": [
+        {
+          "ticker": "NVDA",
+          "cn_name": "英伟达",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "AMD",
+          "cn_name": "超威半导体",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "ARM",
+          "cn_name": "安谋",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        }
+      ],
+      "002436": [
+        {
+          "ticker": "NVDA",
+          "cn_name": "英伟达",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "AMD",
+          "cn_name": "超威半导体",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "ARM",
+          "cn_name": "安谋",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        }
+      ],
+      "688519": [
+        {
+          "ticker": "NVDA",
+          "cn_name": "英伟达",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "AMD",
+          "cn_name": "超威半导体",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "ARM",
+          "cn_name": "安谋",
+          "change": null,
+          "big_mover": false,
+          "segment": "算力模块(GPU/CPU/加速卡)"
+        }
+      ],
+      "603986": [
+        {
+          "ticker": "MU",
+          "cn_name": "美光",
+          "change": null,
+          "big_mover": false,
+          "segment": "存储模块(HBM/SSD)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "300475": [
+        {
+          "ticker": "MU",
+          "cn_name": "美光",
+          "change": null,
+          "big_mover": false,
+          "segment": "存储模块(HBM/SSD)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "000021": [
+        {
+          "ticker": "MU",
+          "cn_name": "美光",
+          "change": null,
+          "big_mover": false,
+          "segment": "存储模块(HBM/SSD)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "688008": [
+        {
+          "ticker": "MU",
+          "cn_name": "美光",
+          "change": null,
+          "big_mover": false,
+          "segment": "存储模块(HBM/SSD)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "688535": [
+        {
+          "ticker": "MU",
+          "cn_name": "美光",
+          "change": null,
+          "big_mover": false,
+          "segment": "存储模块(HBM/SSD)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "688300": [
+        {
+          "ticker": "MU",
+          "cn_name": "美光",
+          "change": null,
+          "big_mover": false,
+          "segment": "存储模块(HBM/SSD)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "300054": [
+        {
+          "ticker": "MU",
+          "cn_name": "美光",
+          "change": null,
+          "big_mover": false,
+          "segment": "存储模块(HBM/SSD)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "002130": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        }
+      ],
+      "300913": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        }
+      ],
+      "600110": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        }
+      ],
+      "301217": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        }
+      ],
+      "300308": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "COHR",
+          "cn_name": "高意",
+          "change": null,
+          "big_mover": false,
+          "segment": "光模块"
+        }
+      ],
+      "300502": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "COHR",
+          "cn_name": "高意",
+          "change": null,
+          "big_mover": false,
+          "segment": "光模块"
+        }
+      ],
+      "300394": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "COHR",
+          "cn_name": "高意",
+          "change": null,
+          "big_mover": false,
+          "segment": "光模块"
+        }
+      ],
+      "688498": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "COHR",
+          "cn_name": "高意",
+          "change": null,
+          "big_mover": false,
+          "segment": "光模块"
+        }
+      ],
+      "688313": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "COHR",
+          "cn_name": "高意",
+          "change": null,
+          "big_mover": false,
+          "segment": "光模块"
+        }
+      ],
+      "688048": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "COHR",
+          "cn_name": "高意",
+          "change": null,
+          "big_mover": false,
+          "segment": "光模块"
+        }
+      ],
+      "002281": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "COHR",
+          "cn_name": "高意",
+          "change": null,
+          "big_mover": false,
+          "segment": "光模块"
+        }
+      ],
+      "601869": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "COHR",
+          "cn_name": "高意",
+          "change": null,
+          "big_mover": false,
+          "segment": "光模块"
+        }
+      ],
+      "600487": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "COHR",
+          "cn_name": "高意",
+          "change": null,
+          "big_mover": false,
+          "segment": "光模块"
+        }
+      ],
+      "600522": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "COHR",
+          "cn_name": "高意",
+          "change": null,
+          "big_mover": false,
+          "segment": "光模块"
+        }
+      ],
+      "688400": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "COHR",
+          "cn_name": "高意",
+          "change": null,
+          "big_mover": false,
+          "segment": "光模块"
+        }
+      ],
+      "688702": [
+        {
+          "ticker": "AVGO",
+          "cn_name": "博通",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MRVL",
+          "cn_name": "迈威尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        },
+        {
+          "ticker": "ANET",
+          "cn_name": "Arista（云网络）",
+          "change": null,
+          "big_mover": false,
+          "segment": "高速互联模块(NVLink/铜连接/光模块)"
+        }
+      ],
+      "601138": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "300442": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "000034": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "002463": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "002916": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "300476": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "603228": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "001389": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "603629": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "002384": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "600183": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "002080": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "600176": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "603256": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "300395": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "601208": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "605589": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "688141": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MPWR",
+          "cn_name": "芯源系统",
+          "change": null,
+          "big_mover": false,
+          "segment": "电源管理芯片(PMIC/VR)"
+        }
+      ],
+      "688396": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MPWR",
+          "cn_name": "芯源系统",
+          "change": null,
+          "big_mover": false,
+          "segment": "电源管理芯片(PMIC/VR)"
+        }
+      ],
+      "600460": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "MPWR",
+          "cn_name": "芯源系统",
+          "change": null,
+          "big_mover": false,
+          "segment": "电源管理芯片(PMIC/VR)"
+        }
+      ],
+      "002851": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "300870": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "002364": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "301018": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "VRT",
+          "cn_name": "维谛技术",
+          "change": null,
+          "big_mover": false,
+          "segment": "散热模块"
+        }
+      ],
+      "002837": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "VRT",
+          "cn_name": "维谛技术",
+          "change": null,
+          "big_mover": false,
+          "segment": "散热模块"
+        }
+      ],
+      "300499": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "VRT",
+          "cn_name": "维谛技术",
+          "change": null,
+          "big_mover": false,
+          "segment": "散热模块"
+        }
+      ],
+      "600160": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "VRT",
+          "cn_name": "维谛技术",
+          "change": null,
+          "big_mover": false,
+          "segment": "散热模块"
+        }
+      ],
+      "300037": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "VRT",
+          "cn_name": "维谛技术",
+          "change": null,
+          "big_mover": false,
+          "segment": "散热模块"
+        }
+      ],
+      "300684": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "VRT",
+          "cn_name": "维谛技术",
+          "change": null,
+          "big_mover": false,
+          "segment": "散热模块"
+        }
+      ],
+      "300602": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "VRT",
+          "cn_name": "维谛技术",
+          "change": null,
+          "big_mover": false,
+          "segment": "散热模块"
+        }
+      ],
+      "600089": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "601179": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "600312": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "600406": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "600875": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "600019": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "000825": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "300274": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "300750": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "002812": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "300568": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "688503": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ],
+      "002079": [
+        {
+          "ticker": "SMCI",
+          "cn_name": "超微电脑",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        },
+        {
+          "ticker": "DELL",
+          "cn_name": "戴尔",
+          "change": null,
+          "big_mover": false,
+          "segment": "整机与机柜集成"
+        }
+      ]
+    },
+    "quote_ok": false
+  },
+  "stockCards": {
+    "available": true,
+    "note": "",
+    "count": 116,
+    "cards": {
+      "000034": {
+        "code": "000034",
+        "name": "神州数码",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "整机与机柜集成",
+        "tier": 0,
+        "cakeLayer": "L5",
+        "cakeLayerName": "L5 应用层",
+        "is_leader": false,
+        "consensus_state": "non_consensus",
+        "chokepoint": "整机集成（下游需求侧）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "300442": {
+        "code": "300442",
+        "name": "润泽科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "整机与机柜集成",
+        "tier": 0,
+        "cakeLayer": "L5",
+        "cakeLayerName": "L5 应用层",
+        "is_leader": false,
+        "consensus_state": "normal",
+        "chokepoint": "整机集成（下游需求侧）",
+        "water_seller": false,
+        "held": true,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "601138": {
+        "code": "601138",
+        "name": "工业富联",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "整机与机柜集成",
+        "tier": 0,
+        "cakeLayer": "L5",
+        "cakeLayerName": "L5 应用层",
+        "is_leader": true,
+        "consensus_state": "crowded",
+        "chokepoint": "整机集成（下游需求侧）",
+        "water_seller": false,
+        "held": true,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "688041": {
+        "code": "688041",
+        "name": "海光信息",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "算力模块(GPU/CPU/加速卡)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "NVDA",
+            "cn_name": "英伟达",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "AMD",
+            "cn_name": "超威半导体",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "ARM",
+            "cn_name": "安谋",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          }
+        ]
+      },
+      "002156": {
+        "code": "002156",
+        "name": "通富微电",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "先进封装(CoWoS/SoIC)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "NVDA",
+            "cn_name": "英伟达",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "TSM",
+            "cn_name": "台积电",
+            "change": null,
+            "big_mover": false,
+            "segment": "先进封装(CoWoS/SoIC)"
+          },
+          {
+            "ticker": "AMD",
+            "cn_name": "超威半导体",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "ARM",
+            "cn_name": "安谋",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          }
+        ]
+      },
+      "600584": {
+        "code": "600584",
+        "name": "长电科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "先进封装(CoWoS/SoIC)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "NVDA",
+            "cn_name": "英伟达",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "TSM",
+            "cn_name": "台积电",
+            "change": null,
+            "big_mover": false,
+            "segment": "先进封装(CoWoS/SoIC)"
+          },
+          {
+            "ticker": "AMD",
+            "cn_name": "超威半导体",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "ARM",
+            "cn_name": "安谋",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          }
+        ]
+      },
+      "002409": {
+        "code": "002409",
+        "name": "雅克科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "封装基板与中介层材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "NVDA",
+            "cn_name": "英伟达",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "TSM",
+            "cn_name": "台积电",
+            "change": null,
+            "big_mover": false,
+            "segment": "先进封装(CoWoS/SoIC)"
+          },
+          {
+            "ticker": "AMD",
+            "cn_name": "超威半导体",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "ARM",
+            "cn_name": "安谋",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          }
+        ]
+      },
+      "002371": {
+        "code": "002371",
+        "name": "北方华创",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "封装设备",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": true,
+        "us_anchors": [
+          {
+            "ticker": "NVDA",
+            "cn_name": "英伟达",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "TSM",
+            "cn_name": "台积电",
+            "change": null,
+            "big_mover": false,
+            "segment": "先进封装(CoWoS/SoIC)"
+          },
+          {
+            "ticker": "AMD",
+            "cn_name": "超威半导体",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "ARM",
+            "cn_name": "安谋",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "AMAT",
+            "cn_name": "应用材料",
+            "change": null,
+            "big_mover": false,
+            "segment": "封装设备"
+          },
+          {
+            "ticker": "LRCX",
+            "cn_name": "泛林集团",
+            "change": null,
+            "big_mover": false,
+            "segment": "封装设备"
+          },
+          {
+            "ticker": "KLAC",
+            "cn_name": "科磊",
+            "change": null,
+            "big_mover": false,
+            "segment": "封装设备"
+          }
+        ]
+      },
+      "603186": {
+        "code": "603186",
+        "name": "华正新材",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "ABF味之素膜",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "NVDA",
+            "cn_name": "英伟达",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "TSM",
+            "cn_name": "台积电",
+            "change": null,
+            "big_mover": false,
+            "segment": "先进封装(CoWoS/SoIC)"
+          },
+          {
+            "ticker": "AMD",
+            "cn_name": "超威半导体",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "ARM",
+            "cn_name": "安谋",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          }
+        ]
+      },
+      "603688": {
+        "code": "603688",
+        "name": "石英股份",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "石英材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "NVDA",
+            "cn_name": "英伟达",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "TSM",
+            "cn_name": "台积电",
+            "change": null,
+            "big_mover": false,
+            "segment": "先进封装(CoWoS/SoIC)"
+          },
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "AMD",
+            "cn_name": "超威半导体",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "ARM",
+            "cn_name": "安谋",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
+      "688126": {
+        "code": "688126",
+        "name": "沪硅产业",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "GPU裸片代工",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "NVDA",
+            "cn_name": "英伟达",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "AMD",
+            "cn_name": "超威半导体",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "ARM",
+            "cn_name": "安谋",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          }
+        ]
+      },
+      "002436": {
+        "code": "002436",
+        "name": "兴森科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "IC载板(ABF/BT)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "NVDA",
+            "cn_name": "英伟达",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "AMD",
+            "cn_name": "超威半导体",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "ARM",
+            "cn_name": "安谋",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          }
+        ]
+      },
+      "688519": {
+        "code": "688519",
+        "name": "南亚新材",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高端覆铜板材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "NVDA",
+            "cn_name": "英伟达",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "AMD",
+            "cn_name": "超威半导体",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "ARM",
+            "cn_name": "安谋",
+            "change": null,
+            "big_mover": false,
+            "segment": "算力模块(GPU/CPU/加速卡)"
+          }
+        ]
+      },
+      "002130": {
+        "code": "002130",
+        "name": "沃尔核材",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "铜连接(高速铜缆/连接器)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          }
+        ]
+      },
+      "300913": {
+        "code": "300913",
+        "name": "兆龙互连",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "铜连接(高速铜缆/连接器)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          }
+        ]
+      },
+      "600110": {
+        "code": "600110",
+        "name": "诺德股份",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "铜箔",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          }
+        ]
+      },
+      "301217": {
+        "code": "301217",
+        "name": "铜冠铜箔",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电解铜箔",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          }
+        ]
+      },
+      "300394": {
+        "code": "300394",
+        "name": "天孚通信",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光模块",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "normal",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
+      "300308": {
+        "code": "300308",
+        "name": "中际旭创",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光模块",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "crowded",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
+      "300502": {
+        "code": "300502",
+        "name": "新易盛",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光模块",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "crowded",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
+      "688498": {
+        "code": "688498",
+        "name": "源杰科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光芯片(EML/VCSEL/硅光)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": true,
+        "consensus_state": "crowded",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
+      "688313": {
+        "code": "688313",
+        "name": "仕佳光子",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光芯片(EML/VCSEL/硅光)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "crowded",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
+      "688048": {
+        "code": "688048",
+        "name": "长光华芯",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光芯片(EML/VCSEL/硅光)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "crowded",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
+      "002281": {
+        "code": "002281",
+        "name": "光迅科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光芯片(EML/VCSEL/硅光)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "crowded",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
+      "601869": {
+        "code": "601869",
+        "name": "长飞光纤",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光纤光缆",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
+      "600487": {
+        "code": "600487",
+        "name": "亨通光电",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光纤光缆",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": true,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
+      "600522": {
+        "code": "600522",
+        "name": "中天科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光纤预制棒",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
+      "688400": {
+        "code": "688400",
+        "name": "凌云光",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光器件(透镜/隔离器)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
+      "688702": {
+        "code": "688702",
+        "name": "盛科通信",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "交换芯片(NVSwitch)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          }
+        ]
+      },
+      "001389": {
+        "code": "001389",
+        "name": "广合科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高速PCB(HDI/高多层)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "non_consensus",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "002916": {
+        "code": "002916",
+        "name": "深南电路",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高速PCB(HDI/高多层)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "normal",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "603228": {
+        "code": "603228",
+        "name": "景旺电子",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高速PCB(HDI/高多层)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "normal",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "603629": {
+        "code": "603629",
+        "name": "利通电子",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高速PCB(HDI/高多层)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "normal",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "002463": {
+        "code": "002463",
+        "name": "沪电股份",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高速PCB(HDI/高多层)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "crowded",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "300476": {
+        "code": "300476",
+        "name": "胜宏科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高速PCB(HDI/高多层)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "crowded",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "002384": {
+        "code": "002384",
+        "name": "东山精密",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高速PCB(HDI/高多层)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "crowded",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "600183": {
+        "code": "600183",
+        "name": "生益科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高频高速覆铜板(CCL)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "002080": {
+        "code": "002080",
+        "name": "中材科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电子级玻纤布",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": true,
+        "consensus_state": "normal",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "603256": {
+        "code": "603256",
+        "name": "宏和科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电子级玻纤布",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "normal",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "600176": {
+        "code": "600176",
+        "name": "中国巨石",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电子级玻纤布",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": true,
+        "consensus_state": "crowded",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "300395": {
+        "code": "300395",
+        "name": "菲利华",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电子级玻纤布",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "crowded",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "601208": {
+        "code": "601208",
+        "name": "东材科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "特种树脂(碳氢/PPO)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "605589": {
+        "code": "605589",
+        "name": "圣泉集团",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "特种树脂(碳氢/PPO)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "688141": {
+        "code": "688141",
+        "name": "杰华特",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电源管理芯片(PMIC/VR)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MPWR",
+            "cn_name": "芯源系统",
+            "change": null,
+            "big_mover": false,
+            "segment": "电源管理芯片(PMIC/VR)"
+          }
+        ]
+      },
+      "688396": {
+        "code": "688396",
+        "name": "华润微",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "功率半导体晶圆",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MPWR",
+            "cn_name": "芯源系统",
+            "change": null,
+            "big_mover": false,
+            "segment": "电源管理芯片(PMIC/VR)"
+          }
+        ]
+      },
+      "600460": {
+        "code": "600460",
+        "name": "士兰微",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "功率半导体晶圆",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MPWR",
+            "cn_name": "芯源系统",
+            "change": null,
+            "big_mover": false,
+            "segment": "电源管理芯片(PMIC/VR)"
+          }
+        ]
+      },
+      "300870": {
+        "code": "300870",
+        "name": "欧陆通",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高密度电源模块",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "normal",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "002851": {
+        "code": "002851",
+        "name": "麦格米特",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高密度电源模块",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "crowded",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "002364": {
+        "code": "002364",
+        "name": "中恒电气",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高密度电源模块",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "crowded",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "301018": {
+        "code": "301018",
+        "name": "申菱环境",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "散热模块",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "VRT",
+            "cn_name": "维谛技术",
+            "change": null,
+            "big_mover": false,
+            "segment": "散热模块"
+          }
+        ]
+      },
+      "002837": {
+        "code": "002837",
+        "name": "英维克",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "液冷板/快接头",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "VRT",
+            "cn_name": "维谛技术",
+            "change": null,
+            "big_mover": false,
+            "segment": "散热模块"
+          }
+        ]
+      },
+      "300499": {
+        "code": "300499",
+        "name": "高澜股份",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "液冷板/快接头",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "VRT",
+            "cn_name": "维谛技术",
+            "change": null,
+            "big_mover": false,
+            "segment": "散热模块"
+          }
+        ]
+      },
+      "600160": {
+        "code": "600160",
+        "name": "巨化股份",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "氟化液/冷却液",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "VRT",
+            "cn_name": "维谛技术",
+            "change": null,
+            "big_mover": false,
+            "segment": "散热模块"
+          }
+        ]
+      },
+      "300037": {
+        "code": "300037",
+        "name": "新宙邦",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "氟化液/冷却液",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "VRT",
+            "cn_name": "维谛技术",
+            "change": null,
+            "big_mover": false,
+            "segment": "散热模块"
+          }
+        ]
+      },
+      "300684": {
+        "code": "300684",
+        "name": "中石科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "导热界面材料(TIM)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "VRT",
+            "cn_name": "维谛技术",
+            "change": null,
+            "big_mover": false,
+            "segment": "散热模块"
+          }
+        ]
+      },
+      "300602": {
+        "code": "300602",
+        "name": "飞荣达",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "导热界面材料(TIM)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "VRT",
+            "cn_name": "维谛技术",
+            "change": null,
+            "big_mover": false,
+            "segment": "散热模块"
+          }
+        ]
+      },
+      "300475": {
+        "code": "300475",
+        "name": "香农芯创",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "存储模块(HBM/SSD)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "normal",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "MU",
+            "cn_name": "美光",
+            "change": null,
+            "big_mover": false,
+            "segment": "存储模块(HBM/SSD)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "000021": {
+        "code": "000021",
+        "name": "深科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "存储模块(HBM/SSD)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "normal",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "MU",
+            "cn_name": "美光",
+            "change": null,
+            "big_mover": false,
+            "segment": "存储模块(HBM/SSD)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "603986": {
+        "code": "603986",
+        "name": "兆易创新",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "存储模块(HBM/SSD)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "crowded",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "MU",
+            "cn_name": "美光",
+            "change": null,
+            "big_mover": false,
+            "segment": "存储模块(HBM/SSD)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "688008": {
+        "code": "688008",
+        "name": "澜起科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "存储接口芯片",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": true,
+        "us_anchors": [
+          {
+            "ticker": "MU",
+            "cn_name": "美光",
+            "change": null,
+            "big_mover": false,
+            "segment": "存储模块(HBM/SSD)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "688535": {
+        "code": "688535",
+        "name": "华海诚科",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "封装材料",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "MU",
+            "cn_name": "美光",
+            "change": null,
+            "big_mover": false,
+            "segment": "存储模块(HBM/SSD)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "688300": {
+        "code": "688300",
+        "name": "联瑞新材",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "封装材料",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "MU",
+            "cn_name": "美光",
+            "change": null,
+            "big_mover": false,
+            "segment": "存储模块(HBM/SSD)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "300054": {
+        "code": "300054",
+        "name": "鼎龙股份",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "封装材料",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "MU",
+            "cn_name": "美光",
+            "change": null,
+            "big_mover": false,
+            "segment": "存储模块(HBM/SSD)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "600089": {
+        "code": "600089",
+        "name": "特变电工",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电网电力设备(变压器/特高压/开关GIS)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "601179": {
+        "code": "601179",
+        "name": "中国西电",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电网电力设备(变压器/特高压/开关GIS)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "600312": {
+        "code": "600312",
+        "name": "平高电气",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电网电力设备(变压器/特高压/开关GIS)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "600406": {
+        "code": "600406",
+        "name": "国电南瑞",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电网电力设备(变压器/特高压/开关GIS)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "600875": {
+        "code": "600875",
+        "name": "东方电气",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电网电力设备(变压器/特高压/开关GIS)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "600019": {
+        "code": "600019",
+        "name": "宝钢股份",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电工钢(取向硅钢)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "000825": {
+        "code": "000825",
+        "name": "太钢不锈",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电工钢(取向硅钢)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "300274": {
+        "code": "300274",
+        "name": "阳光电源",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "新能源供给(储能/逆变器/绿电)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "300750": {
+        "code": "300750",
+        "name": "宁德时代",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "新能源供给(储能/逆变器/绿电)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "002812": {
+        "code": "002812",
+        "name": "恩捷股份",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "锂电隔膜",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "300568": {
+        "code": "300568",
+        "name": "星源材质",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "锂电隔膜",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "688503": {
+        "code": "688503",
+        "name": "聚和材料",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光伏银浆",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "002079": {
+        "code": "002079",
+        "name": "苏州固锝",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光伏银浆",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "300607": {
+        "code": "300607",
+        "name": "拓斯达",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "整机集成",
+        "tier": 0,
+        "cakeLayer": "L5",
+        "cakeLayerName": "L5 应用层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "整机集成（下游需求侧）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "300496": {
+        "code": "300496",
+        "name": "中科创达",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "具身智能大脑(端到端模型/域控/SoC)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "688088": {
+        "code": "688088",
+        "name": "虹软科技",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "具身智能大脑(端到端模型/域控/SoC)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "300124": {
+        "code": "300124",
+        "name": "汇川技术",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "运动控制器",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002747": {
+        "code": "002747",
+        "name": "埃斯顿",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "运动控制器",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688017": {
+        "code": "688017",
+        "name": "绿的谐波",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "谐波减速器",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "603728": {
+        "code": "603728",
+        "name": "鸣志电器",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "空心杯电机",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300660": {
+        "code": "300660",
+        "name": "江苏雷利",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "空心杯电机",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "873593": {
+        "code": "873593",
+        "name": "鼎智科技",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "空心杯电机",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "603662": {
+        "code": "603662",
+        "name": "柯力传感",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "六维力矩传感器",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688686": {
+        "code": "688686",
+        "name": "奥普特",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "机器视觉",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002920": {
+        "code": "002920",
+        "name": "德赛西威",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "自动驾驶(智能驾驶域控/线控底盘)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "688326": {
+        "code": "688326",
+        "name": "经纬恒润-W",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "自动驾驶(智能驾驶域控/线控底盘)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "601689": {
+        "code": "601689",
+        "name": "拓普集团",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "自动驾驶(智能驾驶域控/线控底盘)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "603197": {
+        "code": "603197",
+        "name": "保隆科技",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "自动驾驶(智能驾驶域控/线控底盘)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "601698": {
+        "code": "601698",
+        "name": "中国卫通",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "卫星互联网运营与终端",
+        "tier": 0,
+        "cakeLayer": "L5",
+        "cakeLayerName": "L5 应用层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "整机集成（下游需求侧）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "600118": {
+        "code": "600118",
+        "name": "中国卫星",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "卫星制造(平台/载荷)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "688375": {
+        "code": "688375",
+        "name": "国博电子",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "相控阵T-R组件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688270": {
+        "code": "688270",
+        "name": "臻镭科技",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "相控阵T-R组件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "001270": {
+        "code": "001270",
+        "name": "铖昌科技(*ST铖昌)",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "相控阵T-R组件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "301117": {
+        "code": "301117",
+        "name": "佳缘科技",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "星载芯片",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002025": {
+        "code": "002025",
+        "name": "航天电器",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "特种电子元件",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688066": {
+        "code": "688066",
+        "name": "航天宏图",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "星间激光通信",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300034": {
+        "code": "300034",
+        "name": "钢研高纳",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "高温合金",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002149": {
+        "code": "002149",
+        "name": "西部材料",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "高温合金",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "600879": {
+        "code": "600879",
+        "name": "航天电子",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "卫星平台结构与电源",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300699": {
+        "code": "300699",
+        "name": "光威复材",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "碳纤维复合材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002465": {
+        "code": "002465",
+        "name": "海格通信",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "地面站与测控",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "300045": {
+        "code": "300045",
+        "name": "华力创通",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "用户终端(相控阵平板天线)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300762": {
+        "code": "300762",
+        "name": "上海瀚讯",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "用户终端(相控阵平板天线)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "603259": {
+        "code": "603259",
+        "name": "药明康德",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "CXO外包(CRO/CDMO)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "002821": {
+        "code": "002821",
+        "name": "凯莱英",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "CXO外包(CRO/CDMO)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "300347": {
+        "code": "300347",
+        "name": "泰格医药",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "合同研发(CRO-临床前/临床)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300759": {
+        "code": "300759",
+        "name": "康龙化成",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "合同研发(CRO-临床前/临床)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "603127": {
+        "code": "603127",
+        "name": "昭衍新药",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "合同研发(CRO-临床前/临床)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300358": {
+        "code": "300358",
+        "name": "楚天科技",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "生物反应器(一次性/不锈钢)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300171": {
+        "code": "300171",
+        "name": "东富龙",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "生物反应器(一次性/不锈钢)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688690": {
+        "code": "688690",
+        "name": "纳微科技",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "层析填料/层析介质",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688293": {
+        "code": "688293",
+        "name": "奥浦迈",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "细胞培养基",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300363": {
+        "code": "300363",
+        "name": "博腾股份",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "合同生产(CDMO-工艺/制剂)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      }
     }
   }
 }

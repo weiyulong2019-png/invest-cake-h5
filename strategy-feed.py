@@ -55,12 +55,17 @@ _DEGRADED_STATUS = {"degraded", "error", "parse_error", "empty"}
 DEFAULT_CHAIN = "ai_server"
 DEFAULT_THRESHOLD = 10.0
 
+# 持仓清单（只读，仅用于提取「持仓 ETF 代码」给公开看板排序用）。
+#   铁律：只取代码，绝不输出任何持仓量/成本/盈亏。
+HOLDINGS_MD = Path("/Users/long/.openclaw/workspace-main/HOLDINGS.md")
+
 # 全部产业链（key → 看板显示名）。key 必须存在于 opportunity_tree.CHAIN_FILES。
+# 链谱(2026-06-02 重构):
+#   - power_grid(电网) + new_energy(新能源) 已并入 ai_server 的『能源层』, 不再作独立链。
+#   - humanoid_robot(人形机器人) 重命名扩展为 physical_ai(物理AI: 本体+具身大脑+自动驾驶)。
 CHAINS_ALL = [
     ("ai_server", "AI服务器"),
-    ("humanoid_robot", "人形机器人"),
-    ("power_grid", "电网"),
-    ("new_energy", "新能源"),
+    ("physical_ai", "物理AI"),
     ("commercial_space", "商业航天"),
     ("innovative_drug", "创新药"),
 ]
@@ -153,7 +158,7 @@ def build_chain_tree(chain: str, dry_run: bool) -> dict:
                 "nodes_todo": acc["nodes_todo"],
                 "total_targets": len(acc["all_targets"]),
             },
-            "segments": segs_out[:40],  # 控制 payload 体积
+            "segments": segs_out[:60],  # 控制 payload 体积(ai_server 并入能源层后环节增多, 上调至 60)
             "non_consensus": [{
                 "code": r["code"], "name": r["name"], "segment": r["segment"],
                 "tier": r.get("tier"), "tree_path": r.get("tree_path"),
@@ -185,6 +190,196 @@ def build_all_chains(dry_run: bool) -> dict:
         chains[key] = blk
         order.append(key)
     return {"chains": chains, "chainOrder": order, "defaultChain": DEFAULT_CHAIN}
+
+
+# ─────────────────── 情报中文化（intel 翻译层） ───────────────────
+# RSS 标题/来源 + Polymarket 事件名为英文上游数据；下列纯函数将其改写为中文。
+# 规则化模板覆盖高频句式（Fed 利率 / 通胀阈值 / 衰退等），未覆盖者保留原文并标 [机器未译]，不脑补含义。
+import re as _re
+
+# Polymarket 主题 → 中文标签
+_POLY_THEME_CN = {
+    "fed_rates": "美联储利率", "inflation": "通胀", "ai": "人工智能",
+    "geopolitics": "地缘政治", "election": "选举", "tech_corp": "科技公司",
+    "crypto": "加密货币",
+}
+
+# RSS 来源机构名 → 中文
+_RSS_SOURCE_CN = {
+    "SEC Press Releases": "美国证监会(SEC)新闻",
+    "Federal Reserve Press": "美联储新闻",
+    "Treasury Press Releases": "美国财政部新闻",
+    "CFTC Press Releases": "美国商品期货委员会(CFTC)新闻",
+    "BLS News Releases": "美国劳工统计局(BLS)新闻",
+    "ECB Press": "欧洲央行(ECB)新闻",
+}
+
+# RSS 标题高频短语 → 中文（列表顺序=替换优先级，长短语在前避免子串误伤）
+_RSS_PHRASE_CN = [
+    ("Federal Reserve Board issues enforcement actions with", "美联储理事会对以下对象采取执法行动："),
+    ("member of the Board of Governors of the Federal Reserve System", "美联储理事会理事"),
+    ("Securities and Exchange Commission", "美国证券交易委员会"),
+    ("Investor Advisory Committee", "投资者咨询委员会"),
+    ("Climate-Related Disclosure Rules", "气候相关信息披露规则"),
+    ("Board of Governors", "理事会"),
+    ("Federal Reserve System", "美联储系统"),
+    ("Federal Reserve Board", "美联储理事会"),
+    ("discount rate meeting", "贴现率会议"),
+    ("enforcement actions", "执法行动"),
+    ("takes oath of office", "宣誓就职"),
+    ("Press Release", "新闻稿"),
+    ("Announces", "宣布"),
+    ("Proposes", "提议"),
+    ("Rescission", "撤销"),
+    ("Minutes of the", "纪要："),
+    ("New Members", "新成员"),
+    ("Four", "四名"),
+    ("to Host", "将主办"),
+    ("Meeting", "会议"),
+    ("chairman", "主席"),
+    ("former employee", "前雇员"),
+    (" on ", " 时间："),
+    (" and ", "、"),
+    (" of the ", " 之"),
+    (" of ", " 的"),
+    (" with ", " 与 "),
+    (" as ", " 任 "),
+    (" a member", "成员"),
+]
+
+
+def _translate_rss_title(title: str) -> str:
+    """RSS 英文标题 → 中文（高频短语替换）。无任何英文短语命中且仍含大量英文 → 标 [机器未译]。"""
+    if not title:
+        return title
+    if not _re.search(r"[A-Za-z]", title):
+        return title  # 已是中文
+    out = title
+    hit = False
+    for en, cn in _RSS_PHRASE_CN:
+        if en in out:
+            out = out.replace(en, cn)
+            hit = True
+    # 仍残留较多英文单词（>2 个连续字母词）→ 诚实标注未完全翻译，不脑补
+    residual = _re.findall(r"[A-Za-z]{3,}", out)
+    if residual and len(residual) >= 3:
+        return f"{out}　[机器未译·原文]"
+    return out
+
+
+def _translate_poly_market(market: str) -> str:
+    """Polymarket 英文事件名 → 中文（模板化覆盖高频句式）。未覆盖 → 标 [机器未译]。"""
+    if not market:
+        return market
+    s = market.strip()
+    # Fed rate cuts count: "Will N Fed rate cut(s) happen in YYYY?"
+    m = _re.match(r"Will (\d+)(?:\s*or more)? Fed rate cuts? happen in (\d{4})\?", s)
+    if m:
+        more = "或以上" if "or more" in s else ""
+        return f"{m.group(2)}年美联储降息 {m.group(1)} 次{more}?"
+    if _re.match(r"Will no Fed rate cuts happen in (\d{4})\?", s):
+        yr = _re.search(r"(\d{4})", s).group(1)
+        return f"{yr}年美联储不降息?"
+    if _re.match(r"Fed rate hike in (\d{4})\?", s):
+        yr = _re.search(r"(\d{4})", s).group(1)
+        return f"{yr}年美联储加息?"
+    # Fed bps after meeting
+    m = _re.match(r"Will the Fed (decrease|increase) interest rates by (\d+)\+? bps after the (\w+ \d{4}) meeting\?", s)
+    if m:
+        direction = "降息" if m.group(1) == "decrease" else "加息"
+        meeting = _MONTH_CN(m.group(3))
+        plus = "+" if "+" in s else ""
+        return f"美联储在{meeting}会议后{direction} {m.group(2)}{plus} 基点?"
+    if _re.match(r"Will there be no change in Fed interest rates after the (\w+ \d{4}) meeting\?", s):
+        meeting = _MONTH_CN(_re.search(r"after the (\w+ \d{4})", s).group(1))
+        return f"美联储在{meeting}会议后维持利率不变?"
+    # recession
+    m = _re.match(r"US recession by end of (\d{4})\?", s)
+    if m:
+        return f"{m.group(1)}年底前美国陷入衰退?"
+    # inflation > X% in YYYY
+    m = _re.match(r"Will inflation reach more than ([\d.]+)% in (\d{4})\?", s)
+    if m:
+        return f"{m.group(2)}年通胀超过 {m.group(1)}%?"
+    # annual inflation be X% in May
+    m = _re.match(r"Will annual inflation be ([\d.]+)%( or more)? in (\w+)\?", s)
+    if m:
+        more = "或以上" if m.group(2) else ""
+        return f"{_MONTH_CN(m.group(3))}年化通胀为 {m.group(1)}%{more}?"
+    # country annual inflation range
+    m = _re.match(r"Will ([\w’']+?)(?:'s|’s)? (\d{4}) Annual Inflation be between ([\d.]+)% and ([\d.]+)%\?", s)
+    if m:
+        country = _COUNTRY_CN(m.group(1))
+        return f"{country}{m.group(2)}年化通胀介于 {m.group(3)}%~{m.group(4)}%?"
+    m = _re.match(r"Will ([\w’']+?)(?:'s|’s)? monthly inflation in (\w+ \d{4}) be between ([\d.]+)% and ([\d.]+)\%?\?", s)
+    if m:
+        country = _COUNTRY_CN(m.group(1))
+        return f"{country}{_MONTH_CN(m.group(2))}月度通胀介于 {m.group(3)}%~{m.group(4)}%?"
+    # AI: "Will <X> have the best AI model at the end of <Month YYYY>?"
+    m = _re.match(r"Will ([\w .&'-]+?) have the best AI model at the end of (\w+ \d{4})\?", s)
+    if m:
+        return f"{_ORG_CN(m.group(1))}在{_MONTH_CN(m.group(2))}底拥有最强AI模型?"
+    # geopolitics: "Will <A> invade <B> (by|before) <when>?"
+    m = _re.match(r"Will (?:the )?([\w .'-]+?) invade ([\w .'-]+?) (by|before) (end of )?(\d{4})\?", s)
+    if m:
+        return f"{_ORG_CN(m.group(1))}在{m.group(5)}年{'底前' if m.group(4) else '前'}入侵{_ORG_CN(m.group(2))}?"
+    # crypto: "Will Bitcoin reach $X(k) (in|by) <when>?"
+    m = _re.match(r"Will (Bitcoin|Ethereum|BTC|ETH) (?:reach|hit) \$?([\d,]+k?)(?: .*)?\?", s)
+    if m:
+        coin = {"Bitcoin": "比特币", "BTC": "比特币", "Ethereum": "以太坊", "ETH": "以太坊"}.get(m.group(1), m.group(1))
+        return f"{coin}涨至 ${m.group(2)}?"
+    # election: "Will <X> win the YYYY US Presidential Election?"
+    m = _re.match(r"Will ([\w .'-]+?) win the (\d{4}) US Presidential Election\?", s)
+    if m:
+        return f"{_ORG_CN(m.group(1))}赢得{m.group(2)}年美国总统大选?"
+    # tech_corp: "Will <X> be the largest company in the world by market cap on <when>?"
+    m = _re.match(r"Will ([\w .'-]+?) be the largest company in the world by market cap on (\w+ \d+)\?", s)
+    if m:
+        return f"{_ORG_CN(m.group(1))}在{_MONTH_CN(m.group(2))}成为全球市值最大公司?"
+    # fallback: honest untranslated mark
+    return f"{s}　[机器未译·原文]"
+
+
+# 机构/国家专名 → 中文（AI 公司、国家）
+_ORG_CN = lambda s: {
+    "xAI": "xAI", "Anthropic": "Anthropic", "OpenAI": "OpenAI", "Google": "谷歌",
+    "Google DeepMind": "谷歌DeepMind", "Meta": "Meta", "DeepSeek": "DeepSeek",
+    "U.S.": "美国", "US": "美国", "United States": "美国", "the U.S.": "美国",
+    "China": "中国", "Iran": "伊朗", "Taiwan": "台湾", "Russia": "俄罗斯",
+    "Ukraine": "乌克兰", "Israel": "以色列",
+    "Tesla": "特斯拉", "Amazon": "亚马逊", "Apple": "苹果", "Microsoft": "微软",
+    "Nvidia": "英伟达", "NVIDIA": "英伟达", "Alphabet": "Alphabet(谷歌)",
+    "LeBron James": "勒布朗·詹姆斯", "Tim Walz": "蒂姆·沃尔兹",
+}.get(s.strip(), s.strip())
+
+
+_MONTHS = {"January": "1月", "February": "2月", "March": "3月", "April": "4月",
+           "May": "5月", "June": "6月", "July": "7月", "August": "8月",
+           "September": "9月", "October": "10月", "November": "11月", "December": "12月"}
+_COUNTRIES = {"Argentina": "阿根廷", "Mexico": "墨西哥", "India": "印度",
+              "Brazil": "巴西", "Turkey": "土耳其", "US": "美国"}
+
+
+def _MONTH_CN(s: str) -> str:
+    for en, cn in _MONTHS.items():
+        s = s.replace(en, cn)
+    # "6月 2026" → "2026年6月"（月在前年在后时归一为中文语序）
+    m = _re.match(r"^(\d{1,2})月\s*(\d{4})$", s.strip())
+    if m:
+        return f"{m.group(2)}年{m.group(1)}月"
+    # "6月 30" → "6月30日"（月+日）
+    m = _re.match(r"^(\d{1,2})月\s+(\d{1,2})$", s.strip())
+    if m:
+        return f"{m.group(1)}月{m.group(2)}日"
+    return s
+
+
+def _COUNTRY_CN(s: str) -> str:
+    return _COUNTRIES.get(s.strip("’'"), s)
+
+
+def _translate_outcome(o: str) -> str:
+    return {"Yes": "是", "No": "否"}.get((o or "").strip(), o)
 
 
 # ─────────────────── P0 情报数据：只读 us_intel / intel 产出 ───────────────────
@@ -324,11 +519,13 @@ def build_intel(top_rss: int = 12, top_poly: int = 2) -> dict:
             if feed.get("status") != "ok":
                 continue
             for it in feed.get("items", [])[:3]:  # 每源最多 3 条，保多样性
+                src_name = feed.get("name") or feed.get("source_org") or feed.get("rss_id")
                 items.append({
-                    "title": it.get("title", ""),
+                    "title": _translate_rss_title(it.get("title", "")),
+                    "title_en": it.get("title", ""),          # 保留原文便于追溯
                     "link": it.get("link", ""),
                     "published": it.get("published", ""),
-                    "source": feed.get("name") or feed.get("source_org") or feed.get("rss_id"),
+                    "source": _RSS_SOURCE_CN.get(src_name, src_name),
                     "category": feed.get("category", ""),
                     "evidence_grade": feed.get("evidence_grade", ""),
                 })
@@ -354,9 +551,11 @@ def build_intel(top_rss: int = 12, top_poly: int = 2) -> dict:
             for m in ranked[:top_poly]:
                 prob = m.get("implied_prob")
                 events.append({
-                    "theme": theme,
-                    "market": m.get("market", ""),
-                    "outcome": m.get("outcome", ""),
+                    "theme": _POLY_THEME_CN.get(theme, theme),
+                    "theme_key": theme,
+                    "market": _translate_poly_market(m.get("market", "")),
+                    "market_en": m.get("market", ""),          # 保留原文便于追溯
+                    "outcome": _translate_outcome(m.get("outcome", "")),
                     "implied_prob": prob,
                     "implied_pct": round(prob * 100, 1) if isinstance(prob, (int, float)) else None,
                     "change_24h": m.get("change_24h"),
@@ -599,12 +798,318 @@ def build_win_rate(min_samples: int = 5) -> dict:
 
 # ───────────────────────── 5) 卖水人（仅结构化源） ─────────────────────────
 def build_water_sellers() -> dict:
-    """卖水人 Top 环节。仅当存在【结构化源】时才输出；
-    现状只有 docs/WATER_SELLER_REPORTS*.md 散文（无结构化 JSON）→ 按铁律跳过，不硬解析散文。"""
+    """卖水人 Top 环节。只读结构化源 data/dispatch/water_sellers.json（代码经双源核验、
+    判定遵循 water-seller-finder SKILL）。无文件/解析失败 → available=False，不硬解析散文报告、不脑补。"""
+    src = WORKSPACE_SCRIPTS / "data" / "dispatch" / "water_sellers.json"
+    payload = _read_json_safe(src)
+    if not isinstance(payload, dict) or not payload.get("items"):
+        return {
+            "available": False,
+            "note": "暂无结构化卖水人数据源（water_sellers.json 未就绪）",
+            "items": [],
+        }
+    items = []
+    for it in payload.get("items", []):
+        if not isinstance(it, dict):
+            continue
+        tickers = [{"code": (t.get("code") or "").strip(),
+                    "name": (t.get("name") or "").strip(),
+                    "role": t.get("role")}
+                   for t in (it.get("tickers") or []) if isinstance(t, dict)
+                   and (t.get("code") or t.get("name"))]
+        if not tickers:
+            continue
+        items.append({
+            "segment": it.get("segment", ""),
+            "chain": it.get("chain"),
+            "tickers": tickers,
+            "logic": it.get("logic", ""),
+            "evidence_grade": it.get("evidence_grade"),
+        })
     return {
-        "available": False,
-        "note": "暂无结构化数据源（卖水人报告为散文，按铁律不硬解析）",
-        "items": [],
+        "available": bool(items),
+        "note": payload.get("note") or "",
+        "as_of": payload.get("as_of"),
+        "items": items,
+    }
+
+
+# ───────────────── 6) 持仓清单（公开安全：只给代码+名称，绝不给数量/成本/盈亏） ─────────────────
+# 🔴 铁律：HOLDINGS.md 含持仓量/成本/盈亏，本脚本【只取代码与名称】，绝不输出任何数量、成本、盈亏字段。
+#   _parse_holdings 是唯一解析入口；下游 build_held_etf_codes / build_held_stocks 都只取 code/name/type。
+
+# HOLDINGS.md 各持仓小节标题 → 看板分类（type）。仅「持仓」性质小节计入自选展示。
+#   关注/候选/已平仓不算「持有」，但「AI产业链关注」是关注池不是持仓，故排除。
+_HOLDING_SECTIONS = {
+    "A股持仓": "a",
+    "ETF持仓": "etf",
+    "港股持仓": "hk",
+}
+
+
+def _parse_holdings() -> list[dict]:
+    """解析 HOLDINGS.md 各持仓小节 → [{code,name,type}]（公开安全，绝不含量/成本/盈亏）。
+
+    只读「A股持仓 / ETF持仓 / 港股持仓」三类持仓小节；
+    「AI产业链关注 / 候选池 / 已平仓记录」等非持仓小节一律跳过。
+    找不到文件或解析失败 → 返回空列表（前端据此优雅降级）。
+    """
+    import re
+    if not HOLDINGS_MD.is_file():
+        return []
+    try:
+        text = HOLDINGS_MD.read_text(encoding="utf-8")
+    except Exception:
+        return []
+    out: list[dict] = []
+    seen: set = set()
+    cur_type: str | None = None
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("##"):
+            title = stripped.lstrip("#").strip()
+            cur_type = None
+            for sec, t in _HOLDING_SECTIONS.items():
+                if sec in title:
+                    cur_type = t
+                    break
+            continue
+        if cur_type is None or not stripped.startswith("|"):
+            continue
+        cells = [c.strip() for c in stripped.strip("|").split("|")]
+        if len(cells) < 2:
+            continue
+        code, name = cells[0], cells[1]
+        # 表头/分隔行（代码 / --- / 空）跳过；A股·ETF=6位数字，港股=5位数字(如 09988)
+        if not re.fullmatch(r"\d{5,6}", code):
+            continue
+        if not name or name in ("名称", "-"):
+            continue
+        key = (code, cur_type)
+        if key in seen:
+            continue
+        seen.add(key)
+        # 🔴 仅取 code/name/type —— 绝不读取后续 持仓日期/持仓价/备注 等敏感列
+        out.append({"code": code, "name": name, "type": cur_type})
+    return out
+
+
+def build_held_etf_codes() -> list[str]:
+    """持仓 ETF 代码列表（供 H5 把持仓 ETF 排前）。只取代码，绝不含数量/成本/盈亏。"""
+    return [h["code"] for h in _parse_holdings() if h["type"] == "etf"]
+
+
+def build_held_stocks() -> dict:
+    """持仓股清单（A股+ETF+港股），供 ⭐自选 tab 展示「实际持仓股」。
+
+    🔴 公开看板铁律：只输出 代码 + 名称 + 市场类型，标记「持有」；
+       绝不输出任何持仓量 / 成本 / 盈亏。无文件 → available=False / 空列表。
+    """
+    items = _parse_holdings()
+    return {
+        "available": bool(items),
+        "note": "" if items else "暂无持仓清单（HOLDINGS.md 未就绪）",
+        # held=True 仅作前端标「持有」用，不含任何数量
+        "items": [{"code": h["code"], "name": h["name"], "type": h["type"], "held": True}
+                  for h in items],
+    }
+
+
+# ───────────── 7) 蛋糕层映射 / 个股分析卡 / 美股→A股映射索引（纯结构化派生） ─────────────
+# 下列函数都【只读已构建好的 chains/usMapping/heldStocks 区块】做结构化派生，
+#   不再发起任何引擎/网络调用 → 离线、向后兼容、绝不脑补、绝不含持仓量。
+
+# tier → 五层蛋糕层（公开看板只用 L1–L5 概念，按产业链 tier 归层）。
+#   tier0 整机/终端→L5 应用；tier1 核心部件→L4；tier2 关键器件→L3；tier3 底层材料/设备→L2；其它→L1。
+_TIER_TO_CAKE = {0: "L5", 1: "L4", 2: "L3", 3: "L2"}
+_CAKE_NAME = {"L1": "L1 能源基建", "L2": "L2 算力芯片", "L3": "L3 通信基建",
+              "L4": "L4 模型层", "L5": "L5 应用层"}
+
+# 海外锚中文名兜底（公开看板：item4 英文全译中文；上游 cn_name 残留英文时在此补译）。
+_US_NAME_CN = {
+    "Arista Networks": "Arista（云网络）", "Vertiv": "维谛技术",
+    "Marvell": "迈威尔", "Coherent": "高意", "Credo": "Credo（互联）",
+    "Astera Labs": "Astera（互联）", "Pure Storage": "Pure（存储）",
+}
+
+
+def _clean_us_name(name: str) -> str:
+    """把海外锚名里的英文括注/纯英文统一为中文（找不到映射则去掉英文括注）。"""
+    if not name:
+        return name
+    for en, cn in _US_NAME_CN.items():
+        if en.lower() in name.lower():
+            return cn
+    # 形如「维谛技术(Vertiv)」→ 去掉英文括注；「超微电脑(SMCI)」保留中文主名
+    import re
+    m = re.match(r"^([一-龥·]+)\s*[（(][A-Za-z0-9 .]+[)）]\s*$", name)
+    if m:
+        return m.group(1)
+    return name
+
+
+def _build_code_segment_index(chains: dict) -> dict:
+    """code → {chain,label,segment,tier,is_leader,consensus_state} 首次命中（含 ai_server 优先）。"""
+    idx: dict = {}
+    # ai_server 优先，保证 AI 链命中覆盖其它链
+    order = ["ai_server"] + [k for k in chains.keys() if k != "ai_server"]
+    for ck in order:
+        c = chains.get(ck) or {}
+        for s in c.get("segments", []) or []:
+            for h in s.get("holdings", []) or []:
+                code = h.get("code")
+                if not code or code in idx:
+                    continue
+                idx[code] = {
+                    "chain": ck,
+                    "chain_label": c.get("label", ck),
+                    "segment": s.get("name"),
+                    "tier": s.get("tier"),
+                    "is_leader": bool(h.get("is_leader")),
+                    "consensus_state": h.get("consensus_state", "unknown"),
+                }
+    return idx
+
+
+def enrich_held_stocks(held: dict, chains: dict) -> dict:
+    """item10：给每只持仓股映射 链/环节/tier/蛋糕层。映射不到 → 字段缺省（前端不标层）。
+    绝不新增任何持仓量字段。"""
+    idx = _build_code_segment_index(chains)
+    for h in held.get("items", []) or []:
+        meta = idx.get(h["code"])
+        if meta:
+            h["chain"] = meta["chain"]
+            h["chain_label"] = meta["chain_label"]
+            h["segment"] = meta["segment"]
+            h["tier"] = meta["tier"]
+            h["cakeLayer"] = _TIER_TO_CAKE.get(meta["tier"], "L1") if meta["tier"] is not None else None
+            h["cakeLayerName"] = _CAKE_NAME.get(h["cakeLayer"]) if h.get("cakeLayer") else None
+    return held
+
+
+def build_us_ash_index(us_mapping: dict, chain: str, dry_run: bool) -> dict:
+    """item8：把美股锚→A股 映射成 {a_share_code: [{ticker,cn_name,change,big_mover}...]} 索引，
+    供前端在对应 A 股标的旁标注「🇺🇸英伟达↑→映射」。
+
+    数据来源：
+      - 已大涨锚（big_movers）：其 segments 内全部 A 股标的（big_mover=True，前端高亮）；
+      - 全部锚（anchors）：通过其 chain_anchor_segment 经 map_to_ashare 找同环节 A 股标的，
+        作为常驻「锚关系」标注（big_mover=False，change 为实际涨跌或 None=未取到）。
+    无行情时 change=None（前端标「未取到」，不脑补涨跌）。任何失败 → 该锚跳过。
+    """
+    out = {"available": False, "note": "未取到", "byCode": {}}
+    if not us_mapping or not us_mapping.get("available"):
+        out["note"] = us_mapping.get("note", "未取到") if us_mapping else "未取到"
+        return out
+    by_code: dict = {}
+
+    def _push(code: str, anchor: dict):
+        if not code:
+            return
+        lst = by_code.setdefault(code, [])
+        # 同 ticker 已存在：若新条目是大涨锚则升级标记
+        for x in lst:
+            if x["ticker"] == anchor["ticker"]:
+                if anchor.get("big_mover"):
+                    x["big_mover"] = True
+                    x["change"] = anchor.get("change")
+                return
+        lst.append(anchor)
+
+    # 1) 大涨锚：直接用其已映射的 A 股链 segments（高亮）
+    for m in us_mapping.get("big_movers", []) or []:
+        anchor = {"ticker": m.get("ticker"), "cn_name": _clean_us_name(m.get("cn_name")),
+                  "change": m.get("change"), "big_mover": True}
+        for s in m.get("segments", []) or []:
+            for h in s.get("holdings", []) or []:
+                _push(h.get("code"), anchor)
+
+    # 2) 全部锚常驻关系：经 chain_anchor_segment → map_to_ashare 找同环节 A 股标的
+    anchor_meta = {}
+    try:
+        if _ensure_workspace_on_path():
+            import us_ash_mapping as um  # type: ignore
+            anchors_data = um.load_anchors()
+            anchor_meta = anchors_data.get("anchors", {})
+    except Exception:
+        anchor_meta = {}
+    # 锚行情（涨跌/大涨标记）从 us_mapping.anchors 取
+    chg_by_ticker = {a["ticker"]: a for a in us_mapping.get("anchors", []) or []}
+    for ticker, meta in anchor_meta.items():
+        seg = meta.get("chain_anchor_segment")
+        if not seg:
+            continue
+        try:
+            import us_ash_mapping as um  # type: ignore
+            res = um.map_to_ashare(chain, seg, dry_run)
+        except Exception:
+            res = None
+        if not res or res.get("_error"):
+            continue
+        try:
+            flat: list = []
+            um.flatten_segments(res["root"], flat)
+        except Exception:
+            continue
+        arow = chg_by_ticker.get(ticker, {})
+        anchor = {"ticker": ticker, "cn_name": _clean_us_name(meta.get("cn_name", ticker)),
+                  "change": arow.get("change"), "big_mover": bool(arow.get("big_mover")),
+                  "segment": seg}
+        for s in flat:
+            for h in s.get("holdings", []) or []:
+                _push(h.get("code"), anchor)
+
+    out["byCode"] = by_code
+    out["available"] = bool(by_code)
+    out["quote_ok"] = bool(us_mapping.get("quote_ok"))
+    out["note"] = "" if by_code else "暂无美股锚→A股映射（图谱待对齐）"
+    return out
+
+
+def build_stock_cards(chains: dict, held: dict, us_index: dict) -> dict:
+    """item7：为「系统已覆盖股」预计算只读分析卡，供个股输入仪表盘展示。
+
+    覆盖范围 = 各产业链 segments 上的全部 A 股标的（已挂树即视为已覆盖）。
+    每张卡（公开安全，绝不含持仓量/成本/盈亏）：
+      code/name · chain/segment/tier/卡点层级(chokepoint) · 共识态 · 是否龙头
+      · 卖水人环节判定(seg 是否上游器件/材料=卖水人候选) · 美股映射 · 是否持有
+    估值(PE/市值)/技术信号 由前端用 data.json 现有行情字段补齐（feed 不重复取行情）。
+    """
+    held_codes = {h["code"] for h in (held.get("items") or [])}
+    idx = _build_code_segment_index(chains)
+    cards: dict = {}
+    for code, meta in idx.items():
+        tier = meta["tier"]
+        cake = _TIER_TO_CAKE.get(tier, "L1") if tier is not None else None
+        # 卖水人候选：上游器件/材料/设备（tier>=2）→「卖水人环节」（卖铲子的人）
+        water_seller = tier is not None and tier >= 2
+        # 卡点层级文案
+        choke = {0: "整机集成（下游需求侧）", 1: "核心部件（议价中枢）",
+                 2: "关键器件/材料（潜在卡点）", 3: "底层材料/设备（最上游卡点）"}.get(
+                     tier, "环节待确认")
+        cs = meta["consensus_state"]
+        cards[code] = {
+            "code": code,
+            "name": next((h["name"] for s in (chains.get(meta["chain"]) or {}).get("segments", [])
+                          for h in (s.get("holdings") or []) if h.get("code") == code), code),
+            "chain": meta["chain"],
+            "chain_label": meta["chain_label"],
+            "segment": meta["segment"],
+            "tier": tier,
+            "cakeLayer": cake,
+            "cakeLayerName": _CAKE_NAME.get(cake) if cake else None,
+            "is_leader": meta["is_leader"],
+            "consensus_state": cs,
+            "chokepoint": choke,
+            "water_seller": water_seller,
+            "held": code in held_codes,
+            "us_anchors": (us_index.get("byCode") or {}).get(code, []),
+        }
+    return {
+        "available": bool(cards),
+        "note": "" if cards else "暂无已覆盖标的（产业链图谱待补）",
+        "count": len(cards),
+        "cards": cards,
     }
 
 
@@ -663,6 +1168,22 @@ def main() -> int:
     enr = [a for a in us_mapping.get("anchors", []) if a.get("insider", {}).get("available")]
     print(f"      美股锚内部人增强命中: {len(enr)}/{len(us_mapping.get('anchors', []))}")
 
+    held_etf = build_held_etf_codes()
+    print(f"      持仓 ETF 代码（仅代码，无数量）: {len(held_etf)} 个 {held_etf or '—'}")
+
+    held_stocks = build_held_stocks()
+    held_stocks = enrich_held_stocks(held_stocks, all_chains["chains"])
+    _mapped = sum(1 for h in held_stocks["items"] if h.get("cakeLayer"))
+    print(f"      持仓股清单（仅代码+名称，无数量/成本/盈亏）: {len(held_stocks['items'])} 只 · 已映射蛋糕层 {_mapped} 只")
+
+    print("[派生] 美股→A股映射索引 + 个股分析卡（结构化派生，不再取数）...")
+    us_index = build_us_ash_index(us_mapping, args.chain, args.dry_run)
+    stock_cards = build_stock_cards(all_chains["chains"], held_stocks, us_index)
+    print(f"      美股→A股映射索引: {'OK' if us_index['available'] else 'SKIP'} · "
+          f"命中 A 股 {len(us_index.get('byCode', {}))} 只 · {us_index.get('note') or '—'}")
+    print(f"      个股分析卡（已覆盖股预计算）: {'OK' if stock_cards['available'] else 'SKIP'} · "
+          f"{stock_cards.get('count', 0)} 张 · {stock_cards.get('note') or '—'}")
+
     out = {
         "updateTime": now.strftime("%Y-%m-%d %H:%M:%S"),
         "timestamp": int(now.timestamp()),
@@ -677,6 +1198,10 @@ def main() -> int:
         "funding": funding,
         "winRate": win_rate,
         "intel": intel,                     # 📰 情报速递：RSS 头条 + Polymarket 赔率
+        "heldEtfCodes": held_etf,           # 持仓 ETF 代码（公开安全：仅代码，前端据此排序，不含数量）
+        "heldStocks": held_stocks,          # 持仓股清单（公开安全：仅代码+名称+蛋糕层映射，绝不含数量/成本/盈亏）
+        "usAshIndex": us_index,             # item8：美股锚→A股 映射索引（byCode），UI 在 A 股标的旁标注
+        "stockCards": stock_cards,          # item7：已覆盖股的预计算只读分析卡（个股仪表盘用）
     }
 
     OUTPUT_FILE.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
