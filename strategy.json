@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-06-02 19:17:07",
-  "timestamp": 1780399027,
+  "updateTime": "2026-06-02 19:51:13",
+  "timestamp": 1780401073,
   "mode": "live",
   "disclaimer": "公开策略数据看板，仅含聚合/结构化信息，不构成投资建议。",
   "waterSellers": {
@@ -2013,10 +2013,10 @@
       "chain": "physical_ai",
       "entry": "整机集成",
       "stats": {
-        "total_nodes": 43,
-        "nodes_with_targets": 9,
-        "nodes_todo": 34,
-        "total_targets": 18
+        "total_nodes": 50,
+        "nodes_with_targets": 31,
+        "nodes_todo": 19,
+        "total_targets": 60
       },
       "segments": [
         {
@@ -2054,10 +2054,56 @@
           ]
         },
         {
+          "name": "主控芯片(SoC)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300223",
+              "name": "北京君正",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688521",
+              "name": "芯原股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "功率半导体(IGBT/MOSFET)",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "603290",
+              "name": "斯达半导",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "605111",
+              "name": "新洁能",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688711",
+              "name": "宏微科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
           "name": "运动控制器",
           "tier": 2,
           "depth": 2,
-          "kind": "leaf",
+          "kind": "tree",
           "holdings": [
             {
               "code": "300124",
@@ -2074,10 +2120,30 @@
           ]
         },
         {
+          "name": "主控芯片(SoC)",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300223",
+              "name": "北京君正",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688521",
+              "name": "芯原股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
           "name": "谐波减速器",
           "tier": 2,
           "depth": 2,
-          "kind": "leaf",
+          "kind": "tree",
           "holdings": [
             {
               "code": "688017",
@@ -2088,10 +2154,96 @@
           ]
         },
         {
+          "name": "无框电机",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688160",
+              "name": "步科股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "603728",
+              "name": "鸣志电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "稀土永磁材料",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300748",
+              "name": "金力永磁",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600366",
+              "name": "宁波韵升",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "000970",
+              "name": "中科三环",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "行星滚柱丝杠",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "603583",
+              "name": "捷昌驱动",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002472",
+              "name": "双环传动",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "无框电机",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688160",
+              "name": "步科股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "603728",
+              "name": "鸣志电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
           "name": "空心杯电机",
           "tier": 2,
           "depth": 2,
-          "kind": "leaf",
+          "kind": "tree",
           "holdings": [
             {
               "code": "603728",
@@ -2114,10 +2266,64 @@
           ]
         },
         {
+          "name": "稀土永磁材料",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300748",
+              "name": "金力永磁",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600366",
+              "name": "宁波韵升",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "000970",
+              "name": "中科三环",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "触觉传感器",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002241",
+              "name": "歌尔股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "行星齿轮箱",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002472",
+              "name": "双环传动",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
           "name": "六维力矩传感器",
           "tier": 2,
           "depth": 2,
-          "kind": "leaf",
+          "kind": "tree",
           "holdings": [
             {
               "code": "603662",
@@ -2128,10 +2334,24 @@
           ]
         },
         {
+          "name": "触觉传感器",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002241",
+              "name": "歌尔股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
           "name": "机器视觉",
           "tier": 2,
           "depth": 2,
-          "kind": "leaf",
+          "kind": "tree",
           "holdings": [
             {
               "code": "688686",
@@ -2148,10 +2368,50 @@
           ]
         },
         {
+          "name": "CIS图像传感芯片",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "603501",
+              "name": "豪威集团",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688213",
+              "name": "思特威-W",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "IMU惯性传感器",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688582",
+              "name": "芯动联科",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300456",
+              "name": "赛微电子",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
           "name": "运动控制器",
           "tier": 2,
           "depth": 2,
-          "kind": "leaf",
+          "kind": "tree",
           "holdings": [
             {
               "code": "300124",
@@ -2162,6 +2422,72 @@
             {
               "code": "002747",
               "name": "埃斯顿",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "伺服驱动",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300124",
+              "name": "汇川技术",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688160",
+              "name": "步科股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "功率半导体(IGBT/MOSFET)",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "603290",
+              "name": "斯达半导",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "605111",
+              "name": "新洁能",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688711",
+              "name": "宏微科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "主控芯片(SoC)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300223",
+              "name": "北京君正",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688521",
+              "name": "芯原股份",
               "is_leader": false,
               "consensus_state": "unknown"
             }
@@ -2198,24 +2524,114 @@
               "consensus_state": "unknown"
             }
           ]
+        },
+        {
+          "name": "智能驾驶域控制器",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002920",
+              "name": "德赛西威",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688326",
+              "name": "经纬恒润-W",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "主控芯片(SoC)",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300223",
+              "name": "北京君正",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688521",
+              "name": "芯原股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "线控底盘(转向/制动)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "601689",
+              "name": "拓普集团",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "车载传感",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "603197",
+              "name": "保隆科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "CIS图像传感芯片",
+          "tier": 3,
+          "depth": 3,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "603501",
+              "name": "豪威集团",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688213",
+              "name": "思特威-W",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "结构件(轻量化)",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "601689",
+              "name": "拓普集团",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
         }
       ],
       "non_consensus": [],
       "upstream_todo": [
         {
-          "segment": "主控芯片(SoC)",
-          "tier": 2
-        },
-        {
           "segment": "轴承钢/精密轴承材料",
-          "tier": 3
-        },
-        {
-          "segment": "无框电机",
-          "tier": 2
-        },
-        {
-          "segment": "稀土永磁材料",
           "tier": 3
         },
         {
@@ -2229,30 +2645,18 @@
         {
           "segment": "轴承钢/精密轴承材料",
           "tier": 3
-        },
-        {
-          "segment": "行星滚柱丝杠",
-          "tier": 2
         },
         {
           "segment": "精密磨削/滚珠丝杠材料",
           "tier": 3
         },
         {
-          "segment": "无框电机",
-          "tier": 2
-        },
-        {
           "segment": "编码器",
           "tier": 2
         },
         {
           "segment": "精密轴承",
           "tier": 2
-        },
-        {
-          "segment": "稀土永磁材料",
-          "tier": 3
         },
         {
           "segment": "微型丝杠",
@@ -2263,24 +2667,24 @@
           "tier": 3
         },
         {
-          "segment": "触觉传感器",
-          "tier": 2
+          "segment": "应变片/弹性体",
+          "tier": 3
+        },
+        {
+          "segment": "轴承钢/精密轴承材料",
+          "tier": 3
         },
         {
           "segment": "应变片/弹性体",
           "tier": 3
         },
         {
-          "segment": "行星齿轮箱",
+          "segment": "激光雷达(LiDAR)",
           "tier": 2
         },
         {
-          "segment": "应变片/弹性体",
+          "segment": "PEEK/镁铝轻量化材料",
           "tier": 3
-        },
-        {
-          "segment": "触觉传感器",
-          "tier": 2
         }
       ],
       "theme": "人形机器人",
@@ -2294,10 +2698,10 @@
       "chain": "commercial_space",
       "entry": "卫星互联网运营与终端",
       "stats": {
-        "total_nodes": 23,
-        "nodes_with_targets": 22,
-        "nodes_todo": 1,
-        "total_targets": 29
+        "total_nodes": 33,
+        "nodes_with_targets": 30,
+        "nodes_todo": 3,
+        "total_targets": 56
       },
       "segments": [
         {
@@ -2365,6 +2769,12 @@
               "name": "佳缘科技",
               "is_leader": false,
               "consensus_state": "unknown"
+            },
+            {
+              "code": "300101",
+              "name": "振芯科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
             }
           ]
         },
@@ -2405,6 +2815,12 @@
             {
               "code": "301117",
               "name": "佳缘科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300101",
+              "name": "振芯科技",
               "is_leader": false,
               "consensus_state": "unknown"
             }
@@ -2469,6 +2885,18 @@
               "name": "西部材料",
               "is_leader": false,
               "consensus_state": "unknown"
+            },
+            {
+              "code": "600893",
+              "name": "航发动力",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600456",
+              "name": "宝钛股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
             }
           ]
         },
@@ -2497,6 +2925,18 @@
               "name": "光威复材",
               "is_leader": false,
               "consensus_state": "unknown"
+            },
+            {
+              "code": "002297",
+              "name": "博云新材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002389",
+              "name": "航天彩虹",
+              "is_leader": false,
+              "consensus_state": "unknown"
             }
           ]
         },
@@ -2515,6 +2955,18 @@
             {
               "code": "002149",
               "name": "西部材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600893",
+              "name": "航发动力",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600456",
+              "name": "宝钛股份",
               "is_leader": false,
               "consensus_state": "unknown"
             }
@@ -2649,6 +3101,184 @@
               "consensus_state": "unknown"
             }
           ]
+        },
+        {
+          "name": "液体火箭发动机部件",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688102",
+              "name": "斯瑞新材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688333",
+              "name": "铂力特",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600343",
+              "name": "航天动力",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高温合金",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300034",
+              "name": "钢研高纳",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002149",
+              "name": "西部材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600893",
+              "name": "航发动力",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600456",
+              "name": "宝钛股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "箭体结构件",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "301005",
+              "name": "超捷股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "碳纤维复合材料",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300699",
+              "name": "光威复材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002297",
+              "name": "博云新材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002389",
+              "name": "航天彩虹",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高温合金",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300034",
+              "name": "钢研高纳",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002149",
+              "name": "西部材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600893",
+              "name": "航发动力",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600456",
+              "name": "宝钛股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "火箭控制与惯导",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688582",
+              "name": "芯动联科",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
         }
       ],
       "non_consensus": [],
@@ -2670,9 +3300,9 @@
       "entry": "创新药资产与出海BD(终端)",
       "stats": {
         "total_nodes": 26,
-        "nodes_with_targets": 7,
-        "nodes_todo": 19,
-        "total_targets": 14
+        "nodes_with_targets": 10,
+        "nodes_todo": 16,
+        "total_targets": 22
       },
       "segments": [
         {
@@ -2716,6 +3346,50 @@
             {
               "code": "603127",
               "name": "昭衍新药",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688202",
+              "name": "美迪西",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688222",
+              "name": "成都先导",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "301230",
+              "name": "泓博医药",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "科研试剂(分子/细胞/抗体)",
+          "tier": 2,
+          "depth": 5,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "301047",
+              "name": "义翘神州",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "301080",
+              "name": "百普赛斯",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300725",
+              "name": "药石科技",
               "is_leader": false,
               "consensus_state": "unknown"
             }
@@ -2770,6 +3444,20 @@
           ]
         },
         {
+          "name": "实验动物与模型",
+          "tier": 3,
+          "depth": 4,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "688046",
+              "name": "药康生物",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
           "name": "合同生产(CDMO-工艺/制剂)",
           "tier": 2,
           "depth": 3,
@@ -2790,6 +3478,20 @@
             {
               "code": "300363",
               "name": "博腾股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特色原料药/高壁垒中间体",
+          "tier": 2,
+          "depth": 5,
+          "kind": "leaf",
+          "holdings": [
+            {
+              "code": "301301",
+              "name": "川宁生物",
               "is_leader": false,
               "consensus_state": "unknown"
             }
@@ -2818,10 +3520,6 @@
       ],
       "non_consensus": [],
       "upstream_todo": [
-        {
-          "segment": "科研试剂(分子/细胞/抗体)",
-          "tier": 2
-        },
         {
           "segment": "酶与生物原料",
           "tier": 3
@@ -2853,14 +3551,6 @@
         {
           "segment": "实验耗材(高端塑料/滤膜)",
           "tier": 3
-        },
-        {
-          "segment": "实验动物与模型",
-          "tier": 3
-        },
-        {
-          "segment": "特色原料药/高壁垒中间体",
-          "tier": 2
         },
         {
           "segment": "大宗原料药(议价弱)",
@@ -6074,7 +6764,7 @@
   "stockCards": {
     "available": true,
     "note": "",
-    "count": 116,
+    "count": 149,
     "cards": {
       "000034": {
         "code": "000034",
@@ -9313,6 +10003,86 @@
         "held": false,
         "us_anchors": []
       },
+      "300223": {
+        "code": "300223",
+        "name": "北京君正",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "主控芯片(SoC)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688521": {
+        "code": "688521",
+        "name": "芯原股份",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "主控芯片(SoC)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "603290": {
+        "code": "603290",
+        "name": "斯达半导",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "功率半导体(IGBT/MOSFET)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "605111": {
+        "code": "605111",
+        "name": "新洁能",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "功率半导体(IGBT/MOSFET)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688711": {
+        "code": "688711",
+        "name": "宏微科技",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "功率半导体(IGBT/MOSFET)",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
       "300124": {
         "code": "300124",
         "name": "汇川技术",
@@ -9361,16 +10131,112 @@
         "held": false,
         "us_anchors": []
       },
+      "688160": {
+        "code": "688160",
+        "name": "步科股份",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "无框电机",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
       "603728": {
         "code": "603728",
         "name": "鸣志电器",
         "chain": "physical_ai",
         "chain_label": "物理AI",
-        "segment": "空心杯电机",
+        "segment": "无框电机",
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
-        "is_leader": true,
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300748": {
+        "code": "300748",
+        "name": "金力永磁",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "稀土永磁材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "600366": {
+        "code": "600366",
+        "name": "宁波韵升",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "稀土永磁材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "000970": {
+        "code": "000970",
+        "name": "中科三环",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "稀土永磁材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "603583": {
+        "code": "603583",
+        "name": "捷昌驱动",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "行星滚柱丝杠",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002472": {
+        "code": "002472",
+        "name": "双环传动",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "行星滚柱丝杠",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
         "consensus_state": "unknown",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
@@ -9409,6 +10275,22 @@
         "held": false,
         "us_anchors": []
       },
+      "002241": {
+        "code": "002241",
+        "name": "歌尔股份",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "触觉传感器",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
       "603662": {
         "code": "603662",
         "name": "柯力传感",
@@ -9435,6 +10317,70 @@
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
         "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "603501": {
+        "code": "603501",
+        "name": "豪威集团",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "CIS图像传感芯片",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688213": {
+        "code": "688213",
+        "name": "思特威-W",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "CIS图像传感芯片",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688582": {
+        "code": "688582",
+        "name": "芯动联科",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "IMU惯性传感器",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300456": {
+        "code": "300456",
+        "name": "赛微电子",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "IMU惯性传感器",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
         "consensus_state": "unknown",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
@@ -9601,6 +10547,22 @@
         "held": false,
         "us_anchors": []
       },
+      "300101": {
+        "code": "300101",
+        "name": "振芯科技",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "星载芯片",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
       "002025": {
         "code": "002025",
         "name": "航天电器",
@@ -9665,6 +10627,38 @@
         "held": false,
         "us_anchors": []
       },
+      "600893": {
+        "code": "600893",
+        "name": "航发动力",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "高温合金",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "600456": {
+        "code": "600456",
+        "name": "宝钛股份",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "高温合金",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
       "600879": {
         "code": "600879",
         "name": "航天电子",
@@ -9684,6 +10678,38 @@
       "300699": {
         "code": "300699",
         "name": "光威复材",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "碳纤维复合材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002297": {
+        "code": "002297",
+        "name": "博云新材",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "碳纤维复合材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002389": {
+        "code": "002389",
+        "name": "航天彩虹",
         "chain": "commercial_space",
         "chain_label": "商业航天",
         "segment": "碳纤维复合材料",
@@ -9735,6 +10761,70 @@
         "chain": "commercial_space",
         "chain_label": "商业航天",
         "segment": "用户终端(相控阵平板天线)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688102": {
+        "code": "688102",
+        "name": "斯瑞新材",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "液体火箭发动机部件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688333": {
+        "code": "688333",
+        "name": "铂力特",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "液体火箭发动机部件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "600343": {
+        "code": "600343",
+        "name": "航天动力",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "液体火箭发动机部件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "301005": {
+        "code": "301005",
+        "name": "超捷股份",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "箭体结构件",
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
@@ -9825,6 +10915,102 @@
         "held": false,
         "us_anchors": []
       },
+      "688202": {
+        "code": "688202",
+        "name": "美迪西",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "合同研发(CRO-临床前/临床)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688222": {
+        "code": "688222",
+        "name": "成都先导",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "合同研发(CRO-临床前/临床)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "301230": {
+        "code": "301230",
+        "name": "泓博医药",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "合同研发(CRO-临床前/临床)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "301047": {
+        "code": "301047",
+        "name": "义翘神州",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "科研试剂(分子/细胞/抗体)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "301080": {
+        "code": "301080",
+        "name": "百普赛斯",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "科研试剂(分子/细胞/抗体)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300725": {
+        "code": "300725",
+        "name": "药石科技",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "科研试剂(分子/细胞/抗体)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
       "300358": {
         "code": "300358",
         "name": "楚天科技",
@@ -9889,12 +11075,44 @@
         "held": false,
         "us_anchors": []
       },
+      "688046": {
+        "code": "688046",
+        "name": "药康生物",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "实验动物与模型",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
       "300363": {
         "code": "300363",
         "name": "博腾股份",
         "chain": "innovative_drug",
         "chain_label": "创新药",
         "segment": "合同生产(CDMO-工艺/制剂)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "301301": {
+        "code": "301301",
+        "name": "川宁生物",
+        "chain": "innovative_drug",
+        "chain_label": "创新药",
+        "segment": "特色原料药/高壁垒中间体",
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
