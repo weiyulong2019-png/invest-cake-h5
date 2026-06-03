@@ -804,7 +804,16 @@ a:active{opacity:.6;}
               <div class="bar-track">
                 <div class="bar-fill" :style="{width:(w.win_rate===null?0:Math.round(w.win_rate*100))+'%',background:w.win_rate===null?'var(--text3)':'var(--link)'}"></div>
               </div>
-              <div v-if="w.avg_ret_5d!==null && w.avg_ret_5d!==undefined" style="font-size:11px;color:var(--text2);margin-top:3px;">平均5日收益 <span :class="chgClass(w.avg_ret_5d)">{{ w.avg_ret_5d>0?'+':'' }}{{ (w.avg_ret_5d*100).toFixed(1) }}%</span></div>
+              <!-- 超额收益(对沪深300)优先展示; 无超额则展示绝对收益 -->
+              <div style="font-size:11px;color:var(--text2);margin-top:3px;">
+                <template v-if="w.avg_excess_ret_5d!=null">
+                  超额5日(vs沪深300) <span :class="chgClass(w.avg_excess_ret_5d)">{{ w.avg_excess_ret_5d>0?'+':'' }}{{ (w.avg_excess_ret_5d*100).toFixed(1) }}%</span>
+                  <template v-if="w.avg_excess_ret_20d!=null"> · 超额20日 <span :class="chgClass(w.avg_excess_ret_20d)">{{ w.avg_excess_ret_20d>0?'+':'' }}{{ (w.avg_excess_ret_20d*100).toFixed(1) }}%</span></template>
+                </template>
+                <template v-else-if="w.avg_ret_5d!=null && w.avg_ret_5d!==undefined">
+                  平均5日收益 <span :class="chgClass(w.avg_ret_5d)">{{ w.avg_ret_5d>0?'+':'' }}{{ (w.avg_ret_5d*100).toFixed(1) }}%</span>
+                </template>
+              </div>
             </div>
           </template>
           <div v-else class="strat-note">{{ strat.winRate.note || '暂无胜率数据' }}</div>
@@ -961,27 +970,6 @@ createApp({
 
     // 今日关注 — daily_brief.json（优雅降级，取不到不报错）
     const brief=reactive({date:'',updateTime:'',items:[],available:false});
-    const briefTagStyle=(t)=>{
-      const m={water_seller:['#FFF5EB','#D9690A'],watchlist:['#FFFBEB','#E8A30A'],
-               funding:['#FFF0F0','var(--up)'],signal:['#E8F5EC','var(--down)']};
-      const c=m[t]||['#F0F1F3','var(--text2)'];return{background:c[0],color:c[1]};
-    };
-    // 今日关注：只保留 卖水人(多条 ARM/CoWoS/HBM 合并为1条) + 一级融资热度；删除自选池异动/买卖信号
-    const briefItems=computed(()=>{
-      const all=Array.isArray(brief.items)?brief.items:[];
-      const out=[];
-      const waters=all.filter(it=>it.type==='water_seller');
-      if(waters.length){
-        // 合并为一条：取各环节名（去「卖水人环节 ·」前缀）
-        const segs=waters.map(w=>String(w.title||'').replace(/^.*·\s*/,'').trim()).filter(Boolean);
-        out.push({type:'water_seller',title:'产业链卖水人环节',
-          detail:'持久卖水人环节：'+segs.join('、'),
-          tag:'产业链卖水人'});
-      }
-      const funding=all.filter(it=>it.type==='funding');
-      funding.forEach(f=>out.push({type:'funding',title:f.title,detail:f.detail,tag:f.tag}));
-      return out;
-    });
 
     // 策略看板 — strategy.json（引擎数据联动，公开聚合）
     const stratLoading=ref(false),stratReady=ref(false);
@@ -997,8 +985,8 @@ createApp({
       usAshIndex:{available:false,note:'',byCode:{}},
       stockCards:{available:false,note:'',count:0,cards:{}}});
 
-    // 产业链 chip tab 状态 + 美股块折叠状态
-    const activeChain=ref(''),usFold=ref(false);
+    // 产业链 chip tab 状态
+    const activeChain=ref('');
 
     // 首页顶部产业链 tab（与 strategy.json chains key 对齐）
     const homeTab=ref('ai_server');
@@ -1021,7 +1009,6 @@ createApp({
       if(hasChains.value && activeChain.value && strat.chains[activeChain.value])return strat.chains[activeChain.value];
       return strat.chainTree;
     });
-    const selectChain=(k)=>{activeChain.value=k;Object.keys(treeOpen).forEach(id=>delete treeOpen[id]);};
     // 树空态文案：available 但 segments 空 = 占位链；否则用 note
     const chainEmptyNote=computed(()=>{
       const c=curChain.value;
@@ -1043,35 +1030,13 @@ createApp({
     // 胜率阈值语义（不用涨跌红绿，纯中性强弱标注）
     const wrTier=(r)=>r>=0.6?'偏强':(r>=0.4?'中性':'偏弱');
     const wrColor=(r)=>r>=0.6?'var(--link)':(r>=0.4?'var(--text2)':'var(--text3)');
-    const kindLabel=(k)=>({tree:'枝',leaf:'叶',raw:'原料'}[k]||(k||'节点'));
 
-    // 产业链折叠树 — 把扁平 segments(带 depth) 构造成可折叠树
+    // 产业链折叠树展开状态（selectHomeTab 切链时复位）
     const treeOpen=reactive({});  // _id -> bool
-    const chainNodes=computed(()=>{
-      const segs=(curChain.value&&curChain.value.segments)||[];
-      if(!segs.length)return[];
-      // 构造节点 + 基于 depth 的父子关系（最近的 depth-1 前驱为父）
-      const nodes=segs.map((s,i)=>({...s,_id:i,depth:s.depth||0,_parent:-1,_hasChildren:false}));
-      const stack=[];  // 每个深度的最近节点索引
-      nodes.forEach((n,i)=>{
-        while(stack.length && nodes[stack[stack.length-1]].depth>=n.depth)stack.pop();
-        if(stack.length){n._parent=stack[stack.length-1];nodes[n._parent]._hasChildren=true;}
-        stack.push(i);
-      });
-      // 计算 open / visible
-      return nodes.map(n=>{
-        const open=treeOpen[n._id]!==undefined?treeOpen[n._id]:(n.depth===0);
-        let visible=true,p=n._parent;
-        while(p>=0){const po=treeOpen[p]!==undefined?treeOpen[p]:(nodes[p].depth===0);if(!po){visible=false;break;}p=nodes[p]._parent;}
-        return{...n,_open:open,_visible:visible};
-      });
-    });
-    const toggleNode=(n)=>{if(!n._hasChildren && !(n.holdings&&n.holdings.length))return;treeOpen[n._id]=!n._open;};
 
     // 美股锚 → A股链 下钻
     const usOpen=ref('');
     const canExpandAnchor=(a)=>a && a.big_mover && (strat.usMapping.big_movers||[]).some(m=>m.ticker===a.ticker);
-    const toggleAnchor=(a)=>{if(!canExpandAnchor(a))return;usOpen.value=usOpen.value===a.ticker?'':a.ticker;};
 
     // ── 持仓判定（item10）：仅判断"是否持有"，绝不含任何数量 ──
     const heldCodesSet=computed(()=>{
@@ -1086,8 +1051,6 @@ createApp({
       const idx=(strat.usAshIndex&&strat.usAshIndex.byCode)||{};
       return idx[code]||idx[String(code).replace(/^HK\./,'')]||[];
     };
-    const usHot=(code)=>usAnchorsFor(code).some(u=>u.big_mover);
-    const usQuoteOk=computed(()=>!!(strat.usAshIndex&&strat.usAshIndex.quote_ok));
 
     // ── 今日机会（item6）：各链 non_consensus 汇总 ──
     const todayOpps=computed(()=>{
@@ -1218,18 +1181,6 @@ createApp({
 
     // ETF 持仓判定 + 排序（持仓 ETF 排前，仅标「持有」不含数量）
     const isHeldEtf=(code)=>{const h=strat.heldEtfCodes||[];return h.includes(code)||h.includes(String(code).replace(/^(SH|SZ)?/,''));};
-    const sortedEtfs=computed(()=>{
-      const arr=etfs.slice();
-      // 把 heldEtfCodes 中尚未在列表的持仓 ETF 注入（名称取自 heldStocks，行情未取到则降级）
-      const heldItems=(strat.heldStocks&&strat.heldStocks.items)||[];
-      (strat.heldEtfCodes||[]).forEach(code=>{
-        if(arr.some(e=>e.code===code))return;
-        const meta=heldItems.find(h=>h.code===code);
-        arr.push({code,name:(meta&&meta.name)||('ETF '+code),p:'-',c:'',cv:0});
-      });
-      arr.sort((a,b)=>(isHeldEtf(b.code)?1:0)-(isHeldEtf(a.code)?1:0));
-      return arr;
-    });
 
     // ── 产业链 → 蛋糕分层卡片（item2）：按 tier 把 chains[key].segments 归层 ──
     const tierMeta={
@@ -1340,15 +1291,6 @@ createApp({
       const all=Array.isArray(brief.items)?brief.items:[];
       return all.filter(it=>it.type==='watchlist').map(it=>({
         title:it.title,detail:cnChainName(it.detail||''),tag:it.tag}));
-    });
-
-    const filteredWatchlist=computed(()=>{
-      let list=watchlist;
-      if(wlFilter.value==='a')list=watchlist.filter(s=>s.type==='a');
-      else if(wlFilter.value==='etf')list=watchlist.filter(s=>s.type==='etf');
-      else if(wlFilter.value==='hk')list=watchlist.filter(s=>s.type==='hk');
-      if(sq.value){const q=sq.value.toLowerCase();list=list.filter(s=>s.name.includes(q)||s.code.toLowerCase().includes(q));}
-      return list;
     });
 
     const goDetail=(s,L)=>{ds.value={...s,layerName:L.id+' '+L.name};pt.value=tab.value;tab.value='detail';};
@@ -1481,7 +1423,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,filteredWatchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,briefTagStyle,briefItems,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,kindLabel,scannerLabel,wrTier,wrColor,chainNodes,toggleNode,usOpen,canExpandAnchor,toggleAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,usFold,hasChains,chainOrder,chainLabel,curChain,selectChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,sortedEtfs,chainCakeLayers,chainSignals,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,usHot,usQuoteOk,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,pickDash,dashCard,dashQuote};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,chainCakeLayers,chainSignals,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,pickDash,dashCard,dashQuote};
   }
 }).mount('#app');
 

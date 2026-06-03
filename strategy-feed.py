@@ -779,8 +779,11 @@ def build_win_rate(min_samples: int = 5) -> dict:
                 "scanner": name,
                 "count": s.get("count", 0),
                 "decided": s.get("decided", 0),
-                "win_rate": s.get("win_rate"),  # None 表示样本不足/不参与裁决
-                "avg_ret_5d": s.get("avg_ret_5d"),
+                "win_rate": s.get("win_rate"),           # None=样本不足/不参与裁决
+                "win_rate_metric": s.get("win_rate_metric", "absolute"),  # 口径标注
+                "avg_ret_5d": s.get("avg_ret_5d"),       # 绝对5日收益
+                "avg_excess_ret_5d": s.get("avg_excess_ret_5d"),   # 超额5日(跑赢沪深300)
+                "avg_excess_ret_20d": s.get("avg_excess_ret_20d"), # 超额20日
                 "note": s.get("note", ""),
             })
         # 已裁决多的在前

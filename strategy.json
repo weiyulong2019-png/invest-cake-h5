@@ -4472,25 +4472,45 @@
       {
         "scanner": "HistoricalReplay",
         "count": 9936,
-        "decided": 9659,
-        "win_rate": 0.525,
-        "avg_ret_5d": 0.0141,
+        "decided": 9713,
+        "win_rate": 0.49,
+        "win_rate_metric": "excess_vs_hs300",
+        "avg_ret_5d": 0.0045,
+        "avg_excess_ret_5d": 0.0004,
+        "avg_excess_ret_20d": 0.0277,
         "note": ""
       },
       {
         "scanner": "FactorAgent",
-        "count": 73,
+        "count": 76,
         "decided": 8,
         "win_rate": 0.75,
+        "win_rate_metric": "absolute",
         "avg_ret_5d": -0.01,
+        "avg_excess_ret_5d": null,
+        "avg_excess_ret_20d": null,
         "note": ""
       },
       {
         "scanner": "OpportunityScanner",
-        "count": 41,
+        "count": 44,
         "decided": 0,
         "win_rate": null,
+        "win_rate_metric": "absolute",
         "avg_ret_5d": null,
+        "avg_excess_ret_5d": null,
+        "avg_excess_ret_20d": null,
+        "note": "样本不足 5"
+      },
+      {
+        "scanner": "opportunity-miner",
+        "count": 54,
+        "decided": 0,
+        "win_rate": null,
+        "win_rate_metric": "absolute",
+        "avg_ret_5d": null,
+        "avg_excess_ret_5d": null,
+        "avg_excess_ret_20d": null,
         "note": "样本不足 5"
       }
     ]
