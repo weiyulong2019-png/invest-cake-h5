@@ -1,7 +1,7 @@
 {
-  "updateTime": "2026-06-03 00:38:29",
-  "timestamp": 1780418309,
-  "mode": "dry-run",
+  "updateTime": "2026-06-03 10:41:12",
+  "timestamp": 1780454472,
+  "mode": "live",
   "disclaimer": "公开策略数据看板，仅含聚合/结构化信息，不构成投资建议。",
   "waterSellers": {
     "available": true,
@@ -205,22 +205,22 @@
         "kind": "tree",
         "holdings": [
           {
-            "code": "601138",
-            "name": "工业富联",
-            "is_leader": true,
-            "consensus_state": "unknown"
+            "code": "000034",
+            "name": "神州数码",
+            "is_leader": false,
+            "consensus_state": "non_consensus"
           },
           {
             "code": "300442",
             "name": "润泽科技",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
           },
           {
-            "code": "000034",
-            "name": "神州数码",
-            "is_leader": false,
-            "consensus_state": "unknown"
+            "code": "601138",
+            "name": "工业富联",
+            "is_leader": true,
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -465,22 +465,22 @@
         "kind": "tree",
         "holdings": [
           {
+            "code": "300394",
+            "name": "天孚通信",
+            "is_leader": false,
+            "consensus_state": "normal"
+          },
+          {
             "code": "300308",
             "name": "中际旭创",
             "is_leader": true,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           },
           {
             "code": "300502",
             "name": "新易盛",
             "is_leader": false,
-            "consensus_state": "unknown"
-          },
-          {
-            "code": "300394",
-            "name": "天孚通信",
-            "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -494,25 +494,25 @@
             "code": "688498",
             "name": "源杰科技",
             "is_leader": true,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           },
           {
             "code": "688313",
             "name": "仕佳光子",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           },
           {
             "code": "688048",
             "name": "长光华芯",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           },
           {
             "code": "002281",
             "name": "光迅科技",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -599,46 +599,46 @@
         "kind": "tree",
         "holdings": [
           {
-            "code": "002463",
-            "name": "沪电股份",
-            "is_leader": true,
-            "consensus_state": "unknown"
+            "code": "001389",
+            "name": "广合科技",
+            "is_leader": false,
+            "consensus_state": "non_consensus"
           },
           {
             "code": "002916",
             "name": "深南电路",
             "is_leader": false,
-            "consensus_state": "unknown"
-          },
-          {
-            "code": "300476",
-            "name": "胜宏科技",
-            "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
           },
           {
             "code": "603228",
             "name": "景旺电子",
             "is_leader": false,
-            "consensus_state": "unknown"
-          },
-          {
-            "code": "001389",
-            "name": "广合科技",
-            "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
           },
           {
             "code": "603629",
             "name": "利通电子",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
+          },
+          {
+            "code": "002463",
+            "name": "沪电股份",
+            "is_leader": true,
+            "consensus_state": "crowded"
+          },
+          {
+            "code": "300476",
+            "name": "胜宏科技",
+            "is_leader": false,
+            "consensus_state": "crowded"
           },
           {
             "code": "002384",
             "name": "东山精密",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -666,25 +666,25 @@
             "code": "002080",
             "name": "中材科技",
             "is_leader": true,
-            "consensus_state": "unknown"
-          },
-          {
-            "code": "600176",
-            "name": "中国巨石",
-            "is_leader": true,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
           },
           {
             "code": "603256",
             "name": "宏和科技",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
+          },
+          {
+            "code": "600176",
+            "name": "中国巨石",
+            "is_leader": true,
+            "consensus_state": "crowded"
           },
           {
             "code": "300395",
             "name": "菲利华",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -777,22 +777,22 @@
         "kind": "leaf",
         "holdings": [
           {
-            "code": "002851",
-            "name": "麦格米特",
-            "is_leader": true,
-            "consensus_state": "unknown"
-          },
-          {
             "code": "300870",
             "name": "欧陆通",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
+          },
+          {
+            "code": "002851",
+            "name": "麦格米特",
+            "is_leader": true,
+            "consensus_state": "crowded"
           },
           {
             "code": "002364",
             "name": "中恒电气",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -973,22 +973,22 @@
         "kind": "tree",
         "holdings": [
           {
-            "code": "603986",
-            "name": "兆易创新",
-            "is_leader": false,
-            "consensus_state": "unknown"
-          },
-          {
             "code": "300475",
             "name": "香农芯创",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
           },
           {
             "code": "000021",
             "name": "深科技",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "normal"
+          },
+          {
+            "code": "603986",
+            "name": "兆易创新",
+            "is_leader": false,
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -1185,7 +1185,22 @@
         ]
       }
     ],
-    "non_consensus": [],
+    "non_consensus": [
+      {
+        "code": "000034",
+        "name": "神州数码",
+        "segment": "整机与机柜集成",
+        "tier": 0,
+        "tree_path": "整机与机柜集成"
+      },
+      {
+        "code": "001389",
+        "name": "广合科技",
+        "segment": "高速PCB(HDI/高多层)",
+        "tier": 2,
+        "tree_path": "整机与机柜集成 → PCB与载板模块 → 高速PCB(HDI/高多层)"
+      }
+    ],
     "upstream_todo": [
       {
         "segment": "HBM晶圆",
@@ -1193,7 +1208,7 @@
       }
     ],
     "theme": "AI服务器",
-    "consensus_live": false,
+    "consensus_live": true,
     "key": "ai_server",
     "label": "AI服务器"
   },
@@ -1217,22 +1232,22 @@
           "kind": "tree",
           "holdings": [
             {
-              "code": "601138",
-              "name": "工业富联",
-              "is_leader": true,
-              "consensus_state": "unknown"
+              "code": "000034",
+              "name": "神州数码",
+              "is_leader": false,
+              "consensus_state": "non_consensus"
             },
             {
               "code": "300442",
               "name": "润泽科技",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
             },
             {
-              "code": "000034",
-              "name": "神州数码",
-              "is_leader": false,
-              "consensus_state": "unknown"
+              "code": "601138",
+              "name": "工业富联",
+              "is_leader": true,
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -1477,22 +1492,22 @@
           "kind": "tree",
           "holdings": [
             {
+              "code": "300394",
+              "name": "天孚通信",
+              "is_leader": false,
+              "consensus_state": "normal"
+            },
+            {
               "code": "300308",
               "name": "中际旭创",
               "is_leader": true,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             },
             {
               "code": "300502",
               "name": "新易盛",
               "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "300394",
-              "name": "天孚通信",
-              "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -1506,25 +1521,25 @@
               "code": "688498",
               "name": "源杰科技",
               "is_leader": true,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             },
             {
               "code": "688313",
               "name": "仕佳光子",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             },
             {
               "code": "688048",
               "name": "长光华芯",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             },
             {
               "code": "002281",
               "name": "光迅科技",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -1611,46 +1626,46 @@
           "kind": "tree",
           "holdings": [
             {
-              "code": "002463",
-              "name": "沪电股份",
-              "is_leader": true,
-              "consensus_state": "unknown"
+              "code": "001389",
+              "name": "广合科技",
+              "is_leader": false,
+              "consensus_state": "non_consensus"
             },
             {
               "code": "002916",
               "name": "深南电路",
               "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "300476",
-              "name": "胜宏科技",
-              "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
             },
             {
               "code": "603228",
               "name": "景旺电子",
               "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "001389",
-              "name": "广合科技",
-              "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
             },
             {
               "code": "603629",
               "name": "利通电子",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
+            },
+            {
+              "code": "002463",
+              "name": "沪电股份",
+              "is_leader": true,
+              "consensus_state": "crowded"
+            },
+            {
+              "code": "300476",
+              "name": "胜宏科技",
+              "is_leader": false,
+              "consensus_state": "crowded"
             },
             {
               "code": "002384",
               "name": "东山精密",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -1678,25 +1693,25 @@
               "code": "002080",
               "name": "中材科技",
               "is_leader": true,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "600176",
-              "name": "中国巨石",
-              "is_leader": true,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
             },
             {
               "code": "603256",
               "name": "宏和科技",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
+            },
+            {
+              "code": "600176",
+              "name": "中国巨石",
+              "is_leader": true,
+              "consensus_state": "crowded"
             },
             {
               "code": "300395",
               "name": "菲利华",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -1789,22 +1804,22 @@
           "kind": "leaf",
           "holdings": [
             {
-              "code": "002851",
-              "name": "麦格米特",
-              "is_leader": true,
-              "consensus_state": "unknown"
-            },
-            {
               "code": "300870",
               "name": "欧陆通",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
+            },
+            {
+              "code": "002851",
+              "name": "麦格米特",
+              "is_leader": true,
+              "consensus_state": "crowded"
             },
             {
               "code": "002364",
               "name": "中恒电气",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -1985,22 +2000,22 @@
           "kind": "tree",
           "holdings": [
             {
-              "code": "603986",
-              "name": "兆易创新",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
               "code": "300475",
               "name": "香农芯创",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
             },
             {
               "code": "000021",
               "name": "深科技",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "normal"
+            },
+            {
+              "code": "603986",
+              "name": "兆易创新",
+              "is_leader": false,
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -2197,7 +2212,22 @@
           ]
         }
       ],
-      "non_consensus": [],
+      "non_consensus": [
+        {
+          "code": "000034",
+          "name": "神州数码",
+          "segment": "整机与机柜集成",
+          "tier": 0,
+          "tree_path": "整机与机柜集成"
+        },
+        {
+          "code": "001389",
+          "name": "广合科技",
+          "segment": "高速PCB(HDI/高多层)",
+          "tier": 2,
+          "tree_path": "整机与机柜集成 → PCB与载板模块 → 高速PCB(HDI/高多层)"
+        }
+      ],
       "upstream_todo": [
         {
           "segment": "HBM晶圆",
@@ -2205,7 +2235,7 @@
         }
       ],
       "theme": "AI服务器",
-      "consensus_live": false,
+      "consensus_live": true,
       "key": "ai_server",
       "label": "AI服务器"
     },
@@ -7192,20 +7222,20 @@
     "note": "",
     "count": 156,
     "cards": {
-      "601138": {
-        "code": "601138",
-        "name": "工业富联",
+      "000034": {
+        "code": "000034",
+        "name": "神州数码",
         "chain": "ai_server",
         "chain_label": "AI服务器",
         "segment": "整机与机柜集成",
         "tier": 0,
         "cakeLayer": "L5",
         "cakeLayerName": "L5 应用层",
-        "is_leader": true,
-        "consensus_state": "unknown",
+        "is_leader": false,
+        "consensus_state": "non_consensus",
         "chokepoint": "整机集成（下游需求侧）",
         "water_seller": false,
-        "held": true,
+        "held": false,
         "us_anchors": [
           {
             "ticker": "SMCI",
@@ -7233,7 +7263,7 @@
         "cakeLayer": "L5",
         "cakeLayerName": "L5 应用层",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "normal",
         "chokepoint": "整机集成（下游需求侧）",
         "water_seller": false,
         "held": true,
@@ -7254,20 +7284,20 @@
           }
         ]
       },
-      "000034": {
-        "code": "000034",
-        "name": "神州数码",
+      "601138": {
+        "code": "601138",
+        "name": "工业富联",
         "chain": "ai_server",
         "chain_label": "AI服务器",
         "segment": "整机与机柜集成",
         "tier": 0,
         "cakeLayer": "L5",
         "cakeLayerName": "L5 应用层",
-        "is_leader": false,
-        "consensus_state": "unknown",
+        "is_leader": true,
+        "consensus_state": "crowded",
         "chokepoint": "整机集成（下游需求侧）",
         "water_seller": false,
-        "held": false,
+        "held": true,
         "us_anchors": [
           {
             "ticker": "SMCI",
@@ -8219,6 +8249,65 @@
           }
         ]
       },
+      "300394": {
+        "code": "300394",
+        "name": "天孚通信",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "光模块",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "normal",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "AVGO",
+            "cn_name": "博通",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "MRVL",
+            "cn_name": "迈威尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "ANET",
+            "cn_name": "Arista（云网络）",
+            "change": null,
+            "big_mover": false,
+            "segment": "高速互联模块(NVLink/铜连接/光模块)"
+          },
+          {
+            "ticker": "COHR",
+            "cn_name": "高意",
+            "change": null,
+            "big_mover": false,
+            "segment": "光模块"
+          }
+        ]
+      },
       "300308": {
         "code": "300308",
         "name": "中际旭创",
@@ -8229,7 +8318,7 @@
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
         "is_leader": true,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
@@ -8288,66 +8377,7 @@
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
         "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": [
-          {
-            "ticker": "AVGO",
-            "cn_name": "博通",
-            "change": null,
-            "big_mover": false,
-            "segment": "高速互联模块(NVLink/铜连接/光模块)"
-          },
-          {
-            "ticker": "SMCI",
-            "cn_name": "超微电脑",
-            "change": null,
-            "big_mover": false,
-            "segment": "整机与机柜集成"
-          },
-          {
-            "ticker": "DELL",
-            "cn_name": "戴尔",
-            "change": null,
-            "big_mover": false,
-            "segment": "整机与机柜集成"
-          },
-          {
-            "ticker": "MRVL",
-            "cn_name": "迈威尔",
-            "change": null,
-            "big_mover": false,
-            "segment": "高速互联模块(NVLink/铜连接/光模块)"
-          },
-          {
-            "ticker": "ANET",
-            "cn_name": "Arista（云网络）",
-            "change": null,
-            "big_mover": false,
-            "segment": "高速互联模块(NVLink/铜连接/光模块)"
-          },
-          {
-            "ticker": "COHR",
-            "cn_name": "高意",
-            "change": null,
-            "big_mover": false,
-            "segment": "光模块"
-          }
-        ]
-      },
-      "300394": {
-        "code": "300394",
-        "name": "天孚通信",
-        "chain": "ai_server",
-        "chain_label": "AI服务器",
-        "segment": "光模块",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
@@ -8406,7 +8436,7 @@
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
         "is_leader": true,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
@@ -8465,7 +8495,7 @@
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
@@ -8524,7 +8554,7 @@
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
@@ -8583,7 +8613,7 @@
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
@@ -8920,17 +8950,17 @@
           }
         ]
       },
-      "002463": {
-        "code": "002463",
-        "name": "沪电股份",
+      "001389": {
+        "code": "001389",
+        "name": "广合科技",
         "chain": "ai_server",
         "chain_label": "AI服务器",
         "segment": "高速PCB(HDI/高多层)",
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
-        "is_leader": true,
-        "consensus_state": "unknown",
+        "is_leader": false,
+        "consensus_state": "non_consensus",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
@@ -8961,38 +8991,7 @@
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
         "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": [
-          {
-            "ticker": "SMCI",
-            "cn_name": "超微电脑",
-            "change": null,
-            "big_mover": false,
-            "segment": "整机与机柜集成"
-          },
-          {
-            "ticker": "DELL",
-            "cn_name": "戴尔",
-            "change": null,
-            "big_mover": false,
-            "segment": "整机与机柜集成"
-          }
-        ]
-      },
-      "300476": {
-        "code": "300476",
-        "name": "胜宏科技",
-        "chain": "ai_server",
-        "chain_label": "AI服务器",
-        "segment": "高速PCB(HDI/高多层)",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "normal",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
@@ -9023,38 +9022,7 @@
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
         "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": [
-          {
-            "ticker": "SMCI",
-            "cn_name": "超微电脑",
-            "change": null,
-            "big_mover": false,
-            "segment": "整机与机柜集成"
-          },
-          {
-            "ticker": "DELL",
-            "cn_name": "戴尔",
-            "change": null,
-            "big_mover": false,
-            "segment": "整机与机柜集成"
-          }
-        ]
-      },
-      "001389": {
-        "code": "001389",
-        "name": "广合科技",
-        "chain": "ai_server",
-        "chain_label": "AI服务器",
-        "segment": "高速PCB(HDI/高多层)",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "normal",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
@@ -9085,7 +9053,69 @@
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "normal",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "002463": {
+        "code": "002463",
+        "name": "沪电股份",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高速PCB(HDI/高多层)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": true,
+        "consensus_state": "crowded",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "300476": {
+        "code": "300476",
+        "name": "胜宏科技",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "高速PCB(HDI/高多层)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "crowded",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
@@ -9116,7 +9146,7 @@
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
@@ -9147,38 +9177,7 @@
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
         "is_leader": true,
-        "consensus_state": "unknown",
-        "chokepoint": "底层材料/设备（最上游卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": [
-          {
-            "ticker": "SMCI",
-            "cn_name": "超微电脑",
-            "change": null,
-            "big_mover": false,
-            "segment": "整机与机柜集成"
-          },
-          {
-            "ticker": "DELL",
-            "cn_name": "戴尔",
-            "change": null,
-            "big_mover": false,
-            "segment": "整机与机柜集成"
-          }
-        ]
-      },
-      "600176": {
-        "code": "600176",
-        "name": "中国巨石",
-        "chain": "ai_server",
-        "chain_label": "AI服务器",
-        "segment": "电子级玻纤布",
-        "tier": 3,
-        "cakeLayer": "L2",
-        "cakeLayerName": "L2 算力芯片",
-        "is_leader": true,
-        "consensus_state": "unknown",
+        "consensus_state": "normal",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
@@ -9209,7 +9208,38 @@
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "normal",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "600176": {
+        "code": "600176",
+        "name": "中国巨石",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "电子级玻纤布",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": true,
+        "consensus_state": "crowded",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
@@ -9240,7 +9270,7 @@
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
@@ -9437,17 +9467,17 @@
           }
         ]
       },
-      "002851": {
-        "code": "002851",
-        "name": "麦格米特",
+      "300870": {
+        "code": "300870",
+        "name": "欧陆通",
         "chain": "ai_server",
         "chain_label": "AI服务器",
         "segment": "高密度电源模块",
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
-        "is_leader": true,
-        "consensus_state": "unknown",
+        "is_leader": false,
+        "consensus_state": "normal",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
@@ -9468,17 +9498,17 @@
           }
         ]
       },
-      "300870": {
-        "code": "300870",
-        "name": "欧陆通",
+      "002851": {
+        "code": "002851",
+        "name": "麦格米特",
         "chain": "ai_server",
         "chain_label": "AI服务器",
         "segment": "高密度电源模块",
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
+        "is_leader": true,
+        "consensus_state": "crowded",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
@@ -9509,7 +9539,7 @@
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
@@ -10041,44 +10071,6 @@
           }
         ]
       },
-      "603986": {
-        "code": "603986",
-        "name": "兆易创新",
-        "chain": "ai_server",
-        "chain_label": "AI服务器",
-        "segment": "存储模块(HBM/SSD)",
-        "tier": 1,
-        "cakeLayer": "L4",
-        "cakeLayerName": "L4 模型层",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "核心部件（议价中枢）",
-        "water_seller": false,
-        "held": false,
-        "us_anchors": [
-          {
-            "ticker": "MU",
-            "cn_name": "美光",
-            "change": null,
-            "big_mover": false,
-            "segment": "存储模块(HBM/SSD)"
-          },
-          {
-            "ticker": "SMCI",
-            "cn_name": "超微电脑",
-            "change": null,
-            "big_mover": false,
-            "segment": "整机与机柜集成"
-          },
-          {
-            "ticker": "DELL",
-            "cn_name": "戴尔",
-            "change": null,
-            "big_mover": false,
-            "segment": "整机与机柜集成"
-          }
-        ]
-      },
       "300475": {
         "code": "300475",
         "name": "香农芯创",
@@ -10089,7 +10081,7 @@
         "cakeLayer": "L4",
         "cakeLayerName": "L4 模型层",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "normal",
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
@@ -10127,7 +10119,45 @@
         "cakeLayer": "L4",
         "cakeLayerName": "L4 模型层",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "normal",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": [
+          {
+            "ticker": "MU",
+            "cn_name": "美光",
+            "change": null,
+            "big_mover": false,
+            "segment": "存储模块(HBM/SSD)"
+          },
+          {
+            "ticker": "SMCI",
+            "cn_name": "超微电脑",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          },
+          {
+            "ticker": "DELL",
+            "cn_name": "戴尔",
+            "change": null,
+            "big_mover": false,
+            "segment": "整机与机柜集成"
+          }
+        ]
+      },
+      "603986": {
+        "code": "603986",
+        "name": "兆易创新",
+        "chain": "ai_server",
+        "chain_label": "AI服务器",
+        "segment": "存储模块(HBM/SSD)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "crowded",
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
