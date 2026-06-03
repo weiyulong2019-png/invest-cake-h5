@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-06-03 15:15:48",
-  "timestamp": 1780470948,
+  "updateTime": "2026-06-03 15:21:42",
+  "timestamp": 1780471302,
   "market": {
     "index": "上证综指",
     "indexCode": "000001.SH",
@@ -47,7 +47,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 0.51,
+      "avg": 0.0,
       "summary": "能源基建板块2只标的，方向不明确，保持观望。",
       "summaryTime": "15:16"
     },
@@ -138,7 +138,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 3.42,
+      "avg": 0.0,
       "summary": "算力芯片板块5只标的，方向不明确，保持观望。",
       "summaryTime": "15:16"
     },
@@ -197,7 +197,7 @@
           "confidence": "低"
         }
       ],
-      "avg": 3.1,
+      "avg": 0.0,
       "summary": "通信基建板块3只标的，方向不明确，保持观望。",
       "summaryTime": "15:16"
     },
@@ -224,7 +224,7 @@
           "confidence": "低"
         }
       ],
-      "avg": -1.18,
+      "avg": 0.0,
       "summary": "模型层板块1只标的，方向不明确，保持观望。",
       "summaryTime": "15:16"
     },
@@ -240,9 +240,9 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "28.66",
-          "c": "-3.24%",
-          "cv": -3.24,
+          "p": "28.6",
+          "c": "-3.44%",
+          "cv": -3.44,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
@@ -256,9 +256,9 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "80.2",
-          "c": "-6.2%",
-          "cv": -6.2,
+          "p": "80.25",
+          "c": "-6.14%",
+          "cv": -6.14,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
@@ -272,9 +272,9 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "127.0",
-          "c": "-2.98%",
-          "cv": -2.98,
+          "p": "126.8",
+          "c": "-3.13%",
+          "cv": -3.13,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
@@ -288,9 +288,9 @@
           "sector": "港股互联网",
           "held": true,
           "pick": false,
-          "p": "46.76",
-          "c": "-4.53%",
-          "cv": -4.53,
+          "p": "46.66",
+          "c": "-4.74%",
+          "cv": -4.74,
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
@@ -299,7 +299,7 @@
           "confidence": "低"
         }
       ],
-      "avg": -4.24,
+      "avg": -4.36,
       "summary": "应用层板块4只标的，方向不明确，保持观望。",
       "summaryTime": "15:16"
     }
@@ -353,14 +353,14 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "28.66",
-      "c": "-3.24%",
-      "cv": -3.24,
+      "p": "28.6",
+      "c": "-3.44%",
+      "cv": -3.44,
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "14:31",
+      "signalTime": "15:16",
       "confidence": "低"
     },
     {
@@ -369,14 +369,14 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "80.2",
-      "c": "-6.2%",
-      "cv": -6.2,
+      "p": "80.25",
+      "c": "-6.14%",
+      "cv": -6.14,
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "14:31",
+      "signalTime": "15:16",
       "confidence": "低"
     },
     {
@@ -385,14 +385,14 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "127.0",
-      "c": "-2.98%",
-      "cv": -2.98,
+      "p": "126.8",
+      "c": "-3.13%",
+      "cv": -3.13,
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "14:31",
+      "signalTime": "15:16",
       "confidence": "低"
     },
     {
@@ -401,16 +401,15 @@
       "sector": "港股互联网",
       "held": true,
       "pick": false,
-      "p": "46.76",
-      "c": "-4.53%",
-      "cv": -4.53,
+      "p": "46.66",
+      "c": "-4.74%",
+      "cv": -4.74,
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "14:31",
+      "signalTime": "15:16",
       "confidence": "低"
     }
-  ],
-  "signalUpdateTime": "2026-06-03 15:16:16"
+  ]
 }
