@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-06-02 16:14:48",
-  "timestamp": 1780388088,
+  "updateTime": "2026-06-03 09:28:55",
+  "timestamp": 1780450135,
   "market": {
     "index": "上证综指",
     "indexCode": "000001.SH",
@@ -359,8 +359,8 @@
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
-      "signalNote": "跌破MA20；跌破MA60；MACD绿柱；ADX=19.7(震荡市)；预期日波动±3.76%",
-      "signalTime": "15:00",
+      "signalNote": "数据不足，暂无信号",
+      "signalTime": "06:10",
       "confidence": "低"
     },
     {
@@ -375,8 +375,8 @@
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
-      "signalNote": "站上MA20；MACD绿柱；5日涨8.38%，注意回调；ADX=16.1(震荡市)；预期日波动±4.65%(高)",
-      "signalTime": "15:00",
+      "signalNote": "数据不足，暂无信号",
+      "signalTime": "06:10",
       "confidence": "低"
     },
     {
@@ -391,8 +391,8 @@
       "pe": "-",
       "cap": "-",
       "signal": "neutral",
-      "signalNote": "跌破MA20；MACD绿柱；ADX=11.9(震荡市)，信号降级；预期日波动±4.15%(高)",
-      "signalTime": "15:00",
+      "signalNote": "数据不足，暂无信号",
+      "signalTime": "06:10",
       "confidence": "低"
     },
     {
@@ -408,9 +408,8 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "数据不足，暂无信号",
-      "signalTime": "15:00",
+      "signalTime": "06:10",
       "confidence": "低"
     }
-  ],
-  "signalUpdateTime": "2026-06-03 06:10:58"
+  ]
 }
