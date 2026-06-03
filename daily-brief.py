@@ -329,14 +329,7 @@ def _funding_heat() -> list[tuple[str, int]]:
                 con.close()
     except Exception:
         rounds = []
-    # 2) 回退 sample (演示数据,仅作占位热度)
-    if not rounds:
-        try:
-            if FUNDING_SAMPLE.exists():
-                d = json.loads(FUNDING_SAMPLE.read_text(encoding="utf-8"))
-                rounds = d.get("rounds", []) if isinstance(d, dict) else []
-        except Exception:
-            rounds = []
+    # 不脑补: 无真实融资数据则返回空(对外显"暂无"), 绝不用 sample 演示数据冒充真实推上 H5
     if not rounds:
         return []
     c = collections.Counter(
@@ -395,7 +388,11 @@ def main() -> int:
         print(payload)
         return 0
 
-    OUT_PATH.write_text(payload + "\n", encoding="utf-8")
+    # 原子写: 写临时文件再 rename, 防中断写出半截 JSON
+    import os as _os
+    _tmp = OUT_PATH.with_name(OUT_PATH.name + ".tmp")
+    _tmp.write_text(payload + "\n", encoding="utf-8")
+    _os.replace(_tmp, OUT_PATH)
     print(f"[ok] 已写出 {OUT_PATH}")
     print(f"[ok] available={brief['available']}  items={len(brief['items'])}")
     for it in brief["items"]:

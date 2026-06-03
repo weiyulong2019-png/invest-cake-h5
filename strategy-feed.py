@@ -1204,7 +1204,11 @@ def main() -> int:
         "stockCards": stock_cards,          # item7：已覆盖股的预计算只读分析卡（个股仪表盘用）
     }
 
-    OUTPUT_FILE.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    # 原子写: 写临时文件再 rename, 防中断写出半截 JSON 致 H5 白屏
+    import os as _os
+    _tmp = OUTPUT_FILE.with_name(OUTPUT_FILE.name + ".tmp")
+    _tmp.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    _os.replace(_tmp, OUTPUT_FILE)
     print()
     print(f"✅ 已写入: {OUTPUT_FILE}")
     available = [k for k in ("waterSellers", "chainTree", "usMapping", "funding", "winRate", "intel")
