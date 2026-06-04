@@ -587,7 +587,7 @@ a:active{opacity:.6;}
                 <div class="st-signal-note">{{ s.signalNote }}</div>
                 <div class="st-decision" v-if="s.decisionLabel">
                   <span class="st-decision-pill" :class="s.decisionClass">{{ s.decisionLabel }}</span>
-                  <span class="st-decision-note">综合 {{ s.decisionScore }} · {{ s.planStance||s.actionHint }}</span>
+                  <span class="st-decision-note">价值 {{ s.valueScore }} · 择时 {{ s.timingScore }} · {{ s.planStance||s.actionHint }}</span>
                 </div>
               </div>
             </div>
@@ -1450,6 +1450,7 @@ createApp({
       if(!held&&d.actionability==='defensive')return '不介入';
       if(d.actionability==='needs_fundamental_check')return '先核实';
       if(d.valueRank>=3)return '价值观察';
+      if(d.valuationState==='neutral_or_growth_priced'&&(Number(d.valueScore)||0)>=75)return '成长观察';
       if(d.timingSource==='quote_fallback')return '等六维';
       return '观察';
     };
@@ -1461,6 +1462,7 @@ createApp({
       if(d.actionability==='tracking_candidate')return held?'action-hold':'action-new';
       if(d.valueRank>=3)return 'action-value';
       if(d.actionability==='needs_fundamental_check')return 'action-pass';
+      if(d.valuationState==='neutral_or_growth_priced'&&(Number(d.valueScore)||0)>=75)return 'action-pass';
       return 'action-pass';
     };
     const candidateLabel=(card)=>{
@@ -1468,6 +1470,7 @@ createApp({
       if(d.timingSource==='quote_fallback'){
         if((Number(d.valueRank)||0)>=3)return '价值观察，等六维确认';
         if(d.actionability==='needs_fundamental_check')return '结构候选，先核实基本面';
+        if(d.valuationState==='neutral_or_growth_priced'&&(Number(d.valueScore)||0)>=75)return d.label||'成长观察，估值已计价';
         return '观察，等六维确认';
       }
       return d.label||actionTypeLabel(card);
@@ -1477,7 +1480,8 @@ createApp({
       const reasons=(d.reasons||[]).slice(0,2).join(' / ');
       if(d.timingSource==='quote_fallback'){
         const reason=reasons||'仅有行情择时兜底，未取得六维评分';
-        return `${reason} · 不生成进攻买点`;
+        const suffix=d.valuationState==='neutral_or_growth_priced'?'不进价值池，等估值回落':'不生成进攻买点';
+        return `${reason} · ${suffix}`;
       }
       const plan=(d.timingPlan&&d.timingPlan.entry)||'';
       const hint=d.actionHint||'继续观察';
@@ -1529,6 +1533,7 @@ createApp({
         mapped:cards.length,
         sixFactor:0,
         valueWatch:0,
+        growthPriced:0,
         quoteWait:0,
         needVerify:0,
       };
@@ -1536,6 +1541,7 @@ createApp({
         const d=(card&&card.decisionProfile)||{};
         if(d.timingSource==='six_factor')out.sixFactor++;
         if((Number(d.valueRank)||0)>=3)out.valueWatch++;
+        if(d.valuationState==='neutral_or_growth_priced'&&(Number(d.valueScore)||0)>=75)out.growthPriced++;
         if(d.timingSource==='quote_fallback')out.quoteWait++;
         if(d.actionability==='needs_fundamental_check')out.needVerify++;
       });
@@ -1561,8 +1567,12 @@ createApp({
         return d.timingSource==='six_factor'&&['action_candidate','tracking_candidate'].includes(d.actionability);
       }).length;
       const value=cards.filter(c=>((c.decisionProfile||{}).valueRank||0)>=3).length;
+      const growth=cards.filter(c=>{
+        const d=c.decisionProfile||{};
+        return d.valuationState==='neutral_or_growth_priced'&&(Number(d.valueScore)||0)>=75;
+      }).length;
       const wait=cards.filter(c=>(c.decisionProfile||{}).timingSource==='quote_fallback').length;
-      return{total,pe,timing,ready,value,wait,text:`${total} 只 · 六维 ${ready} · 价值 ${value} · 等六维 ${wait}`};
+      return{total,pe,timing,ready,value,growth,wait,text:`${total} 只 · 六维 ${ready} · 价值 ${value} · 成长已计价 ${growth} · 等六维 ${wait}`};
     });
     const pickDash=(code)=>{dashPicked.value=code;const c=stockCardOf(code);if(c){dashPicked.value=c.code;dashQuery.value=c.name;}};
     const dashCard=computed(()=>{
@@ -1784,6 +1794,8 @@ createApp({
               confidence:q.signal?'':(card.water_seller?'卖水':''),
               decisionLabel:decision.label||'',
               decisionScore:decision.score||'—',
+              valueScore:decision.valueScore!=null?decision.valueScore:'—',
+              timingScore:decision.timingScore!=null?decision.timingScore:'—',
               actionHint:decision.actionHint||'继续观察',
               planStance:(decision.timingPlan||{}).stance||'',
               decisionClass:decision.timingState==='risk'?'down':(decision.actionHint==='等回撤'?'warn':''),
