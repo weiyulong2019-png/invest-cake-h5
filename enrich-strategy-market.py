@@ -395,7 +395,9 @@ def _decision_profile(card: dict) -> dict:
     pe_adj, valuation_state, valuation_note = _valuation_adjustment(pe)
     quality_adj, quality_note = _quality_adjustment(fundamental)
     value_score = _clamp(base_value + pe_adj + quality_adj)
-    has_quality = _num(fundamental.get("qualityScore")) is not None
+    quality_score = _num(fundamental.get("qualityScore"))
+    has_quality = quality_score is not None
+    quality_ok = quality_score is not None and quality_score >= 62
 
     quant_score = _num(quant.get("score"))
     timing_state, timing_label = _timing_state(quant)
@@ -423,9 +425,12 @@ def _decision_profile(card: dict) -> dict:
     elif is_quote_timing and value_score >= 75 and not has_quality:
         label = "结构候选，先核实基本面"
         action_hint = "先核实基本面"
-    elif is_quote_timing and value_score >= 75 and valuation_ok:
+    elif is_quote_timing and value_score >= 75 and valuation_ok and quality_ok:
         label = "价值观察，等六维确认"
         action_hint = "等六维确认"
+    elif is_quote_timing and value_score >= 75 and valuation_ok:
+        label = "结构候选，质量待确认"
+        action_hint = "先核实质量"
     elif is_quote_timing and valuation_state in ("pricey", "expensive"):
         label = "估值偏贵，等待回撤"
         action_hint = "等六维确认"
@@ -438,6 +443,9 @@ def _decision_profile(card: dict) -> dict:
     elif value_score >= 75 and not has_quality:
         label = "结构候选，基本面待核实"
         action_hint = "先核实基本面"
+    elif value_score >= 75 and valuation_ok and not quality_ok:
+        label = "结构候选，质量待确认"
+        action_hint = "先核实质量"
     elif value_score >= 75 and valuation_ok and timing_state == "entry_candidate":
         label = "价值+量化共振"
         action_hint = "加入观察"
@@ -501,9 +509,9 @@ def _decision_profile(card: dict) -> dict:
         value_rank = 5
     elif label in ("价值优先，等待买点", "价值观察，等六维确认"):
         value_rank = 4
-    elif valuation_ok and has_quality and value_score >= 75:
+    elif valuation_ok and quality_ok and value_score >= 75:
         value_rank = 3
-    elif valuation_ok and has_quality and value_score >= 65:
+    elif valuation_ok and quality_ok and value_score >= 65:
         value_rank = 2
     elif not has_quality and value_score >= 75:
         value_rank = 1

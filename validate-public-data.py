@@ -179,6 +179,14 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         if not isinstance((card.get("decisionProfile") or {}).get("valueRank"), int)
         or not 0 <= (card.get("decisionProfile") or {}).get("valueRank") <= 5
     ]
+    high_value_low_quality = [
+        code for code, card in cards.items()
+        if ((card.get("decisionProfile") or {}).get("valueRank") or 0) >= 3
+        and (
+            (card.get("fundamentalSnapshot") or {}).get("qualityScore") is None
+            or ((card.get("fundamentalSnapshot") or {}).get("qualityScore") or 0) < 62
+        )
+    ]
     bad_rank_score = [
         code for code, card in cards.items()
         if not isinstance((card.get("decisionProfile") or {}).get("rankScore"), (int, float))
@@ -258,6 +266,8 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         errors.append(f"decisionProfile timingSource 非法: {len(bad_timing_source)} 只")
     if bad_value_rank:
         errors.append(f"decisionProfile valueRank 非法: {len(bad_value_rank)} 只")
+    if high_value_low_quality:
+        errors.append(f"高价值等级必须通过质量门槛: {len(high_value_low_quality)} 只")
     if bad_rank_score:
         errors.append(f"decisionProfile rankScore 非法: {len(bad_rank_score)} 只")
     if quote_action_candidate:
