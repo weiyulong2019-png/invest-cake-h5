@@ -79,6 +79,19 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
     ]
     if not value_candidates:
         warnings.append("没有价值优先候选")
+    market_covered = [
+        code for code, card in cards.items()
+        if card.get("marketSnapshot")
+    ]
+    pe_covered = [
+        code for code, card in cards.items()
+        if (card.get("marketSnapshot") or {}).get("pe")
+        and (card.get("marketSnapshot") or {}).get("pe") != "-"
+    ]
+    if cards and not market_covered:
+        warnings.append("strategy 候选暂无 marketSnapshot")
+    if cards and not pe_covered:
+        warnings.append("strategy 候选暂无 PE 覆盖，价值结论只能停留在结构层")
 
     return not errors, errors, warnings
 
@@ -126,6 +139,10 @@ def validate_market() -> tuple[bool, list[str], list[str]]:
         quote_index[code.replace("HK.", "")] = row
 
     cards = ((strategy.get("stockCards") or {}).get("cards") or {})
+    for code, card in cards.items():
+        snap = card.get("marketSnapshot")
+        if snap:
+            quote_index.setdefault(code, snap)
     covered = [code for code in cards if code in quote_index]
     with_pe = [
         code for code in covered

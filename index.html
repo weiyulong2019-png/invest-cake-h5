@@ -1351,7 +1351,23 @@ createApp({
     // 价格索引：data.json layers/etfs/hk + watchlist.json
     const priceIndex=computed(()=>{
       const idx={};
-      const put=(code,o)=>{if(!code)return;idx[code]=o;idx[String(code).replace(/^HK\./,'')]=o;};
+      const mergeQuote=(base,o)=>{
+        const out={...(base||{})};
+        Object.entries(o||{}).forEach(([k,v])=>{
+          if(v!=null&&v!==''&&v!=='-')out[k]=v;
+          else if(!(k in out))out[k]=v;
+        });
+        return out;
+      };
+      const put=(code,o)=>{
+        if(!code)return;
+        const k1=String(code),k2=String(code).replace(/^HK\./,'');
+        idx[k1]=mergeQuote(idx[k1],o);
+        idx[k2]=mergeQuote(idx[k2],o);
+      };
+      Object.values((strat.stockCards&&strat.stockCards.cards)||{}).forEach(c=>{
+        if(c&&c.marketSnapshot)put(c.code,{...c.marketSnapshot,name:c.name,sector:c.segment});
+      });
       layers.forEach(L=>L.stocks.forEach(s=>put(s.code,s)));
       etfs.forEach(e=>put(e.code,e));
       hkStocks.forEach(h=>put(h.code,h));

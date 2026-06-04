@@ -7,6 +7,7 @@ set -euo pipefail
 cd "$HOME/.openclaw/投资工作室H5"
 
 python3 strategy-feed.py            # 本机 live 数据(无 --dry-run 即 live)
+python3 enrich-strategy-market.py   # 公开行情/PE/市值增强；凭证只走环境变量，不落盘
 
 # 非空 + live + 结构字段校验:挡住"live 但数据拉空"的伪 live
 if ! python3 validate-public-data.py --scope strategy
