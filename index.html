@@ -819,6 +819,35 @@ a:active{opacity:.6;}
           <div v-else class="strat-note">{{ strat.winRate.note || '暂无胜率数据' }}</div>
         </div>
 
+        <!-- 情报速递：RSS/官方源 + Polymarket 概率，只读参考 -->
+        <div class="strat-block">
+          <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>情报速递
+            <span class="badge" :style="badgeStyle(strat.intel.available && ((strat.intel.rss.items||[]).length || (strat.intel.polymarket.events||[]).length))">
+              {{ (strat.intel.rss.items||[]).length + (strat.intel.polymarket.events||[]).length ? '已更新' : '暂无数据' }}
+            </span>
+          </div>
+          <template v-if="strat.intel.available && ((strat.intel.rss.items||[]).length || (strat.intel.polymarket.events||[]).length)">
+            <div class="strat-note" v-if="(strat.intel.rss.items||[]).length">官方/RSS 头条</div>
+            <div class="seg-item" v-for="n in (strat.intel.rss.items||[]).slice(0,4)" :key="n.link || n.title">
+              <div class="seg-name">
+                {{ n.title }}
+                <span class="ev-badge" :class="'ev-'+(n.evidence_grade||'D')" v-if="n.evidence_grade">{{ n.evidence_grade }}</span>
+              </div>
+              <div class="seg-logic">{{ n.source || '公开源' }} · {{ n.category || 'INFO' }} · {{ n.published || '[未核实]' }}</div>
+            </div>
+            <div class="strat-note" v-if="(strat.intel.polymarket.events||[]).length">概率事件</div>
+            <div class="seg-item" v-for="p in (strat.intel.polymarket.events||[]).slice(0,4)" :key="p.market + p.outcome">
+              <div class="seg-name">{{ p.theme || '事件' }} · {{ p.outcome || '—' }}</div>
+              <div class="seg-logic">
+                {{ p.market }}
+                <template v-if="p.implied_pct!=null"> · 隐含概率 {{ Number(p.implied_pct).toFixed(1) }}%</template>
+                <template v-if="p.change_24h!=null"> · 24h {{ p.change_24h>0?'+':'' }}{{ (p.change_24h*100).toFixed(1) }}pct</template>
+              </div>
+            </div>
+          </template>
+          <div v-else class="strat-note">{{ strat.intel.note || '暂无情报数据' }}</div>
+        </div>
+
         <!-- 一级市场融资热度 -->
         <div class="strat-block">
           <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.2a2.5 2 0 0 1 2.5-1.2c1.4 0 2.5.8 2.5 1.8s-1.1 1.7-2.5 1.7-2.5.8-2.5 1.8 1.1 1.8 2.5 1.8a2.5 2 0 0 0 2.5-1.2"/></svg>一级市场融资热度
@@ -980,6 +1009,7 @@ createApp({
       usMapping:{available:false,note:'',quote_ok:false,anchors:[],big_movers:[]},
       funding:{available:false,note:'',months:12,total_events:0,layers:[]},
       winRate:{available:false,note:'',scanners:[]},
+      intel:{available:false,note:'',rss:{items:[]},polymarket:{events:[]}},
       heldEtfCodes:[],
       heldStocks:{available:false,note:'',items:[]},
       usAshIndex:{available:false,note:'',byCode:{}},
@@ -1352,7 +1382,7 @@ createApp({
         const d=await resp.json();
         strat.updateTime=d.updateTime||'';
         strat.disclaimer=d.disclaimer||'';
-        ['waterSellers','chainTree','usMapping','funding','winRate','heldStocks','usAshIndex','stockCards'].forEach(k=>{if(d[k])Object.assign(strat[k],d[k]);});
+        ['waterSellers','chainTree','usMapping','funding','winRate','intel','heldStocks','usAshIndex','stockCards'].forEach(k=>{if(d[k])Object.assign(strat[k],d[k]);});
         strat.heldEtfCodes=Array.isArray(d.heldEtfCodes)?d.heldEtfCodes:[];
         // 多产业链（新数据）；旧数据无此字段则保持 null，自动回退 chainTree
         if(d.chains){strat.chains=d.chains;strat.chainOrder=d.chainOrder||Object.keys(d.chains);strat.defaultChain=d.defaultChain||strat.chainOrder[0]||'';
