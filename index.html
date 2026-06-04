@@ -907,11 +907,11 @@ a:active{opacity:.6;}
               <div class="dash-cell"><div class="dash-k">链上层级</div><div class="dash-v">tier{{ dashCard.tier!=null?dashCard.tier:'?' }}</div></div>
             </div>
             <div class="plan-box" v-if="dashDecision">
-              <div class="plan-title">当前动作
+              <div class="plan-title">当前结论
                 <span class="decision-tag" :class="actionTypeClass(dashCard)">{{ actionTypeLabel(dashCard) }}</span>
               </div>
               <div class="plan-foot">
-                {{ dashDecision.label }} · {{ dashDecision.actionHint }} · {{ timingSourceLabel(dashCard) }} · 置信 {{ dashDecision.timingConfidence||'待确认' }}
+                {{ candidateLabel(dashCard) }} · {{ candidateNote(dashCard) }} · {{ timingSourceLabel(dashCard) }} · 置信 {{ dashDecision.timingConfidence||'待确认' }}
               </div>
             </div>
             <div class="decision-split">
@@ -932,7 +932,7 @@ a:active{opacity:.6;}
               </div>
             </div>
             <div class="plan-box" v-if="dashPlan">
-              <div class="plan-title">买卖点计划 <span class="plan-badge" :class="planClass(dashPlan)">{{ dashPlan.stance }}</span></div>
+              <div class="plan-title">{{ planTitle(dashPlan,dashCard) }} <span class="plan-badge" :class="planClass(dashPlan)">{{ dashPlan.stance }}</span></div>
               <div class="plan-grid">
                 <div class="plan-cell"><div class="plan-k">入场触发</div><div class="plan-v">{{ dashPlan.entry }}</div></div>
                 <div class="plan-cell"><div class="plan-k">防守失效</div><div class="plan-v">{{ dashPlan.invalid }}</div></div>
@@ -1535,6 +1535,13 @@ createApp({
       if(s.includes('回撤')||s.includes('等待'))return'warn';
       return'';
     };
+    const planTitle=(plan,card)=>{
+      const d=(card&&card.decisionProfile)||{};
+      const s=(plan&&plan.stance)||'';
+      if(d.actionability==='defensive'||s.includes('防守')||s.includes('减仓'))return'防守计划';
+      if(d.timingSource==='quote_fallback'||s.includes('等待六维'))return'确认计划';
+      return'买卖点计划';
+    };
     const parseNum=(v)=>{
       if(v==null||v===''||v==='-'||v==='—')return null;
       const n=parseFloat(String(v).replace(/[,%＋+]/g,''));
@@ -1578,6 +1585,7 @@ createApp({
         const plan=decision.timingPlan||{};
         const cls=decision.actionability==='defensive'?'down':(decision.actionability==='action_candidate'?'up':(String(plan.stance||'').includes('回撤')?'flat':'flat'));
         const note=plan.entry||decision.actionHint||'等待择时条件确认。';
+        if(decision.timingSource==='quote_fallback')return{label:plan.stance||'等待六维确认',cls:'flat',note};
         return{label:actionTypeLabel(card),cls,note};
       }
       const signal=quote&&quote.signal;
@@ -2050,7 +2058,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,chainTitle,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDataOverview,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,decisionCandidates,actionCandidates,displayPe,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,candidateLabel,candidateNote,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,valueDecision,timingDecision};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,chainTitle,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDataOverview,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,decisionCandidates,actionCandidates,displayPe,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,candidateLabel,candidateNote,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,planTitle,valueDecision,timingDecision};
   }
 }).mount('#app');
 
