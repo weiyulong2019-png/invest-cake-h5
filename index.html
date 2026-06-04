@@ -1537,6 +1537,14 @@ createApp({
     // 价格索引：data.json layers/etfs/hk + watchlist.json
     const priceIndex=computed(()=>{
       const idx={};
+      const normName=(name)=>String(name||'').replace(/[\s（）()·-]/g,'').replace(/国泰|ETF基金/g,'').toLowerCase();
+      const quoteAliases={
+        '516630':'云计算ETF',
+        '159246':'创业板AI ETF',
+        '560390':'电网设备ETF',
+        '159516':'半导体设备ETF',
+        '515880':'通信ETF',
+      };
       const mergeQuote=(base,o)=>{
         const out={...(base||{})};
         Object.entries(o||{}).forEach(([k,v])=>{
@@ -1550,6 +1558,7 @@ createApp({
         const k1=String(code),k2=String(code).replace(/^HK\./,'');
         idx[k1]=mergeQuote(idx[k1],o);
         idx[k2]=mergeQuote(idx[k2],o);
+        if(o&&o.name)idx['NAME:'+normName(o.name)]=mergeQuote(idx['NAME:'+normName(o.name)],o);
       };
       Object.values((strat.stockCards&&strat.stockCards.cards)||{}).forEach(c=>{
         if(c&&c.marketSnapshot)put(c.code,{...c.marketSnapshot,name:c.name,sector:c.segment});
@@ -1563,6 +1572,10 @@ createApp({
       etfs.forEach(e=>put(e.code,e));
       hkStocks.forEach(h=>put(h.code,h));
       watchlist.forEach(w=>put(w.code,w));
+      Object.entries(quoteAliases).forEach(([code,name])=>{
+        const hit=idx['NAME:'+normName(name)];
+        if(hit&&!idx[code])idx[code]=hit;
+      });
       return idx;
     });
     // 统一个股字段集（item6）：名(主)/代码(次)/现价/涨跌幅/信号/估值，缺则不脑补。
@@ -1587,7 +1600,8 @@ createApp({
       const items=(strat.heldStocks&&strat.heldStocks.items)||[];
       const idx=priceIndex.value;
       return items.map(h=>{
-        const m=idx[h.code]||idx[String(h.code).replace(/^HK\./,'')]||{};
+        const nameKey='NAME:'+String(h.name||'').replace(/[\s（）()·-]/g,'').replace(/国泰|ETF基金/g,'').toLowerCase();
+        const m=idx[h.code]||idx[String(h.code).replace(/^HK\./,'')]||idx[nameKey]||{};
         return{code:h.code,name:h.name,type:h.type,
           p:m.p||'—',c:m.c||'',cv:m.cv!=null?m.cv:0,
           sector:m.sector||'',hasQuote:m.p!=null&&m.p!=='-'&&m.p!=='—',
@@ -1606,8 +1620,17 @@ createApp({
         const stance=String(plan.stance||decision.timingState||'');
         const quality=fund.qualityLabel||decision.qualityState||'';
         if(!card||!plan.stance){
-          return{code:s.code,name:s.name,level:'low',tag:'待接入',action:'待接入分析卡',quality:'',hasPlan:false,
-            note:'ETF/港股或暂未挂入当前产业图谱；先只展示行情，不做买卖点判断。'};
+          const kind=s.type==='hk'?'港股量化':(s.type==='etf'?'ETF量化':'量化');
+          const signal=String(s.signal||'');
+          const note=s.signalNote||((s.c||s.hasQuote)?`当日涨跌 ${s.c||'0%'}`:'暂无可用行情，不生成买卖点。');
+          const weakTrend=/空头排列|跌破MA60|六维或动量仍处风险区/.test(note);
+          const waitPullback=/注意回调|短线偏热|RSI偏高|5日涨/.test(note);
+          if(!s.hasQuote)return{code:s.code,name:s.name,level:'low',tag:'未取数',action:'人工跟踪',quality:kind,hasPlan:false,note};
+          if(signal==='risk'||s.cv<=-3||weakTrend)return{code:s.code,name:s.name,level:'high',tag:'防守',action:'减仓观察',quality:kind,hasPlan:false,note};
+          if(s.cv>=5)return{code:s.code,name:s.name,level:'mid',tag:'过热',action:'分批止盈观察',quality:kind,hasPlan:false,note};
+          if(signal==='buy'&&waitPullback)return{code:s.code,name:s.name,level:'mid',tag:'等回撤',action:'不追高',quality:kind,hasPlan:false,note};
+          if(signal==='buy')return{code:s.code,name:s.name,level:'low',tag:'趋势',action:'持有观察',quality:kind,hasPlan:false,note};
+          return{code:s.code,name:s.name,level:'low',tag:'观察',action:'持有观察',quality:kind,hasPlan:false,note};
         }
         if(/防守|减仓|风险|规避/.test(stance)){
           return{code:s.code,name:s.name,level:'high',tag:'防守',action:'减仓观察',quality,hasPlan:true,
