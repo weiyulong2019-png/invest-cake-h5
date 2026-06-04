@@ -1,6 +1,6 @@
 {
   "date": "2026-06-05",
-  "updateTime": "2026-06-05 03:21:47",
+  "updateTime": "2026-06-05 04:53:13",
   "items": [
     {
       "type": "water_seller",
@@ -21,9 +21,21 @@
       "tag": "产业链卖水人"
     },
     {
+      "type": "signal_buy",
+      "title": "今日机会信号 4 条",
+      "detail": "今日机会提示:半导体设备ETF国泰、奥比中光、半导体设备ETF国泰、奥比中光(触发:六维综合评分连续3日≥80)",
+      "tag": "买入提示"
+    },
+    {
+      "type": "signal_sell",
+      "title": "今日卖出预警 1 条",
+      "detail": "今日卖出预警:昆仑万维(触发:六维综合评分跌入风险区 (<40))",
+      "tag": "卖出预警"
+    },
+    {
       "type": "watchlist",
       "title": "自选池异动",
-      "detail": "自选池 56 只(ai_chain28、physical_ai_robot28)",
+      "detail": "自选池 56 只(ai_chain28、physical_ai_robot28);今日异动 12 次",
       "tag": "自选监控"
     }
   ],
