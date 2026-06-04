@@ -60,13 +60,15 @@ DEFAULT_THRESHOLD = 10.0
 HOLDINGS_MD = Path("/Users/long/.openclaw/workspace-main/HOLDINGS.md")
 
 # 全部产业链（key → 看板显示名）。key 必须存在于 opportunity_tree.CHAIN_FILES。
-# 链谱(2026-06-02 重构):
-#   - power_grid(电网) + new_energy(新能源) 已并入 ai_server 的『能源层』, 不再作独立链。
+# 链谱(2026-06-04 首页重构):
+#   - 首页 tab 按独立产业链展示；new_energy 恢复为独立链。
+#   - ai_server 仍保留能源层以表达 AI 数据中心电力约束；新能源 tab 用独立图谱展开。
 #   - humanoid_robot(人形机器人) 重命名扩展为 physical_ai(物理AI: 本体+具身大脑+自动驾驶)。
 CHAINS_ALL = [
     ("ai_server", "AI服务器"),
-    ("physical_ai", "物理AI"),
+    ("new_energy", "新能源"),
     ("commercial_space", "商业航天"),
+    ("physical_ai", "物理AI"),
     ("innovative_drug", "创新药"),
 ]
 
@@ -1132,7 +1134,7 @@ def main() -> int:
     print(f"引擎目录: {WORKSPACE_SCRIPTS}  ({'可达' if WORKSPACE_SCRIPTS.is_dir() else '不可达'})")
     print()
 
-    print("[1/5] 产业链树 / 非共识机会（全部 6 链）...")
+    print(f"[1/5] 产业链树 / 非共识机会（全部 {len(CHAINS_ALL)} 链）...")
     all_chains = build_all_chains(args.dry_run)
     chain_tree = all_chains["chains"].get(args.chain) or build_chain_tree(args.chain, args.dry_run)
     for k in all_chains["chainOrder"]:

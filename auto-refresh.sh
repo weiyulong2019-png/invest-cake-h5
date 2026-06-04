@@ -29,7 +29,8 @@ fi
 # 绕过代理
 unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY
 
-export MX_APIKEY="mkt_f-JSym1MjVyEBaoal60UkgLwEd69FhteaSCakjQE8Ic"
+# MX_APIKEY must be provided by the caller environment or launchd config.
+# Never hardcode credentials in this public dashboard repo.
 
 # ========== 06:00 盘前信号（5分钟间隔容差: 0555-0610） ==========
 if [ "$HHMM" -ge "0555" ] && [ "$HHMM" -le "0610" ]; then

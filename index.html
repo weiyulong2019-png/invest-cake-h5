@@ -440,10 +440,23 @@ a:active{opacity:.6;}
            :class="{active:homeTab===t.key}" @click="selectHomeTab(t.key)">{{ t.label }}</div>
     </div>
 
-    <!-- AI产业链：五层蛋糕（仅 AI tab）。item2/10：移除「今日关注」卡 + 独立 ETF 行；持仓股映射进蛋糕层。 -->
-    <div class="cake-wrap" v-show="homeTab==='ai_server'">
-      <div class="layer-card" v-for="L in layers" :key="L.id">
-        <div class="layer-top" @click="L.open=!L.open">
+    <!-- 产业链首页：所有 tab 统一使用 strategy.json.chains 的 tier 分层结构。 -->
+    <div class="cake-wrap">
+      <div v-if="!stratReady && !hasChains" class="chain-empty-cake">产业链数据同步中，请稍候。</div>
+      <div class="chain-sigs" v-else-if="chainSignals.length">
+        <div class="chain-sig-box">
+          <div class="chain-sig-h"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3c1 3-1 4-1 6a3 3 0 0 0 6 .5c0-1.5-.5-2.5-.5-2.5 2 1.5 3 4 3 6.5a7 7 0 1 1-14 0c0-3.5 2.5-5.5 3.5-8 .8-2 .5-2.5 0-4 1.5.5 2.5 2 3.5 3.5Z"/></svg>非共识机会 <span style="font-size:11px;color:var(--text2);font-weight:400;">{{ chainLabel(homeTab) }} · 被忽略的环节标的</span></div>
+          <div class="chain-sig-chips">
+            <span class="cake-chip" v-for="h in chainSignals" :key="h.code"
+                  style="background:#E8F5EC;color:var(--down);" @click="openTarget(h,{name:h.segment})">
+              {{ h.name }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <template v-if="homeChainLayers.length">
+      <div class="layer-card" v-for="L in homeChainLayers" :key="L.id">
+        <div class="layer-top" @click="treeOpen[L.id]=!L.open">
           <div class="layer-badge" :style="{background:L.color}">{{ L.id }}</div>
           <div class="layer-info">
             <div class="layer-name">
@@ -489,62 +502,17 @@ a:active{opacity:.6;}
           </div>
         </div>
       </div>
+      </template>
+      <div v-else-if="stratReady" class="chain-empty-cake">{{ chainEmptyNote }}</div>
     </div>
 
-    <div class="insight-wrap" v-show="homeTab==='ai_server'">
+    <div class="insight-wrap">
       <div class="insight-card">
-        <div class="insight-title"><svg class="ic" viewBox="0 0 24 24"><path d="M9 3a4 4 0 0 0-4 4 3.5 3.5 0 0 0-1 6.5A3.5 3.5 0 0 0 8 19h1Z"/><path d="M15 3a4 4 0 0 1 4 4 3.5 3.5 0 0 1 1 6.5A3.5 3.5 0 0 1 16 19h-1Z"/><path d="M12 3v16"/></svg>AI 汇总观点</div>
+        <div class="insight-title"><svg class="ic" viewBox="0 0 24 24"><path d="M9 3a4 4 0 0 0-4 4 3.5 3.5 0 0 0-1 6.5A3.5 3.5 0 0 0 8 19h1Z"/><path d="M15 3a4 4 0 0 1 4 4 3.5 3.5 0 0 1 1 6.5A3.5 3.5 0 0 1 16 19h-1Z"/><path d="M12 3v16"/></svg>{{ chainLabel(homeTab) }} 汇总观点</div>
         <div class="insight-text">
-          五层蛋糕中<b :style="{color:'var(--l1)'}">L1能源</b>政策确定性最高；
-          <b :style="{color:'var(--l2)'}">L2算力</b>景气分化，高PE标的需警惕；
-          <b :style="{color:'var(--l3)'}">L3通信</b>关注PCB/光模块技术突破节点。
+          {{ chainInsight }}
         </div>
       </div>
-    </div>
-
-    <!-- 其它产业链：仿五层蛋糕分层卡片（chains[homeTab].segments 按 tier 归层） -->
-    <div class="cake-wrap" v-show="homeTab!=='ai_server'">
-      <div v-if="!stratReady && !hasChains" class="chain-empty-cake">产业链数据同步中，请稍候。</div>
-      <template v-else-if="chainCakeLayers.length">
-        <!-- 机会信号（随 tab 切换，用该链 non_consensus） -->
-        <div class="chain-sigs">
-          <div class="chain-sig-box">
-            <div class="chain-sig-h"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3c1 3-1 4-1 6a3 3 0 0 0 6 .5c0-1.5-.5-2.5-.5-2.5 2 1.5 3 4 3 6.5a7 7 0 1 1-14 0c0-3.5 2.5-5.5 3.5-8 .8-2 .5-2.5 0-4 1.5.5 2.5 2 3.5 3.5Z"/></svg>非共识机会 <span style="font-size:11px;color:var(--text2);font-weight:400;">被忽略的环节标的</span></div>
-            <div class="chain-sig-chips" v-if="chainSignals.length">
-              <span class="cake-chip" v-for="h in chainSignals" :key="h.code"
-                    style="background:#E8F5EC;color:var(--down);" @click="openTarget(h,{name:h.segment})">
-                {{ h.name }}
-              </span>
-            </div>
-            <div class="chain-sig-empty" v-else>暂无非共识标的（共识充分或图谱待补）</div>
-          </div>
-        </div>
-        <!-- 蛋糕分层卡片 -->
-        <div class="clayer-card" v-for="L in chainCakeLayers" :key="L.tier">
-          <div class="clayer-top">
-            <div class="clayer-badge" :style="{background:L.color}">t{{ L.tier }}</div>
-            <div class="clayer-info">
-              <div class="clayer-name">{{ L.name }}</div>
-              <div class="clayer-sub">{{ L.segNames.join(' · ') }}</div>
-            </div>
-            <div class="clayer-cnt">{{ L.holdings.length }}标的</div>
-          </div>
-          <div class="clayer-chips" v-if="L.holdings.length">
-            <span class="cake-chip" :class="consClass(h.consensus_state)" v-for="h in L.holdings" :key="h.code"
-                  @click="openTarget(h,{name:h.segment})">
-              <svg class="crown ic" v-if="h.is_leader" viewBox="0 0 24 24" aria-label="龙头"><path d="M3 8l4 4 5-7 5 7 4-4-2 11H5L3 8Z"/></svg>{{ h.name }}
-              <span v-if="quoteOf(h.code).c" class="chip-chg" :class="chgClass(quoteOf(h.code).cv)">{{ quoteOf(h.code).c }}</span>
-              <span v-if="isHeld(h.code)" class="held-pill">持有</span>
-              <span class="cs-badge" :class="consClass(h.consensus_state)||'normal'"
-                    v-if="h.consensus_state==='non_consensus'||h.consensus_state==='crowded'">
-                {{ h.consensus_state==='non_consensus'?'非共识':'拥挤' }}
-              </span>
-            </span>
-          </div>
-          <div class="clayer-chips" v-else><span class="chain-sig-empty">该层暂无 A 股标的</span></div>
-        </div>
-      </template>
-      <div v-else class="chain-empty-cake">{{ chainEmptyNote }}</div>
     </div>
   </div>
 
@@ -1020,23 +988,32 @@ createApp({
 
     // 首页顶部产业链 tab（与 strategy.json chains key 对齐）
     const homeTab=ref('ai_server');
-    const homeTabs=ref([
-      {key:'ai_server',label:'AI产业链'},
-      {key:'physical_ai',label:'物理AI'},
-      {key:'commercial_space',label:'商业航天'},
-      {key:'innovative_drug',label:'创新药'},
-    ]);
+    const homeTabs=computed(()=>{
+      const fallback=[
+        {key:'ai_server',label:'AI产业链'},
+        {key:'new_energy',label:'新能源'},
+        {key:'commercial_space',label:'商业航天'},
+        {key:'physical_ai',label:'物理AI'},
+        {key:'innovative_drug',label:'创新药'},
+      ];
+      if(!hasChains.value)return fallback;
+      return (strat.chainOrder||[]).map(k=>({
+        key:k,
+        label:k==='ai_server'?'AI产业链':chainLabel(k),
+      }));
+    });
     const selectHomeTab=(k)=>{
       homeTab.value=k;
-      // 非 AI tab 复用产业链树渲染：把 activeChain 指向所选链
-      if(k!=='ai_server'){activeChain.value=k;Object.keys(treeOpen).forEach(id=>delete treeOpen[id]);}
+      activeChain.value=k;
+      Object.keys(treeOpen).forEach(id=>delete treeOpen[id]);
     };
     const hasChains=computed(()=>!!(strat.chains && strat.chainOrder && strat.chainOrder.length));
     const chainOrder=computed(()=>strat.chainOrder||[]);
     const chainLabel=(k)=>(strat.chains&&strat.chains[k]&&strat.chains[k].label)||k;
     // 当前链：新数据用 chains[activeChain]，旧数据回退 chainTree
     const curChain=computed(()=>{
-      if(hasChains.value && activeChain.value && strat.chains[activeChain.value])return strat.chains[activeChain.value];
+      const k=activeChain.value||homeTab.value||strat.defaultChain||'ai_server';
+      if(hasChains.value && k && strat.chains[k])return strat.chains[k];
       return strat.chainTree;
     });
     // 树空态文案：available 但 segments 空 = 占位链；否则用 note
@@ -1214,27 +1191,77 @@ createApp({
 
     // ── 产业链 → 蛋糕分层卡片（item2）：按 tier 把 chains[key].segments 归层 ──
     const tierMeta={
-      0:{name:'整机/终端',sub:'tier0 · 集成与品牌',color:'#E03B3B'},
-      1:{name:'核心部件',sub:'tier1 · 关键模块',color:'#E8740A'},
-      2:{name:'关键器件/材料',sub:'tier2 · 上游器件',color:'#2B7FD4'},
-      3:{name:'底层材料/设备',sub:'tier3 · 最上游',color:'#8E44AD'},
-      4:{name:'其它环节',sub:'tier4+',color:'#0EA352'}
+      0:{id:'T0',name:'终端/整机层',sub:'tier0 · 需求入口与集成',color:'#E03B3B'},
+      1:{id:'T1',name:'核心系统层',sub:'tier1 · 关键模块与平台',color:'#E8740A'},
+      2:{id:'T2',name:'关键器件层',sub:'tier2 · 核心器件/材料',color:'#2B7FD4'},
+      3:{id:'T3',name:'底层材料层',sub:'tier3 · 最上游材料/设备',color:'#8E44AD'},
+      4:{id:'T4',name:'其它支撑层',sub:'tier4+ · 配套环节',color:'#0EA352'}
     };
-    const chainCakeLayers=computed(()=>{
+    const homeChainLayers=computed(()=>{
       const c=curChain.value;const segs=(c&&c.segments)||[];
       if(!segs.length)return[];
       const byTier={};
       segs.forEach(s=>{const t=Math.min(4,(s.tier!=null?s.tier:4));(byTier[t]=byTier[t]||[]).push(s);});
       return Object.keys(byTier).sort((a,b)=>a-b).map(t=>{
         const meta=tierMeta[t]||tierMeta[4];
-        const holds=[];const segNames=[];
-        byTier[t].forEach(s=>{segNames.push(s.name);(s.holdings||[]).forEach(h=>{if(!holds.some(x=>x.code===h.code))holds.push({...h,segment:s.name});});});
-        return{tier:t,name:meta.name,sub:meta.sub,color:meta.color,segNames,holdings:holds};
+        const stocks=[];const segNames=[];const seen=new Set();
+        byTier[t].forEach(s=>{
+          segNames.push(s.name);
+          (s.holdings||[]).forEach(h=>{
+            if(seen.has(h.code))return;seen.add(h.code);
+            const q=quoteOf(h.code);
+            const card=((strat.stockCards&&strat.stockCards.cards)||{})[h.code]||{};
+            stocks.push({
+              ...h,
+              segment:s.name,
+              sector:s.name,
+              p:q.p||'—',
+              c:q.c||'—',
+              cv:q.cv||0,
+              pe:q.pe,
+              cap:q.cap,
+              signal:q.signal||'neutral',
+              signalNote:q.signalNote||card.chokepoint||'行情/技术信号[未核实]',
+              confidence:q.signal?'':(card.water_seller?'卖水':''),
+            });
+          });
+        });
+        const quoted=stocks.filter(s=>s.p&&s.p!=='—'&&s.c&&s.c!=='—');
+        const avg=quoted.length?Number((quoted.reduce((sum,s)=>sum+(Number(s.cv)||0),0)/quoted.length).toFixed(2)):0;
+        const boom=Math.max(8,Math.min(96,Math.round((stocks.length?quoted.length/stocks.length:0)*100)));
+        const id=meta.id;
+        return{
+          id,
+          tier:Number(t),
+          name:meta.name,
+          sub:meta.sub,
+          color:meta.color,
+          segNames,
+          stocks,
+          avg,
+          boom,
+          boomLabel:quoted.length?'有行情':'待核实',
+          boomColor:quoted.length?'#E8F5EC':'#F0F0F0',
+          boomTextColor:quoted.length?'var(--green)':'var(--text3)',
+          summary:`${chainLabel(homeTab.value)} · ${meta.name}: 覆盖 ${segNames.length} 个环节、${stocks.length} 只标的。${quoted.length ? `其中 ${quoted.length} 只已有行情映射，均涨跌 ${avg>0?'+':''}${avg}%。` : '行情映射待补，先作为结构化图谱观察。'}`,
+          summaryTime:(curChain.value&&curChain.value.consensus_live)?'实时共识':'结构图谱',
+          sig:stocks.some(s=>s.consensus_state==='crowded')?{t:'warn',text:'存在拥挤环节，注意回撤风险'}:null,
+          open:treeOpen[id]!==false,
+        };
       });
     });
     // 机会信号随 tab 切换：用该链 non_consensus（item2）
     const chainSignals=computed(()=>{
       const c=curChain.value;return (c&&c.non_consensus)||[];
+    });
+    const chainInsight=computed(()=>{
+      const c=curChain.value||{};const stats=c.stats||{};
+      const layers=homeChainLayers.value;
+      if(!layers.length)return `${chainLabel(homeTab.value)} 图谱待补，当前仅保留 tab 入口，不脑补结论。`;
+      const most=layers.slice().sort((a,b)=>b.stocks.length-a.stocks.length)[0];
+      const total=stats.total_targets||layers.reduce((s,l)=>s+l.stocks.length,0);
+      const todo=stats.nodes_todo||0;
+      return `${chainLabel(homeTab.value)} 当前覆盖 ${layers.length} 个层级、${total} 个标的映射；${most.name} 标的最密集。${todo ? `仍有 ${todo} 个上游节点待补，未核实数据不参与判断。` : '图谱节点已基本覆盖，后续重点看行情与共识状态变化。'}`;
     });
 
     // ── 市场情绪 gauge（item6）：优先 usMapping 锚 sentiment，无则用美股锚涨跌均值/胜率 ──
@@ -1430,7 +1457,8 @@ createApp({
             });
           });
         }
-        if(d.etfs){d.etfs.forEach(de=>{const t=etfs.find(i=>i.code===de.code);if(t){t.p=de.p;t.c=de.c;t.cv=de.cv;}});}
+        if(d.etfs){d.etfs.forEach(de=>{const t=etfs.find(i=>i.code===de.code);if(t){t.p=de.p;t.c=de.c;t.cv=de.cv;
+          if(de.signal)t.signal=de.signal;if(de.signalNote)t.signalNote=de.signalNote;if(de.signalTime)t.signalTime=de.signalTime;if(de.confidence)t.confidence=de.confidence;}});}
         if(Array.isArray(d.hk)){hkStocks.length=0;d.hk.forEach(h=>hkStocks.push(h));}
         console.log('[OpenClaw] 数据已刷新:',updateTime.value);
       }catch(e){console.log('[OpenClaw] data.json未找到');}
@@ -1453,7 +1481,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,chainCakeLayers,chainSignals,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,pickDash,dashCard,dashQuote};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,pickDash,dashCard,dashQuote};
   }
 }).mount('#app');
 

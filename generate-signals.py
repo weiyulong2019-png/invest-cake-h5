@@ -816,6 +816,81 @@ def main():
         else:
             print("[美股] 无数据")
 
+    def apply_signal(stock, stocks_signals=None):
+        """为单个公开标的补技术信号；失败时诚实降级，不阻断整页刷新。"""
+        code = stock["code"]
+        name = stock.get("name", code)
+
+        # --- 获取技术指标 ---
+        if code.startswith("HK."):
+            ind = fetch_hk_stock_indicators(code)
+        elif is_etf_code(code):
+            ind = fetch_etf_indicators(code)
+        else:
+            ind = fetch_a_stock_indicators(code)
+
+        # --- 硬排除检查（港股和ETF跳过）---
+        if not code.startswith("HK.") and not is_etf_code(code):
+            excluded, excl_reason = should_exclude(ind, name)
+            if excluded:
+                stock["signal"] = "risk"
+                stock["signalNote"] = f"[排除] {excl_reason}"
+                stock["signalTime"] = time_tag
+                stock["confidence"] = "高"
+                if stocks_signals is not None:
+                    stocks_signals.append({"signal": "risk", "chg5d": 0, "confidence": "高"})
+                print(f"  [{code}] {name}: 🚫排除 — {excl_reason}")
+                return True
+
+        # --- 构建信号增强包 ---
+        enhancement = None
+        if has_ds and not code.startswith("HK."):
+            enhancement = {"northbound": {"ok": False}, "unlock": {"has_unlock": False}, "on_dragon_tiger": False}
+            # 北向个股持仓(A股主板才查)
+            try:
+                nb_stock = ds.fetch_northbound_stock_holding(code)
+                if nb_stock.get("ok"):
+                    enhancement["northbound"] = nb_stock
+            except:
+                pass
+            # 解禁(从预加载map查)
+            if code in unlock_map:
+                u = unlock_map[code]
+                ratio = u.get("unlock_ratio", 0)
+                enhancement["unlock"] = {
+                    "has_unlock": True,
+                    "date": u.get("date", ""),
+                    "ratio": ratio,
+                    "risk_level": "高" if ratio > 5 else ("中" if ratio > 1 else "低"),
+                }
+            # 龙虎榜(从预加载set查)
+            if code in dragon_tiger_codes:
+                enhancement["on_dragon_tiger"] = True
+
+        # --- 乘法因子信号判定 ---
+        signal, note, confidence, factors = judge_signal_v2(ind, us_data, is_premarket, enhancement)
+        stock["signal"] = signal
+        stock["signalNote"] = note
+        stock["signalTime"] = time_tag
+        stock["confidence"] = confidence
+
+        if stocks_signals is not None:
+            stocks_signals.append({
+                "signal": signal,
+                "chg5d": ind.get("chg5d", 0),
+                "confidence": confidence
+            })
+
+        label = {"buy": "🟢建仓", "risk": "🔴风险", "neutral": "⚪中性"}[signal]
+        conf_icon = {"高": "★", "中": "☆", "低": "·"}[confidence]
+        # 打印因子详情
+        f_str = " × ".join(f"{k}={v}" for k, v in factors.items() if v != 1.0)
+        score = 1.0
+        for v in factors.values():
+            score *= v
+        print(f"  [{code}] {name}: {label}({confidence}{conf_icon}) score={score:.2f} [{f_str}] — {note}")
+        return False
+
     # Step 2: 遍历每层
     total_excluded = 0
     for layer in data.get("layers", []):
@@ -824,76 +899,8 @@ def main():
         stocks_signals = []
 
         for stock in layer.get("stocks", []):
-            code = stock["code"]
-            name = stock.get("name", code)
-
-            # --- 获取技术指标 ---
-            if code.startswith("HK."):
-                ind = fetch_hk_stock_indicators(code)
-            elif is_etf_code(code):
-                ind = fetch_etf_indicators(code)
-            else:
-                ind = fetch_a_stock_indicators(code)
-
-            # --- 硬排除检查（港股和ETF跳过）---
-            if not code.startswith("HK.") and not is_etf_code(code):
-                excluded, excl_reason = should_exclude(ind, name)
-                if excluded:
-                    stock["signal"] = "risk"
-                    stock["signalNote"] = f"[排除] {excl_reason}"
-                    stock["signalTime"] = time_tag
-                    stock["confidence"] = "高"
-                    stocks_signals.append({"signal": "risk", "chg5d": 0, "confidence": "高"})
-                    total_excluded += 1
-                    print(f"  [{code}] {name}: 🚫排除 — {excl_reason}")
-                    continue
-
-            # --- 构建信号增强包 ---
-            enhancement = None
-            if has_ds and not code.startswith("HK."):
-                enhancement = {"northbound": {"ok": False}, "unlock": {"has_unlock": False}, "on_dragon_tiger": False}
-                # 北向个股持仓(A股主板才查)
-                try:
-                    nb_stock = ds.fetch_northbound_stock_holding(code)
-                    if nb_stock.get("ok"):
-                        enhancement["northbound"] = nb_stock
-                except:
-                    pass
-                # 解禁(从预加载map查)
-                if code in unlock_map:
-                    u = unlock_map[code]
-                    ratio = u.get("unlock_ratio", 0)
-                    enhancement["unlock"] = {
-                        "has_unlock": True,
-                        "date": u.get("date", ""),
-                        "ratio": ratio,
-                        "risk_level": "高" if ratio > 5 else ("中" if ratio > 1 else "低"),
-                    }
-                # 龙虎榜(从预加载set查)
-                if code in dragon_tiger_codes:
-                    enhancement["on_dragon_tiger"] = True
-
-            # --- 乘法因子信号判定 ---
-            signal, note, confidence, factors = judge_signal_v2(ind, us_data, is_premarket, enhancement)
-            stock["signal"] = signal
-            stock["signalNote"] = note
-            stock["signalTime"] = time_tag
-            stock["confidence"] = confidence
-
-            stocks_signals.append({
-                "signal": signal,
-                "chg5d": ind.get("chg5d", 0),
-                "confidence": confidence
-            })
-
-            label = {"buy": "🟢建仓", "risk": "🔴风险", "neutral": "⚪中性"}[signal]
-            conf_icon = {"高": "★", "中": "☆", "低": "·"}[confidence]
-            # 打印因子详情
-            f_str = " × ".join(f"{k}={v}" for k, v in factors.items() if v != 1.0)
-            score = 1.0
-            for v in factors.values():
-                score *= v
-            print(f"  [{code}] {name}: {label}({confidence}{conf_icon}) score={score:.2f} [{f_str}] — {note}")
+            if apply_signal(stock, stocks_signals):
+                total_excluded += 1
 
         # 生成层级总结
         summary = generate_layer_summary(layer_id, layer_name, stocks_signals, us_data)
@@ -901,6 +908,17 @@ def main():
             layer["summary"] = summary
             layer["summaryTime"] = time_tag
             print(f"  [{layer_id}] 总结: {summary}")
+
+    # Step 2.5: 补齐首页顶部 ETF 与港股列表。它们不参与层级 summary, 但前端会展示信号徽标。
+    if data.get("etfs"):
+        print("[信号v2] 补齐首页 ETF 信号...")
+        for item in data.get("etfs", []):
+            apply_signal(item)
+
+    if data.get("hk"):
+        print("[信号v2] 补齐港股列表信号...")
+        for item in data.get("hk", []):
+            apply_signal(item)
 
     # Step 3: 写回 data.json
     data["signalUpdateTime"] = NOW.strftime("%Y-%m-%d %H:%M:%S")

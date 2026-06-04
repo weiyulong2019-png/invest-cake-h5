@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-06-04 14:03:07",
-  "timestamp": 1780552987,
+  "updateTime": "2026-06-04 14:39:15",
+  "timestamp": 1780555155,
   "mode": "live",
   "disclaimer": "公开策略数据看板，仅含聚合/结构化信息，不构成投资建议。",
   "waterSellers": {
@@ -2209,6 +2209,968 @@
       "key": "ai_server",
       "label": "AI服务器"
     },
+    "new_energy": {
+      "available": true,
+      "note": "",
+      "chain": "new_energy",
+      "entry": "终端(电动车/光储装机)",
+      "stats": {
+        "total_nodes": 46,
+        "nodes_with_targets": 13,
+        "nodes_todo": 33,
+        "total_targets": 26
+      },
+      "segments": [
+        {
+          "name": "锂电池(动力/储能电芯)",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300750",
+              "name": "宁德时代",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002594",
+              "name": "比亚迪",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "锂电隔膜",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002812",
+              "name": "恩捷股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300568",
+              "name": "星源材质",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "锂电电解液",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002709",
+              "name": "天赐材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300037",
+              "name": "新宙邦",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "电池结构件",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002850",
+              "name": "科达利",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高纯石英砂/石英坩埚",
+          "tier": 3,
+          "depth": 4,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "603688",
+              "name": "石英股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "光伏银浆",
+          "tier": 2,
+          "depth": 4,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688503",
+              "name": "聚和材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002079",
+              "name": "苏州固锝",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "光伏银浆",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688503",
+              "name": "聚和材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002079",
+              "name": "苏州固锝",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "光伏胶膜(EVA/POE)",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "603806",
+              "name": "福斯特",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688680",
+              "name": "海优新材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "光伏银浆",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688503",
+              "name": "聚和材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002079",
+              "name": "苏州固锝",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "光伏胶膜(EVA/POE)",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "603806",
+              "name": "福斯特",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688680",
+              "name": "海优新材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "逆变器(组串/微逆/储能PCS)",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300274",
+              "name": "阳光电源",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688032",
+              "name": "禾迈股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688348",
+              "name": "昱能科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "逆变器(组串/微逆/储能PCS)",
+          "tier": 1,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300274",
+              "name": "阳光电源",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688032",
+              "name": "禾迈股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688348",
+              "name": "昱能科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "锂电池(动力/储能电芯)",
+          "tier": 1,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300750",
+              "name": "宁德时代",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002594",
+              "name": "比亚迪",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        }
+      ],
+      "non_consensus": [],
+      "upstream_todo": [
+        {
+          "segment": "基膜原料(聚乙烯/聚丙烯)",
+          "tier": 3
+        },
+        {
+          "segment": "涂覆材料(勃姆石/PVDF)",
+          "tier": 3
+        },
+        {
+          "segment": "电解液添加剂(LiFSI/VC)",
+          "tier": 3
+        },
+        {
+          "segment": "氟化工原料(氢氟酸/氟盐)",
+          "tier": 3
+        },
+        {
+          "segment": "六氟磷酸锂(LiPF6)",
+          "tier": 3
+        },
+        {
+          "segment": "正极材料(三元/磷酸铁锂)",
+          "tier": 2
+        },
+        {
+          "segment": "碳酸锂/氢氧化锂",
+          "tier": 3
+        },
+        {
+          "segment": "钴/镍(三元用)",
+          "tier": 3
+        },
+        {
+          "segment": "磷酸铁(铁锂用)",
+          "tier": 3
+        },
+        {
+          "segment": "负极材料(石墨)",
+          "tier": 2
+        },
+        {
+          "segment": "针状焦/石油焦",
+          "tier": 3
+        },
+        {
+          "segment": "石墨化加工",
+          "tier": 3
+        },
+        {
+          "segment": "电解液添加剂(LiFSI/VC)",
+          "tier": 3
+        },
+        {
+          "segment": "锂电铜箔",
+          "tier": 2
+        },
+        {
+          "segment": "电解铜(阴极铜)",
+          "tier": 3
+        },
+        {
+          "segment": "铝材/钢材(结构件用)",
+          "tier": 3
+        },
+        {
+          "segment": "硅片",
+          "tier": 2
+        },
+        {
+          "segment": "多晶硅料",
+          "tier": 3
+        },
+        {
+          "segment": "高纯石英原矿(进口为主)",
+          "tier": 3
+        },
+        {
+          "segment": "电池片",
+          "tier": 2
+        }
+      ],
+      "theme": "新能源",
+      "consensus_live": false,
+      "key": "new_energy",
+      "label": "新能源"
+    },
+    "commercial_space": {
+      "available": true,
+      "note": "",
+      "chain": "commercial_space",
+      "entry": "卫星互联网运营与终端",
+      "stats": {
+        "total_nodes": 33,
+        "nodes_with_targets": 30,
+        "nodes_todo": 3,
+        "total_targets": 56
+      },
+      "segments": [
+        {
+          "name": "卫星互联网运营与终端",
+          "tier": 0,
+          "depth": 0,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "601698",
+              "name": "中国卫通",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "卫星制造(平台/载荷)",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "600118",
+              "name": "中国卫星",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "相控阵T-R组件",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688375",
+              "name": "国博电子",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688270",
+              "name": "臻镭科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "001270",
+              "name": "铖昌科技(*ST铖昌)",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "星载芯片",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "301117",
+              "name": "佳缘科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300101",
+              "name": "振芯科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "星载芯片",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "301117",
+              "name": "佳缘科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300101",
+              "name": "振芯科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "星间激光通信",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688066",
+              "name": "航天宏图",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高温合金",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300034",
+              "name": "钢研高纳",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002149",
+              "name": "西部材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600893",
+              "name": "航发动力",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600456",
+              "name": "宝钛股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "卫星平台结构与电源",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "600879",
+              "name": "航天电子",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "碳纤维复合材料",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300699",
+              "name": "光威复材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002297",
+              "name": "博云新材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002389",
+              "name": "航天彩虹",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高温合金",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300034",
+              "name": "钢研高纳",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002149",
+              "name": "西部材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600893",
+              "name": "航发动力",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600456",
+              "name": "宝钛股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "地面站与测控",
+          "tier": 1,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002465",
+              "name": "海格通信",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "测控通信设备",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "600879",
+              "name": "航天电子",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 3,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 2,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "用户终端(相控阵平板天线)",
+          "tier": 2,
+          "depth": 1,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "300045",
+              "name": "华力创通",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "300762",
+              "name": "上海瀚讯",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "相控阵T-R组件",
+          "tier": 2,
+          "depth": 2,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688375",
+              "name": "国博电子",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688270",
+              "name": "臻镭科技",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "001270",
+              "name": "铖昌科技(*ST铖昌)",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 2,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "液体火箭发动机部件",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "688102",
+              "name": "斯瑞新材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688333",
+              "name": "铂力特",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600343",
+              "name": "航天动力",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高温合金",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300034",
+              "name": "钢研高纳",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002149",
+              "name": "西部材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600893",
+              "name": "航发动力",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600456",
+              "name": "宝钛股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "箭体结构件",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "301005",
+              "name": "超捷股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "碳纤维复合材料",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300699",
+              "name": "光威复材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002297",
+              "name": "博云新材",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002389",
+              "name": "航天彩虹",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "高温合金",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "300034",
+              "name": "钢研高纳",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002149",
+              "name": "西部材料",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600893",
+              "name": "航发动力",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "600456",
+              "name": "宝钛股份",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "火箭控制与惯导",
+          "tier": 2,
+          "depth": 3,
+          "kind": "tree",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "688582",
+              "name": "芯动联科",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        },
+        {
+          "name": "特种电子元件",
+          "tier": 3,
+          "depth": 4,
+          "kind": "raw",
+          "holdings": [
+            {
+              "code": "002025",
+              "name": "航天电器",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            }
+          ]
+        }
+      ],
+      "non_consensus": [],
+      "upstream_todo": [
+        {
+          "segment": "卫星推进",
+          "tier": 2
+        }
+      ],
+      "theme": "商业航天",
+      "consensus_live": false,
+      "key": "commercial_space",
+      "label": "商业航天"
+    },
     "physical_ai": {
       "available": true,
       "note": "",
@@ -2894,607 +3856,6 @@
       "key": "physical_ai",
       "label": "物理AI"
     },
-    "commercial_space": {
-      "available": true,
-      "note": "",
-      "chain": "commercial_space",
-      "entry": "卫星互联网运营与终端",
-      "stats": {
-        "total_nodes": 33,
-        "nodes_with_targets": 30,
-        "nodes_todo": 3,
-        "total_targets": 56
-      },
-      "segments": [
-        {
-          "name": "卫星互联网运营与终端",
-          "tier": 0,
-          "depth": 0,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "601698",
-              "name": "中国卫通",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "卫星制造(平台/载荷)",
-          "tier": 1,
-          "depth": 1,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "600118",
-              "name": "中国卫星",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "相控阵T-R组件",
-          "tier": 2,
-          "depth": 2,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "688375",
-              "name": "国博电子",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "688270",
-              "name": "臻镭科技",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "001270",
-              "name": "铖昌科技(*ST铖昌)",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "星载芯片",
-          "tier": 2,
-          "depth": 3,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "301117",
-              "name": "佳缘科技",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "300101",
-              "name": "振芯科技",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "特种电子元件",
-          "tier": 3,
-          "depth": 4,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "002025",
-              "name": "航天电器",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "特种电子元件",
-          "tier": 3,
-          "depth": 3,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "002025",
-              "name": "航天电器",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "星载芯片",
-          "tier": 2,
-          "depth": 2,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "301117",
-              "name": "佳缘科技",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "300101",
-              "name": "振芯科技",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "星间激光通信",
-          "tier": 2,
-          "depth": 2,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "688066",
-              "name": "航天宏图",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "特种电子元件",
-          "tier": 3,
-          "depth": 3,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "002025",
-              "name": "航天电器",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "特种电子元件",
-          "tier": 3,
-          "depth": 3,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "002025",
-              "name": "航天电器",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "高温合金",
-          "tier": 3,
-          "depth": 3,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "300034",
-              "name": "钢研高纳",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "002149",
-              "name": "西部材料",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "600893",
-              "name": "航发动力",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "600456",
-              "name": "宝钛股份",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "卫星平台结构与电源",
-          "tier": 2,
-          "depth": 2,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "600879",
-              "name": "航天电子",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "碳纤维复合材料",
-          "tier": 3,
-          "depth": 3,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "300699",
-              "name": "光威复材",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "002297",
-              "name": "博云新材",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "002389",
-              "name": "航天彩虹",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "高温合金",
-          "tier": 3,
-          "depth": 3,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "300034",
-              "name": "钢研高纳",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "002149",
-              "name": "西部材料",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "600893",
-              "name": "航发动力",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "600456",
-              "name": "宝钛股份",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "特种电子元件",
-          "tier": 3,
-          "depth": 3,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "002025",
-              "name": "航天电器",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "地面站与测控",
-          "tier": 1,
-          "depth": 1,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "002465",
-              "name": "海格通信",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "测控通信设备",
-          "tier": 2,
-          "depth": 2,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "600879",
-              "name": "航天电子",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "特种电子元件",
-          "tier": 3,
-          "depth": 3,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "002025",
-              "name": "航天电器",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "特种电子元件",
-          "tier": 3,
-          "depth": 2,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "002025",
-              "name": "航天电器",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "用户终端(相控阵平板天线)",
-          "tier": 2,
-          "depth": 1,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "300045",
-              "name": "华力创通",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "300762",
-              "name": "上海瀚讯",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "相控阵T-R组件",
-          "tier": 2,
-          "depth": 2,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "688375",
-              "name": "国博电子",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "688270",
-              "name": "臻镭科技",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "001270",
-              "name": "铖昌科技(*ST铖昌)",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "特种电子元件",
-          "tier": 3,
-          "depth": 2,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "002025",
-              "name": "航天电器",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "液体火箭发动机部件",
-          "tier": 2,
-          "depth": 3,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "688102",
-              "name": "斯瑞新材",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "688333",
-              "name": "铂力特",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "600343",
-              "name": "航天动力",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "高温合金",
-          "tier": 3,
-          "depth": 4,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "300034",
-              "name": "钢研高纳",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "002149",
-              "name": "西部材料",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "600893",
-              "name": "航发动力",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "600456",
-              "name": "宝钛股份",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "特种电子元件",
-          "tier": 3,
-          "depth": 4,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "002025",
-              "name": "航天电器",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "箭体结构件",
-          "tier": 2,
-          "depth": 3,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "301005",
-              "name": "超捷股份",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "碳纤维复合材料",
-          "tier": 3,
-          "depth": 4,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "300699",
-              "name": "光威复材",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "002297",
-              "name": "博云新材",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "002389",
-              "name": "航天彩虹",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "高温合金",
-          "tier": 3,
-          "depth": 4,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "300034",
-              "name": "钢研高纳",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "002149",
-              "name": "西部材料",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "600893",
-              "name": "航发动力",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "600456",
-              "name": "宝钛股份",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "火箭控制与惯导",
-          "tier": 2,
-          "depth": 3,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "002025",
-              "name": "航天电器",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "688582",
-              "name": "芯动联科",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
-        {
-          "name": "特种电子元件",
-          "tier": 3,
-          "depth": 4,
-          "kind": "raw",
-          "holdings": [
-            {
-              "code": "002025",
-              "name": "航天电器",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        }
-      ],
-      "non_consensus": [],
-      "upstream_todo": [
-        {
-          "segment": "卫星推进",
-          "tier": 2
-        }
-      ],
-      "theme": "商业航天",
-      "consensus_live": false,
-      "key": "commercial_space",
-      "label": "商业航天"
-    },
     "innovative_drug": {
       "available": true,
       "note": "",
@@ -3767,8 +4128,9 @@
   },
   "chainOrder": [
     "ai_server",
-    "physical_ai",
+    "new_energy",
     "commercial_space",
+    "physical_ai",
     "innovative_drug"
   ],
   "defaultChain": "ai_server",
@@ -7210,7 +7572,7 @@
   "stockCards": {
     "available": true,
     "note": "",
-    "count": 156,
+    "count": 163,
     "cards": {
       "601138": {
         "code": "601138",
@@ -10730,6 +11092,518 @@
           }
         ]
       },
+      "002594": {
+        "code": "002594",
+        "name": "比亚迪",
+        "chain": "new_energy",
+        "chain_label": "新能源",
+        "segment": "锂电池(动力/储能电芯)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "002709": {
+        "code": "002709",
+        "name": "天赐材料",
+        "chain": "new_energy",
+        "chain_label": "新能源",
+        "segment": "锂电电解液",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002850": {
+        "code": "002850",
+        "name": "科达利",
+        "chain": "new_energy",
+        "chain_label": "新能源",
+        "segment": "电池结构件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "603806": {
+        "code": "603806",
+        "name": "福斯特",
+        "chain": "new_energy",
+        "chain_label": "新能源",
+        "segment": "光伏胶膜(EVA/POE)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688680": {
+        "code": "688680",
+        "name": "海优新材",
+        "chain": "new_energy",
+        "chain_label": "新能源",
+        "segment": "光伏胶膜(EVA/POE)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688032": {
+        "code": "688032",
+        "name": "禾迈股份",
+        "chain": "new_energy",
+        "chain_label": "新能源",
+        "segment": "逆变器(组串/微逆/储能PCS)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "688348": {
+        "code": "688348",
+        "name": "昱能科技",
+        "chain": "new_energy",
+        "chain_label": "新能源",
+        "segment": "逆变器(组串/微逆/储能PCS)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "601698": {
+        "code": "601698",
+        "name": "中国卫通",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "卫星互联网运营与终端",
+        "tier": 0,
+        "cakeLayer": "L5",
+        "cakeLayerName": "L5 应用层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "整机集成（下游需求侧）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "600118": {
+        "code": "600118",
+        "name": "中国卫星",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "卫星制造(平台/载荷)",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "688375": {
+        "code": "688375",
+        "name": "国博电子",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "相控阵T-R组件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688270": {
+        "code": "688270",
+        "name": "臻镭科技",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "相控阵T-R组件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "001270": {
+        "code": "001270",
+        "name": "铖昌科技(*ST铖昌)",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "相控阵T-R组件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "301117": {
+        "code": "301117",
+        "name": "佳缘科技",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "星载芯片",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300101": {
+        "code": "300101",
+        "name": "振芯科技",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "星载芯片",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002025": {
+        "code": "002025",
+        "name": "航天电器",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "特种电子元件",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688066": {
+        "code": "688066",
+        "name": "航天宏图",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "星间激光通信",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300034": {
+        "code": "300034",
+        "name": "钢研高纳",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "高温合金",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002149": {
+        "code": "002149",
+        "name": "西部材料",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "高温合金",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "600893": {
+        "code": "600893",
+        "name": "航发动力",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "高温合金",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "600456": {
+        "code": "600456",
+        "name": "宝钛股份",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "高温合金",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "600879": {
+        "code": "600879",
+        "name": "航天电子",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "卫星平台结构与电源",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300699": {
+        "code": "300699",
+        "name": "光威复材",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "碳纤维复合材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002297": {
+        "code": "002297",
+        "name": "博云新材",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "碳纤维复合材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002389": {
+        "code": "002389",
+        "name": "航天彩虹",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "碳纤维复合材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "002465": {
+        "code": "002465",
+        "name": "海格通信",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "地面站与测控",
+        "tier": 1,
+        "cakeLayer": "L4",
+        "cakeLayerName": "L4 模型层",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "核心部件（议价中枢）",
+        "water_seller": false,
+        "held": false,
+        "us_anchors": []
+      },
+      "300045": {
+        "code": "300045",
+        "name": "华力创通",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "用户终端(相控阵平板天线)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "300762": {
+        "code": "300762",
+        "name": "上海瀚讯",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "用户终端(相控阵平板天线)",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688102": {
+        "code": "688102",
+        "name": "斯瑞新材",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "液体火箭发动机部件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688333": {
+        "code": "688333",
+        "name": "铂力特",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "液体火箭发动机部件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "600343": {
+        "code": "600343",
+        "name": "航天动力",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "液体火箭发动机部件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "301005": {
+        "code": "301005",
+        "name": "超捷股份",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "箭体结构件",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
+      "688582": {
+        "code": "688582",
+        "name": "芯动联科",
+        "chain": "commercial_space",
+        "chain_label": "商业航天",
+        "segment": "火箭控制与惯导",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": []
+      },
       "300607": {
         "code": "300607",
         "name": "拓斯达",
@@ -11130,22 +12004,6 @@
         "held": false,
         "us_anchors": []
       },
-      "688582": {
-        "code": "688582",
-        "name": "芯动联科",
-        "chain": "physical_ai",
-        "chain_label": "物理AI",
-        "segment": "IMU惯性传感器",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
       "300456": {
         "code": "300456",
         "name": "赛微电子",
@@ -11223,390 +12081,6 @@
         "consensus_state": "unknown",
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
-        "held": false,
-        "us_anchors": []
-      },
-      "601698": {
-        "code": "601698",
-        "name": "中国卫通",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "卫星互联网运营与终端",
-        "tier": 0,
-        "cakeLayer": "L5",
-        "cakeLayerName": "L5 应用层",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "整机集成（下游需求侧）",
-        "water_seller": false,
-        "held": false,
-        "us_anchors": []
-      },
-      "600118": {
-        "code": "600118",
-        "name": "中国卫星",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "卫星制造(平台/载荷)",
-        "tier": 1,
-        "cakeLayer": "L4",
-        "cakeLayerName": "L4 模型层",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "核心部件（议价中枢）",
-        "water_seller": false,
-        "held": false,
-        "us_anchors": []
-      },
-      "688375": {
-        "code": "688375",
-        "name": "国博电子",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "相控阵T-R组件",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "688270": {
-        "code": "688270",
-        "name": "臻镭科技",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "相控阵T-R组件",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "001270": {
-        "code": "001270",
-        "name": "铖昌科技(*ST铖昌)",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "相控阵T-R组件",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "301117": {
-        "code": "301117",
-        "name": "佳缘科技",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "星载芯片",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "300101": {
-        "code": "300101",
-        "name": "振芯科技",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "星载芯片",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "002025": {
-        "code": "002025",
-        "name": "航天电器",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "特种电子元件",
-        "tier": 3,
-        "cakeLayer": "L2",
-        "cakeLayerName": "L2 算力芯片",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "底层材料/设备（最上游卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "688066": {
-        "code": "688066",
-        "name": "航天宏图",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "星间激光通信",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "300034": {
-        "code": "300034",
-        "name": "钢研高纳",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "高温合金",
-        "tier": 3,
-        "cakeLayer": "L2",
-        "cakeLayerName": "L2 算力芯片",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "底层材料/设备（最上游卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "002149": {
-        "code": "002149",
-        "name": "西部材料",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "高温合金",
-        "tier": 3,
-        "cakeLayer": "L2",
-        "cakeLayerName": "L2 算力芯片",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "底层材料/设备（最上游卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "600893": {
-        "code": "600893",
-        "name": "航发动力",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "高温合金",
-        "tier": 3,
-        "cakeLayer": "L2",
-        "cakeLayerName": "L2 算力芯片",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "底层材料/设备（最上游卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "600456": {
-        "code": "600456",
-        "name": "宝钛股份",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "高温合金",
-        "tier": 3,
-        "cakeLayer": "L2",
-        "cakeLayerName": "L2 算力芯片",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "底层材料/设备（最上游卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "600879": {
-        "code": "600879",
-        "name": "航天电子",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "卫星平台结构与电源",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "300699": {
-        "code": "300699",
-        "name": "光威复材",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "碳纤维复合材料",
-        "tier": 3,
-        "cakeLayer": "L2",
-        "cakeLayerName": "L2 算力芯片",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "底层材料/设备（最上游卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "002297": {
-        "code": "002297",
-        "name": "博云新材",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "碳纤维复合材料",
-        "tier": 3,
-        "cakeLayer": "L2",
-        "cakeLayerName": "L2 算力芯片",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "底层材料/设备（最上游卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "002389": {
-        "code": "002389",
-        "name": "航天彩虹",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "碳纤维复合材料",
-        "tier": 3,
-        "cakeLayer": "L2",
-        "cakeLayerName": "L2 算力芯片",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "底层材料/设备（最上游卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "002465": {
-        "code": "002465",
-        "name": "海格通信",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "地面站与测控",
-        "tier": 1,
-        "cakeLayer": "L4",
-        "cakeLayerName": "L4 模型层",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "核心部件（议价中枢）",
-        "water_seller": false,
-        "held": false,
-        "us_anchors": []
-      },
-      "300045": {
-        "code": "300045",
-        "name": "华力创通",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "用户终端(相控阵平板天线)",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "300762": {
-        "code": "300762",
-        "name": "上海瀚讯",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "用户终端(相控阵平板天线)",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "688102": {
-        "code": "688102",
-        "name": "斯瑞新材",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "液体火箭发动机部件",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "688333": {
-        "code": "688333",
-        "name": "铂力特",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "液体火箭发动机部件",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "600343": {
-        "code": "600343",
-        "name": "航天动力",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "液体火箭发动机部件",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": []
-      },
-      "301005": {
-        "code": "301005",
-        "name": "超捷股份",
-        "chain": "commercial_space",
-        "chain_label": "商业航天",
-        "segment": "箭体结构件",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
         "held": false,
         "us_anchors": []
       },
