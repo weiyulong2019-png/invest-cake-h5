@@ -95,6 +95,12 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
                 if code and code not in seen:
                     seen.add(code)
                     chain_codes.append(code)
+        stats = chain.get("stats") or {}
+        unique_targets = stats.get("unique_targets")
+        if unique_targets is None:
+            errors.append(f"{chain_key} 缺少 stats.unique_targets")
+        elif int(unique_targets) != len(chain_codes):
+            errors.append(f"{chain_key} 唯一标的统计不一致: stats={unique_targets} actual={len(chain_codes)}")
         if not chain_codes:
             errors.append(f"{chain_key} 没有标的映射")
             continue

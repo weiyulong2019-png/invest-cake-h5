@@ -66,7 +66,7 @@ HOLDINGS_MD = Path("/Users/long/.openclaw/workspace-main/HOLDINGS.md")
 #   - ai_server 仍保留能源层以表达 AI 数据中心电力约束；新能源 tab 用独立图谱展开。
 #   - humanoid_robot(人形机器人) 重命名扩展为 physical_ai(物理AI: 本体+具身大脑+自动驾驶)。
 CHAINS_ALL = [
-    ("ai_server", "AI服务器"),
+    ("ai_server", "AI产业链"),
     ("new_energy", "新能源"),
     ("commercial_space", "商业航天"),
     ("physical_ai", "物理AI"),
@@ -160,6 +160,11 @@ def build_chain_tree(chain: str, dry_run: bool) -> dict:
                 "nodes_with_targets": acc["nodes_with_targets"],
                 "nodes_todo": acc["nodes_todo"],
                 "total_targets": len(acc["all_targets"]),
+                "unique_targets": len({
+                    str(r.get("code") or "")
+                    for r in acc["all_targets"]
+                    if r.get("code")
+                }),
             },
             "segments": segs_out[:60],  # 控制 payload 体积(ai_server 并入能源层后环节增多, 上调至 60)
             "non_consensus": [{

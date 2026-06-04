@@ -503,7 +503,7 @@ a:active{opacity:.6;}
       <div v-if="!stratReady && !hasChains" class="chain-empty-cake">产业链数据同步中，请稍候。</div>
       <div class="chain-overview" v-if="stratReady && chainDataOverview.segments">
         <div class="chain-stat"><div class="cv">{{ chainDataOverview.segments }}</div><div class="ck">已建环节</div></div>
-        <div class="chain-stat"><div class="cv">{{ chainDataOverview.targets }}</div><div class="ck">映射标的</div></div>
+        <div class="chain-stat"><div class="cv">{{ chainDataOverview.targets }}</div><div class="ck">可看标的</div></div>
         <div class="chain-stat good"><div class="cv">{{ chainDataOverview.sixFactor }}</div><div class="ck">六维确认</div></div>
         <div class="chain-stat value"><div class="cv">{{ chainDataOverview.valueWatch }}</div><div class="ck">价值观察</div></div>
         <div class="chain-stat wait"><div class="cv">{{ chainDataOverview.quoteWait }}</div><div class="ck">等六维</div></div>
@@ -1239,7 +1239,7 @@ createApp({
     const hasChains=computed(()=>!!(strat.chains && strat.chainOrder && strat.chainOrder.length));
     const chainOrder=computed(()=>strat.chainOrder||[]);
     const chainLabel=(k)=>(strat.chains&&strat.chains[k]&&strat.chains[k].label)||k;
-    const chainTitle=(k)=>k==='ai_server'?'AI产业链':chainLabel(k);
+    const chainTitle=(k)=>chainLabel(k)||k;
     const homeTabs=computed(()=>{
       const fallback=[
         {key:'ai_server',label:'AI产业链'},
@@ -1523,13 +1523,32 @@ createApp({
       }));
       return out;
     });
-    const chainCards=computed(()=>chainCardCodes.value.map(code=>stockCardOf(code)).filter(Boolean));
+    const chainCards=computed(()=>{
+      const c=curChain.value||{};const out=[];const seen=new Set();
+      (c.segments||[]).forEach(seg=>(seg.holdings||[]).forEach(h=>{
+        const code=h&&h.code;
+        if(!code||seen.has(code))return;
+        seen.add(code);
+        const card=stockCardOf(code);
+        if(!card)return;
+        out.push({
+          ...card,
+          chain:c.key||homeTab.value||card.chain,
+          chain_label:c.label||card.chain_label,
+          segment:seg.name||card.segment,
+          tier:seg.tier!=null?seg.tier:card.tier,
+          is_leader:h.is_leader!=null?!!h.is_leader:card.is_leader,
+          consensus_state:h.consensus_state||card.consensus_state,
+        });
+      }));
+      return out;
+    });
     const chainDataOverview=computed(()=>{
       const c=curChain.value||{};const stats=c.stats||{};
       const cards=chainCards.value;
       const out={
         segments:(c.segments||[]).length,
-        targets:stats.total_targets||chainCardCodes.value.length,
+        targets:cards.length||stats.unique_targets||chainCardCodes.value.length,
         mapped:cards.length,
         sixFactor:0,
         valueWatch:0,
