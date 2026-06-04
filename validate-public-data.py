@@ -188,6 +188,15 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         if (card.get("decisionProfile") or {}).get("timingSource") == "quote_fallback"
         and (card.get("decisionProfile") or {}).get("actionability") == "action_candidate"
     ]
+    quote_buy_copy = [
+        code for code, card in cards.items()
+        if (card.get("decisionProfile") or {}).get("timingSource") == "quote_fallback"
+        and (
+            "买点" in str((card.get("decisionProfile") or {}).get("label") or "")
+            or "买点" in str((card.get("decisionProfile") or {}).get("actionHint") or "")
+            or ((card.get("decisionProfile") or {}).get("timingPlan") or {}).get("stance") == "买点候选"
+        )
+    ]
     six_factor_actionable = [
         code for code, card in cards.items()
         if (card.get("decisionProfile") or {}).get("timingSource") == "six_factor"
@@ -206,12 +215,12 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
     ]
     value_without_quality = [
         code for code, card in cards.items()
-        if (card.get("decisionProfile") or {}).get("label") in ("价值优先，等待买点", "价值+量化共振")
+        if (card.get("decisionProfile") or {}).get("label") in ("价值优先，等待买点", "价值观察，等六维确认", "价值+量化共振")
         and (card.get("fundamentalSnapshot") or {}).get("qualityScore") is None
     ]
     value_with_bad_valuation = [
         code for code, card in cards.items()
-        if (card.get("decisionProfile") or {}).get("label") in ("价值优先，等待买点", "价值+量化共振")
+        if (card.get("decisionProfile") or {}).get("label") in ("价值优先，等待买点", "价值观察，等六维确认", "价值+量化共振")
         and (card.get("decisionProfile") or {}).get("valuationState") not in ("reasonable", "neutral_or_growth_priced")
     ]
     expensive_score_too_high = [
@@ -253,6 +262,8 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         errors.append(f"decisionProfile rankScore 非法: {len(bad_rank_score)} 只")
     if quote_action_candidate:
         errors.append(f"行情兜底不允许进入 action_candidate: {len(quote_action_candidate)} 只")
+    if quote_buy_copy:
+        errors.append(f"行情兜底不允许出现买点语义: {len(quote_buy_copy)} 只")
     if not six_factor_actionable:
         warnings.append("没有六维确认的动作候选")
     if cards and len(decision_covered) < min_decision:

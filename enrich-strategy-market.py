@@ -201,10 +201,13 @@ def _fetch_fundamentals(mod, a_cards: list[tuple[str, dict]], now: str) -> dict[
 def _timing_state(quant: dict) -> tuple[str, str]:
     label = str(quant.get("label") or "")
     signal = str(quant.get("signal") or "")
+    source = str(quant.get("source") or "")
     score = _num(quant.get("score"))
     rsi = _num(quant.get("rsi"))
     if signal == "risk":
         return "risk", label or "量化风险"
+    if source == "market_snapshot_fallback":
+        return "wait_confirm", label or "等待六维确认"
     if signal == "buy":
         return "entry_candidate", label or "买点候选"
     if "强势但等回撤" in label:
@@ -417,6 +420,18 @@ def _decision_profile(card: dict) -> dict:
     if timing_state == "risk":
         label = "行情风险，暂缓" if is_quote_timing else "量化风险，暂缓"
         action_hint = "暂缓"
+    elif is_quote_timing and value_score >= 75 and not has_quality:
+        label = "结构候选，先核实基本面"
+        action_hint = "先核实基本面"
+    elif is_quote_timing and value_score >= 75 and valuation_ok:
+        label = "价值观察，等六维确认"
+        action_hint = "等六维确认"
+    elif is_quote_timing and valuation_state in ("pricey", "expensive"):
+        label = "估值偏贵，等待回撤"
+        action_hint = "等六维确认"
+    elif is_quote_timing:
+        label = "观察，等六维确认"
+        action_hint = "等六维确认"
     elif value_score >= 75 and valuation_state in ("pricey", "expensive"):
         label = "估值偏贵，等待回撤"
         action_hint = "等回撤"
@@ -484,7 +499,7 @@ def _decision_profile(card: dict) -> dict:
 
     if label == "价值+量化共振":
         value_rank = 5
-    elif label == "价值优先，等待买点":
+    elif label in ("价值优先，等待买点", "价值观察，等六维确认"):
         value_rank = 4
     elif valuation_ok and has_quality and value_score >= 75:
         value_rank = 3
