@@ -229,7 +229,12 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
     value_with_bad_valuation = [
         code for code, card in cards.items()
         if (card.get("decisionProfile") or {}).get("label") in ("价值优先，等待买点", "价值观察，等六维确认", "价值+量化共振")
-        and (card.get("decisionProfile") or {}).get("valuationState") not in ("reasonable", "neutral_or_growth_priced")
+        and (card.get("decisionProfile") or {}).get("valuationState") != "reasonable"
+    ]
+    high_value_bad_valuation = [
+        code for code, card in cards.items()
+        if ((card.get("decisionProfile") or {}).get("valueRank") or 0) >= 3
+        and (card.get("decisionProfile") or {}).get("valuationState") != "reasonable"
     ]
     expensive_score_too_high = [
         code for code, card in cards.items()
@@ -284,6 +289,8 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         errors.append(f"价值优先标签缺少基本面质量核实: {len(value_without_quality)} 只")
     if value_with_bad_valuation:
         errors.append(f"价值优先标签估值状态不合格: {len(value_with_bad_valuation)} 只")
+    if high_value_bad_valuation:
+        errors.append(f"高价值等级必须是合理估值: {len(high_value_bad_valuation)} 只")
     if expensive_score_too_high:
         errors.append(f"高估值标的综合分未封顶: {len(expensive_score_too_high)} 只")
     if pricey_score_too_high:

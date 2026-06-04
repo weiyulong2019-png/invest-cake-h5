@@ -1336,7 +1336,15 @@ createApp({
     });
     const decisionCandidates=computed(()=>{
       const cards=Object.values((strat.stockCards&&strat.stockCards.cards)||{});
-      return cards.filter(c=>c&&c.decisionProfile)
+      return cards.filter(c=>{
+          const d=(c&&c.decisionProfile)||{};
+          if(d.timingState==='risk')return false;
+          return c&&c.decisionProfile&&(
+            (Number(d.valueRank)||0)>=3||
+            d.actionability==='needs_fundamental_check'&&d.valuationState==='reasonable'||
+            (Number(d.valueScore)||0)>=75&&d.valuationState==='reasonable'
+          );
+        })
         .sort((a,b)=>{
           const bp=(b.decisionProfile&&Number(b.decisionProfile.rankScore||b.decisionProfile.score))||0;
           const ap=(a.decisionProfile&&Number(a.decisionProfile.rankScore||a.decisionProfile.score))||0;

@@ -414,7 +414,8 @@ def _decision_profile(card: dict) -> dict:
     if not has_quality:
         decision_score = min(decision_score, 74)
     decision_score = round(decision_score, 1)
-    valuation_ok = valuation_state in ("reasonable", "neutral_or_growth_priced")
+    value_price_ok = valuation_state == "reasonable"
+    growth_priced = valuation_state == "neutral_or_growth_priced"
 
     is_quote_timing = quant.get("source") == "market_snapshot_fallback"
     timing_source = "quote_fallback" if is_quote_timing else ("six_factor" if quant else "missing")
@@ -425,12 +426,15 @@ def _decision_profile(card: dict) -> dict:
     elif is_quote_timing and value_score >= 75 and not has_quality:
         label = "结构候选，先核实基本面"
         action_hint = "先核实基本面"
-    elif is_quote_timing and value_score >= 75 and valuation_ok and quality_ok:
+    elif is_quote_timing and value_score >= 75 and value_price_ok and quality_ok:
         label = "价值观察，等六维确认"
         action_hint = "等六维确认"
-    elif is_quote_timing and value_score >= 75 and valuation_ok:
+    elif is_quote_timing and value_score >= 75 and value_price_ok:
         label = "结构候选，质量待确认"
         action_hint = "先核实质量"
+    elif is_quote_timing and value_score >= 75 and growth_priced:
+        label = "成长观察，估值已计价"
+        action_hint = "等估值回落"
     elif is_quote_timing and valuation_state in ("pricey", "expensive"):
         label = "估值偏贵，等待回撤"
         action_hint = "等六维确认"
@@ -443,15 +447,18 @@ def _decision_profile(card: dict) -> dict:
     elif value_score >= 75 and not has_quality:
         label = "结构候选，基本面待核实"
         action_hint = "先核实基本面"
-    elif value_score >= 75 and valuation_ok and not quality_ok:
+    elif value_score >= 75 and value_price_ok and not quality_ok:
         label = "结构候选，质量待确认"
         action_hint = "先核实质量"
-    elif value_score >= 75 and valuation_ok and timing_state == "entry_candidate":
+    elif value_score >= 75 and value_price_ok and timing_state == "entry_candidate":
         label = "价值+量化共振"
         action_hint = "加入观察"
-    elif value_score >= 75 and valuation_ok and timing_state in ("trend_watch", "wait_pullback"):
+    elif value_score >= 75 and value_price_ok and timing_state in ("trend_watch", "wait_pullback"):
         label = "价值优先，等待买点"
         action_hint = "等回撤" if timing_state == "wait_pullback" else "等买点确认"
+    elif value_score >= 75 and growth_priced:
+        label = "成长观察，等待回撤"
+        action_hint = "等估值回落"
     elif valuation_state == "expensive":
         label = "估值偏贵，等待回撤"
         action_hint = "等回撤"
@@ -509,9 +516,11 @@ def _decision_profile(card: dict) -> dict:
         value_rank = 5
     elif label in ("价值优先，等待买点", "价值观察，等六维确认"):
         value_rank = 4
-    elif valuation_ok and quality_ok and value_score >= 75:
+    elif value_price_ok and quality_ok and value_score >= 75:
         value_rank = 3
-    elif valuation_ok and quality_ok and value_score >= 65:
+    elif value_price_ok and quality_ok and value_score >= 65:
+        value_rank = 2
+    elif growth_priced and quality_ok and value_score >= 75:
         value_rank = 2
     elif not has_quality and value_score >= 75:
         value_rank = 1
