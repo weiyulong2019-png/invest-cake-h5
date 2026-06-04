@@ -1612,6 +1612,7 @@ createApp({
       const d=(card&&card.decisionProfile)||{};
       const s=(plan&&plan.stance)||'';
       if(d.actionability==='defensive'||s.includes('防守')||s.includes('减仓'))return'防守计划';
+      if(d.actionability==='needs_fundamental_check')return'核实计划';
       if(d.timingSource==='quote_fallback'||s.includes('等待六维'))return'确认计划';
       return'买卖点计划';
     };
@@ -1619,6 +1620,7 @@ createApp({
       const d=(card&&card.decisionProfile)||{};
       const s=(plan&&plan.stance)||'';
       if(d.actionability==='defensive'||s.includes('防守')||s.includes('减仓'))return'防守条件';
+      if(d.actionability==='needs_fundamental_check')return'核实条件';
       if(d.timingSource==='quote_fallback'||s.includes('等待')||d.actionability==='watch_only')return'确认条件';
       if(d.actionability==='tracking_candidate')return'跟踪条件';
       return'入场触发';
@@ -1667,6 +1669,7 @@ createApp({
       const decision=(card&&card.decisionProfile)||{};
       if(decision.timingPlan){
         const plan=decision.timingPlan||{};
+        if(decision.actionability==='needs_fundamental_check')return{label:'先核实基本面',cls:'flat',note:'基本面质量未通过前，量化信号只作观察，不生成买卖点。'};
         const cls=decision.actionability==='defensive'?'down':(decision.actionability==='action_candidate'?'up':(String(plan.stance||'').includes('回撤')?'flat':'flat'));
         const note=plan.entry||decision.actionHint||'等待择时条件确认。';
         if(decision.timingSource==='quote_fallback')return{label:plan.stance||'等待六维确认',cls:'flat',note};
