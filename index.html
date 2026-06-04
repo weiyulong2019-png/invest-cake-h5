@@ -735,8 +735,8 @@ a:active{opacity:.6;}
               </div>
               <div class="decision-card">
                 <div class="dt">量化择时</div>
-                <div class="dv" :class="timingDecision(dashQuote).cls">{{ timingDecision(dashQuote).label }}</div>
-                <div class="dn">{{ timingDecision(dashQuote).note }}</div>
+                <div class="dv" :class="timingDecision(dashQuote,dashCard).cls">{{ timingDecision(dashQuote,dashCard).label }}</div>
+                <div class="dn">{{ timingDecision(dashQuote,dashCard).note }}</div>
               </div>
             </div>
             <!-- 多维结论 -->
@@ -1135,26 +1135,32 @@ createApp({
     };
     const valueDecision=(card,quote)=>{
       if(!card)return{label:'待核实',cls:'flat',note:'缺少结构化标的信息。'};
+      const profile=card.selectionProfile||{};
       const pe=parseNum(quote&&quote.pe);
-      const strengths=[];
+      const strengths=[...(profile.reasons||[])];
       if(card.water_seller)strengths.push('卖水人环节');
       if(card.is_leader)strengths.push('环节龙头');
       if(card.chokepoint)strengths.push(card.chokepoint);
+      const score=profile.score!=null?Number(profile.score):null;
+      const baseLabel=profile.label||'候选观察';
+      const baseCls=score!=null?(score>=62?'up':(score<45?'down':'flat')):(strengths.length?'up':'flat');
       if(pe==null){
-        return{label:strengths.length?'候选观察':'待核实',cls:strengths.length?'up':'flat',note:`${strengths.slice(0,2).join(' / ')||'产业链位置待核实'}；估值数据暂缺，不做价值结论。`};
+        const scoreText=score!=null?`结构分 ${score}/100；`:'';
+        return{label:baseLabel,cls:baseCls,note:`${scoreText}${strengths.slice(0,2).join(' / ')||'产业链位置待核实'}；估值数据暂缺，不做最终价值结论。`};
       }
-      if(pe>0&&pe<=35){
+      if(pe>0&&pe<=35&&(!score||score>=55)){
         return{label:'价值候选',cls:'up',note:`PE ${pe}，${strengths.slice(0,2).join(' / ')||'产业链位置已归档'}，可进入候选池继续跟踪。`};
       }
       if(pe>80){
         return{label:'估值偏贵',cls:'down',note:`PE ${pe} 偏高，即使产业链位置不错，也需要更强业绩兑现或回撤后再看。`};
       }
-      return{label:'估值中性',cls:'flat',note:`PE ${pe}，${strengths.slice(0,2).join(' / ')||'产业链位置已归档'}，暂以观察为主。`};
+      return{label:score&&score>=70?baseLabel:'估值中性',cls:score&&score>=70?'up':'flat',note:`PE ${pe}；${strengths.slice(0,2).join(' / ')||'产业链位置已归档'}，暂以观察为主。`};
     };
-    const timingDecision=(quote)=>{
+    const timingDecision=(quote,card)=>{
       const signal=quote&&quote.signal;
       const cv=parseNum(quote&&quote.cv);
-      const note=(quote&&quote.signalNote)||'技术数据不足，暂不判断买卖点。';
+      const profile=(card&&card.timingProfile)||{};
+      const note=(quote&&quote.signalNote)||profile.label||'技术数据不足，暂不判断买卖点。';
       if(signal==='buy')return{label:'可等买点',cls:'up',note};
       if(signal==='risk')return{label:'规避/减仓',cls:'down',note};
       if(cv!=null&&cv<=-3)return{label:'回撤观察',cls:'down',note:`当日回撤较大；${note}`};

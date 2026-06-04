@@ -1109,12 +1109,96 @@ def build_stock_cards(chains: dict, held: dict, us_index: dict) -> dict:
             "water_seller": water_seller,
             "held": code in held_codes,
             "us_anchors": (us_index.get("byCode") or {}).get(code, []),
+            "selectionProfile": _selection_profile(
+                tier=tier,
+                is_leader=bool(meta["is_leader"]),
+                water_seller=water_seller,
+                consensus_state=cs,
+                held_flag=code in held_codes,
+                chokepoint=choke,
+            ),
+            "timingProfile": _timing_profile(),
         }
     return {
         "available": bool(cards),
         "note": "" if cards else "暂无已覆盖标的（产业链图谱待补）",
         "count": len(cards),
         "cards": cards,
+    }
+
+
+def _selection_profile(*, tier: int | None, is_leader: bool, water_seller: bool,
+                       consensus_state: str | None, held_flag: bool, chokepoint: str) -> dict:
+    """Structural value-investing profile. Live valuation is added by H5/data.json."""
+    score = 45
+    reasons: list[str] = []
+
+    if water_seller:
+        score += 20
+        reasons.append("卖水人/上游供给环节")
+    if is_leader:
+        score += 15
+        reasons.append("环节龙头")
+
+    if tier == 3:
+        score += 15
+        role = "上游材料设备"
+    elif tier == 2:
+        score += 12
+        role = "关键器件材料"
+    elif tier == 1:
+        score += 6
+        role = "核心系统平台"
+    elif tier == 0:
+        role = "终端整机需求"
+    else:
+        role = "产业链位置待确认"
+
+    if consensus_state == "non_consensus":
+        score += 10
+        reasons.append("非共识环节")
+    elif consensus_state == "crowded":
+        score -= 15
+        reasons.append("共识拥挤")
+
+    if held_flag:
+        score += 3
+        reasons.append("已纳入持仓跟踪")
+
+    if chokepoint and chokepoint not in reasons:
+        reasons.append(chokepoint)
+
+    score = max(0, min(100, score))
+    if score >= 78:
+        label = "价值优先候选"
+    elif score >= 62:
+        label = "结构候选"
+    elif consensus_state == "crowded":
+        label = "拥挤观察"
+    else:
+        label = "观察"
+
+    return {
+        "label": label,
+        "score": score,
+        "role": role,
+        "reasons": reasons[:4],
+        "valuation_required": True,
+        "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论",
+    }
+
+
+def _timing_profile() -> dict:
+    return {
+        "label": "等待实时量化信号",
+        "source": "data.json.signal / signalNote",
+        "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察",
+        ],
     }
 
 

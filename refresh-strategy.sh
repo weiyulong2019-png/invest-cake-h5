@@ -12,8 +12,10 @@ python3 strategy-feed.py            # 本机 live 数据(无 --dry-run 即 live)
 if ! python3 - <<'PY'
 import json, sys
 d = json.load(open("strategy.json"))
+stock_cards = d.get("stockCards") or {}
 ok = (d.get("mode") == "live"
-      and len(d.get("stockCards") or {}) > 0
+      and stock_cards.get("count", 0) > 0
+      and len(stock_cards.get("cards") or {}) > 0
       and len(d.get("chainTree") or {}) > 0)
 sys.exit(0 if ok else 1)
 PY

@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-06-04 15:40:08",
-  "timestamp": 1780558808,
+  "updateTime": "2026-06-04 16:28:01",
+  "timestamp": 1780561681,
   "mode": "live",
   "disclaimer": "公开策略数据看板，仅含聚合/结构化信息，不构成投资建议。",
   "waterSellers": {
@@ -4836,7 +4836,7 @@
       },
       {
         "scanner": "opportunity-miner",
-        "count": 54,
+        "count": 108,
         "decided": 0,
         "win_rate": null,
         "win_rate_metric": "absolute",
@@ -7603,7 +7603,30 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 63,
+          "role": "终端整机需求",
+          "reasons": [
+            "环节龙头",
+            "已纳入持仓跟踪",
+            "整机集成（下游需求侧）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300442": {
         "code": "300442",
@@ -7634,7 +7657,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 48,
+          "role": "终端整机需求",
+          "reasons": [
+            "已纳入持仓跟踪",
+            "整机集成（下游需求侧）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "000034": {
         "code": "000034",
@@ -7665,7 +7710,28 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 45,
+          "role": "终端整机需求",
+          "reasons": [
+            "整机集成（下游需求侧）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688041": {
         "code": "688041",
@@ -7717,7 +7783,29 @@
             "big_mover": false,
             "segment": "算力模块(GPU/CPU/加速卡)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 66,
+          "role": "核心系统平台",
+          "reasons": [
+            "环节龙头",
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002156": {
         "code": "002156",
@@ -7776,7 +7864,30 @@
             "big_mover": false,
             "segment": "算力模块(GPU/CPU/加速卡)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600584": {
         "code": "600584",
@@ -7835,7 +7946,29 @@
             "big_mover": false,
             "segment": "算力模块(GPU/CPU/加速卡)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002409": {
         "code": "002409",
@@ -7894,7 +8027,29 @@
             "big_mover": false,
             "segment": "算力模块(GPU/CPU/加速卡)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002371": {
         "code": "002371",
@@ -7974,7 +8129,30 @@
             "big_mover": false,
             "segment": "封装设备"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 83,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "已纳入持仓跟踪",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603186": {
         "code": "603186",
@@ -8054,7 +8232,29 @@
             "big_mover": false,
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603688": {
         "code": "603688",
@@ -8141,7 +8341,29 @@
             "big_mover": false,
             "segment": "光模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688126": {
         "code": "688126",
@@ -8193,7 +8415,29 @@
             "big_mover": false,
             "segment": "算力模块(GPU/CPU/加速卡)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002436": {
         "code": "002436",
@@ -8245,7 +8489,29 @@
             "big_mover": false,
             "segment": "算力模块(GPU/CPU/加速卡)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600183": {
         "code": "600183",
@@ -8318,7 +8584,29 @@
             "big_mover": false,
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688519": {
         "code": "688519",
@@ -8391,7 +8679,29 @@
             "big_mover": false,
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002130": {
         "code": "002130",
@@ -8443,7 +8753,30 @@
             "big_mover": false,
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300913": {
         "code": "300913",
@@ -8495,7 +8828,29 @@
             "big_mover": false,
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600110": {
         "code": "600110",
@@ -8547,7 +8902,29 @@
             "big_mover": false,
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "301217": {
         "code": "301217",
@@ -8599,7 +8976,29 @@
             "big_mover": false,
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300308": {
         "code": "300308",
@@ -8658,7 +9057,30 @@
             "big_mover": false,
             "segment": "光模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300502": {
         "code": "300502",
@@ -8717,7 +9139,29 @@
             "big_mover": false,
             "segment": "光模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300394": {
         "code": "300394",
@@ -8776,7 +9220,29 @@
             "big_mover": false,
             "segment": "光模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688498": {
         "code": "688498",
@@ -8835,7 +9301,30 @@
             "big_mover": false,
             "segment": "光模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 95,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688313": {
         "code": "688313",
@@ -8894,7 +9383,29 @@
             "big_mover": false,
             "segment": "光模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688048": {
         "code": "688048",
@@ -8953,7 +9464,29 @@
             "big_mover": false,
             "segment": "光模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002281": {
         "code": "002281",
@@ -9012,7 +9545,29 @@
             "big_mover": false,
             "segment": "光模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "601869": {
         "code": "601869",
@@ -9071,7 +9626,30 @@
             "big_mover": false,
             "segment": "光模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 95,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600487": {
         "code": "600487",
@@ -9130,7 +9708,30 @@
             "big_mover": false,
             "segment": "光模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 83,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "已纳入持仓跟踪",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600522": {
         "code": "600522",
@@ -9189,7 +9790,29 @@
             "big_mover": false,
             "segment": "光模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688400": {
         "code": "688400",
@@ -9248,7 +9871,29 @@
             "big_mover": false,
             "segment": "光模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688702": {
         "code": "688702",
@@ -9300,7 +9945,30 @@
             "big_mover": false,
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002463": {
         "code": "002463",
@@ -9331,7 +9999,30 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002916": {
         "code": "002916",
@@ -9362,7 +10053,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300476": {
         "code": "300476",
@@ -9393,7 +10106,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603228": {
         "code": "603228",
@@ -9424,7 +10159,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "001389": {
         "code": "001389",
@@ -9455,7 +10212,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603629": {
         "code": "603629",
@@ -9486,7 +10265,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002384": {
         "code": "002384",
@@ -9517,7 +10318,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002080": {
         "code": "002080",
@@ -9548,7 +10371,30 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 95,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600176": {
         "code": "600176",
@@ -9579,7 +10425,30 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 95,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603256": {
         "code": "603256",
@@ -9610,7 +10479,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300395": {
         "code": "300395",
@@ -9641,7 +10532,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "601208": {
         "code": "601208",
@@ -9672,7 +10585,30 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 95,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "605589": {
         "code": "605589",
@@ -9703,7 +10639,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688141": {
         "code": "688141",
@@ -9741,7 +10699,30 @@
             "big_mover": false,
             "segment": "电源管理芯片(PMIC/VR)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688396": {
         "code": "688396",
@@ -9779,7 +10760,30 @@
             "big_mover": false,
             "segment": "电源管理芯片(PMIC/VR)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 95,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600460": {
         "code": "600460",
@@ -9817,7 +10821,29 @@
             "big_mover": false,
             "segment": "电源管理芯片(PMIC/VR)"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002851": {
         "code": "002851",
@@ -9848,7 +10874,30 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300870": {
         "code": "300870",
@@ -9879,7 +10928,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002364": {
         "code": "002364",
@@ -9910,7 +10981,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300811": {
         "code": "300811",
@@ -9941,7 +11034,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002138": {
         "code": "002138",
@@ -9972,7 +11087,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002484": {
         "code": "002484",
@@ -10003,7 +11140,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "301018": {
         "code": "301018",
@@ -10041,7 +11200,28 @@
             "big_mover": false,
             "segment": "散热模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002837": {
         "code": "002837",
@@ -10079,7 +11259,30 @@
             "big_mover": false,
             "segment": "散热模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300499": {
         "code": "300499",
@@ -10117,7 +11320,29 @@
             "big_mover": false,
             "segment": "散热模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300602": {
         "code": "300602",
@@ -10155,7 +11380,29 @@
             "big_mover": false,
             "segment": "散热模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300684": {
         "code": "300684",
@@ -10193,7 +11440,29 @@
             "big_mover": false,
             "segment": "散热模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "301626": {
         "code": "301626",
@@ -10231,7 +11500,29 @@
             "big_mover": false,
             "segment": "散热模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "301489": {
         "code": "301489",
@@ -10269,7 +11560,29 @@
             "big_mover": false,
             "segment": "散热模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002600": {
         "code": "002600",
@@ -10307,7 +11620,29 @@
             "big_mover": false,
             "segment": "散热模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600160": {
         "code": "600160",
@@ -10345,7 +11680,30 @@
             "big_mover": false,
             "segment": "散热模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 95,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300037": {
         "code": "300037",
@@ -10383,7 +11741,29 @@
             "big_mover": false,
             "segment": "散热模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002179": {
         "code": "002179",
@@ -10421,7 +11801,29 @@
             "big_mover": false,
             "segment": "散热模块"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603986": {
         "code": "603986",
@@ -10459,7 +11861,28 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300475": {
         "code": "300475",
@@ -10497,7 +11920,28 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "000021": {
         "code": "000021",
@@ -10535,7 +11979,28 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688008": {
         "code": "688008",
@@ -10573,7 +12038,31 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 95,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "已纳入持仓跟踪",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688535": {
         "code": "688535",
@@ -10611,7 +12100,30 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688300": {
         "code": "688300",
@@ -10649,7 +12161,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300054": {
         "code": "300054",
@@ -10687,7 +12221,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600089": {
         "code": "600089",
@@ -10718,7 +12274,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "601179": {
         "code": "601179",
@@ -10749,7 +12327,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600312": {
         "code": "600312",
@@ -10780,7 +12380,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600406": {
         "code": "600406",
@@ -10811,7 +12433,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600875": {
         "code": "600875",
@@ -10842,7 +12486,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600019": {
         "code": "600019",
@@ -10873,7 +12539,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "000825": {
         "code": "000825",
@@ -10904,7 +12592,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300274": {
         "code": "300274",
@@ -10935,7 +12645,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300750": {
         "code": "300750",
@@ -10966,7 +12698,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002812": {
         "code": "002812",
@@ -10997,7 +12751,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300568": {
         "code": "300568",
@@ -11028,7 +12804,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688503": {
         "code": "688503",
@@ -11059,7 +12857,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002079": {
         "code": "002079",
@@ -11090,7 +12910,29 @@
             "big_mover": false,
             "segment": "整机与机柜集成"
           }
-        ]
+        ],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002594": {
         "code": "002594",
@@ -11106,7 +12948,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002709": {
         "code": "002709",
@@ -11122,7 +12985,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002850": {
         "code": "002850",
@@ -11138,7 +13023,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603806": {
         "code": "603806",
@@ -11154,7 +13061,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688680": {
         "code": "688680",
@@ -11170,7 +13099,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688032": {
         "code": "688032",
@@ -11186,7 +13137,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688348": {
         "code": "688348",
@@ -11202,7 +13174,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "601698": {
         "code": "601698",
@@ -11218,7 +13211,28 @@
         "chokepoint": "整机集成（下游需求侧）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 45,
+          "role": "终端整机需求",
+          "reasons": [
+            "整机集成（下游需求侧）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600118": {
         "code": "600118",
@@ -11234,7 +13248,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688375": {
         "code": "688375",
@@ -11250,7 +13285,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688270": {
         "code": "688270",
@@ -11266,7 +13323,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "001270": {
         "code": "001270",
@@ -11282,7 +13361,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "301117": {
         "code": "301117",
@@ -11298,7 +13399,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300101": {
         "code": "300101",
@@ -11314,7 +13437,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002025": {
         "code": "002025",
@@ -11330,7 +13475,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688066": {
         "code": "688066",
@@ -11346,7 +13513,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300034": {
         "code": "300034",
@@ -11362,7 +13551,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002149": {
         "code": "002149",
@@ -11378,7 +13589,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600893": {
         "code": "600893",
@@ -11394,7 +13627,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600456": {
         "code": "600456",
@@ -11410,7 +13665,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600879": {
         "code": "600879",
@@ -11426,7 +13703,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300699": {
         "code": "300699",
@@ -11442,7 +13741,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002297": {
         "code": "002297",
@@ -11458,7 +13779,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002389": {
         "code": "002389",
@@ -11474,7 +13817,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002465": {
         "code": "002465",
@@ -11490,7 +13855,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300045": {
         "code": "300045",
@@ -11506,7 +13892,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300762": {
         "code": "300762",
@@ -11522,7 +13930,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688102": {
         "code": "688102",
@@ -11538,7 +13968,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688333": {
         "code": "688333",
@@ -11554,7 +14006,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600343": {
         "code": "600343",
@@ -11570,7 +14044,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "301005": {
         "code": "301005",
@@ -11586,7 +14082,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688582": {
         "code": "688582",
@@ -11602,7 +14120,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300607": {
         "code": "300607",
@@ -11618,7 +14158,28 @@
         "chokepoint": "整机集成（下游需求侧）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 45,
+          "role": "终端整机需求",
+          "reasons": [
+            "整机集成（下游需求侧）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300496": {
         "code": "300496",
@@ -11634,7 +14195,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688088": {
         "code": "688088",
@@ -11650,7 +14232,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300223": {
         "code": "300223",
@@ -11666,7 +14269,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688521": {
         "code": "688521",
@@ -11682,7 +14307,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603290": {
         "code": "603290",
@@ -11698,7 +14345,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "605111": {
         "code": "605111",
@@ -11714,7 +14383,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688711": {
         "code": "688711",
@@ -11730,7 +14421,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300124": {
         "code": "300124",
@@ -11746,7 +14459,30 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002747": {
         "code": "002747",
@@ -11762,7 +14498,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688017": {
         "code": "688017",
@@ -11778,7 +14536,30 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688160": {
         "code": "688160",
@@ -11794,7 +14575,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603728": {
         "code": "603728",
@@ -11810,7 +14613,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300748": {
         "code": "300748",
@@ -11826,7 +14651,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "600366": {
         "code": "600366",
@@ -11842,7 +14689,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "000970": {
         "code": "000970",
@@ -11858,7 +14727,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603583": {
         "code": "603583",
@@ -11874,7 +14765,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002472": {
         "code": "002472",
@@ -11890,7 +14803,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300660": {
         "code": "300660",
@@ -11906,7 +14841,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "873593": {
         "code": "873593",
@@ -11922,7 +14879,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002241": {
         "code": "002241",
@@ -11938,7 +14917,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603662": {
         "code": "603662",
@@ -11954,7 +14955,30 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688686": {
         "code": "688686",
@@ -11970,7 +14994,30 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603501": {
         "code": "603501",
@@ -11986,7 +15033,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688213": {
         "code": "688213",
@@ -12002,7 +15071,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300456": {
         "code": "300456",
@@ -12018,7 +15109,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002920": {
         "code": "002920",
@@ -12034,7 +15147,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688326": {
         "code": "688326",
@@ -12050,7 +15184,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "601689": {
         "code": "601689",
@@ -12066,7 +15221,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603197": {
         "code": "603197",
@@ -12082,7 +15258,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603259": {
         "code": "603259",
@@ -12098,7 +15295,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "002821": {
         "code": "002821",
@@ -12114,7 +15332,28 @@
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "观察",
+          "score": 51,
+          "role": "核心系统平台",
+          "reasons": [
+            "核心部件（议价中枢）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300347": {
         "code": "300347",
@@ -12130,7 +15369,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300759": {
         "code": "300759",
@@ -12146,7 +15407,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "603127": {
         "code": "603127",
@@ -12162,7 +15445,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688202": {
         "code": "688202",
@@ -12178,7 +15483,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688222": {
         "code": "688222",
@@ -12194,7 +15521,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "301230": {
         "code": "301230",
@@ -12210,7 +15559,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "301047": {
         "code": "301047",
@@ -12226,7 +15597,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "301080": {
         "code": "301080",
@@ -12242,7 +15635,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300725": {
         "code": "300725",
@@ -12258,7 +15673,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300358": {
         "code": "300358",
@@ -12274,7 +15711,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300171": {
         "code": "300171",
@@ -12290,7 +15749,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688690": {
         "code": "688690",
@@ -12306,7 +15787,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688293": {
         "code": "688293",
@@ -12322,7 +15825,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "688046": {
         "code": "688046",
@@ -12338,7 +15863,29 @@
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 80,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "300363": {
         "code": "300363",
@@ -12354,7 +15901,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       },
       "301301": {
         "code": "301301",
@@ -12370,7 +15939,29 @@
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
         "held": false,
-        "us_anchors": []
+        "us_anchors": [],
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察"
+          ]
+        }
       }
     }
   }
