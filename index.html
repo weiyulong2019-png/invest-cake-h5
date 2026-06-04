@@ -1273,9 +1273,13 @@ createApp({
       const priority=(c)=>{
         const d=(c&&c.decisionProfile)||{};
         if(d.timingSource!=='six_factor')return 0;
-        if(d.actionability==='defensive')return 4;
-        if(d.actionability==='action_candidate')return 3;
-        if(d.actionability==='tracking_candidate')return 2;
+        const held=c&&c.held;
+        if(held&&d.actionability==='defensive')return 6;
+        if(held&&d.actionability==='action_candidate')return 5;
+        if(held&&d.actionability==='tracking_candidate')return 4;
+        if(!held&&d.actionability==='action_candidate')return 3;
+        if(!held&&d.actionability==='tracking_candidate')return 2;
+        if(!held&&d.actionability==='defensive')return 1;
         return 0;
       };
       return cards.filter(c=>priority(c)>0)
