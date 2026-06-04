@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-06-04 16:28:01",
-  "timestamp": 1780561681,
+  "updateTime": "2026-06-04 17:08:51",
+  "timestamp": 1780564131,
   "mode": "live",
   "disclaimer": "公开策略数据看板，仅含聚合/结构化信息，不构成投资建议。",
   "waterSellers": {
@@ -4814,7 +4814,7 @@
       },
       {
         "scanner": "FactorAgent",
-        "count": 151,
+        "count": 159,
         "decided": 8,
         "win_rate": 0.75,
         "win_rate_metric": "absolute",
@@ -4825,7 +4825,7 @@
       },
       {
         "scanner": "OpportunityScanner",
-        "count": 44,
+        "count": 45,
         "decided": 0,
         "win_rate": null,
         "win_rate_metric": "absolute",
@@ -5143,6 +5143,12 @@
         }
       ]
     }
+  },
+  "quantTiming": {
+    "available": true,
+    "note": "",
+    "file": "/Users/long/.openclaw/workspace-main/scripts/data/signals/factor_scores_20260604.json",
+    "count": 69
   },
   "heldEtfCodes": [
     "516630",
@@ -7604,6 +7610,19 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": {
+          "label": "强势观察",
+          "signal": "neutral",
+          "note": "六维总分 81.8；动量 95.2；资金 23.6；RSI 70.4",
+          "score": 81.8,
+          "momentum": 95.2,
+          "flow": 23.6,
+          "rsi": 70.4,
+          "available_factors": 2,
+          "confidence": "低",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.385575"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 63,
@@ -7618,13 +7637,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -7634,7 +7654,7 @@
           "pe": "36.78",
           "cap": "1.56万亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300442": {
@@ -7667,6 +7687,19 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": {
+          "label": "弱势等待",
+          "signal": "risk",
+          "note": "六维总分 52.8；动量 26.4；资金 54.5；RSI 19.4",
+          "score": 52.8,
+          "momentum": 26.4,
+          "flow": 54.5,
+          "rsi": 19.4,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.379398"
+        },
         "selectionProfile": {
           "label": "观察",
           "score": 48,
@@ -7680,13 +7713,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -7696,7 +7730,7 @@
           "pe": "57.39",
           "cap": "1336.57亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "000034": {
@@ -7729,6 +7763,19 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": {
+          "label": "弱势等待",
+          "signal": "risk",
+          "note": "六维总分 47.7；动量 34.0；资金 61.0；RSI 34.4",
+          "score": 47.7,
+          "momentum": 34.0,
+          "flow": 61.0,
+          "rsi": 34.4,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.945965"
+        },
         "selectionProfile": {
           "label": "观察",
           "score": 45,
@@ -7741,13 +7788,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -7757,7 +7805,7 @@
           "pe": "26.82",
           "cap": "253.17亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688041": {
@@ -7811,6 +7859,19 @@
             "segment": "算力模块(GPU/CPU/加速卡)"
           }
         ],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 47.6；动量 53.5；资金 34.8；RSI 43.6",
+          "score": 47.6,
+          "momentum": 53.5,
+          "flow": 34.8,
+          "rsi": 43.6,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.932992"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 66,
@@ -7824,13 +7885,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -7840,7 +7902,7 @@
           "pe": "241.70",
           "cap": "6642.73亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002156": {
@@ -7901,6 +7963,19 @@
             "segment": "算力模块(GPU/CPU/加速卡)"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 79.6；动量 93.9；资金 70.1；RSI 66.5",
+          "score": 79.6,
+          "momentum": 93.9,
+          "flow": 70.1,
+          "rsi": 66.5,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.228636"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -7915,13 +7990,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -7931,7 +8007,7 @@
           "pe": "81.98",
           "cap": "1079.01亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600584": {
@@ -7992,6 +8068,19 @@
             "segment": "算力模块(GPU/CPU/加速卡)"
           }
         ],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 63.7；动量 90.7；资金 33.6；RSI 73.0",
+          "score": 63.7,
+          "momentum": 90.7,
+          "flow": 33.6,
+          "rsi": 73.0,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.955405"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -8005,13 +8094,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -8021,7 +8111,7 @@
           "pe": "123.42",
           "cap": "1432.96亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002409": {
@@ -8082,6 +8172,19 @@
             "segment": "算力模块(GPU/CPU/加速卡)"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 72.6；动量 93.1；资金 57.0；RSI 57.6",
+          "score": 72.6,
+          "momentum": 93.1,
+          "flow": 57.0,
+          "rsi": 57.6,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.695965"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -8095,13 +8198,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -8111,7 +8215,7 @@
           "pe": "52.55",
           "cap": "560.55亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002371": {
@@ -8193,6 +8297,19 @@
             "segment": "封装设备"
           }
         ],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 62.1；动量 93.9；资金 69.5；RSI 56.7",
+          "score": 62.1,
+          "momentum": 93.9,
+          "flow": 69.5,
+          "rsi": 56.7,
+          "available_factors": 4,
+          "confidence": "高",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.373890"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 83,
@@ -8207,13 +8324,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -8223,7 +8341,7 @@
           "pe": "69.50",
           "cap": "4544.70亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603186": {
@@ -8305,6 +8423,7 @@
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -8318,13 +8437,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -8334,7 +8454,7 @@
           "pe": "156.65",
           "cap": "193.75亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603688": {
@@ -8423,6 +8543,7 @@
             "segment": "光模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -8436,13 +8557,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -8452,7 +8574,7 @@
           "pe": "244.47",
           "cap": "359.57亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688126": {
@@ -8506,6 +8628,7 @@
             "segment": "算力模块(GPU/CPU/加速卡)"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -8519,13 +8642,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -8535,7 +8659,7 @@
           "pe": "-49.34",
           "cap": "953.50亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002436": {
@@ -8589,6 +8713,19 @@
             "segment": "算力模块(GPU/CPU/加速卡)"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 74.9；动量 91.8；资金 65.6；RSI 73.7",
+          "score": 74.9,
+          "momentum": 91.8,
+          "flow": 65.6,
+          "rsi": 73.7,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.858194"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -8602,13 +8739,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -8618,7 +8756,7 @@
           "pe": "926.47",
           "cap": "694.66亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600183": {
@@ -8693,6 +8831,19 @@
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
         ],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 56.9；动量 65.0；资金 47.3；RSI 89.0",
+          "score": 56.9,
+          "momentum": 65,
+          "flow": 47.3,
+          "rsi": 89.0,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.450276"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -8706,13 +8857,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -8722,7 +8874,7 @@
           "pe": "75.49",
           "cap": "3496.96亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688519": {
@@ -8797,6 +8949,7 @@
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -8810,13 +8963,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -8826,7 +8980,7 @@
           "pe": "96.73",
           "cap": "580.90亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002130": {
@@ -8880,6 +9034,7 @@
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -8894,13 +9049,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -8910,7 +9066,7 @@
           "pe": "31.72",
           "cap": "293.42亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300913": {
@@ -8964,6 +9120,7 @@
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -8977,13 +9134,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -8993,7 +9151,7 @@
           "pe": "112.30",
           "cap": "218.08亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600110": {
@@ -9047,6 +9205,7 @@
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -9060,13 +9219,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -9076,7 +9236,7 @@
           "pe": "124.87",
           "cap": "200.24亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "301217": {
@@ -9130,6 +9290,7 @@
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -9143,13 +9304,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -9159,7 +9321,7 @@
           "pe": "213.89",
           "cap": "909.84亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300308": {
@@ -9220,6 +9382,19 @@
             "segment": "光模块"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 76.3；动量 95.0；资金 65.5；RSI 73.3",
+          "score": 76.3,
+          "momentum": 95.0,
+          "flow": 65.5,
+          "rsi": 73.3,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.842642"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -9234,13 +9409,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -9250,7 +9426,7 @@
           "pe": "62.21",
           "cap": "1.43万亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300502": {
@@ -9311,6 +9487,19 @@
             "segment": "光模块"
           }
         ],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 68.6；动量 88.9；资金 50.7；RSI 71.6",
+          "score": 68.6,
+          "momentum": 88.9,
+          "flow": 50.7,
+          "rsi": 71.6,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.872082"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -9324,13 +9513,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -9340,7 +9530,7 @@
           "pe": "69.49",
           "cap": "7727.57亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300394": {
@@ -9401,6 +9591,19 @@
             "segment": "光模块"
           }
         ],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 69.2；动量 94.0；资金 45.5；RSI 63.8",
+          "score": 69.2,
+          "momentum": 94.0,
+          "flow": 45.5,
+          "rsi": 63.8,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.899960"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -9414,13 +9617,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -9430,7 +9634,7 @@
           "pe": "190.13",
           "cap": "3743.48亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688498": {
@@ -9491,6 +9695,7 @@
             "segment": "光模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 95,
@@ -9505,13 +9710,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -9521,7 +9727,7 @@
           "pe": "238.31",
           "cap": "1710.51亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688313": {
@@ -9582,6 +9788,7 @@
             "segment": "光模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -9595,13 +9802,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -9611,7 +9819,7 @@
           "pe": "160.92",
           "cap": "747.81亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688048": {
@@ -9672,6 +9880,7 @@
             "segment": "光模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -9685,13 +9894,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -9701,7 +9911,7 @@
           "pe": "3835.78",
           "cap": "687.32亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002281": {
@@ -9762,6 +9972,7 @@
             "segment": "光模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -9775,13 +9986,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -9791,7 +10003,7 @@
           "pe": "185.39",
           "cap": "1779.20亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "601869": {
@@ -9852,6 +10064,19 @@
             "segment": "光模块"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 70.0；动量 92.1；资金 50.7；RSI 66.9",
+          "score": 70.0,
+          "momentum": 92.1,
+          "flow": 50.7,
+          "rsi": 66.9,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.914879"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 95,
@@ -9866,13 +10091,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -9882,7 +10108,7 @@
           "pe": "190.57",
           "cap": "3774.34亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600487": {
@@ -9943,6 +10169,19 @@
             "segment": "光模块"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 79.0；动量 92.2；资金 70.9；RSI 76.8",
+          "score": 79.0,
+          "momentum": 92.2,
+          "flow": 70.9,
+          "rsi": 76.8,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.391315"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 83,
@@ -9957,13 +10196,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -9973,7 +10213,7 @@
           "pe": "54.59",
           "cap": "2413.86亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600522": {
@@ -10034,6 +10274,7 @@
             "segment": "光模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -10047,13 +10288,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10063,7 +10305,7 @@
           "pe": "42.77",
           "cap": "1572.00亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688400": {
@@ -10124,6 +10366,19 @@
             "segment": "光模块"
           }
         ],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 54.1；动量 52.1；资金 56.0；RSI 36.7",
+          "score": 54.1,
+          "momentum": 52.1,
+          "flow": 56.0,
+          "rsi": 36.7,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.227258"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -10137,13 +10392,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10153,7 +10409,7 @@
           "pe": "33.00",
           "cap": "263.67亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688702": {
@@ -10207,6 +10463,7 @@
             "segment": "高速互联模块(NVLink/铜连接/光模块)"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -10221,13 +10478,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10237,7 +10495,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002463": {
@@ -10270,6 +10528,19 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 76.5；动量 91.1；资金 71.5；RSI 75.3",
+          "score": 76.5,
+          "momentum": 91.1,
+          "flow": 71.5,
+          "rsi": 75.3,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.257387"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -10284,13 +10555,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10300,7 +10572,7 @@
           "pe": "54.54",
           "cap": "2709.89亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002916": {
@@ -10333,6 +10605,19 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 76.6；动量 91.8；资金 70.7；RSI 66.3",
+          "score": 76.6,
+          "momentum": 91.8,
+          "flow": 70.7,
+          "rsi": 66.3,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.739184"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -10346,13 +10631,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10362,7 +10648,7 @@
           "pe": "78.79",
           "cap": "2679.57亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300476": {
@@ -10395,6 +10681,19 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 73.6；动量 80.3；资金 76.9；RSI 58.4",
+          "score": 73.6,
+          "momentum": 80.3,
+          "flow": 76.9,
+          "rsi": 58.4,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.987271"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -10408,13 +10707,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10424,7 +10724,7 @@
           "pe": "69.93",
           "cap": "3604.07亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603228": {
@@ -10457,6 +10757,19 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 65.4；动量 74.0；资金 60.9；RSI 54.9",
+          "score": 65.4,
+          "momentum": 74.0,
+          "flow": 60.9,
+          "rsi": 54.9,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.434087"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -10470,13 +10783,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10486,7 +10800,7 @@
           "pe": "79.68",
           "cap": "741.60亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "001389": {
@@ -10519,6 +10833,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -10532,13 +10847,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10548,7 +10864,7 @@
           "pe": "54.96",
           "cap": "862.95亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603629": {
@@ -10581,6 +10897,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -10594,13 +10911,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10610,7 +10928,7 @@
           "pe": "48.45",
           "cap": "525.74亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002384": {
@@ -10643,6 +10961,19 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 78.2；动量 84.3；资金 76.3；RSI 62.3",
+          "score": 78.2,
+          "momentum": 84.3,
+          "flow": 76.3,
+          "rsi": 62.3,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.734917"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -10656,13 +10987,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10672,7 +11004,7 @@
           "pe": "98.11",
           "cap": "4355.56亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002080": {
@@ -10705,6 +11037,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 95,
@@ -10719,13 +11052,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10735,7 +11069,7 @@
           "pe": "52.74",
           "cap": "1070.64亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600176": {
@@ -10768,6 +11102,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 95,
@@ -10782,13 +11117,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10798,7 +11134,7 @@
           "pe": "30.32",
           "cap": "1536.80亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603256": {
@@ -10831,6 +11167,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -10844,13 +11181,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10860,7 +11198,7 @@
           "pe": "314.49",
           "cap": "1764.03亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300395": {
@@ -10893,6 +11231,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -10906,13 +11245,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10922,7 +11262,7 @@
           "pe": "111.64",
           "cap": "641.81亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "601208": {
@@ -10955,6 +11295,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 95,
@@ -10969,13 +11310,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -10985,7 +11327,7 @@
           "pe": "80.56",
           "cap": "602.07亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "605589": {
@@ -11018,6 +11360,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -11031,13 +11374,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11047,7 +11391,7 @@
           "pe": "64.91",
           "cap": "460.44亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688141": {
@@ -11087,6 +11431,7 @@
             "segment": "电源管理芯片(PMIC/VR)"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -11101,13 +11446,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11117,7 +11463,7 @@
           "pe": "-39.78",
           "cap": "439.51亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688396": {
@@ -11157,6 +11503,7 @@
             "segment": "电源管理芯片(PMIC/VR)"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 95,
@@ -11171,13 +11518,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11187,7 +11535,7 @@
           "pe": "73.04",
           "cap": "964.15亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600460": {
@@ -11227,6 +11575,7 @@
             "segment": "电源管理芯片(PMIC/VR)"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -11240,13 +11589,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11256,7 +11606,7 @@
           "pe": "70.36",
           "cap": "587.75亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002851": {
@@ -11289,6 +11639,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -11303,13 +11654,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11319,7 +11671,7 @@
           "pe": "195.39",
           "cap": "896.35亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300870": {
@@ -11352,6 +11704,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -11365,13 +11718,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11381,7 +11735,7 @@
           "pe": "-836.77",
           "cap": "419.77亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002364": {
@@ -11414,6 +11768,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -11427,13 +11782,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11443,7 +11799,7 @@
           "pe": "303.36",
           "cap": "302.58亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300811": {
@@ -11476,6 +11832,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -11489,13 +11846,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11505,7 +11863,7 @@
           "pe": "101.43",
           "cap": "359.13亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002138": {
@@ -11538,6 +11896,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -11551,13 +11910,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11567,7 +11927,7 @@
           "pe": "57.28",
           "cap": "407.59亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002484": {
@@ -11600,6 +11960,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -11613,13 +11974,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11629,7 +11991,7 @@
           "pe": "126.46",
           "cap": "819.48亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "301018": {
@@ -11669,6 +12031,19 @@
             "segment": "散热模块"
           }
         ],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 69.7；动量 78.2；资金 68.1；RSI 55.7",
+          "score": 69.7,
+          "momentum": 78.2,
+          "flow": 68.1,
+          "rsi": 55.7,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.389417"
+        },
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -11681,13 +12056,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11697,7 +12073,7 @@
           "pe": "340.45",
           "cap": "385.47亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002837": {
@@ -11737,6 +12113,7 @@
             "segment": "散热模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -11751,13 +12128,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11767,7 +12145,7 @@
           "pe": "2547.20",
           "cap": "882.10亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300499": {
@@ -11807,6 +12185,19 @@
             "segment": "散热模块"
           }
         ],
+        "quantSnapshot": {
+          "label": "弱势等待",
+          "signal": "risk",
+          "note": "六维总分 50.3；动量 40.3；资金 60.4；RSI 40.6",
+          "score": 50.3,
+          "momentum": 40.3,
+          "flow": 60.4,
+          "rsi": 40.6,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.402408"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -11820,13 +12211,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11836,7 +12228,7 @@
           "pe": "192.79",
           "cap": "116.76亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300602": {
@@ -11876,6 +12268,7 @@
             "segment": "散热模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -11889,13 +12282,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11905,7 +12299,7 @@
           "pe": "79.47",
           "cap": "245.90亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300684": {
@@ -11945,6 +12339,7 @@
             "segment": "散热模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -11958,13 +12353,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -11974,7 +12370,7 @@
           "pe": "64.87",
           "cap": "168.08亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "301626": {
@@ -12014,6 +12410,7 @@
             "segment": "散热模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -12027,13 +12424,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12043,7 +12441,7 @@
           "pe": "735.03",
           "cap": "366.31亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "301489": {
@@ -12083,6 +12481,7 @@
             "segment": "散热模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -12096,13 +12495,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12112,7 +12512,7 @@
           "pe": "160.12",
           "cap": "169.88亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002600": {
@@ -12152,6 +12552,7 @@
             "segment": "散热模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -12165,13 +12566,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12181,7 +12583,7 @@
           "pe": "69.93",
           "cap": "1095.50亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600160": {
@@ -12221,6 +12623,7 @@
             "segment": "散热模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 95,
@@ -12235,13 +12638,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12251,7 +12655,7 @@
           "pe": "22.00",
           "cap": "1032.38亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300037": {
@@ -12291,6 +12695,7 @@
             "segment": "散热模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -12304,13 +12709,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12320,7 +12726,7 @@
           "pe": "30.71",
           "cap": "590.29亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002179": {
@@ -12360,6 +12766,7 @@
             "segment": "散热模块"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -12373,13 +12780,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12389,7 +12797,7 @@
           "pe": "52.13",
           "cap": "830.46亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603986": {
@@ -12429,6 +12837,19 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 78.3；动量 91.7；资金 76.0；RSI 75.8",
+          "score": 78.3,
+          "momentum": 91.7,
+          "flow": 76.0,
+          "rsi": 75.8,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.123700"
+        },
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -12441,13 +12862,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12457,7 +12879,7 @@
           "pe": "63.49",
           "cap": "3711.01亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300475": {
@@ -12497,6 +12919,19 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 69.3；动量 68.5；资金 79.8；RSI 47.4",
+          "score": 69.3,
+          "momentum": 68.5,
+          "flow": 79.8,
+          "rsi": 47.4,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.709678"
+        },
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -12509,13 +12944,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12525,7 +12961,7 @@
           "pe": "16.36",
           "cap": "868.46亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "000021": {
@@ -12565,6 +13001,19 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 72.4；动量 84.6；资金 75.7；RSI 62.5",
+          "score": 72.4,
+          "momentum": 84.6,
+          "flow": 75.7,
+          "rsi": 62.5,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.372493"
+        },
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -12577,13 +13026,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12593,7 +13043,7 @@
           "pe": "64.48",
           "cap": "624.67亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688008": {
@@ -12633,6 +13083,19 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 76.6；动量 95.4；资金 65.8；RSI 55.0",
+          "score": 76.6,
+          "momentum": 95.4,
+          "flow": 65.8,
+          "rsi": 55.0,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:39.389488"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 95,
@@ -12648,13 +13111,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12664,7 +13128,7 @@
           "pe": "93.63",
           "cap": "3173.69亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688535": {
@@ -12704,6 +13168,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -12718,13 +13183,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12734,7 +13200,7 @@
           "pe": "311.55",
           "cap": "168.57亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688300": {
@@ -12774,6 +13240,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -12787,13 +13254,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12803,7 +13271,7 @@
           "pe": "142.25",
           "cap": "407.60亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300054": {
@@ -12843,6 +13311,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -12856,13 +13325,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12872,7 +13342,7 @@
           "pe": "69.31",
           "cap": "695.79亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600089": {
@@ -12905,6 +13375,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -12918,13 +13389,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12934,7 +13406,7 @@
           "pe": "17.86",
           "cap": "1296.04亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "601179": {
@@ -12967,6 +13439,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -12980,13 +13453,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -12996,7 +13470,7 @@
           "pe": "57.71",
           "cap": "800.15亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600312": {
@@ -13029,6 +13503,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -13042,13 +13517,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13058,7 +13534,7 @@
           "pe": "16.04",
           "cap": "266.09亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600406": {
@@ -13091,6 +13567,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -13104,13 +13581,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13120,7 +13598,7 @@
           "pe": "66.25",
           "cap": "1911.56亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600875": {
@@ -13153,6 +13631,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -13166,13 +13645,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13182,7 +13662,7 @@
           "pe": "18.45",
           "cap": "1169.96亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600019": {
@@ -13215,6 +13695,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -13228,13 +13709,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13244,7 +13726,7 @@
           "pe": "14.00",
           "cap": "1245.94亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "000825": {
@@ -13277,6 +13759,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -13290,13 +13773,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13306,7 +13790,7 @@
           "pe": "271.00",
           "cap": "218.74亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300274": {
@@ -13339,6 +13823,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -13352,13 +13837,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13368,7 +13854,7 @@
           "pe": "37.18",
           "cap": "3407.32亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300750": {
@@ -13401,6 +13887,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -13414,13 +13901,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13430,7 +13918,7 @@
           "pe": "22.77",
           "cap": "1.89万亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002812": {
@@ -13463,6 +13951,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -13476,13 +13965,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13492,7 +13982,7 @@
           "pe": "60.72",
           "cap": "632.20亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300568": {
@@ -13525,6 +14015,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -13538,13 +14029,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13554,7 +14046,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688503": {
@@ -13587,6 +14079,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -13600,13 +14093,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13616,7 +14110,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002079": {
@@ -13649,6 +14143,7 @@
             "segment": "整机与机柜集成"
           }
         ],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -13662,13 +14157,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13678,7 +14174,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002594": {
@@ -13696,6 +14192,7 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -13708,13 +14205,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13724,7 +14222,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002709": {
@@ -13742,6 +14240,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -13755,13 +14254,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13771,7 +14271,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002850": {
@@ -13789,6 +14289,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -13802,13 +14303,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13818,7 +14320,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603806": {
@@ -13836,6 +14338,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -13849,13 +14352,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13865,7 +14369,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688680": {
@@ -13883,6 +14387,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -13896,13 +14401,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13912,7 +14418,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688032": {
@@ -13930,6 +14436,7 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -13942,13 +14449,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -13958,7 +14466,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688348": {
@@ -13976,6 +14484,7 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -13988,13 +14497,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14004,7 +14514,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "601698": {
@@ -14022,6 +14532,7 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "观察",
           "score": 45,
@@ -14034,13 +14545,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14050,7 +14562,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600118": {
@@ -14068,6 +14580,7 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -14080,13 +14593,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14096,7 +14610,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688375": {
@@ -14114,6 +14628,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -14127,13 +14642,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14143,7 +14659,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688270": {
@@ -14161,6 +14677,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -14174,13 +14691,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14190,7 +14708,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "001270": {
@@ -14208,6 +14726,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -14221,13 +14740,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14237,7 +14757,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "301117": {
@@ -14255,6 +14775,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -14268,13 +14789,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14284,7 +14806,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300101": {
@@ -14302,6 +14824,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -14315,13 +14838,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14331,7 +14855,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002025": {
@@ -14349,6 +14873,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -14362,13 +14887,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14378,7 +14904,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688066": {
@@ -14396,6 +14922,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -14409,13 +14936,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14425,7 +14953,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300034": {
@@ -14443,6 +14971,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -14456,13 +14985,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14472,7 +15002,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002149": {
@@ -14490,6 +15020,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -14503,13 +15034,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14519,7 +15051,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600893": {
@@ -14537,6 +15069,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -14550,13 +15083,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14566,7 +15100,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600456": {
@@ -14584,6 +15118,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -14597,13 +15132,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14613,7 +15149,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600879": {
@@ -14631,6 +15167,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -14644,13 +15181,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14660,7 +15198,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300699": {
@@ -14678,6 +15216,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -14691,13 +15230,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14707,7 +15247,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002297": {
@@ -14725,6 +15265,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -14738,13 +15279,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14754,7 +15296,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002389": {
@@ -14772,6 +15314,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -14785,13 +15328,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14801,7 +15345,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002465": {
@@ -14819,6 +15363,7 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -14831,13 +15376,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14847,7 +15393,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300045": {
@@ -14865,6 +15411,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -14878,13 +15425,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14894,7 +15442,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300762": {
@@ -14912,6 +15460,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -14925,13 +15474,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14941,7 +15491,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688102": {
@@ -14959,6 +15509,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -14972,13 +15523,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -14988,7 +15540,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688333": {
@@ -15006,6 +15558,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -15019,13 +15572,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15035,7 +15589,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600343": {
@@ -15053,6 +15607,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -15066,13 +15621,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15082,7 +15638,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "301005": {
@@ -15100,6 +15656,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -15113,13 +15670,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15129,7 +15687,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688582": {
@@ -15147,6 +15705,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -15160,13 +15719,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15176,7 +15736,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300607": {
@@ -15194,6 +15754,19 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 60.4；动量 61.1；资金 63.0；RSI 37.5",
+          "score": 60.4,
+          "momentum": 61.1,
+          "flow": 63.0,
+          "rsi": 37.5,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.923074"
+        },
         "selectionProfile": {
           "label": "观察",
           "score": 45,
@@ -15206,13 +15779,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15222,7 +15796,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300496": {
@@ -15240,6 +15814,19 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "规避/减仓",
+          "signal": "risk",
+          "note": "六维总分 38.4；动量 30.2；资金 50.6；RSI 44.2",
+          "score": 38.4,
+          "momentum": 30.2,
+          "flow": 50.6,
+          "rsi": 44.2,
+          "available_factors": 2,
+          "confidence": "低",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.695643"
+        },
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -15252,13 +15839,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15268,7 +15856,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688088": {
@@ -15286,6 +15874,19 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 55.0",
+          "score": 55.0,
+          "momentum": null,
+          "flow": null,
+          "rsi": null,
+          "available_factors": 1,
+          "confidence": "低",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.990333"
+        },
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -15298,13 +15899,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15314,7 +15916,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300223": {
@@ -15332,6 +15934,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -15345,13 +15948,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15361,7 +15965,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688521": {
@@ -15379,6 +15983,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -15392,13 +15997,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15408,7 +16014,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603290": {
@@ -15426,6 +16032,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -15439,13 +16046,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15455,7 +16063,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "605111": {
@@ -15473,6 +16081,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -15486,13 +16095,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15502,7 +16112,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688711": {
@@ -15520,6 +16130,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -15533,13 +16144,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15549,7 +16161,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300124": {
@@ -15567,6 +16179,19 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 54.7；动量 57.6；资金 50.7；RSI 42.2",
+          "score": 54.7,
+          "momentum": 57.6,
+          "flow": 50.7,
+          "rsi": 42.2,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.882097"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -15581,13 +16206,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15597,7 +16223,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002747": {
@@ -15615,6 +16241,19 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 74.4；动量 96.7；资金 57.6；RSI 65.6",
+          "score": 74.4,
+          "momentum": 96.7,
+          "flow": 57.6,
+          "rsi": 65.6,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.895338"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -15628,13 +16267,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15644,7 +16284,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688017": {
@@ -15662,6 +16302,19 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "趋势观察",
+          "signal": "neutral",
+          "note": "六维总分 74.9；动量 96.2；资金 59.7；RSI 57.3",
+          "score": 74.9,
+          "momentum": 96.2,
+          "flow": 59.7,
+          "rsi": 57.3,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:40.861253"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -15676,13 +16329,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15692,7 +16346,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688160": {
@@ -15710,6 +16364,19 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 55.0",
+          "score": 55.0,
+          "momentum": null,
+          "flow": null,
+          "rsi": null,
+          "available_factors": 1,
+          "confidence": "低",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.832625"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -15723,13 +16390,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15739,7 +16407,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603728": {
@@ -15757,6 +16425,19 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 58.7；动量 57.0；资金 63.3；RSI 46.6",
+          "score": 58.7,
+          "momentum": 57.0,
+          "flow": 63.3,
+          "rsi": 46.6,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.144762"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -15770,13 +16451,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15786,7 +16468,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300748": {
@@ -15804,6 +16486,19 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "弱势等待",
+          "signal": "risk",
+          "note": "六维总分 43.3；动量 37.5；资金 57.2；RSI 30.5",
+          "score": 43.3,
+          "momentum": 37.5,
+          "flow": 57.2,
+          "rsi": 30.5,
+          "available_factors": 2,
+          "confidence": "低",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.392643"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -15817,13 +16512,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15833,7 +16529,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "600366": {
@@ -15851,6 +16547,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -15864,13 +16561,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15880,7 +16578,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "000970": {
@@ -15898,6 +16596,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -15911,13 +16610,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15927,7 +16627,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603583": {
@@ -15945,6 +16645,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -15958,13 +16659,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -15974,7 +16676,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002472": {
@@ -15992,6 +16694,19 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 55.9；动量 56.4；资金 70.9；RSI 46.2",
+          "score": 55.9,
+          "momentum": 56.4,
+          "flow": 70.9,
+          "rsi": 46.2,
+          "available_factors": 2,
+          "confidence": "低",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.347505"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -16005,13 +16720,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16021,7 +16737,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300660": {
@@ -16039,6 +16755,19 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "弱势等待",
+          "signal": "risk",
+          "note": "六维总分 49.3；动量 42.7；资金 54.2；RSI 36.7",
+          "score": 49.3,
+          "momentum": 42.7,
+          "flow": 54.2,
+          "rsi": 36.7,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.162650"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -16052,13 +16781,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16068,7 +16798,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "873593": {
@@ -16086,6 +16816,19 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 55.0",
+          "score": 55.0,
+          "momentum": null,
+          "flow": null,
+          "rsi": null,
+          "available_factors": 1,
+          "confidence": "低",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.173763"
+        },
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -16099,13 +16842,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         }
       },
@@ -16124,6 +16868,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -16137,13 +16882,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16153,7 +16899,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603662": {
@@ -16171,6 +16917,19 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 58.9；动量 60.9；资金 57.4；RSI 47.6",
+          "score": 58.9,
+          "momentum": 60.9,
+          "flow": 57.4,
+          "rsi": 47.6,
+          "available_factors": 2,
+          "confidence": "低",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.317500"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -16185,13 +16944,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16201,7 +16961,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688686": {
@@ -16219,6 +16979,19 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 66.3；动量 92.3；资金 39.0；RSI 61.1",
+          "score": 66.3,
+          "momentum": 92.3,
+          "flow": 39.0,
+          "rsi": 61.1,
+          "available_factors": 3,
+          "confidence": "中",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.183790"
+        },
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 92,
@@ -16233,13 +17006,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16249,7 +17023,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603501": {
@@ -16267,6 +17041,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -16280,13 +17055,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16296,7 +17072,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688213": {
@@ -16314,6 +17090,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -16327,13 +17104,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16343,7 +17121,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300456": {
@@ -16361,6 +17139,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -16374,13 +17153,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16390,7 +17170,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002920": {
@@ -16408,6 +17188,7 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -16420,13 +17201,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16436,7 +17218,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688326": {
@@ -16454,6 +17236,7 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -16466,13 +17249,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16482,7 +17266,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "601689": {
@@ -16500,6 +17284,7 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -16512,13 +17297,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16528,7 +17314,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603197": {
@@ -16546,6 +17332,7 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -16558,13 +17345,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16574,7 +17362,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603259": {
@@ -16592,6 +17380,7 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -16604,13 +17393,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16620,7 +17410,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "002821": {
@@ -16638,6 +17428,7 @@
         "water_seller": false,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "观察",
           "score": 51,
@@ -16650,13 +17441,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16666,7 +17458,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300347": {
@@ -16684,6 +17476,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -16697,13 +17490,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16713,7 +17507,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300759": {
@@ -16731,6 +17525,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -16744,13 +17539,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16760,7 +17556,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "603127": {
@@ -16778,6 +17574,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -16791,13 +17588,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16807,7 +17605,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688202": {
@@ -16825,6 +17623,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -16838,13 +17637,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16854,7 +17654,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688222": {
@@ -16872,6 +17672,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -16885,13 +17686,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16901,7 +17703,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "301230": {
@@ -16919,6 +17721,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -16932,13 +17735,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16948,7 +17752,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "301047": {
@@ -16966,6 +17770,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -16979,13 +17784,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -16995,7 +17801,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "301080": {
@@ -17013,6 +17819,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -17026,13 +17833,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -17042,7 +17850,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300725": {
@@ -17060,6 +17868,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -17073,13 +17882,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -17089,7 +17899,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300358": {
@@ -17107,6 +17917,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -17120,13 +17931,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -17136,7 +17948,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300171": {
@@ -17154,6 +17966,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -17167,13 +17980,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -17183,7 +17997,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688690": {
@@ -17201,6 +18015,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -17214,13 +18029,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -17230,7 +18046,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688293": {
@@ -17248,6 +18064,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -17261,13 +18078,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -17277,7 +18095,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "688046": {
@@ -17295,6 +18113,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
           "score": 80,
@@ -17308,13 +18127,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -17324,7 +18144,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "300363": {
@@ -17342,6 +18162,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -17355,13 +18176,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -17371,7 +18193,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       },
       "301301": {
@@ -17389,6 +18211,7 @@
         "water_seller": true,
         "held": false,
         "us_anchors": [],
+        "quantSnapshot": null,
         "selectionProfile": {
           "label": "结构候选",
           "score": 77,
@@ -17402,13 +18225,14 @@
         },
         "timingProfile": {
           "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote",
+          "source": "data.json.signal / signalNote / factor_scores",
           "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察"
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
           ]
         },
         "marketSnapshot": {
@@ -17418,7 +18242,7 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 16:44:50"
+          "updateTime": "2026-06-04 17:09:49"
         }
       }
     },
@@ -17426,7 +18250,7 @@
       "enhanced": 162,
       "pe": 79,
       "total": 163,
-      "updateTime": "2026-06-04 16:44:50",
+      "updateTime": "2026-06-04 17:09:49",
       "sources": [
         "mx_iwencai",
         "sina"

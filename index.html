@@ -1126,7 +1126,7 @@ createApp({
     const dashQuote=computed(()=>{
       if(!dashCard.value)return{};
       const m=priceIndex.value[dashCard.value.code]||priceIndex.value[String(dashCard.value.code).replace(/^HK\./,'')]||{};
-      return{p:m.p&&m.p!=='-'?m.p:'',c:m.c||'',cv:m.cv!=null?m.cv:0,pe:m.pe,cap:m.cap,signal:m.signal||'',signalNote:m.signalNote||''};
+      return{p:m.p&&m.p!=='-'?m.p:'',c:m.c||'',cv:m.cv!=null?m.cv:0,pe:m.pe,cap:m.cap,signal:m.signal||'',signalNote:m.signalNote||'',confidence:m.confidence||''};
     });
     const parseNum=(v)=>{
       if(v==null||v===''||v==='-'||v==='—')return null;
@@ -1160,9 +1160,14 @@ createApp({
       const signal=quote&&quote.signal;
       const cv=parseNum(quote&&quote.cv);
       const profile=(card&&card.timingProfile)||{};
-      const note=(quote&&quote.signalNote)||profile.label||'技术数据不足，暂不判断买卖点。';
+      const quant=(card&&card.quantSnapshot)||{};
+      const qSignal=quant.signal||'';
+      const note=(quote&&quote.signalNote)||quant.note||profile.label||'技术数据不足，暂不判断买卖点。';
       if(signal==='buy')return{label:'可等买点',cls:'up',note};
       if(signal==='risk')return{label:'规避/减仓',cls:'down',note};
+      if(!signal&&qSignal==='buy')return{label:quant.label||'可等买点',cls:'up',note};
+      if(!signal&&qSignal==='risk')return{label:quant.label||'规避/减仓',cls:'down',note};
+      if(!signal&&quant.label)return{label:quant.label,cls:quant.score>=75?'flat':'flat',note};
       if(cv!=null&&cv<=-3)return{label:'回撤观察',cls:'down',note:`当日回撤较大；${note}`};
       if(cv!=null&&cv>=5)return{label:'追高谨慎',cls:'flat',note:`短线涨幅较大；${note}`};
       return{label:'等待确认',cls:'flat',note};
@@ -1367,6 +1372,11 @@ createApp({
       };
       Object.values((strat.stockCards&&strat.stockCards.cards)||{}).forEach(c=>{
         if(c&&c.marketSnapshot)put(c.code,{...c.marketSnapshot,name:c.name,sector:c.segment});
+        if(c&&c.quantSnapshot)put(c.code,{
+          signal:c.quantSnapshot.signal,
+          signalNote:c.quantSnapshot.note,
+          confidence:c.quantSnapshot.confidence,
+        });
       });
       layers.forEach(L=>L.stocks.forEach(s=>put(s.code,s)));
       etfs.forEach(e=>put(e.code,e));

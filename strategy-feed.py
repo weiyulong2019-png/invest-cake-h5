@@ -48,6 +48,7 @@ WORKSPACE_SCRIPTS = Path("/Users/long/.openclaw/workspace-main/scripts")
 #   宏观情报: scripts/data/intel/     (rss_intel / polymarket_odds)
 US_INTEL_DIR = WORKSPACE_SCRIPTS / "data" / "us_intel"
 INTEL_DIR = WORKSPACE_SCRIPTS / "data" / "intel"
+SIGNALS_DIR = WORKSPACE_SCRIPTS / "data" / "signals"
 
 # 上游降级骨架里出现这些 status 即视为「未取到」（不当成真数据）。
 _DEGRADED_STATUS = {"degraded", "error", "parse_error", "empty"}
@@ -1071,7 +1072,100 @@ def build_us_ash_index(us_mapping: dict, chain: str, dry_run: bool) -> dict:
     return out
 
 
-def build_stock_cards(chains: dict, held: dict, us_index: dict) -> dict:
+def _quant_signal_from_score(row: dict) -> dict:
+    total = row.get("total")
+    momentum = row.get("M")
+    flow = row.get("F")
+    rsi = row.get("rsi")
+    available = row.get("available_factors")
+
+    label = "等待确认"
+    signal = "neutral"
+    reasons = []
+
+    if total is not None:
+        reasons.append(f"六维总分 {float(total):.1f}")
+    if momentum is not None:
+        reasons.append(f"动量 {float(momentum):.1f}")
+    if flow is not None:
+        reasons.append(f"资金 {float(flow):.1f}")
+    if rsi is not None:
+        reasons.append(f"RSI {float(rsi):.1f}")
+
+    if total is not None and total < 40:
+        label = "规避/减仓"
+        signal = "risk"
+    elif momentum is not None and momentum < 45:
+        label = "弱势等待"
+        signal = "risk"
+    elif total is not None and total >= 80:
+        if rsi is not None and rsi >= 75:
+            label = "强势但等回撤"
+            signal = "neutral"
+        elif flow is not None and flow >= 55:
+            label = "可等买点"
+            signal = "buy"
+        else:
+            label = "强势观察"
+            signal = "neutral"
+    elif total is not None and total >= 70 and momentum is not None and momentum >= 70:
+        label = "趋势观察"
+        signal = "neutral"
+
+    confidence = "高" if available and available >= 4 else ("中" if available and available >= 3 else "低")
+    note = "；".join(reasons) if reasons else "量化评分数据不足"
+    if label == "强势但等回撤":
+        note += "；短线偏热，不追高"
+    elif signal == "buy":
+        note += "；只代表量化候选，需人工确认"
+
+    return {
+        "label": label,
+        "signal": signal,
+        "note": note,
+        "score": total,
+        "momentum": momentum,
+        "flow": flow,
+        "rsi": rsi,
+        "available_factors": available,
+        "confidence": confidence,
+        "source": "factor_scores",
+        "ts": row.get("ts"),
+    }
+
+
+def build_quant_timing_index(now: datetime) -> dict:
+    """读取同日六维评分结果，为 H5 候选卡补量化择时快照。"""
+    target = SIGNALS_DIR / f"factor_scores_{now.strftime('%Y%m%d')}.json"
+    if not target.exists():
+        return {
+            "available": False,
+            "note": "今日六维评分文件不存在，量化择时仅使用 data.json 实时信号",
+            "byCode": {},
+        }
+    try:
+        rows = json.loads(target.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return {"available": False, "note": f"六维评分读取失败: {exc}", "byCode": {}}
+
+    by_code = {}
+    for row in rows if isinstance(rows, list) else []:
+        code = str(row.get("code") or "")
+        pure = code.split(".")[-1]
+        if not pure:
+            continue
+        by_code[pure] = _quant_signal_from_score(row)
+
+    return {
+        "available": bool(by_code),
+        "note": "" if by_code else "六维评分为空",
+        "file": str(target),
+        "count": len(by_code),
+        "byCode": by_code,
+    }
+
+
+def build_stock_cards(chains: dict, held: dict, us_index: dict, quant_index: dict | None = None) -> dict:
     """item7：为「系统已覆盖股」预计算只读分析卡，供个股输入仪表盘展示。
 
     覆盖范围 = 各产业链 segments 上的全部 A 股标的（已挂树即视为已覆盖）。
@@ -1082,6 +1176,7 @@ def build_stock_cards(chains: dict, held: dict, us_index: dict) -> dict:
     """
     held_codes = {h["code"] for h in (held.get("items") or [])}
     idx = _build_code_segment_index(chains)
+    quant_by_code = (quant_index or {}).get("byCode") or {}
     cards: dict = {}
     for code, meta in idx.items():
         tier = meta["tier"]
@@ -1109,6 +1204,7 @@ def build_stock_cards(chains: dict, held: dict, us_index: dict) -> dict:
             "water_seller": water_seller,
             "held": code in held_codes,
             "us_anchors": (us_index.get("byCode") or {}).get(code, []),
+            "quantSnapshot": quant_by_code.get(code),
             "selectionProfile": _selection_profile(
                 tier=tier,
                 is_leader=bool(meta["is_leader"]),
@@ -1191,13 +1287,14 @@ def _selection_profile(*, tier: int | None, is_leader: bool, water_seller: bool,
 def _timing_profile() -> dict:
     return {
         "label": "等待实时量化信号",
-        "source": "data.json.signal / signalNote",
+        "source": "data.json.signal / signalNote / factor_scores",
         "rules": [
             "buy=可等买点",
             "risk=规避/减仓",
             "neutral=等待确认",
             "涨幅过大=追高谨慎",
             "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤",
         ],
     }
 
@@ -1253,6 +1350,10 @@ def main() -> int:
           f"RSS {len(intel['rss'].get('items', []))} 条 / "
           f"Polymarket {len(intel['polymarket'].get('events', []))} 事件 · "
           f"{intel.get('note') or '—'}")
+    print("[派生] 今日六维量化择时快照 ...")
+    quant_timing = build_quant_timing_index(now)
+    print(f"      {'OK' if quant_timing['available'] else 'SKIP'} · "
+          f"覆盖 {quant_timing.get('count', 0)} 只 · {quant_timing.get('note') or '—'}")
     # 美股锚增强字段命中情况（只统计，不打印任何持仓量）
     enr = [a for a in us_mapping.get("anchors", []) if a.get("insider", {}).get("available")]
     print(f"      美股锚内部人增强命中: {len(enr)}/{len(us_mapping.get('anchors', []))}")
@@ -1267,7 +1368,7 @@ def main() -> int:
 
     print("[派生] 美股→A股映射索引 + 个股分析卡（结构化派生，不再取数）...")
     us_index = build_us_ash_index(us_mapping, args.chain, args.dry_run)
-    stock_cards = build_stock_cards(all_chains["chains"], held_stocks, us_index)
+    stock_cards = build_stock_cards(all_chains["chains"], held_stocks, us_index, quant_timing)
     print(f"      美股→A股映射索引: {'OK' if us_index['available'] else 'SKIP'} · "
           f"命中 A 股 {len(us_index.get('byCode', {}))} 只 · {us_index.get('note') or '—'}")
     print(f"      个股分析卡（已覆盖股预计算）: {'OK' if stock_cards['available'] else 'SKIP'} · "
@@ -1287,6 +1388,7 @@ def main() -> int:
         "funding": funding,
         "winRate": win_rate,
         "intel": intel,                     # 📰 情报速递：RSS 头条 + Polymarket 赔率
+        "quantTiming": {k: v for k, v in quant_timing.items() if k != "byCode"},
         "heldEtfCodes": held_etf,           # 持仓 ETF 代码（公开安全：仅代码，前端据此排序，不含数量）
         "heldStocks": held_stocks,          # 持仓股清单（公开安全：仅代码+名称+蛋糕层映射，绝不含数量/成本/盈亏）
         "usAshIndex": us_index,             # item8：美股锚→A股 映射索引（byCode），UI 在 A 股标的旁标注
