@@ -620,6 +620,25 @@ a:active{opacity:.6;}
       </div>
     </div>
 
+    <!-- 持仓动作雷达：只展示动作建议，不展示数量/成本/盈亏 -->
+    <div class="wl-section">
+      <div class="strat-block" style="margin-bottom:0;">
+        <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><path d="M4 17l5-5 4 3 7-8"/><path d="M20 7h-5M20 7v5"/><path d="M4 20h16"/></svg>持仓动作雷达<span class="strat-head-sub">· 卖出/减仓辅助</span>
+          <span class="badge" :style="badgeStyle(heldActionRows.length)">{{ heldActionRows.length?(heldActionRows.length+'只'):'暂无' }}</span>
+        </div>
+        <template v-if="heldActionRows.length">
+          <div class="alert-row" v-for="row in heldActionRows" :key="row.code" @click="row.hasPlan&&(pickDash(row.code),tab='strategy')" :style="{cursor:row.hasPlan?'pointer':'default'}">
+            <span class="alert-dot" :class="row.level"></span>
+            <div class="alert-body">
+              <div class="alert-name">{{ row.name }} <span class="alert-tag" :class="row.level">{{ row.tag }}</span><span v-if="row.quality" class="alert-tag low">{{ row.quality }}</span></div>
+              <div class="alert-note">{{ row.action }} · {{ row.note }}</div>
+            </div>
+          </div>
+        </template>
+        <div v-else class="strat-note">暂无持仓动作提示。</div>
+      </div>
+    </div>
+
     <!-- item5：自选池异动 — 默认折叠，点开展开明细 -->
     <div class="wl-section" v-if="watchlistMovers.length">
       <div class="strat-block" style="margin-bottom:0;">
@@ -1575,6 +1594,41 @@ createApp({
           signal:m.signal||'',signalNote:m.signalNote||'',cakeLayerName:h.cakeLayerName||''};
       });
     });
+    const heldActionRows=computed(()=>{
+      const cards=(strat.stockCards&&strat.stockCards.cards)||{};
+      const severity={high:0,mid:1,low:2};
+      return heldStockRows.value.map(s=>{
+        const key=String(s.code);
+        const card=cards[key]||cards[key.replace(/^HK\./,'')];
+        const decision=(card&&card.decisionProfile)||{};
+        const plan=decision.timingPlan||{};
+        const fund=(card&&card.fundamentalSnapshot)||{};
+        const stance=String(plan.stance||decision.timingState||'');
+        const quality=fund.qualityLabel||decision.qualityState||'';
+        if(!card||!plan.stance){
+          return{code:s.code,name:s.name,level:'low',tag:'待接入',action:'待接入分析卡',quality:'',hasPlan:false,
+            note:'ETF/港股或暂未挂入当前产业图谱；先只展示行情，不做买卖点判断。'};
+        }
+        if(/防守|减仓|风险|规避/.test(stance)){
+          return{code:s.code,name:s.name,level:'high',tag:'防守',action:'减仓观察',quality,hasPlan:true,
+            note:plan.riskControl||plan.invalid||'量化风险抬升，先控制仓位。'};
+        }
+        if(/回撤/.test(stance)){
+          return{code:s.code,name:s.name,level:'mid',tag:'等回撤',action:'不追高',quality,hasPlan:true,
+            note:plan.entry||plan.invalid||'强势标的等待回撤或量价确认。'};
+        }
+        if(/趋势|确认/.test(stance)){
+          return{code:s.code,name:s.name,level:'low',tag:'趋势',action:'持有观察',quality,hasPlan:true,
+            note:plan.invalid||plan.riskControl||'趋势仍需跟踪，破位再处理。'};
+        }
+        if(/等待/.test(stance)){
+          return{code:s.code,name:s.name,level:'low',tag:'等待',action:'不加仓',quality,hasPlan:true,
+            note:plan.entry||'等待量化条件确认。'};
+        }
+        return{code:s.code,name:s.name,level:'low',tag:'观察',action:'持有观察',quality,hasPlan:true,
+          note:plan.entry||plan.invalid||'保持观察，等待更清晰买卖点。'};
+      }).sort((a,b)=>(severity[a.level]??9)-(severity[b.level]??9)||Number(b.hasPlan)-Number(a.hasPlan)).slice(0,17);
+    });
     const filteredHeld=computed(()=>{
       let list=heldStockRows.value;
       if(wlFilter.value==='a')list=list.filter(s=>s.type==='a');
@@ -1725,7 +1779,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionCandidates,displayPe,qualityLabel,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashPlan,planClass,valueDecision,timingDecision};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionCandidates,displayPe,qualityLabel,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashPlan,planClass,valueDecision,timingDecision};
   }
 }).mount('#app');
 
