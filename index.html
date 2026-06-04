@@ -498,6 +498,7 @@ a:active{opacity:.6;}
                 <div class="decision-tags">
                   <span class="decision-tag">PE {{ displayPe(c) }}</span>
                   <span class="decision-tag">{{ qualityLabel(c) }}</span>
+                  <span class="decision-tag">{{ timingSourceLabel(c) }}</span>
                   <span class="decision-tag">{{ c.decisionProfile.timingPlan?c.decisionProfile.timingPlan.stance:((c.quantSnapshot||c.quoteTimingSnapshot)?(c.quantSnapshot||c.quoteTimingSnapshot).label:'择时待确认') }}</span>
                 </div>
               </div>
@@ -762,10 +763,36 @@ a:active{opacity:.6;}
       </div>
 
       <template v-if="stratReady">
-        <!-- 决策候选池：价值选股 × 量化买卖点 -->
+        <!-- 六维动作雷达：买卖点/防守优先，可能只是等回撤，不等于买入池 -->
+        <div class="strat-block" v-if="actionCandidates.length">
+          <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><path d="M4 17l5-5 4 3 7-8"/><path d="M20 7h-5M20 7v5"/><path d="M4 20h16"/></svg>六维动作雷达
+            <span class="badge" :style="badgeStyle(true)">买卖点确认</span>
+          </div>
+          <div class="decision-pool">
+            <div class="decision-row" v-for="c in actionCandidates" :key="'act-'+c.code" @click="pickDash(c.code)">
+              <div>
+                <div class="decision-name">{{ c.name }} <span v-if="c.held" class="held-pill">持有</span></div>
+                <div class="decision-meta">{{ c.chain_label }} · {{ c.segment||'未归段' }}</div>
+                <div class="decision-tags">
+                  <span class="decision-tag">PE {{ displayPe(c) }}</span>
+                  <span class="decision-tag">{{ qualityLabel(c) }}</span>
+                  <span class="decision-tag">{{ timingSourceLabel(c) }}</span>
+                  <span class="decision-tag">{{ c.decisionProfile.timingPlan?c.decisionProfile.timingPlan.stance:'择时待确认' }}</span>
+                </div>
+              </div>
+              <div>
+                <div class="decision-label">{{ c.decisionProfile.label }}</div>
+                <div class="decision-note">{{ c.decisionProfile.actionHint }} · {{ (c.decisionProfile.timingPlan&&c.decisionProfile.timingPlan.entry)||((c.decisionProfile.reasons||[]).slice(0,2).join(' / ')) }}</div>
+              </div>
+              <div class="decision-score"><b>{{ c.decisionProfile.score }}</b><span>综合分</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 价值观察池：价值选股优先，等待六维/价格确认 -->
         <div class="strat-block" v-if="decisionCandidates.length">
-          <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16l3-4 3 2 4-7"/></svg>决策候选池
-            <span class="badge" :style="badgeStyle(true)">价值 × 择时</span>
+          <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16l3-4 3 2 4-7"/></svg>价值观察池
+            <span class="badge" :style="badgeStyle(true)">价值优先 · 等确认</span>
           </div>
           <div class="decision-pool">
             <div class="decision-row" v-for="c in decisionCandidates" :key="c.code" @click="pickDash(c.code)">
@@ -775,6 +802,7 @@ a:active{opacity:.6;}
                 <div class="decision-tags">
                   <span class="decision-tag">PE {{ displayPe(c) }}</span>
                   <span class="decision-tag">{{ qualityLabel(c) }}</span>
+                  <span class="decision-tag">{{ timingSourceLabel(c) }}</span>
                   <span class="decision-tag">{{ c.decisionProfile.timingPlan?c.decisionProfile.timingPlan.stance:((c.quantSnapshot||c.quoteTimingSnapshot)?(c.quantSnapshot||c.quoteTimingSnapshot).label:'择时待确认') }}</span>
                 </div>
               </div>
@@ -1234,8 +1262,26 @@ createApp({
       const cards=Object.values((strat.stockCards&&strat.stockCards.cards)||{});
       return cards.filter(c=>c&&c.decisionProfile)
         .sort((a,b)=>{
-          const bp=(b.decisionProfile&&Number(b.decisionProfile.score))||0;
-          const ap=(a.decisionProfile&&Number(a.decisionProfile.score))||0;
+          const bp=(b.decisionProfile&&Number(b.decisionProfile.rankScore||b.decisionProfile.score))||0;
+          const ap=(a.decisionProfile&&Number(a.decisionProfile.rankScore||a.decisionProfile.score))||0;
+          return bp-ap;
+        })
+        .slice(0,10);
+    });
+    const actionCandidates=computed(()=>{
+      const cards=Object.values((strat.stockCards&&strat.stockCards.cards)||{});
+      const priority=(c)=>{
+        const d=(c&&c.decisionProfile)||{};
+        if(d.timingSource!=='six_factor')return 0;
+        if(d.actionability==='defensive')return 4;
+        if(d.actionability==='action_candidate')return 3;
+        if(d.actionability==='tracking_candidate')return 2;
+        return 0;
+      };
+      return cards.filter(c=>priority(c)>0)
+        .sort((a,b)=>{
+          const bp=priority(b)*1000+((b.decisionProfile&&Number(b.decisionProfile.score))||0);
+          const ap=priority(a)*1000+((a.decisionProfile&&Number(a.decisionProfile.score))||0);
           return bp-ap;
         })
         .slice(0,10);
@@ -1248,6 +1294,12 @@ createApp({
       const f=(card&&card.fundamentalSnapshot)||{};
       return f.qualityLabel||'质量未核实';
     };
+    const timingSourceLabel=(card)=>{
+      const d=(card&&card.decisionProfile)||{};
+      if(d.timingSource==='six_factor')return '六维确认';
+      if(d.timingSource==='quote_fallback')return '行情兜底';
+      return '择时待补';
+    };
     const chainCardCodes=computed(()=>{
       const c=curChain.value||{};const out=[];const seen=new Set();
       (c.segments||[]).forEach(seg=>(seg.holdings||[]).forEach(h=>{
@@ -1258,7 +1310,7 @@ createApp({
     const chainDecisionCandidates=computed(()=>{
       const cards=(strat.stockCards&&strat.stockCards.cards)||{};
       return chainCardCodes.value.map(code=>cards[code]).filter(c=>c&&c.decisionProfile)
-        .sort((a,b)=>((b.decisionProfile&&Number(b.decisionProfile.score))||0)-((a.decisionProfile&&Number(a.decisionProfile.score))||0))
+        .sort((a,b)=>((b.decisionProfile&&Number(b.decisionProfile.rankScore||b.decisionProfile.score))||0)-((a.decisionProfile&&Number(a.decisionProfile.rankScore||a.decisionProfile.score))||0))
         .slice(0,6);
     });
     const chainDecisionSummary=computed(()=>{
@@ -1267,7 +1319,10 @@ createApp({
       const total=chainCards.length;
       const pe=chainCards.filter(c=>displayPe(c)!=='—').length;
       const timing=chainCards.filter(c=>c.quantSnapshot||c.quoteTimingSnapshot).length;
-      const ready=chainCards.filter(c=>['价值优先，等待买点','价值+量化共振','结构候选，趋势观察'].includes((c.decisionProfile||{}).label)).length;
+      const ready=chainCards.filter(c=>{
+        const d=c.decisionProfile||{};
+        return d.timingSource==='six_factor'&&['action_candidate','tracking_candidate'].includes(d.actionability);
+      }).length;
       return{total,pe,timing,ready,text:`${total} 只 · PE ${pe} · 择时 ${timing} · 可跟踪 ${ready}`};
     });
     const pickDash=(code)=>{dashPicked.value=code;const c=(strat.stockCards.cards||{})[code];if(c)dashQuery.value=c.name;};
@@ -1802,7 +1857,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionCandidates,displayPe,qualityLabel,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashPlan,planClass,valueDecision,timingDecision};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionCandidates,actionCandidates,displayPe,qualityLabel,timingSourceLabel,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashPlan,planClass,valueDecision,timingDecision};
   }
 }).mount('#app');
 

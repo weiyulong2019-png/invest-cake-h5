@@ -412,6 +412,7 @@ def _decision_profile(card: dict) -> dict:
     valuation_ok = valuation_state in ("reasonable", "neutral_or_growth_priced")
 
     is_quote_timing = quant.get("source") == "market_snapshot_fallback"
+    timing_source = "quote_fallback" if is_quote_timing else ("six_factor" if quant else "missing")
 
     if timing_state == "risk":
         label = "行情风险，暂缓" if is_quote_timing else "量化风险，暂缓"
@@ -460,10 +461,49 @@ def _decision_profile(card: dict) -> dict:
         prefix = "行情择时" if is_quote_timing else "量化"
         reasons.append(f"{timing_label} / {prefix}分 {timing_score:g}")
 
+    if timing_state == "risk":
+        actionability = "defensive"
+    elif not has_quality and value_score >= 75:
+        actionability = "needs_fundamental_check"
+    elif is_quote_timing:
+        actionability = "watch_only"
+    elif timing_state == "entry_candidate":
+        actionability = "action_candidate"
+    elif timing_state in ("trend_watch", "wait_pullback"):
+        actionability = "tracking_candidate"
+    else:
+        actionability = "watch_only"
+
+    action_rank = {
+        "action_candidate": 4,
+        "tracking_candidate": 3,
+        "defensive": 0,
+        "needs_fundamental_check": 1,
+        "watch_only": 1,
+    }.get(actionability, 0)
+
+    if label == "价值+量化共振":
+        value_rank = 5
+    elif label == "价值优先，等待买点":
+        value_rank = 4
+    elif valuation_ok and has_quality and value_score >= 75:
+        value_rank = 3
+    elif valuation_ok and has_quality and value_score >= 65:
+        value_rank = 2
+    elif not has_quality and value_score >= 75:
+        value_rank = 1
+    else:
+        value_rank = 0
+
     return {
         "label": label,
         "score": decision_score,
+        "rankScore": round(value_rank * 1000 + action_rank * 100 + value_score + decision_score / 10, 1),
         "actionHint": action_hint,
+        "actionability": actionability,
+        "valueRank": value_rank,
+        "timingSource": timing_source,
+        "timingConfidence": quant.get("confidence") or ("低" if is_quote_timing else "待确认"),
         "valueScore": round(value_score, 1),
         "timingScore": round(timing_score, 1),
         "valuationState": valuation_state,
