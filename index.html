@@ -414,6 +414,18 @@ a:active{opacity:.6;}
 .dash-row:first-child{border-top:none;}
 .dash-rk{color:var(--text2);flex-shrink:0;}
 .dash-rv{text-align:right;font-weight:600;color:var(--text);max-width:64%;}
+.decision-overview{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:8px;}
+.overview-cell{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:10px 8px;text-align:center;min-width:0;}
+.overview-v{font-size:20px;line-height:1;font-weight:900;color:var(--text);}
+.overview-k{font-size:11px;color:var(--text2);font-weight:700;margin-top:6px;white-space:nowrap;}
+.overview-cell.danger{background:#FFF5F5;border-color:#FFD6D6;}
+.overview-cell.danger .overview-v{color:var(--red);}
+.overview-cell.good{background:#F0FAF3;border-color:#CDEBD6;}
+.overview-cell.good .overview-v{color:var(--green);}
+.overview-cell.value{background:#FBF5FF;border-color:#E8D7F7;}
+.overview-cell.value .overview-v{color:#8E44AD;}
+.overview-cell.wait{background:#F7F8FA;border-color:#E6E8EC;}
+.overview-cell.wait .overview-v{color:var(--text2);}
 .decision-pool{display:grid;gap:8px;margin-top:8px;}
 .decision-row{display:grid;grid-template-columns:minmax(88px,1fr) minmax(96px,1.2fr) 54px;gap:8px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;}
 .decision-row:active{opacity:.68;}
@@ -769,6 +781,20 @@ a:active{opacity:.6;}
       </div>
 
       <template v-if="stratReady">
+        <!-- 决策总览：先看组合层动作分布，再看具体名单 -->
+        <div class="strat-block" v-if="decisionOverview.total">
+          <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l3-3 3 2 5-7"/><path d="M8 19v-4M14 19v-5M20 19V7"/></svg>决策总览
+            <span class="badge" :style="badgeStyle(true)">价值优先 · 动作分层</span>
+          </div>
+          <div class="decision-overview">
+            <div class="overview-cell danger"><div class="overview-v">{{ decisionOverview.heldDefensive }}</div><div class="overview-k">持仓防守</div></div>
+            <div class="overview-cell good"><div class="overview-v">{{ decisionOverview.heldTracking }}</div><div class="overview-k">持仓跟踪</div></div>
+            <div class="overview-cell value"><div class="overview-v">{{ decisionOverview.valueWatch }}</div><div class="overview-k">价值观察</div></div>
+            <div class="overview-cell wait"><div class="overview-v">{{ decisionOverview.quoteWait }}</div><div class="overview-k">等六维</div></div>
+            <div class="overview-cell"><div class="overview-v">{{ decisionOverview.needFundamental }}</div><div class="overview-k">先核实</div></div>
+          </div>
+        </div>
+
         <!-- 六维动作雷达：买卖点/防守优先，可能只是等回撤，不等于买入池 -->
         <div class="strat-block" v-if="actionCandidates.length">
           <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><path d="M4 17l5-5 4 3 7-8"/><path d="M20 7h-5M20 7v5"/><path d="M4 20h16"/></svg>六维动作雷达
@@ -1273,6 +1299,20 @@ createApp({
       const cards=(strat.stockCards&&strat.stockCards.cards)||{};
       const q=dashQuery.value.trim().toLowerCase();if(!q)return[];
       return Object.values(cards).filter(c=>String(c.code).toLowerCase().includes(q)||(c.name||'').toLowerCase().includes(q)).slice(0,8);
+    });
+    const decisionOverview=computed(()=>{
+      const cards=Object.values((strat.stockCards&&strat.stockCards.cards)||{});
+      const out={total:cards.length,heldDefensive:0,heldTracking:0,valueWatch:0,quoteWait:0,needFundamental:0};
+      cards.forEach(c=>{
+        const d=(c&&c.decisionProfile)||{};
+        const held=!!(c&&c.held);
+        if(held&&d.actionability==='defensive')out.heldDefensive++;
+        if(held&&['tracking_candidate','action_candidate'].includes(d.actionability))out.heldTracking++;
+        if((Number(d.valueRank)||0)>=3)out.valueWatch++;
+        if(d.timingSource==='quote_fallback')out.quoteWait++;
+        if(d.actionability==='needs_fundamental_check')out.needFundamental++;
+      });
+      return out;
     });
     const decisionCandidates=computed(()=>{
       const cards=Object.values((strat.stockCards&&strat.stockCards.cards)||{});
@@ -1918,7 +1958,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionCandidates,actionCandidates,displayPe,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,valueDecision,timingDecision};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,decisionCandidates,actionCandidates,displayPe,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,valueDecision,timingDecision};
   }
 }).mount('#app');
 
