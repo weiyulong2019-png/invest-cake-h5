@@ -60,6 +60,39 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
     if empty_chains:
         errors.append("产业链 segments 为空: " + ", ".join(empty_chains))
 
+    for chain_key in data.get("chainOrder") or sorted(chains):
+        chain = chains.get(chain_key) or {}
+        chain_codes: list[str] = []
+        seen: set[str] = set()
+        for segment in chain.get("segments") or []:
+            for holding in segment.get("holdings") or []:
+                code = str(holding.get("code") or "")
+                if code and code not in seen:
+                    seen.add(code)
+                    chain_codes.append(code)
+        if not chain_codes:
+            errors.append(f"{chain_key} 没有标的映射")
+            continue
+        chain_cards = [cards.get(code) for code in chain_codes if cards.get(code)]
+        if len(chain_cards) < len(chain_codes):
+            errors.append(f"{chain_key} stockCards 覆盖不足: {len(chain_cards)}/{len(chain_codes)}")
+            continue
+        chain_market = [card for card in chain_cards if card.get("marketSnapshot")]
+        chain_decision = [card for card in chain_cards if card.get("decisionProfile")]
+        chain_pe = [
+            card for card in chain_cards
+            if (card.get("marketSnapshot") or {}).get("pe")
+            and (card.get("marketSnapshot") or {}).get("pe") != "-"
+        ]
+        min_chain_market = max(1, min(5, len(chain_cards)))
+        min_chain_pe = max(1, len(chain_cards) // 3)
+        if len(chain_market) < min_chain_market:
+            errors.append(f"{chain_key} 行情覆盖过低: {len(chain_market)}/{len(chain_cards)}")
+        if len(chain_decision) < len(chain_cards):
+            errors.append(f"{chain_key} decisionProfile 覆盖不足: {len(chain_decision)}/{len(chain_cards)}")
+        if len(chain_pe) < min_chain_pe:
+            errors.append(f"{chain_key} PE 覆盖过低: {len(chain_pe)}/{len(chain_cards)}")
+
     missing_selection = [
         code for code, card in cards.items()
         if not card.get("selectionProfile")

@@ -231,7 +231,10 @@ def main() -> int:
     else:
         print("[warn] MX_APIKEY 未配置，跳过 PE/市值增强")
 
-    sina = mod.fetch_sina_quotes([code for code, _ in a_cards])
+    codes = [code for code, _ in a_cards]
+    sina = mod.fetch_sina_quotes(codes)
+    tencent = mod.fetch_tencent_quotes(codes)
+    ak_quotes = mod.fetch_akshare_quotes(codes, [])
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     enhanced = 0
     pe_count = 0
@@ -245,6 +248,30 @@ def main() -> int:
             sina_snap = _snapshot_from_sina(sina[code])
             snap = {**sina_snap, **{k: v for k, v in (snap or {}).items() if v not in ("", "-")}}
             snap.setdefault("source", "sina")
+        tc = tencent.get(code)
+        if tc:
+            tc_snap = _snapshot_from_sina(tc)
+            if not snap:
+                snap = tc_snap
+                snap["source"] = "tencent"
+            else:
+                for field in ("p", "c", "cv", "pe", "cap"):
+                    if snap.get(field) in (None, "", "-") and tc_snap.get(field) not in (None, "", "-"):
+                        snap[field] = tc_snap[field]
+                if snap.get("source") != "mx_iwencai" and tc_snap.get("pe") not in (None, "", "-"):
+                    snap["source"] = f"{snap.get('source') or 'sina'}+tencent"
+        ak = ak_quotes.get(code)
+        if ak:
+            ak_snap = _snapshot_from_sina(ak)
+            if not snap:
+                snap = ak_snap
+                snap["source"] = "akshare"
+            else:
+                for field in ("p", "c", "cv", "pe", "cap"):
+                    if snap.get(field) in (None, "", "-") and ak_snap.get(field) not in (None, "", "-"):
+                        snap[field] = ak_snap[field]
+                if snap.get("source") != "mx_iwencai" and ak_snap.get("pe") not in (None, "", "-"):
+                    snap["source"] = f"{snap.get('source') or 'sina'}+akshare"
         if not snap:
             continue
         old_snap = card.get("marketSnapshot") or {}
