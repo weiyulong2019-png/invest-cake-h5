@@ -88,10 +88,12 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         if (card.get("marketSnapshot") or {}).get("pe")
         and (card.get("marketSnapshot") or {}).get("pe") != "-"
     ]
-    if cards and not market_covered:
-        warnings.append("strategy 候选暂无 marketSnapshot")
-    if cards and not pe_covered:
-        warnings.append("strategy 候选暂无 PE 覆盖，价值结论只能停留在结构层")
+    min_market = min(20, len(cards))
+    min_pe = min(10, len(cards))
+    if cards and len(market_covered) < min_market:
+        errors.append(f"strategy 候选 marketSnapshot 覆盖过低: {len(market_covered)}/{len(cards)}")
+    if cards and len(pe_covered) < min_pe:
+        errors.append(f"strategy 候选 PE 覆盖过低: {len(pe_covered)}/{len(cards)}")
 
     return not errors, errors, warnings
 
