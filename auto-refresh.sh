@@ -135,24 +135,7 @@ if [ "$RUN_SIGNAL" = true ]; then
 fi
 
 # --- 公开看板防呆：不要把空数据或缺信号快照推线上 ---
-python3 - <<'PY'
-import json
-import sys
-
-with open("data.json", encoding="utf-8") as f:
-    data = json.load(f)
-
-layer_stocks = [s for layer in data.get("layers", []) for s in layer.get("stocks", [])]
-etfs = data.get("etfs", [])
-hk = data.get("hk", [])
-if not layer_stocks or not etfs or not hk:
-    raise SystemExit("[abort] data.json 市场区块为空，停止推送")
-
-rows = layer_stocks + etfs + hk
-missing = [s.get("name") or s.get("code") for s in rows if not s.get("signal")]
-if missing:
-    raise SystemExit("[abort] data.json 信号字段缺失，停止推送: " + ", ".join(missing[:8]))
-PY
+python3 validate-public-data.py --scope market
 
 # --- 推送 ---
 git add data.json watchlist.json

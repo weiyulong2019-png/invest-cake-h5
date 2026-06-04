@@ -8,17 +8,8 @@ cd "$HOME/.openclaw/投资工作室H5"
 
 python3 strategy-feed.py            # 本机 live 数据(无 --dry-run 即 live)
 
-# 非空 + live 校验:挡住"live 但数据拉空"的伪 live
-if ! python3 - <<'PY'
-import json, sys
-d = json.load(open("strategy.json"))
-stock_cards = d.get("stockCards") or {}
-ok = (d.get("mode") == "live"
-      and stock_cards.get("count", 0) > 0
-      and len(stock_cards.get("cards") or {}) > 0
-      and len(d.get("chainTree") or {}) > 0)
-sys.exit(0 if ok else 1)
-PY
+# 非空 + live + 结构字段校验:挡住"live 但数据拉空"的伪 live
+if ! python3 validate-public-data.py --scope strategy
 then
     echo "[abort] strategy.json 非 live 或数据为空,不部署(避免推空看板)" >&2
     exit 1
