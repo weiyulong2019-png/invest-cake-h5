@@ -1168,7 +1168,9 @@ def build_quant_timing_index(now: datetime) -> dict:
 def build_stock_cards(chains: dict, held: dict, us_index: dict, quant_index: dict | None = None) -> dict:
     """item7：为「系统已覆盖股」预计算只读分析卡，供个股输入仪表盘展示。
 
-    覆盖范围 = 各产业链 segments 上的全部 A 股标的（已挂树即视为已覆盖）。
+    覆盖范围 =
+      1. 各产业链 segments 上的全部 A 股标的（已挂树即视为已覆盖）；
+      2. A 股持仓中暂未挂树的标的（以“持仓补充”卡进入单票/买卖点体系）。
     每张卡（公开安全，绝不含持仓量/成本/盈亏）：
       code/name · chain/segment/tier/卡点层级(chokepoint) · 共识态 · 是否龙头
       · 卖水人环节判定(seg 是否上游器件/材料=卖水人候选) · 美股映射 · 是否持有
@@ -1211,6 +1213,41 @@ def build_stock_cards(chains: dict, held: dict, us_index: dict, quant_index: dic
                 water_seller=water_seller,
                 consensus_state=cs,
                 held_flag=code in held_codes,
+                chokepoint=choke,
+            ),
+            "timingProfile": _timing_profile(),
+        }
+
+    # 持仓补充池：真实 A 股持仓若未挂到任何产业链，也必须进入单票决策和买卖点体系。
+    # 这里不虚构它的产业链位置，只给“待归类持仓”结构卡，后续由公开行情/基本面/量化增强脚本补数。
+    for h in held.get("items", []) or []:
+        code = str(h.get("code") or "")
+        if code in cards or h.get("type") != "a" or not (code.isdigit() and len(code) == 6):
+            continue
+        choke = "持仓补充：产业链位置待归类"
+        cards[code] = {
+            "code": code,
+            "name": h.get("name") or code,
+            "chain": "holding_watch",
+            "chain_label": "持仓补充",
+            "segment": "待归类持仓",
+            "tier": None,
+            "cakeLayer": None,
+            "cakeLayerName": None,
+            "is_leader": False,
+            "consensus_state": "holding_unmapped",
+            "chokepoint": choke,
+            "water_seller": False,
+            "held": True,
+            "supplemental": True,
+            "us_anchors": (us_index.get("byCode") or {}).get(code, []),
+            "quantSnapshot": quant_by_code.get(code),
+            "selectionProfile": _selection_profile(
+                tier=None,
+                is_leader=False,
+                water_seller=False,
+                consensus_state="holding_unmapped",
+                held_flag=True,
                 chokepoint=choke,
             ),
             "timingProfile": _timing_profile(),

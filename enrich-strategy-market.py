@@ -37,8 +37,10 @@ def _clamp(value: float, low: float = 0, high: float = 100) -> float:
 
 
 def _valuation_adjustment(pe):
-    if pe is None or pe <= 0:
+    if pe is None:
         return 0, "missing", "估值未核实"
+    if pe <= 0:
+        return -12, "loss_or_invalid", f"PE {pe:g} 为负/不适用，盈利质量需核实"
     if pe <= 35:
         return 10, "reasonable", f"PE {pe:g} 相对可接受"
     if pe <= 60:
@@ -444,6 +446,15 @@ def _fmt_change(value) -> tuple[str, float]:
     return (f"+{cv}%" if cv > 0 else f"{cv}%"), cv
 
 
+def _snapshot_missing(field: str, value) -> bool:
+    if value in (None, "", "-"):
+        return True
+    if field == "p":
+        num = _num(value)
+        return num is None or num <= 0
+    return False
+
+
 def _snapshot_from_mx(row: dict) -> dict:
     chg, cv = _fmt_change(row.get("chg"))
     return {
@@ -518,7 +529,7 @@ def main() -> int:
                 snap["source"] = "tencent"
             else:
                 for field in ("p", "c", "cv", "pe", "cap"):
-                    if snap.get(field) in (None, "", "-") and tc_snap.get(field) not in (None, "", "-"):
+                    if _snapshot_missing(field, snap.get(field)) and not _snapshot_missing(field, tc_snap.get(field)):
                         snap[field] = tc_snap[field]
                 if snap.get("source") != "mx_iwencai" and tc_snap.get("pe") not in (None, "", "-"):
                     snap["source"] = f"{snap.get('source') or 'sina'}+tencent"
@@ -530,7 +541,7 @@ def main() -> int:
                 snap["source"] = "akshare"
             else:
                 for field in ("p", "c", "cv", "pe", "cap"):
-                    if snap.get(field) in (None, "", "-") and ak_snap.get(field) not in (None, "", "-"):
+                    if _snapshot_missing(field, snap.get(field)) and not _snapshot_missing(field, ak_snap.get(field)):
                         snap[field] = ak_snap[field]
                 if snap.get("source") != "mx_iwencai" and ak_snap.get("pe") not in (None, "", "-"):
                     snap["source"] = f"{snap.get('source') or 'sina'}+akshare"
