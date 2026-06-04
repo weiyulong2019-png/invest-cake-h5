@@ -250,8 +250,8 @@ a:active{opacity:.6;}
 .tgt-chip:active{opacity:.6;}
 .tgt-chip.nc{background:#E8F5EC;color:var(--green);font-weight:700;border-color:#bfe6cd;}
 .tgt-chip.crowded{background:#FFF0F0;color:var(--red);}
-.lead-tag{display:inline-block;font-size:10px;font-weight:700;color:#fff;background:var(--l1);border-radius:3px;padding:0 4px;margin-right:3px;line-height:15px;}
-.tgt-code{font-size:10px;color:var(--text3);margin-left:3px;font-variant-numeric:tabular-nums;}
+.lead-tag{display:inline-block;font-size:11px;font-weight:700;color:#fff;background:var(--l1);border-radius:3px;padding:0 4px;margin-right:3px;line-height:15px;}
+.tgt-code{font-size:11px;color:var(--text3);margin-left:3px;font-variant-numeric:tabular-nums;}
 .seg-logic{font-size:12px;color:var(--text2);line-height:1.5;margin-top:5px;}
 
 /* 策略 — 产业链横向 chip tab */
@@ -404,6 +404,11 @@ a:active{opacity:.6;}
 .dash-cell{background:#fff;padding:8px 6px;text-align:center;}
 .dash-k{font-size:11px;color:var(--text3);}
 .dash-v{font-size:13px;font-weight:700;margin-top:2px;}
+.decision-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0;}
+.decision-card{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:10px;}
+.decision-card .dt{font-size:12px;font-weight:700;color:var(--text);}
+.decision-card .dv{font-size:13px;font-weight:700;margin-top:5px;}
+.decision-card .dn{font-size:12px;color:var(--text2);line-height:1.5;margin-top:4px;}
 .dash-rows{margin-top:4px;}
 .dash-row{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px dashed var(--border);font-size:12px;}
 .dash-row:first-child{border-top:none;}
@@ -423,7 +428,7 @@ a:active{opacity:.6;}
       <div class="header-left">
         <h1>玉龙智能投研 OpenClaw</h1>
         <div class="idx">
-          <span class="idx-val" :class="chgClass(marketIdx.chg)">上证 {{ marketIdx.price }}</span>
+          <span class="idx-val">上证 {{ marketIdx.price }}</span>
           <span :class="chgClass(marketIdx.chg)">{{ marketIdx.chg }}</span>
           <span v-if="updateTime" style="font-size:11px;color:var(--text3);margin-left:6px;">{{ updateTime.slice(11,16) }}</span>
         </div>
@@ -486,7 +491,7 @@ a:active{opacity:.6;}
                 <div class="st-name">{{ s.name }} <span class="tag-sector">{{ s.sector }}</span><span v-if="isHeld(s.code)" class="held-pill">持有</span></div>
                 <div class="st-code">{{ s.code }}</div>
               </div>
-              <div class="st-cell"><div class="st-price" :class="chgClass(s.cv)">{{ s.p }}</div></div>
+              <div class="st-cell"><div class="st-price">{{ s.p }}</div></div>
               <div class="st-cell"><div class="st-chg" :class="chgClass(s.cv)">{{ s.c }}</div></div>
               <div class="st-cell">
                 <div class="st-signal" :class="s.signal||'neutral'">{{ signalLabel(s.signal) }}<span v-if="s.confidence" class="conf">{{ s.confidence }}</span></div>
@@ -603,7 +608,7 @@ a:active{opacity:.6;}
           </div>
           <div class="wl-right">
             <template v-if="s.hasQuote">
-              <div class="wl-price" :class="chgClass(s.cv)">{{ s.p }}</div>
+              <div class="wl-price">{{ s.p }}</div>
               <div class="wl-chg" :class="chgClass(s.cv)">{{ s.c }}</div>
             </template>
             <div v-else class="wl-chg" style="color:var(--flat);font-weight:400;">暂无行情</div>
@@ -625,7 +630,7 @@ a:active{opacity:.6;}
       <div class="det-name">{{ ds.name }}</div>
       <div class="det-code">{{ ds.code }} · {{ ds.sector||'' }}</div>
       <div class="det-price-area">
-        <span class="det-big-price" :class="dchgClass(s.cv)">{{ ds.p }}</span>
+        <span class="det-big-price">{{ ds.p }}</span>
         <span class="det-big-chg" :class="dchgClass(s.cv)">{{ ds.c }}</span>
       </div>
       <div class="det-tags">
@@ -715,12 +720,24 @@ a:active{opacity:.6;}
             </div>
             <!-- 行情/估值（来自公开行情；取不到标暂无数据，不脑补） -->
             <div class="dash-grid">
-              <div class="dash-cell"><div class="dash-k">最新价</div><div class="dash-v" :class="chgClass(dashQuote.cv)">{{ dashQuote.p||'—' }}</div></div>
+              <div class="dash-cell"><div class="dash-k">最新价</div><div class="dash-v">{{ dashQuote.p||'—' }}</div></div>
               <div class="dash-cell"><div class="dash-k">涨跌幅</div><div class="dash-v" :class="chgClass(dashQuote.cv)">{{ dashQuote.c||'—' }}</div></div>
               <div class="dash-cell"><div class="dash-k">估值PE</div><div class="dash-v">{{ dashQuote.pe&&dashQuote.pe!=='-'?dashQuote.pe:'—' }}</div></div>
               <div class="dash-cell"><div class="dash-k">市值</div><div class="dash-v">{{ dashQuote.cap&&dashQuote.cap!=='-'?dashQuote.cap:'—' }}</div></div>
               <div class="dash-cell"><div class="dash-k">蛋糕层</div><div class="dash-v">{{ dashCard.cakeLayerName||'未归层' }}</div></div>
               <div class="dash-cell"><div class="dash-k">链上层级</div><div class="dash-v">tier{{ dashCard.tier!=null?dashCard.tier:'?' }}</div></div>
+            </div>
+            <div class="decision-split">
+              <div class="decision-card">
+                <div class="dt">价值选股</div>
+                <div class="dv" :class="valueDecision(dashCard,dashQuote).cls">{{ valueDecision(dashCard,dashQuote).label }}</div>
+                <div class="dn">{{ valueDecision(dashCard,dashQuote).note }}</div>
+              </div>
+              <div class="decision-card">
+                <div class="dt">量化择时</div>
+                <div class="dv" :class="timingDecision(dashQuote).cls">{{ timingDecision(dashQuote).label }}</div>
+                <div class="dn">{{ timingDecision(dashQuote).note }}</div>
+              </div>
             </div>
             <!-- 多维结论 -->
             <div class="dash-rows">
@@ -926,7 +943,7 @@ a:active{opacity:.6;}
       <div class="sheet-kv"><span class="k">代码</span><span class="v">{{ sheet.data.code || '—' }}</span></div>
       <div class="sheet-kv"><span class="k">名称</span><span class="v">{{ sheet.data.name || '—' }}</span></div>
       <!-- 行情/估值（统一字段集，取不到标[未核实]，不脑补） -->
-      <div class="sheet-kv"><span class="k">现价</span><span class="v" :class="chgClass(sheetQuote.cv)">{{ sheetQuote.p!=null?sheetQuote.p:'[未核实]' }}</span></div>
+      <div class="sheet-kv"><span class="k">现价</span><span class="v">{{ sheetQuote.p!=null?sheetQuote.p:'[未核实]' }}</span></div>
       <div class="sheet-kv"><span class="k">涨跌幅</span><span class="v" :class="chgClass(sheetQuote.cv)">{{ sheetQuote.c!=null?sheetQuote.c:'[未核实]' }}</span></div>
       <div class="sheet-kv" v-if="sheetQuote.pe!=null"><span class="k">估值PE</span><span class="v">{{ sheetQuote.pe }}</span></div>
       <div class="sheet-kv" v-if="sheetQuote.cap!=null"><span class="k">市值</span><span class="v">{{ sheetQuote.cap }}</span></div>
@@ -1109,8 +1126,41 @@ createApp({
     const dashQuote=computed(()=>{
       if(!dashCard.value)return{};
       const m=priceIndex.value[dashCard.value.code]||priceIndex.value[String(dashCard.value.code).replace(/^HK\./,'')]||{};
-      return{p:m.p&&m.p!=='-'?m.p:'',c:m.c||'',cv:m.cv!=null?m.cv:0,pe:m.pe,cap:m.cap,signalNote:m.signalNote||''};
+      return{p:m.p&&m.p!=='-'?m.p:'',c:m.c||'',cv:m.cv!=null?m.cv:0,pe:m.pe,cap:m.cap,signal:m.signal||'',signalNote:m.signalNote||''};
     });
+    const parseNum=(v)=>{
+      if(v==null||v===''||v==='-'||v==='—')return null;
+      const n=parseFloat(String(v).replace(/[,%＋+]/g,''));
+      return Number.isFinite(n)?n:null;
+    };
+    const valueDecision=(card,quote)=>{
+      if(!card)return{label:'待核实',cls:'flat',note:'缺少结构化标的信息。'};
+      const pe=parseNum(quote&&quote.pe);
+      const strengths=[];
+      if(card.water_seller)strengths.push('卖水人环节');
+      if(card.is_leader)strengths.push('环节龙头');
+      if(card.chokepoint)strengths.push(card.chokepoint);
+      if(pe==null){
+        return{label:strengths.length?'候选观察':'待核实',cls:strengths.length?'up':'flat',note:`${strengths.slice(0,2).join(' / ')||'产业链位置待核实'}；估值数据暂缺，不做价值结论。`};
+      }
+      if(pe>0&&pe<=35){
+        return{label:'价值候选',cls:'up',note:`PE ${pe}，${strengths.slice(0,2).join(' / ')||'产业链位置已归档'}，可进入候选池继续跟踪。`};
+      }
+      if(pe>80){
+        return{label:'估值偏贵',cls:'down',note:`PE ${pe} 偏高，即使产业链位置不错，也需要更强业绩兑现或回撤后再看。`};
+      }
+      return{label:'估值中性',cls:'flat',note:`PE ${pe}，${strengths.slice(0,2).join(' / ')||'产业链位置已归档'}，暂以观察为主。`};
+    };
+    const timingDecision=(quote)=>{
+      const signal=quote&&quote.signal;
+      const cv=parseNum(quote&&quote.cv);
+      const note=(quote&&quote.signalNote)||'技术数据不足，暂不判断买卖点。';
+      if(signal==='buy')return{label:'可等买点',cls:'up',note};
+      if(signal==='risk')return{label:'规避/减仓',cls:'down',note};
+      if(cv!=null&&cv<=-3)return{label:'回撤观察',cls:'down',note:`当日回撤较大；${note}`};
+      if(cv!=null&&cv>=5)return{label:'追高谨慎',cls:'flat',note:`短线涨幅较大；${note}`};
+      return{label:'等待确认',cls:'flat',note};
+    };
 
     // 底部弹层
     const sheet=reactive({open:false,show:false,data:{}});
@@ -1481,7 +1531,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,pickDash,dashCard,dashQuote};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,pickDash,dashCard,dashQuote,valueDecision,timingDecision};
   }
 }).mount('#app');
 
