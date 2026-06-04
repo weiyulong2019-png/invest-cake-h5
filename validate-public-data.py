@@ -92,15 +92,25 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         code for code, card in cards.items()
         if card.get("quantSnapshot")
     ]
+    decision_covered = [
+        code for code, card in cards.items()
+        if card.get("decisionProfile")
+    ]
     min_market = min(20, len(cards))
     min_pe = min(10, len(cards))
     min_quant = min(20, len(cards))
+    min_decision = min(20, len(cards))
     if cards and len(market_covered) < min_market:
         errors.append(f"strategy 候选 marketSnapshot 覆盖过低: {len(market_covered)}/{len(cards)}")
     if cards and len(pe_covered) < min_pe:
         errors.append(f"strategy 候选 PE 覆盖过低: {len(pe_covered)}/{len(cards)}")
     if cards and len(quant_covered) < min_quant:
         errors.append(f"strategy 候选 quantSnapshot 覆盖过低: {len(quant_covered)}/{len(cards)}")
+    if cards and len(decision_covered) < min_decision:
+        errors.append(f"strategy 候选 decisionProfile 覆盖过低: {len(decision_covered)}/{len(cards)}")
+    decision_coverage = stock_cards.get("decisionCoverage") or {}
+    if cards and decision_coverage.get("profiled", 0) < min_decision:
+        errors.append("stockCards.decisionCoverage 缺失或覆盖过低")
 
     return not errors, errors, warnings
 

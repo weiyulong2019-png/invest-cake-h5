@@ -604,9 +604,14 @@ def mx_query(query: str) -> dict:
 def parse_mx_response(result: dict) -> list:
     """解析妙想返回的选股数据为行列表"""
     try:
-        data = result.get("data", {}).get("data", {})
+        outer = result.get("data") or {}
+        if not isinstance(outer, dict):
+            return []
+        data = outer.get("data") or {}
+        if not isinstance(data, dict):
+            return []
         # 优先全量 dataList
-        all_results = data.get("allResults", {}).get("result", {})
+        all_results = (data.get("allResults") or {}).get("result") or {}
         data_list = all_results.get("dataList", [])
         columns = all_results.get("columns", [])
 

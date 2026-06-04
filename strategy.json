@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-06-04 17:08:51",
-  "timestamp": 1780564131,
+  "updateTime": "2026-06-04 17:21:44",
+  "timestamp": 1780564904,
   "mode": "live",
   "disclaimer": "公开策略数据看板，仅含聚合/结构化信息，不构成投资建议。",
   "waterSellers": {
@@ -7654,7 +7654,23 @@
           "pe": "36.78",
           "cap": "1.56万亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 70.5,
+          "actionHint": "继续观察",
+          "valueScore": 63.0,
+          "timingScore": 81.8,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "trend_watch",
+          "reasons": [
+            "结构候选",
+            "环节龙头",
+            "已纳入持仓跟踪",
+            "PE 36.78 已计入成长预期",
+            "强势观察 / 量化分 81.8"
+          ]
         }
       },
       "300442": {
@@ -7730,7 +7746,23 @@
           "pe": "57.39",
           "cap": "1336.57亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "量化风险，暂缓",
+          "score": 49.9,
+          "actionHint": "暂缓",
+          "valueScore": 48.0,
+          "timingScore": 52.8,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "risk",
+          "reasons": [
+            "观察",
+            "已纳入持仓跟踪",
+            "整机集成（下游需求侧）",
+            "PE 57.39 已计入成长预期",
+            "弱势等待 / 量化分 52.8"
+          ]
         }
       },
       "000034": {
@@ -7805,7 +7837,22 @@
           "pe": "26.82",
           "cap": "253.17亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "量化风险，暂缓",
+          "score": 52.1,
+          "actionHint": "暂缓",
+          "valueScore": 55.0,
+          "timingScore": 47.7,
+          "valuationState": "reasonable",
+          "timingState": "risk",
+          "reasons": [
+            "观察",
+            "整机集成（下游需求侧）",
+            "PE 26.82 相对可接受",
+            "弱势等待 / 量化分 47.7"
+          ]
         }
       },
       "688041": {
@@ -7902,7 +7949,23 @@
           "pe": "241.70",
           "cap": "6642.73亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 47.8,
+          "actionHint": "等回撤",
+          "valueScore": 48.0,
+          "timingScore": 47.6,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "环节龙头",
+            "核心部件（议价中枢）",
+            "PE 241.7 显著偏高",
+            "等待确认 / 量化分 47.6"
+          ]
         }
       },
       "002156": {
@@ -8007,7 +8070,23 @@
           "pe": "81.98",
           "cap": "1079.01亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 76.2,
+          "actionHint": "等回撤",
+          "valueScore": 74.0,
+          "timingScore": 79.6,
+          "valuationState": "expensive",
+          "timingState": "trend_watch",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 81.98 显著偏高",
+            "趋势观察 / 量化分 79.6"
+          ]
         }
       },
       "600584": {
@@ -8111,7 +8190,23 @@
           "pe": "123.42",
           "cap": "1432.96亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 60.9,
+          "actionHint": "等回撤",
+          "valueScore": 59.0,
+          "timingScore": 63.7,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 123.42 显著偏高",
+            "等待确认 / 量化分 63.7"
+          ]
         }
       },
       "002409": {
@@ -8215,7 +8310,23 @@
           "pe": "52.55",
           "cap": "560.55亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "价值优先，等待买点",
+          "score": 77.0,
+          "actionHint": "等买点确认",
+          "valueScore": 80.0,
+          "timingScore": 72.6,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "trend_watch",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 52.55 已计入成长预期",
+            "趋势观察 / 量化分 72.6"
+          ]
         }
       },
       "002371": {
@@ -8341,7 +8452,23 @@
           "pe": "69.50",
           "cap": "4544.70亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 69.8,
+          "actionHint": "继续观察",
+          "valueScore": 75.0,
+          "timingScore": 62.1,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "已纳入持仓跟踪",
+            "PE 69.5 偏高",
+            "等待确认 / 量化分 62.1"
+          ]
         }
       },
       "603186": {
@@ -8454,7 +8581,22 @@
           "pe": "156.65",
           "cap": "193.75亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 156.65 显著偏高"
+          ]
         }
       },
       "603688": {
@@ -8574,7 +8716,22 @@
           "pe": "244.47",
           "cap": "359.57亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 244.47 显著偏高"
+          ]
         }
       },
       "688126": {
@@ -8659,7 +8816,22 @@
           "pe": "-49.34",
           "cap": "953.50亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "002436": {
@@ -8756,7 +8928,23 @@
           "pe": "926.47",
           "cap": "694.66亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 65.4,
+          "actionHint": "等回撤",
+          "valueScore": 59.0,
+          "timingScore": 74.9,
+          "valuationState": "expensive",
+          "timingState": "trend_watch",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 926.47 显著偏高",
+            "趋势观察 / 量化分 74.9"
+          ]
         }
       },
       "600183": {
@@ -8874,7 +9062,23 @@
           "pe": "75.49",
           "cap": "3496.96亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.0,
+          "actionHint": "继续观察",
+          "valueScore": 72.0,
+          "timingScore": 56.9,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 75.49 偏高",
+            "等待确认 / 量化分 56.9"
+          ]
         }
       },
       "688519": {
@@ -8980,7 +9184,22 @@
           "pe": "96.73",
           "cap": "580.90亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 96.73 显著偏高"
+          ]
         }
       },
       "002130": {
@@ -9066,7 +9285,22 @@
           "pe": "31.72",
           "cap": "293.42亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 80.0,
+          "actionHint": "继续观察",
+          "valueScore": 100,
+          "timingScore": 50,
+          "valuationState": "reasonable",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 31.72 相对可接受"
+          ]
         }
       },
       "300913": {
@@ -9151,7 +9385,22 @@
           "pe": "112.30",
           "cap": "218.08亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 55.4,
+          "actionHint": "等回撤",
+          "valueScore": 59.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 112.3 显著偏高"
+          ]
         }
       },
       "600110": {
@@ -9236,7 +9485,22 @@
           "pe": "124.87",
           "cap": "200.24亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 124.87 显著偏高"
+          ]
         }
       },
       "301217": {
@@ -9321,7 +9585,22 @@
           "pe": "213.89",
           "cap": "909.84亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 213.89 显著偏高"
+          ]
         }
       },
       "300308": {
@@ -9426,7 +9705,23 @@
           "pe": "62.21",
           "cap": "1.43万亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "价值优先，等待买点",
+          "score": 80.9,
+          "actionHint": "等买点确认",
+          "valueScore": 84.0,
+          "timingScore": 76.3,
+          "valuationState": "pricey",
+          "timingState": "trend_watch",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 62.21 偏高",
+            "趋势观察 / 量化分 76.3"
+          ]
         }
       },
       "300502": {
@@ -9530,7 +9825,23 @@
           "pe": "69.49",
           "cap": "7727.57亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.8,
+          "actionHint": "继续观察",
+          "valueScore": 69.0,
+          "timingScore": 68.6,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 69.49 偏高",
+            "等待确认 / 量化分 68.6"
+          ]
         }
       },
       "300394": {
@@ -9634,7 +9945,23 @@
           "pe": "190.13",
           "cap": "3743.48亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 63.1,
+          "actionHint": "等回撤",
+          "valueScore": 59.0,
+          "timingScore": 69.2,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 190.13 显著偏高",
+            "等待确认 / 量化分 69.2"
+          ]
         }
       },
       "688498": {
@@ -9727,7 +10054,22 @@
           "pe": "238.31",
           "cap": "1710.51亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 66.2,
+          "actionHint": "等回撤",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 238.31 显著偏高"
+          ]
         }
       },
       "688313": {
@@ -9819,7 +10161,22 @@
           "pe": "160.92",
           "cap": "747.81亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 160.92 显著偏高"
+          ]
         }
       },
       "688048": {
@@ -9911,7 +10268,22 @@
           "pe": "3835.78",
           "cap": "687.32亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 3835.78 显著偏高"
+          ]
         }
       },
       "002281": {
@@ -10003,7 +10375,22 @@
           "pe": "185.39",
           "cap": "1779.20亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 185.39 显著偏高"
+          ]
         }
       },
       "601869": {
@@ -10108,7 +10495,23 @@
           "pe": "190.57",
           "cap": "3774.34亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "价值优先，等待买点",
+          "score": 74.2,
+          "actionHint": "等买点确认",
+          "valueScore": 77.0,
+          "timingScore": 70.0,
+          "valuationState": "expensive",
+          "timingState": "trend_watch",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 190.57 显著偏高",
+            "趋势观察 / 量化分 70"
+          ]
         }
       },
       "600487": {
@@ -10213,7 +10616,23 @@
           "pe": "54.59",
           "cap": "2413.86亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "价值优先，等待买点",
+          "score": 81.4,
+          "actionHint": "等回撤",
+          "valueScore": 83.0,
+          "timingScore": 79.0,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "wait_pullback",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "已纳入持仓跟踪",
+            "PE 54.59 已计入成长预期",
+            "趋势观察 / 量化分 79"
+          ]
         }
       },
       "600522": {
@@ -10305,7 +10724,22 @@
           "pe": "42.77",
           "cap": "1572.00亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 42.77 已计入成长预期"
+          ]
         }
       },
       "688400": {
@@ -10409,7 +10843,23 @@
           "pe": "33.00",
           "cap": "263.67亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 75.6,
+          "actionHint": "继续观察",
+          "valueScore": 90.0,
+          "timingScore": 54.1,
+          "valuationState": "reasonable",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 33 相对可接受",
+            "等待确认 / 量化分 54.1"
+          ]
         }
       },
       "688702": {
@@ -10495,7 +10945,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 75.2,
+          "actionHint": "继续观察",
+          "valueScore": 92.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "估值未核实"
+          ]
         }
       },
       "002463": {
@@ -10572,7 +11037,23 @@
           "pe": "54.54",
           "cap": "2709.89亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "价值优先，等待买点",
+          "score": 85.8,
+          "actionHint": "等回撤",
+          "valueScore": 92.0,
+          "timingScore": 76.5,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "wait_pullback",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 54.54 已计入成长预期",
+            "趋势观察 / 量化分 76.5"
+          ]
         }
       },
       "002916": {
@@ -10648,7 +11129,23 @@
           "pe": "78.79",
           "cap": "2679.57亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "结构候选，趋势观察",
+          "score": 72.0,
+          "actionHint": "等买点确认",
+          "valueScore": 69.0,
+          "timingScore": 76.6,
+          "valuationState": "pricey",
+          "timingState": "trend_watch",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 78.79 偏高",
+            "趋势观察 / 量化分 76.6"
+          ]
         }
       },
       "300476": {
@@ -10724,7 +11221,23 @@
           "pe": "69.93",
           "cap": "3604.07亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "结构候选，趋势观察",
+          "score": 70.8,
+          "actionHint": "等买点确认",
+          "valueScore": 69.0,
+          "timingScore": 73.6,
+          "valuationState": "pricey",
+          "timingState": "trend_watch",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 69.93 偏高",
+            "趋势观察 / 量化分 73.6"
+          ]
         }
       },
       "603228": {
@@ -10800,7 +11313,23 @@
           "pe": "79.68",
           "cap": "741.60亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 67.6,
+          "actionHint": "继续观察",
+          "valueScore": 69.0,
+          "timingScore": 65.4,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 79.68 偏高",
+            "等待确认 / 量化分 65.4"
+          ]
         }
       },
       "001389": {
@@ -10864,7 +11393,22 @@
           "pe": "54.96",
           "cap": "862.95亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 54.96 已计入成长预期"
+          ]
         }
       },
       "603629": {
@@ -10928,7 +11472,22 @@
           "pe": "48.45",
           "cap": "525.74亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 48.45 已计入成长预期"
+          ]
         }
       },
       "002384": {
@@ -11004,7 +11563,23 @@
           "pe": "98.11",
           "cap": "4355.56亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 66.7,
+          "actionHint": "等回撤",
+          "valueScore": 59.0,
+          "timingScore": 78.2,
+          "valuationState": "expensive",
+          "timingState": "trend_watch",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 98.11 显著偏高",
+            "趋势观察 / 量化分 78.2"
+          ]
         }
       },
       "002080": {
@@ -11069,7 +11644,22 @@
           "pe": "52.74",
           "cap": "1070.64亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 77.0,
+          "actionHint": "继续观察",
+          "valueScore": 95.0,
+          "timingScore": 50,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 52.74 已计入成长预期"
+          ]
         }
       },
       "600176": {
@@ -11134,7 +11724,22 @@
           "pe": "30.32",
           "cap": "1536.80亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 80.0,
+          "actionHint": "继续观察",
+          "valueScore": 100,
+          "timingScore": 50,
+          "valuationState": "reasonable",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 30.32 相对可接受"
+          ]
         }
       },
       "603256": {
@@ -11198,7 +11803,22 @@
           "pe": "314.49",
           "cap": "1764.03亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 314.49 显著偏高"
+          ]
         }
       },
       "300395": {
@@ -11262,7 +11882,22 @@
           "pe": "111.64",
           "cap": "641.81亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 111.64 显著偏高"
+          ]
         }
       },
       "601208": {
@@ -11327,7 +11962,22 @@
           "pe": "80.56",
           "cap": "602.07亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 66.2,
+          "actionHint": "等回撤",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 80.56 显著偏高"
+          ]
         }
       },
       "605589": {
@@ -11391,7 +12041,22 @@
           "pe": "64.91",
           "cap": "460.44亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 63.2,
+          "actionHint": "继续观察",
+          "valueScore": 72.0,
+          "timingScore": 50,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 64.91 偏高"
+          ]
         }
       },
       "688141": {
@@ -11463,7 +12128,22 @@
           "pe": "-39.78",
           "cap": "439.51亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 75.2,
+          "actionHint": "继续观察",
+          "valueScore": 92.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "估值未核实"
+          ]
         }
       },
       "688396": {
@@ -11535,7 +12215,22 @@
           "pe": "73.04",
           "cap": "964.15亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 72.2,
+          "actionHint": "继续观察",
+          "valueScore": 87.0,
+          "timingScore": 50,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 73.04 偏高"
+          ]
         }
       },
       "600460": {
@@ -11606,7 +12301,22 @@
           "pe": "70.36",
           "cap": "587.75亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 63.2,
+          "actionHint": "继续观察",
+          "valueScore": 72.0,
+          "timingScore": 50,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 70.36 偏高"
+          ]
         }
       },
       "002851": {
@@ -11671,7 +12381,22 @@
           "pe": "195.39",
           "cap": "896.35亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 64.4,
+          "actionHint": "等回撤",
+          "valueScore": 74.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 195.39 显著偏高"
+          ]
         }
       },
       "300870": {
@@ -11735,7 +12460,22 @@
           "pe": "-836.77",
           "cap": "419.77亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "002364": {
@@ -11799,7 +12539,22 @@
           "pe": "303.36",
           "cap": "302.58亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 55.4,
+          "actionHint": "等回撤",
+          "valueScore": 59.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 303.36 显著偏高"
+          ]
         }
       },
       "300811": {
@@ -11863,7 +12618,22 @@
           "pe": "101.43",
           "cap": "359.13亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 55.4,
+          "actionHint": "等回撤",
+          "valueScore": 59.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 101.43 显著偏高"
+          ]
         }
       },
       "002138": {
@@ -11927,7 +12697,22 @@
           "pe": "57.28",
           "cap": "407.59亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 57.28 已计入成长预期"
+          ]
         }
       },
       "002484": {
@@ -11991,7 +12776,22 @@
           "pe": "126.46",
           "cap": "819.48亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 55.4,
+          "actionHint": "等回撤",
+          "valueScore": 59.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 126.46 显著偏高"
+          ]
         }
       },
       "301018": {
@@ -12073,7 +12873,22 @@
           "pe": "340.45",
           "cap": "385.47亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 47.7,
+          "actionHint": "等回撤",
+          "valueScore": 33.0,
+          "timingScore": 69.7,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "PE 340.45 显著偏高",
+            "等待确认 / 量化分 69.7"
+          ]
         }
       },
       "002837": {
@@ -12145,7 +12960,22 @@
           "pe": "2547.20",
           "cap": "882.10亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 64.4,
+          "actionHint": "等回撤",
+          "valueScore": 74.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 2547.2 显著偏高"
+          ]
         }
       },
       "300499": {
@@ -12228,7 +13058,23 @@
           "pe": "192.79",
           "cap": "116.76亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "量化风险，暂缓",
+          "score": 55.5,
+          "actionHint": "暂缓",
+          "valueScore": 59.0,
+          "timingScore": 50.3,
+          "valuationState": "expensive",
+          "timingState": "risk",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 192.79 显著偏高",
+            "弱势等待 / 量化分 50.3"
+          ]
         }
       },
       "300602": {
@@ -12299,7 +13145,22 @@
           "pe": "79.47",
           "cap": "245.90亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 63.2,
+          "actionHint": "继续观察",
+          "valueScore": 72.0,
+          "timingScore": 50,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 79.47 偏高"
+          ]
         }
       },
       "300684": {
@@ -12370,7 +13231,22 @@
           "pe": "64.87",
           "cap": "168.08亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 63.2,
+          "actionHint": "继续观察",
+          "valueScore": 72.0,
+          "timingScore": 50,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 64.87 偏高"
+          ]
         }
       },
       "301626": {
@@ -12441,7 +13317,22 @@
           "pe": "735.03",
           "cap": "366.31亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 735.03 显著偏高"
+          ]
         }
       },
       "301489": {
@@ -12512,7 +13403,22 @@
           "pe": "160.12",
           "cap": "169.88亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 160.12 显著偏高"
+          ]
         }
       },
       "002600": {
@@ -12583,7 +13489,22 @@
           "pe": "69.93",
           "cap": "1095.50亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 63.2,
+          "actionHint": "继续观察",
+          "valueScore": 72.0,
+          "timingScore": 50,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 69.93 偏高"
+          ]
         }
       },
       "600160": {
@@ -12655,7 +13576,22 @@
           "pe": "22.00",
           "cap": "1032.38亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 80.0,
+          "actionHint": "继续观察",
+          "valueScore": 100,
+          "timingScore": 50,
+          "valuationState": "reasonable",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 22 相对可接受"
+          ]
         }
       },
       "300037": {
@@ -12726,7 +13662,22 @@
           "pe": "30.71",
           "cap": "590.29亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 74.0,
+          "actionHint": "继续观察",
+          "valueScore": 90.0,
+          "timingScore": 50,
+          "valuationState": "reasonable",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 30.71 相对可接受"
+          ]
         }
       },
       "002179": {
@@ -12797,7 +13748,22 @@
           "pe": "52.13",
           "cap": "830.46亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 52.13 已计入成长预期"
+          ]
         }
       },
       "603986": {
@@ -12879,7 +13845,22 @@
           "pe": "63.49",
           "cap": "3711.01亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 57.1,
+          "actionHint": "继续观察",
+          "valueScore": 43.0,
+          "timingScore": 78.3,
+          "valuationState": "pricey",
+          "timingState": "wait_pullback",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "PE 63.49 偏高",
+            "趋势观察 / 量化分 78.3"
+          ]
         }
       },
       "300475": {
@@ -12961,7 +13942,22 @@
           "pe": "16.36",
           "cap": "868.46亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 64.3,
+          "actionHint": "继续观察",
+          "valueScore": 61.0,
+          "timingScore": 69.3,
+          "valuationState": "reasonable",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "PE 16.36 相对可接受",
+            "等待确认 / 量化分 69.3"
+          ]
         }
       },
       "000021": {
@@ -13043,7 +14039,22 @@
           "pe": "64.48",
           "cap": "624.67亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 54.8,
+          "actionHint": "继续观察",
+          "valueScore": 43.0,
+          "timingScore": 72.4,
+          "valuationState": "pricey",
+          "timingState": "trend_watch",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "PE 64.48 偏高",
+            "趋势观察 / 量化分 72.4"
+          ]
         }
       },
       "688008": {
@@ -13128,7 +14139,23 @@
           "pe": "93.63",
           "cap": "3173.69亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "价值优先，等待买点",
+          "score": 76.8,
+          "actionHint": "等买点确认",
+          "valueScore": 77.0,
+          "timingScore": 76.6,
+          "valuationState": "expensive",
+          "timingState": "trend_watch",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 93.63 显著偏高",
+            "趋势观察 / 量化分 76.6"
+          ]
         }
       },
       "688535": {
@@ -13200,7 +14227,22 @@
           "pe": "311.55",
           "cap": "168.57亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 64.4,
+          "actionHint": "等回撤",
+          "valueScore": 74.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 311.55 显著偏高"
+          ]
         }
       },
       "688300": {
@@ -13271,7 +14313,22 @@
           "pe": "142.25",
           "cap": "407.60亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 55.4,
+          "actionHint": "等回撤",
+          "valueScore": 59.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 142.25 显著偏高"
+          ]
         }
       },
       "300054": {
@@ -13342,7 +14399,22 @@
           "pe": "69.31",
           "cap": "695.79亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 61.4,
+          "actionHint": "继续观察",
+          "valueScore": 69.0,
+          "timingScore": 50,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 69.31 偏高"
+          ]
         }
       },
       "600089": {
@@ -13406,7 +14478,22 @@
           "pe": "17.86",
           "cap": "1296.04亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 72.2,
+          "actionHint": "继续观察",
+          "valueScore": 87.0,
+          "timingScore": 50,
+          "valuationState": "reasonable",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 17.86 相对可接受"
+          ]
         }
       },
       "601179": {
@@ -13470,7 +14557,22 @@
           "pe": "57.71",
           "cap": "800.15亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 57.71 已计入成长预期"
+          ]
         }
       },
       "600312": {
@@ -13534,7 +14636,22 @@
           "pe": "16.04",
           "cap": "266.09亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 72.2,
+          "actionHint": "继续观察",
+          "valueScore": 87.0,
+          "timingScore": 50,
+          "valuationState": "reasonable",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 16.04 相对可接受"
+          ]
         }
       },
       "600406": {
@@ -13598,7 +14715,22 @@
           "pe": "66.25",
           "cap": "1911.56亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 61.4,
+          "actionHint": "继续观察",
+          "valueScore": 69.0,
+          "timingScore": 50,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 66.25 偏高"
+          ]
         }
       },
       "600875": {
@@ -13662,7 +14794,22 @@
           "pe": "18.45",
           "cap": "1169.96亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 72.2,
+          "actionHint": "继续观察",
+          "valueScore": 87.0,
+          "timingScore": 50,
+          "valuationState": "reasonable",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 18.45 相对可接受"
+          ]
         }
       },
       "600019": {
@@ -13726,7 +14873,22 @@
           "pe": "14.00",
           "cap": "1245.94亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 74.0,
+          "actionHint": "继续观察",
+          "valueScore": 90.0,
+          "timingScore": 50,
+          "valuationState": "reasonable",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 14 相对可接受"
+          ]
         }
       },
       "000825": {
@@ -13790,7 +14952,22 @@
           "pe": "271.00",
           "cap": "218.74亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.2,
+          "actionHint": "等回撤",
+          "valueScore": 62.0,
+          "timingScore": 50,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 271 显著偏高"
+          ]
         }
       },
       "300274": {
@@ -13854,7 +15031,22 @@
           "pe": "37.18",
           "cap": "3407.32亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "neutral_or_growth_priced",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 37.18 已计入成长预期"
+          ]
         }
       },
       "300750": {
@@ -13918,7 +15110,22 @@
           "pe": "22.77",
           "cap": "1.89万亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 72.2,
+          "actionHint": "继续观察",
+          "valueScore": 87.0,
+          "timingScore": 50,
+          "valuationState": "reasonable",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 22.77 相对可接受"
+          ]
         }
       },
       "002812": {
@@ -13982,7 +15189,22 @@
           "pe": "60.72",
           "cap": "632.20亿",
           "source": "mx_iwencai",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 63.2,
+          "actionHint": "继续观察",
+          "valueScore": 72.0,
+          "timingScore": 50,
+          "valuationState": "pricey",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "PE 60.72 偏高"
+          ]
         }
       },
       "300568": {
@@ -14046,7 +15268,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688503": {
@@ -14110,7 +15347,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "002079": {
@@ -14174,7 +15426,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "002594": {
@@ -14222,7 +15489,21 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 50.6,
+          "actionHint": "继续观察",
+          "valueScore": 51.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实"
+          ]
         }
       },
       "002709": {
@@ -14271,7 +15552,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "002850": {
@@ -14320,7 +15616,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "603806": {
@@ -14369,7 +15680,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688680": {
@@ -14418,7 +15744,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688032": {
@@ -14466,7 +15807,21 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 50.6,
+          "actionHint": "继续观察",
+          "valueScore": 51.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实"
+          ]
         }
       },
       "688348": {
@@ -14514,7 +15869,21 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 50.6,
+          "actionHint": "继续观察",
+          "valueScore": 51.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实"
+          ]
         }
       },
       "601698": {
@@ -14562,7 +15931,21 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 47.0,
+          "actionHint": "继续观察",
+          "valueScore": 45.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "整机集成（下游需求侧）",
+            "估值未核实"
+          ]
         }
       },
       "600118": {
@@ -14610,7 +15993,21 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 50.6,
+          "actionHint": "继续观察",
+          "valueScore": 51.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实"
+          ]
         }
       },
       "688375": {
@@ -14659,7 +16056,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688270": {
@@ -14708,7 +16120,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "001270": {
@@ -14757,7 +16184,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "301117": {
@@ -14806,7 +16248,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "300101": {
@@ -14855,7 +16312,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "002025": {
@@ -14904,7 +16376,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688066": {
@@ -14953,7 +16440,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "300034": {
@@ -15002,7 +16504,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "002149": {
@@ -15051,7 +16568,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "600893": {
@@ -15100,7 +16632,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "600456": {
@@ -15149,7 +16696,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "600879": {
@@ -15198,7 +16760,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "300699": {
@@ -15247,7 +16824,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "002297": {
@@ -15296,7 +16888,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "002389": {
@@ -15345,7 +16952,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "002465": {
@@ -15393,7 +17015,21 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 50.6,
+          "actionHint": "继续观察",
+          "valueScore": 51.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实"
+          ]
         }
       },
       "300045": {
@@ -15442,7 +17078,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "300762": {
@@ -15491,7 +17142,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688102": {
@@ -15540,7 +17206,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688333": {
@@ -15589,7 +17270,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "600343": {
@@ -15638,7 +17334,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "301005": {
@@ -15687,7 +17398,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688582": {
@@ -15736,7 +17462,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "300607": {
@@ -15796,7 +17537,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 51.2,
+          "actionHint": "继续观察",
+          "valueScore": 45.0,
+          "timingScore": 60.4,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "整机集成（下游需求侧）",
+            "估值未核实",
+            "等待确认 / 量化分 60.4"
+          ]
         }
       },
       "300496": {
@@ -15856,7 +17612,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "量化风险，暂缓",
+          "score": 46.0,
+          "actionHint": "暂缓",
+          "valueScore": 51.0,
+          "timingScore": 38.4,
+          "valuationState": "missing",
+          "timingState": "risk",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实",
+            "规避/减仓 / 量化分 38.4"
+          ]
         }
       },
       "688088": {
@@ -15916,7 +17687,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 52.6,
+          "actionHint": "继续观察",
+          "valueScore": 51.0,
+          "timingScore": 55.0,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实",
+            "等待确认 / 量化分 55"
+          ]
         }
       },
       "300223": {
@@ -15965,7 +17751,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688521": {
@@ -16014,7 +17815,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "603290": {
@@ -16063,7 +17879,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "605111": {
@@ -16112,7 +17943,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688711": {
@@ -16161,7 +18007,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "300124": {
@@ -16223,7 +18084,23 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 77.1,
+          "actionHint": "继续观察",
+          "valueScore": 92.0,
+          "timingScore": 54.7,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "估值未核实",
+            "等待确认 / 量化分 54.7"
+          ]
         }
       },
       "002747": {
@@ -16284,7 +18161,23 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "价值优先，等待买点",
+          "score": 76.0,
+          "actionHint": "等买点确认",
+          "valueScore": 77.0,
+          "timingScore": 74.4,
+          "valuationState": "missing",
+          "timingState": "trend_watch",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实",
+            "趋势观察 / 量化分 74.4"
+          ]
         }
       },
       "688017": {
@@ -16346,7 +18239,23 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "价值优先，等待买点",
+          "score": 85.2,
+          "actionHint": "等买点确认",
+          "valueScore": 92.0,
+          "timingScore": 74.9,
+          "valuationState": "missing",
+          "timingState": "trend_watch",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "估值未核实",
+            "趋势观察 / 量化分 74.9"
+          ]
         }
       },
       "688160": {
@@ -16407,7 +18316,23 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 55.0,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实",
+            "等待确认 / 量化分 55"
+          ]
         }
       },
       "603728": {
@@ -16468,7 +18393,23 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 69.7,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 58.7,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实",
+            "等待确认 / 量化分 58.7"
+          ]
         }
       },
       "300748": {
@@ -16529,7 +18470,23 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "量化风险，暂缓",
+          "score": 65.3,
+          "actionHint": "暂缓",
+          "valueScore": 80.0,
+          "timingScore": 43.3,
+          "valuationState": "missing",
+          "timingState": "risk",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实",
+            "弱势等待 / 量化分 43.3"
+          ]
         }
       },
       "600366": {
@@ -16578,7 +18535,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "000970": {
@@ -16627,7 +18599,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "603583": {
@@ -16676,7 +18663,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "002472": {
@@ -16737,7 +18739,23 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.6,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 55.9,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实",
+            "等待确认 / 量化分 55.9"
+          ]
         }
       },
       "300660": {
@@ -16798,7 +18816,23 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "量化风险，暂缓",
+          "score": 65.9,
+          "actionHint": "暂缓",
+          "valueScore": 77.0,
+          "timingScore": 49.3,
+          "valuationState": "missing",
+          "timingState": "risk",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实",
+            "弱势等待 / 量化分 49.3"
+          ]
         }
       },
       "873593": {
@@ -16851,6 +18885,31 @@
             "明显回撤=回撤观察",
             "RSI过热=强势但等回撤"
           ]
+        },
+        "marketSnapshot": {
+          "p": "28.00",
+          "c": "-1.2%",
+          "cv": -1.2,
+          "pe": "188.47",
+          "cap": "53.27亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-04 17:22:18"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 57.4,
+          "actionHint": "等回撤",
+          "valueScore": 59.0,
+          "timingScore": 55.0,
+          "valuationState": "expensive",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 188.47 显著偏高",
+            "等待确认 / 量化分 55"
+          ]
         }
       },
       "002241": {
@@ -16899,7 +18958,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "603662": {
@@ -16961,7 +19035,23 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 78.8,
+          "actionHint": "继续观察",
+          "valueScore": 92.0,
+          "timingScore": 58.9,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "估值未核实",
+            "等待确认 / 量化分 58.9"
+          ]
         }
       },
       "688686": {
@@ -17023,7 +19113,23 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 81.7,
+          "actionHint": "继续观察",
+          "valueScore": 92.0,
+          "timingScore": 66.3,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "估值未核实",
+            "等待确认 / 量化分 66.3"
+          ]
         }
       },
       "603501": {
@@ -17072,7 +19178,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688213": {
@@ -17121,7 +19242,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "300456": {
@@ -17170,7 +19306,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "002920": {
@@ -17218,7 +19369,21 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 50.6,
+          "actionHint": "继续观察",
+          "valueScore": 51.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实"
+          ]
         }
       },
       "688326": {
@@ -17266,7 +19431,21 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 50.6,
+          "actionHint": "继续观察",
+          "valueScore": 51.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实"
+          ]
         }
       },
       "601689": {
@@ -17314,7 +19493,21 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 50.6,
+          "actionHint": "继续观察",
+          "valueScore": 51.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实"
+          ]
         }
       },
       "603197": {
@@ -17362,7 +19555,21 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 50.6,
+          "actionHint": "继续观察",
+          "valueScore": 51.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实"
+          ]
         }
       },
       "603259": {
@@ -17410,7 +19617,21 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 50.6,
+          "actionHint": "继续观察",
+          "valueScore": 51.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实"
+          ]
         }
       },
       "002821": {
@@ -17458,7 +19679,21 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 50.6,
+          "actionHint": "继续观察",
+          "valueScore": 51.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "观察",
+            "核心部件（议价中枢）",
+            "估值未核实"
+          ]
         }
       },
       "300347": {
@@ -17507,7 +19742,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "300759": {
@@ -17556,7 +19806,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "603127": {
@@ -17605,7 +19870,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688202": {
@@ -17654,7 +19934,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688222": {
@@ -17703,7 +19998,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "301230": {
@@ -17752,7 +20062,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "301047": {
@@ -17801,7 +20126,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "301080": {
@@ -17850,7 +20190,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "300725": {
@@ -17899,7 +20254,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "300358": {
@@ -17948,7 +20318,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "300171": {
@@ -17997,7 +20382,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688690": {
@@ -18046,7 +20446,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688293": {
@@ -18095,7 +20510,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "688046": {
@@ -18144,7 +20574,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 68.0,
+          "actionHint": "继续观察",
+          "valueScore": 80.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "底层材料/设备（最上游卡点）",
+            "估值未核实"
+          ]
         }
       },
       "300363": {
@@ -18193,7 +20638,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       },
       "301301": {
@@ -18242,7 +20702,22 @@
           "pe": "-",
           "cap": "-",
           "source": "sina",
-          "updateTime": "2026-06-04 17:09:49"
+          "updateTime": "2026-06-04 17:30:48"
+        },
+        "decisionProfile": {
+          "label": "候选观察",
+          "score": 66.2,
+          "actionHint": "继续观察",
+          "valueScore": 77.0,
+          "timingScore": 50,
+          "valuationState": "missing",
+          "timingState": "wait_confirm",
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "估值未核实"
+          ]
         }
       }
     },
@@ -18250,11 +20725,19 @@
       "enhanced": 162,
       "pe": 79,
       "total": 163,
-      "updateTime": "2026-06-04 17:09:49",
+      "updateTime": "2026-06-04 17:30:48",
       "sources": [
         "mx_iwencai",
         "sina"
       ]
+    },
+    "decisionCoverage": {
+      "profiled": 163,
+      "valueHigh": 99,
+      "timingReady": 16,
+      "resonance": 0,
+      "total": 163,
+      "updateTime": "2026-06-04 17:30:48"
     }
   }
 }

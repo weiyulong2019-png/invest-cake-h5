@@ -23,6 +23,138 @@ REFRESH_DATA = ROOT / "refresh-data.py"
 BATCH_SIZE = 8
 
 
+def _num(value):
+    if value in (None, "", "-", "—"):
+        return None
+    try:
+        return float(str(value).replace(",", "").replace("%", "").replace("+", "").strip())
+    except Exception:
+        return None
+
+
+def _clamp(value: float, low: float = 0, high: float = 100) -> float:
+    return max(low, min(high, value))
+
+
+def _valuation_adjustment(pe):
+    if pe is None or pe <= 0:
+        return 0, "missing", "估值未核实"
+    if pe <= 35:
+        return 10, "reasonable", f"PE {pe:g} 相对可接受"
+    if pe <= 60:
+        return 0, "neutral_or_growth_priced", f"PE {pe:g} 已计入成长预期"
+    if pe <= 80:
+        return -8, "pricey", f"PE {pe:g} 偏高"
+    return -18, "expensive", f"PE {pe:g} 显著偏高"
+
+
+def _timing_state(quant: dict) -> tuple[str, str]:
+    label = str(quant.get("label") or "")
+    signal = str(quant.get("signal") or "")
+    score = _num(quant.get("score"))
+    rsi = _num(quant.get("rsi"))
+    if signal == "risk":
+        return "risk", label or "量化风险"
+    if signal == "buy":
+        return "entry_candidate", label or "买点候选"
+    if "强势但等回撤" in label:
+        return "wait_pullback", label
+    if score is not None and score >= 75 and rsi is not None and rsi >= 75:
+        return "wait_pullback", label or "强势等待回撤"
+    if score is not None and score >= 70:
+        return "trend_watch", label or "趋势观察"
+    if label:
+        return "wait_confirm", label
+    return "wait_confirm", "量化数据待确认"
+
+
+def _decision_profile(card: dict) -> dict:
+    selection = card.get("selectionProfile") or {}
+    market = card.get("marketSnapshot") or {}
+    quant = card.get("quantSnapshot") or {}
+
+    selection_score = _num(selection.get("score"))
+    base_value = selection_score if selection_score is not None else 50
+    pe = _num(market.get("pe"))
+    pe_adj, valuation_state, valuation_note = _valuation_adjustment(pe)
+    value_score = _clamp(base_value + pe_adj)
+
+    quant_score = _num(quant.get("score"))
+    timing_state, timing_label = _timing_state(quant)
+    timing_score = quant_score if quant_score is not None else 50
+    decision_score = round(_clamp(value_score * 0.6 + timing_score * 0.4), 1)
+
+    if timing_state == "risk":
+        label = "量化风险，暂缓"
+        action_hint = "暂缓"
+    elif value_score >= 75 and timing_state == "entry_candidate":
+        label = "价值+量化共振"
+        action_hint = "加入观察"
+    elif value_score >= 75 and timing_state in ("trend_watch", "wait_pullback"):
+        label = "价值优先，等待买点"
+        action_hint = "等回撤" if timing_state == "wait_pullback" else "等买点确认"
+    elif valuation_state == "expensive":
+        label = "估值偏贵，等待回撤"
+        action_hint = "等回撤"
+    elif value_score >= 65 and timing_state == "trend_watch":
+        label = "结构候选，趋势观察"
+        action_hint = "等买点确认"
+    else:
+        label = "候选观察"
+        action_hint = "继续观察"
+
+    reasons: list[str] = []
+    if selection.get("label"):
+        reasons.append(str(selection.get("label")))
+    for reason in selection.get("reasons") or []:
+        if reason and reason not in reasons:
+            reasons.append(str(reason))
+        if len(reasons) >= 3:
+            break
+    reasons.append(valuation_note)
+    if quant:
+        reasons.append(f"{timing_label} / 量化分 {timing_score:g}")
+
+    return {
+        "label": label,
+        "score": decision_score,
+        "actionHint": action_hint,
+        "valueScore": round(value_score, 1),
+        "timingScore": round(timing_score, 1),
+        "valuationState": valuation_state,
+        "timingState": timing_state,
+        "reasons": reasons[:5],
+    }
+
+
+def _attach_decision_profiles(data: dict, now: str) -> None:
+    cards = (data.get("stockCards") or {}).get("cards") or {}
+    decision_count = 0
+    resonance = 0
+    value_high = 0
+    timing_ready = 0
+
+    for card in cards.values():
+        profile = _decision_profile(card)
+        card["decisionProfile"] = profile
+        decision_count += 1
+        if profile["valueScore"] >= 75:
+            value_high += 1
+        if profile["timingState"] in ("entry_candidate", "trend_watch", "wait_pullback"):
+            timing_ready += 1
+        if profile["label"] == "价值+量化共振":
+            resonance += 1
+
+    data.setdefault("stockCards", {})["decisionCoverage"] = {
+        "profiled": decision_count,
+        "valueHigh": value_high,
+        "timingReady": timing_ready,
+        "resonance": resonance,
+        "total": len(cards),
+        "updateTime": now,
+    }
+
+
 def _load_refresh_data():
     if not os.environ.get("MX_APIKEY"):
         try:
@@ -115,6 +247,11 @@ def main() -> int:
             snap.setdefault("source", "sina")
         if not snap:
             continue
+        old_snap = card.get("marketSnapshot") or {}
+        for sticky_field in ("pe", "cap"):
+            if snap.get(sticky_field) in (None, "", "-") and old_snap.get(sticky_field) not in (None, "", "-"):
+                snap[sticky_field] = old_snap[sticky_field]
+                snap[f"{sticky_field}Source"] = old_snap.get("source") or "previous_verified"
         snap["updateTime"] = now
         card["marketSnapshot"] = snap
         enhanced += 1
@@ -128,8 +265,9 @@ def main() -> int:
         "updateTime": now,
         "sources": ["mx_iwencai", "sina"],
     }
+    _attach_decision_profiles(data, now)
     STRATEGY_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"[ok] strategy market snapshots: {enhanced}/{len(a_cards)}, PE {pe_count}")
+    print(f"[ok] strategy market snapshots: {enhanced}/{len(a_cards)}, PE {pe_count}; decision profiles {len(cards)}")
     return 0
 
 

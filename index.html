@@ -414,6 +414,18 @@ a:active{opacity:.6;}
 .dash-row:first-child{border-top:none;}
 .dash-rk{color:var(--text2);flex-shrink:0;}
 .dash-rv{text-align:right;font-weight:600;color:var(--text);max-width:64%;}
+.decision-pool{display:grid;gap:8px;margin-top:8px;}
+.decision-row{display:grid;grid-template-columns:minmax(88px,1fr) minmax(96px,1.2fr) 54px;gap:8px;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:10px;cursor:pointer;}
+.decision-row:active{opacity:.68;}
+.decision-name{font-size:13px;font-weight:800;color:var(--text);}
+.decision-meta{font-size:11px;color:var(--text3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.decision-label{font-size:13px;font-weight:800;color:var(--text);}
+.decision-note{font-size:11px;color:var(--text2);margin-top:3px;line-height:1.35;}
+.decision-score{text-align:right;}
+.decision-score b{display:block;font-size:18px;line-height:1;color:var(--green);}
+.decision-score span{font-size:11px;color:var(--text3);}
+.decision-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;}
+.decision-tag{font-size:10px;color:var(--text2);background:#fff;border:1px solid var(--border);border-radius:4px;padding:1px 5px;}
 .search-inner input{color:var(--text);}
 </style>
 </head>
@@ -688,6 +700,30 @@ a:active{opacity:.6;}
       </div>
 
       <template v-if="stratReady">
+        <!-- 决策候选池：价值选股 × 量化买卖点 -->
+        <div class="strat-block" v-if="decisionCandidates.length">
+          <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16l3-4 3 2 4-7"/></svg>决策候选池
+            <span class="badge" :style="badgeStyle(true)">价值 × 择时</span>
+          </div>
+          <div class="decision-pool">
+            <div class="decision-row" v-for="c in decisionCandidates" :key="c.code" @click="pickDash(c.code)">
+              <div>
+                <div class="decision-name">{{ c.name }} <span v-if="c.held" class="held-pill">持有</span></div>
+                <div class="decision-meta">{{ c.chain_label }} · {{ c.segment||'未归段' }}</div>
+                <div class="decision-tags">
+                  <span class="decision-tag">PE {{ displayPe(c) }}</span>
+                  <span class="decision-tag">{{ c.quantSnapshot?c.quantSnapshot.label:'量化待确认' }}</span>
+                </div>
+              </div>
+              <div>
+                <div class="decision-label">{{ c.decisionProfile.label }}</div>
+                <div class="decision-note">{{ c.decisionProfile.actionHint }} · {{ (c.decisionProfile.reasons||[]).slice(0,2).join(' / ') }}</div>
+              </div>
+              <div class="decision-score"><b>{{ c.decisionProfile.score }}</b><span>综合分</span></div>
+            </div>
+          </div>
+        </div>
+
         <!-- 个股分析仪表盘 -->
         <div class="strat-block">
           <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>个股分析仪表盘
@@ -1114,6 +1150,20 @@ createApp({
       const q=dashQuery.value.trim().toLowerCase();if(!q)return[];
       return Object.values(cards).filter(c=>String(c.code).toLowerCase().includes(q)||(c.name||'').toLowerCase().includes(q)).slice(0,8);
     });
+    const decisionCandidates=computed(()=>{
+      const cards=Object.values((strat.stockCards&&strat.stockCards.cards)||{});
+      return cards.filter(c=>c&&c.decisionProfile)
+        .sort((a,b)=>{
+          const bp=(b.decisionProfile&&Number(b.decisionProfile.score))||0;
+          const ap=(a.decisionProfile&&Number(a.decisionProfile.score))||0;
+          return bp-ap;
+        })
+        .slice(0,10);
+    });
+    const displayPe=(card)=>{
+      const pe=(card&&card.marketSnapshot&&card.marketSnapshot.pe)||'—';
+      return pe&&pe!=='-'?pe:'—';
+    };
     const pickDash=(code)=>{dashPicked.value=code;const c=(strat.stockCards.cards||{})[code];if(c)dashQuery.value=c.name;};
     const dashCard=computed(()=>{
       const cards=(strat.stockCards&&strat.stockCards.cards)||{};
@@ -1563,7 +1613,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,pickDash,dashCard,dashQuote,valueDecision,timingDecision};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionCandidates,displayPe,pickDash,dashCard,dashQuote,valueDecision,timingDecision};
   }
 }).mount('#app');
 
