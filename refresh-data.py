@@ -104,6 +104,12 @@ ETFS = [
     {"code": "516510", "name": "云计算ETF", "sector": "AI云"},
     {"code": "159326", "name": "电网设备ETF", "sector": "电网"},
     {"code": "159338", "name": "中证A500ETF", "sector": "宽基"},
+    # 真实持仓 ETF：必须用持仓代码跟踪，避免 H5 只能按相似名称兜底。
+    {"code": "516630", "name": "云计ETF", "sector": "AI云", "held": True},
+    {"code": "159246", "name": "创业板AI ETF", "sector": "AI赛道", "held": True},
+    {"code": "560390", "name": "电网设备ETF", "sector": "电网", "held": True},
+    {"code": "159516", "name": "半导体设备ETF国泰", "sector": "半导体设备", "held": True},
+    {"code": "515880", "name": "通信ETF国泰", "sector": "通信设备", "held": True},
 ]
 
 # 港股（富途OpenD获取实时数据）
@@ -112,6 +118,7 @@ HK_STOCKS = [
     {"code": "HK.03690", "futu": "HK.03690", "name": "美团-W", "sector": "港股互联网", "held": True},
     {"code": "HK.09988", "futu": "HK.09988", "name": "阿里巴巴-W", "sector": "港股互联网", "held": True},
     {"code": "HK.01024", "futu": "HK.01024", "name": "快手-W", "sector": "港股互联网", "held": True},
+    {"code": "HK.01093", "futu": "HK.01093", "name": "石药集团", "sector": "港股医药", "held": True},
 ]
 
 

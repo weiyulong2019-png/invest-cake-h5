@@ -829,6 +829,27 @@ def main():
         else:
             ind = fetch_a_stock_indicators(code)
 
+        if not ind.get("ok") and (code.startswith("HK.") or is_etf_code(code)):
+            cv = float(stock.get("cv") or 0)
+            if cv <= -3:
+                signal, confidence = "risk", "低"
+                note = f"历史指标未取到；实时跌幅{cv:g}%，先按防守处理"
+            elif cv >= 5:
+                signal, confidence = "neutral", "低"
+                note = f"历史指标未取到；实时涨幅+{cv:g}%，不追高，等回撤"
+            else:
+                signal, confidence = "neutral", "低"
+                note = f"历史指标未取到；实时涨跌{cv:g}%，维持观察"
+            stock["signal"] = signal
+            stock["signalNote"] = note
+            stock["signalTime"] = time_tag
+            stock["confidence"] = confidence
+            if stocks_signals is not None:
+                stocks_signals.append({"signal": signal, "chg5d": 0, "confidence": confidence})
+            label = {"buy": "🟢建仓", "risk": "🔴风险", "neutral": "⚪中性"}[signal]
+            print(f"  [{code}] {name}: {label}({confidence}·) quote-fallback — {note}")
+            return False
+
         # --- 硬排除检查（港股和ETF跳过）---
         if not code.startswith("HK.") and not is_etf_code(code):
             excluded, excl_reason = should_exclude(ind, name)
@@ -844,7 +865,7 @@ def main():
 
         # --- 构建信号增强包 ---
         enhancement = None
-        if has_ds and not code.startswith("HK."):
+        if has_ds and not code.startswith("HK.") and not is_etf_code(code):
             enhancement = {"northbound": {"ok": False}, "unlock": {"has_unlock": False}, "on_dragon_tiger": False}
             # 北向个股持仓(A股主板才查)
             try:

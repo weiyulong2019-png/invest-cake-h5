@@ -1778,8 +1778,7 @@ createApp({
             });
           });
         }
-        if(d.etfs){d.etfs.forEach(de=>{const t=etfs.find(i=>i.code===de.code);if(t){t.p=de.p;t.c=de.c;t.cv=de.cv;
-          if(de.signal)t.signal=de.signal;if(de.signalNote)t.signalNote=de.signalNote;if(de.signalTime)t.signalTime=de.signalTime;if(de.confidence)t.confidence=de.confidence;}});}
+        if(Array.isArray(d.etfs)){etfs.length=0;d.etfs.forEach(e=>etfs.push(e));}
         if(Array.isArray(d.hk)){hkStocks.length=0;d.hk.forEach(h=>hkStocks.push(h));}
         console.log('[OpenClaw] 数据已刷新:',updateTime.value);
       }catch(e){console.log('[OpenClaw] data.json未找到');}
