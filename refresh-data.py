@@ -20,6 +20,7 @@ import sys
 import json
 import time
 import argparse
+import copy
 import requests
 import subprocess
 from datetime import datetime
@@ -49,6 +50,8 @@ FUTU_OPEND_PORT = int(os.environ.get("FUTU_PORT", "11111"))
 FUTU_SNAPSHOT_SCRIPT = os.path.expanduser("~/.openclaw/skills/futuapi/scripts/quote/get_snapshot.py")
 OUTPUT_DIR = Path(__file__).parent
 OUTPUT_FILE = OUTPUT_DIR / "data.json"
+SIGNAL_FIELDS = ("signal", "signalNote", "signalTime", "confidence")
+QUOTE_FIELDS = ("p", "c", "cv", "pe", "cap")
 
 # 持仓标的 — 与H5五层蛋糕对应
 HOLDINGS = {
@@ -1086,6 +1089,87 @@ def build_output_manual(skip_a=False, skip_hk=False):
     return output
 
 
+def _copy_existing_fields(target: dict, source: dict, fields: tuple[str, ...], *, overwrite=False) -> int:
+    copied = 0
+    for field in fields:
+        if field in source and (overwrite or field not in target):
+            target[field] = source[field]
+            copied += 1
+    return copied
+
+
+def _sync_hk_to_l5(data: dict):
+    hk = data.get("hk", [])
+    if not hk:
+        return
+    l5 = next((l for l in data.get("layers", []) if l.get("id") == "L5"), None)
+    if not l5:
+        return
+    l5["stocks"] = hk
+    vals = [s.get("cv", 0) for s in hk if s.get("cv", 0) != 0]
+    l5["avg"] = round(sum(vals) / len(vals), 2) if vals else 0
+
+
+def merge_previous_snapshot(data: dict, old: dict, *, preserve_a=False, preserve_hk=False) -> int:
+    """Preserve unrefreshed markets and existing signal annotations."""
+    inherited = 0
+
+    if preserve_a:
+        for key in ("market", "layers", "etfs"):
+            if old.get(key):
+                data[key] = copy.deepcopy(old[key])
+        print("  [继承] A股/ETF沿用上次完整快照")
+    elif not data.get("market", {}).get("price") and old.get("market", {}).get("price"):
+        data["market"] = copy.deepcopy(old["market"])
+        print("  [继承] 大盘指数沿用上次数据")
+
+    if preserve_hk and old.get("hk"):
+        data["hk"] = copy.deepcopy(old["hk"])
+        print("  [继承] 港股沿用上次完整快照")
+
+    old_layers = {l.get("id"): l for l in old.get("layers", [])}
+    old_stocks = {}
+    for layer in old.get("layers", []):
+        for stock in layer.get("stocks", []):
+            old_stocks[stock.get("code")] = stock
+
+    for layer in data.get("layers", []):
+        old_layer = old_layers.get(layer.get("id"))
+        if old_layer:
+            _copy_existing_fields(layer, old_layer, ("summary", "summaryTime"))
+        for stock in layer.get("stocks", []):
+            old_stock = old_stocks.get(stock.get("code"))
+            if not old_stock:
+                continue
+            if stock.get("p") == "-" and old_stock.get("p", "-") != "-":
+                inherited += _copy_existing_fields(stock, old_stock, QUOTE_FIELDS, overwrite=True)
+            _copy_existing_fields(stock, old_stock, SIGNAL_FIELDS)
+
+    old_etfs = {e.get("code"): e for e in old.get("etfs", [])}
+    for etf in data.get("etfs", []):
+        old_etf = old_etfs.get(etf.get("code"))
+        if not old_etf:
+            continue
+        if etf.get("p") == "-" and old_etf.get("p", "-") != "-":
+            inherited += _copy_existing_fields(etf, old_etf, ("p", "c", "cv"), overwrite=True)
+        _copy_existing_fields(etf, old_etf, SIGNAL_FIELDS)
+
+    old_hk = {s.get("code"): s for s in old.get("hk", [])}
+    for stock in data.get("hk", []):
+        old_stock = old_hk.get(stock.get("code"))
+        if not old_stock:
+            continue
+        if stock.get("p") == "-" and old_stock.get("p", "-") != "-":
+            inherited += _copy_existing_fields(stock, old_stock, QUOTE_FIELDS, overwrite=True)
+        _copy_existing_fields(stock, old_stock, SIGNAL_FIELDS)
+
+    if "signalUpdateTime" not in data and old.get("signalUpdateTime"):
+        data["signalUpdateTime"] = old["signalUpdateTime"]
+
+    _sync_hk_to_l5(data)
+    return inherited
+
+
 def main():
     parser = argparse.ArgumentParser(description="投资工作室H5数据刷新")
     parser.add_argument("--manual", action="store_true", help="手动模式: 妙想(问财)+新浪+富途港股")
@@ -1107,61 +1191,15 @@ def main():
     else:
         data = build_output_manual(skip_a=args.hk, skip_hk=args.a_only)
 
-    # 继承上次有效数据：新数据为空时保留旧值
+    # 继承上次有效数据：新数据为空/市场跳过时保留旧值，并保留已生成的信号字段。
     if OUTPUT_FILE.exists():
         try:
             old = json.loads(OUTPUT_FILE.read_text(encoding="utf-8"))
-            # 大盘指数
-            if not data["market"].get("price") and old.get("market", {}).get("price"):
-                data["market"] = old["market"]
-                print("  [继承] 大盘指数沿用上次数据")
-            # 层级summary继承
-            old_layers = {l["id"]: l for l in old.get("layers", [])}
-            for layer in data["layers"]:
-                old_l = old_layers.get(layer["id"])
-                if old_l:
-                    for lk in ("summary", "summaryTime"):
-                        if lk in old_l and lk not in layer:
-                            layer[lk] = old_l[lk]
-            # A股各层
-            old_stocks = {}
-            for layer in old.get("layers", []):
-                for s in layer.get("stocks", []):
-                    old_stocks[s["code"]] = s
-            inherited = 0
-            for layer in data["layers"]:
-                for s in layer["stocks"]:
-                    old_s = old_stocks.get(s["code"])
-                    if old_s:
-                        if s["p"] == "-" and old_s.get("p", "-") != "-":
-                            s.update({k: old_s[k] for k in ("p", "c", "cv", "pe", "cap") if k in old_s})
-                            inherited += 1
-                        # 保留信号数据
-                        for sk in ("signal", "signalNote", "signalTime", "confidence"):
-                            if sk in old_s and sk not in s:
-                                s[sk] = old_s[sk]
-            # ETF
-            old_etfs = {e["code"]: e for e in old.get("etfs", [])}
-            for e in data["etfs"]:
-                if e["p"] == "-" and e["code"] in old_etfs and old_etfs[e["code"]]["p"] != "-":
-                    old_e = old_etfs[e["code"]]
-                    e.update({k: old_e[k] for k in ("p", "c", "cv") if k in old_e})
-                    inherited += 1
-            # 港股
-            old_hk = {s["code"]: s for s in old.get("hk", [])}
-            for s in data["hk"]:
-                if s["p"] == "-" and s["code"] in old_hk and old_hk[s["code"]]["p"] != "-":
-                    old_s = old_hk[s["code"]]
-                    s.update({k: old_s[k] for k in ("p", "c", "cv", "pe", "cap") if k in old_s})
-                    inherited += 1
-            # 同步港股到L5
+            preserve_a = args.skip_a or (mode == "manual" and args.hk)
+            preserve_hk = args.skip_hk or (mode == "manual" and args.a_only)
+            inherited = merge_previous_snapshot(data, old, preserve_a=preserve_a, preserve_hk=preserve_hk)
             if inherited:
-                l5 = next((l for l in data["layers"] if l["id"] == "L5"), None)
-                if l5:
-                    l5["stocks"] = data["hk"]
-                    vals = [s["cv"] for s in data["hk"] if s["cv"] != 0]
-                    l5["avg"] = round(sum(vals) / len(vals), 2) if vals else 0
-                print(f"  [继承] {inherited}个标的沿用上次数据")
+                print(f"  [继承] {inherited}个字段沿用上次数据")
         except Exception as e:
             print(f"  [WARN] 读取旧数据失败: {e}")
 

@@ -16,6 +16,25 @@
 set -e
 cd "$(dirname "$0")"
 
+LOCKDIR="/tmp/openclaw-invest-refresh.lock"
+if ! mkdir "$LOCKDIR" 2>/dev/null; then
+    OLD_PID=""
+    if [ -f "$LOCKDIR/pid" ]; then
+        OLD_PID="$(cat "$LOCKDIR/pid" 2>/dev/null || true)"
+    fi
+    if [ -n "$OLD_PID" ] && kill -0 "$OLD_PID" 2>/dev/null; then
+        echo "$(date): 上一轮刷新仍在运行，跳过"
+        exit 0
+    fi
+    rm -rf "$LOCKDIR"
+    if ! mkdir "$LOCKDIR" 2>/dev/null; then
+        echo "$(date): 刷新锁被占用，跳过"
+        exit 0
+    fi
+fi
+echo "$$" > "$LOCKDIR/pid"
+trap 'rm -rf "$LOCKDIR"' EXIT
+
 DOW=$(date +%u)  # 1=Mon, 7=Sun
 HOUR=$(date +%H)
 MIN=$(date +%M)
@@ -31,6 +50,10 @@ unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY all_proxy ALL_PROXY
 
 # MX_APIKEY must be provided by the caller environment or launchd config.
 # Never hardcode credentials in this public dashboard repo.
+if [ -z "${MX_APIKEY:-}" ]; then
+    MX_APIKEY="$(/bin/zsh -lc 'printenv MX_APIKEY' 2>/dev/null || true)"
+    export MX_APIKEY
+fi
 
 # ========== 06:00 盘前信号（5分钟间隔容差: 0555-0610） ==========
 if [ "$HHMM" -ge "0555" ] && [ "$HHMM" -le "0610" ]; then
@@ -54,7 +77,11 @@ if [ "$HHMM" -ge "0555" ] && [ "$HHMM" -le "0610" ]; then
 fi
 
 # ========== 非交易时间 ==========
-if [ "$HHMM" -lt "0555" ] || ([ "$HHMM" -gt "0610" ] && [ "$HHMM" -lt "0925" ]); then
+if [ "$HHMM" -lt "0555" ]; then
+    echo "$(date): 非交易时间，跳过"
+    exit 0
+fi
+if [ "$HHMM" -gt "0610" ] && [ "$HHMM" -lt "0925" ]; then
     echo "$(date): 非交易时间，跳过"
     exit 0
 fi
@@ -106,6 +133,26 @@ if [ "$RUN_SIGNAL" = true ]; then
     echo "$(date): 生成信号..."
     python3 generate-signals.py
 fi
+
+# --- 公开看板防呆：不要把空数据或缺信号快照推线上 ---
+python3 - <<'PY'
+import json
+import sys
+
+with open("data.json", encoding="utf-8") as f:
+    data = json.load(f)
+
+layer_stocks = [s for layer in data.get("layers", []) for s in layer.get("stocks", [])]
+etfs = data.get("etfs", [])
+hk = data.get("hk", [])
+if not layer_stocks or not etfs or not hk:
+    raise SystemExit("[abort] data.json 市场区块为空，停止推送")
+
+rows = layer_stocks + etfs + hk
+missing = [s.get("name") or s.get("code") for s in rows if not s.get("signal")]
+if missing:
+    raise SystemExit("[abort] data.json 信号字段缺失，停止推送: " + ", ".join(missing[:8]))
+PY
 
 # --- 推送 ---
 git add data.json watchlist.json
