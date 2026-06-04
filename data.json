@@ -26,8 +26,8 @@
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "站上MA20；MACD绿柱；ADX=13.2(震荡市)；预期日波动±3.35%",
-          "signalTime": "19:04",
+          "signalNote": "站上MA20；MACD绿柱；ADX=12.1(震荡市)；预期日波动±3.11%",
+          "signalTime": "05:59",
           "confidence": "低"
         },
         {
@@ -42,14 +42,14 @@
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "19:04",
+          "signalNote": "空头排列；RSI偏低(27.4)；MACD绿柱；ADX=12.4(震荡市)；预期日波动±7.09%(高)",
+          "signalTime": "05:59",
           "confidence": "低"
         }
       ],
       "avg": -1.6,
-      "summary": "能源基建板块2只标的，方向不明确，保持观望。",
-      "summaryTime": "19:04"
+      "summary": "能源基建板块2只标的，方向不明确，保持观望，近5日均跌-3.97%，关注超跌反弹。",
+      "summaryTime": "05:59"
     },
     {
       "id": "L2",
@@ -69,8 +69,8 @@
           "pe": "-",
           "cap": "-",
           "signal": "neutral",
-          "signalNote": "数据不足，暂无信号",
-          "signalTime": "19:04",
+          "signalNote": "站上MA20；MACD绿柱；ADX=32.3(强趋势)；预期日波动±7.6%(高)",
+          "signalTime": "05:59",
           "confidence": "低"
         },
         {
@@ -86,7 +86,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         },
         {
@@ -102,7 +102,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         },
         {
@@ -118,7 +118,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         },
         {
@@ -134,13 +134,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         }
       ],
       "avg": 1.24,
       "summary": "算力芯片板块5只标的，方向不明确，保持观望。",
-      "summaryTime": "19:04"
+      "summaryTime": "05:59"
     },
     {
       "id": "L3",
@@ -161,7 +161,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         },
         {
@@ -177,7 +177,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         },
         {
@@ -193,13 +193,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         }
       ],
       "avg": 4.55,
       "summary": "通信基建板块3只标的，方向不明确，保持观望。",
-      "summaryTime": "19:04"
+      "summaryTime": "05:59"
     },
     {
       "id": "L4",
@@ -220,13 +220,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         }
       ],
       "avg": -3.16,
       "summary": "模型层板块1只标的，方向不明确，保持观望。",
-      "summaryTime": "19:04"
+      "summaryTime": "05:59"
     },
     {
       "id": "L5",
@@ -247,7 +247,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "历史指标未取到；实时涨跌-0.7%，维持观察",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         },
         {
@@ -263,7 +263,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "历史指标未取到；实时涨跌-2.24%，维持观察",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         },
         {
@@ -279,7 +279,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "历史指标未取到；实时涨跌-2.45%，维持观察",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         },
         {
@@ -295,7 +295,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "历史指标未取到；实时涨跌0.43%，维持观察",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         },
         {
@@ -311,13 +311,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "历史指标未取到；实时涨跌-0.14%，维持观察",
-          "signalTime": "19:04",
+          "signalTime": "05:59",
           "confidence": "低"
         }
       ],
       "avg": -1.02,
       "summary": "应用层板块5只标的，方向不明确，保持观望。",
-      "summaryTime": "19:04"
+      "summaryTime": "05:59"
     }
   ],
   "etfs": [
@@ -328,9 +328,9 @@
       "p": "1.16",
       "c": "-1.28%",
       "cv": -1.28,
-      "signal": "buy",
-      "signalNote": "站上MA20；跌破MA60；MACD红柱；ADX=31.6(强趋势)；预期日波动±1.11%(低)",
-      "signalTime": "19:04",
+      "signal": "risk",
+      "signalNote": "跌破MA20；跌破MA60；MACD红柱；ADX=30.4(强趋势)；预期日波动±1.12%(低)",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -341,8 +341,8 @@
       "c": "-1.41%",
       "cv": -1.41,
       "signal": "buy",
-      "signalNote": "多头排列；MACD红柱；5日涨6.53%，注意回调；预期日波动±4.11%(高)",
-      "signalTime": "19:04",
+      "signalNote": "多头排列；MACD红柱；预期日波动±4.1%(高)",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -353,8 +353,8 @@
       "c": "-2.1%",
       "cv": -2.1,
       "signal": "neutral",
-      "signalNote": "跌破MA20；MACD绿柱；ADX=13.7(震荡市)，信号降级；预期日波动±3.53%",
-      "signalTime": "19:04",
+      "signalNote": "空头排列；跌破MA60；MACD绿柱；ADX=11.1(震荡市)；预期日波动±3.55%",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -365,8 +365,8 @@
       "c": "+0.05%",
       "cv": 0.05,
       "signal": "neutral",
-      "signalNote": "站上MA20；MACD绿柱；ADX=13.2(震荡市)；预期日波动±3.35%",
-      "signalTime": "19:04",
+      "signalNote": "站上MA20；MACD绿柱；ADX=12.1(震荡市)；预期日波动±3.11%",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -376,9 +376,9 @@
       "p": "1.3",
       "c": "-0.69%",
       "cv": -0.69,
-      "signal": "neutral",
-      "signalNote": "MACD绿柱；ADX=30.2(强趋势)；预期日波动±1.99%(低)",
-      "signalTime": "19:04",
+      "signal": "risk",
+      "signalNote": "跌破MA20；MACD绿柱；预期日波动±1.93%(低)",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -389,8 +389,8 @@
       "c": "-1.81%",
       "cv": -1.81,
       "signal": "neutral",
-      "signalNote": "跌破MA20；MACD绿柱；ADX=12.4(震荡市)，信号降级；预期日波动±3.51%",
-      "signalTime": "19:04",
+      "signalNote": "空头排列；跌破MA60；MACD绿柱；ADX=10.2(震荡市)；预期日波动±3.46%",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -401,8 +401,8 @@
       "c": "-1.5%",
       "cv": -1.5,
       "signal": "buy",
-      "signalNote": "多头排列；MACD红柱；5日涨6.7%，注意回调；预期日波动±4.14%(高)",
-      "signalTime": "19:04",
+      "signalNote": "多头排列；MACD红柱；预期日波动±4.06%(高)",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -413,8 +413,8 @@
       "c": "+0.28%",
       "cv": 0.28,
       "signal": "neutral",
-      "signalNote": "站上MA20；MACD绿柱；ADX=13.9(震荡市)；预期日波动±3.27%",
-      "signalTime": "19:04",
+      "signalNote": "站上MA20；MACD绿柱；ADX=13.1(震荡市)；预期日波动±3.08%",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -424,9 +424,9 @@
       "p": "1.24",
       "c": "+3.76%",
       "cv": 3.76,
-      "signal": "risk",
-      "signalNote": "跌破MA20；跌破MA60；MACD绿柱；ADX=41.8(强趋势)；预期日波动±7.18%(高)",
-      "signalTime": "19:04",
+      "signal": "neutral",
+      "signalNote": "站上MA20；MACD绿柱；ADX=40.8(强趋势)；预期日波动±6.6%(高)",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -437,8 +437,8 @@
       "c": "-0.47%",
       "cv": -0.47,
       "signal": "buy",
-      "signalNote": "多头排列；RSI偏高(63.3)；MACD红柱；预期日波动±4.72%(高)",
-      "signalTime": "19:04",
+      "signalNote": "多头排列；RSI偏高(67.0)；MACD红柱；预期日波动±4.51%(高)",
+      "signalTime": "05:59",
       "confidence": "低"
     }
   ],
@@ -456,7 +456,7 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-0.7%，维持观察",
-      "signalTime": "19:04",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -472,7 +472,7 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-2.24%，维持观察",
-      "signalTime": "19:04",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -488,7 +488,7 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-2.45%，维持观察",
-      "signalTime": "19:04",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -504,7 +504,7 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌0.43%，维持观察",
-      "signalTime": "19:04",
+      "signalTime": "05:59",
       "confidence": "低"
     },
     {
@@ -520,9 +520,9 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-0.14%，维持观察",
-      "signalTime": "19:04",
+      "signalTime": "05:59",
       "confidence": "低"
     }
   ],
-  "signalUpdateTime": "2026-06-04 19:04:04"
+  "signalUpdateTime": "2026-06-05 05:59:27"
 }
