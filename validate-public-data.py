@@ -121,6 +121,10 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         if (card.get("marketSnapshot") or {}).get("pe")
         and (card.get("marketSnapshot") or {}).get("pe") != "-"
     ]
+    fundamental_covered = [
+        code for code, card in cards.items()
+        if (card.get("fundamentalSnapshot") or {}).get("qualityScore") is not None
+    ]
     quant_covered = [
         code for code, card in cards.items()
         if card.get("quantSnapshot")
@@ -138,12 +142,15 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
     ]
     min_market = min(20, len(cards))
     min_pe = min(10, len(cards))
+    min_fundamental = min(20, len(cards))
     min_quant = min(20, len(cards))
     min_decision = min(20, len(cards))
     if cards and len(market_covered) < min_market:
         errors.append(f"strategy 候选 marketSnapshot 覆盖过低: {len(market_covered)}/{len(cards)}")
     if cards and len(pe_covered) < min_pe:
         errors.append(f"strategy 候选 PE 覆盖过低: {len(pe_covered)}/{len(cards)}")
+    if cards and len(fundamental_covered) < min_fundamental:
+        errors.append(f"strategy 候选 fundamentalSnapshot 覆盖过低: {len(fundamental_covered)}/{len(cards)}")
     if cards and len(quant_covered) < min_quant:
         errors.append(f"strategy 候选 quantSnapshot 覆盖过低: {len(quant_covered)}/{len(cards)}")
     if cards and len(decision_covered) < min_decision:

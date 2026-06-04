@@ -497,6 +497,7 @@ a:active{opacity:.6;}
                 <div class="decision-meta">{{ c.segment||c.chain_label }} · tier{{ c.tier!=null?c.tier:'?' }}</div>
                 <div class="decision-tags">
                   <span class="decision-tag">PE {{ displayPe(c) }}</span>
+                  <span class="decision-tag">{{ qualityLabel(c) }}</span>
                   <span class="decision-tag">{{ c.decisionProfile.timingPlan?c.decisionProfile.timingPlan.stance:(c.quantSnapshot?c.quantSnapshot.label:'量化待确认') }}</span>
                 </div>
               </div>
@@ -754,6 +755,7 @@ a:active{opacity:.6;}
                 <div class="decision-meta">{{ c.chain_label }} · {{ c.segment||'未归段' }}</div>
                 <div class="decision-tags">
                   <span class="decision-tag">PE {{ displayPe(c) }}</span>
+                  <span class="decision-tag">{{ qualityLabel(c) }}</span>
                   <span class="decision-tag">{{ c.decisionProfile.timingPlan?c.decisionProfile.timingPlan.stance:(c.quantSnapshot?c.quantSnapshot.label:'量化待确认') }}</span>
                 </div>
               </div>
@@ -802,6 +804,8 @@ a:active{opacity:.6;}
               <div class="dash-cell"><div class="dash-k">涨跌幅</div><div class="dash-v" :class="chgClass(dashQuote.cv)">{{ dashQuote.c||'—' }}</div></div>
               <div class="dash-cell"><div class="dash-k">估值PE</div><div class="dash-v">{{ dashQuote.pe&&dashQuote.pe!=='-'?dashQuote.pe:'—' }}</div></div>
               <div class="dash-cell"><div class="dash-k">市值</div><div class="dash-v">{{ dashQuote.cap&&dashQuote.cap!=='-'?dashQuote.cap:'—' }}</div></div>
+              <div class="dash-cell"><div class="dash-k">质量分</div><div class="dash-v">{{ dashFund.qualityScore!=null?dashFund.qualityScore:'—' }}</div></div>
+              <div class="dash-cell"><div class="dash-k">ROE</div><div class="dash-v">{{ dashFund.roe!=null?(dashFund.roe+'%'):'—' }}</div></div>
               <div class="dash-cell"><div class="dash-k">蛋糕层</div><div class="dash-v">{{ dashCard.cakeLayerName||'未归层' }}</div></div>
               <div class="dash-cell"><div class="dash-k">链上层级</div><div class="dash-v">tier{{ dashCard.tier!=null?dashCard.tier:'?' }}</div></div>
             </div>
@@ -810,6 +814,11 @@ a:active{opacity:.6;}
                 <div class="dt">价值选股</div>
                 <div class="dv" :class="valueDecision(dashCard,dashQuote).cls">{{ valueDecision(dashCard,dashQuote).label }}</div>
                 <div class="dn">{{ valueDecision(dashCard,dashQuote).note }}</div>
+              </div>
+              <div class="decision-card">
+                <div class="dt">基本面质量</div>
+                <div class="dv" :class="dashFund.qualityScore>=62?'up':(dashFund.qualityScore<45?'down':'flat')">{{ dashFund.qualityLabel||'基本面未核实' }}</div>
+                <div class="dn">{{ qualityNote(dashCard) }}</div>
               </div>
               <div class="decision-card">
                 <div class="dt">量化择时</div>
@@ -1216,6 +1225,10 @@ createApp({
       const pe=(card&&card.marketSnapshot&&card.marketSnapshot.pe)||'—';
       return pe&&pe!=='-'?pe:'—';
     };
+    const qualityLabel=(card)=>{
+      const f=(card&&card.fundamentalSnapshot)||{};
+      return f.qualityLabel||'质量未核实';
+    };
     const chainCardCodes=computed(()=>{
       const c=curChain.value||{};const out=[];const seen=new Set();
       (c.segments||[]).forEach(seg=>(seg.holdings||[]).forEach(h=>{
@@ -1252,6 +1265,18 @@ createApp({
       const m=priceIndex.value[dashCard.value.code]||priceIndex.value[String(dashCard.value.code).replace(/^HK\./,'')]||{};
       return{p:m.p&&m.p!=='-'?m.p:'',c:m.c||'',cv:m.cv!=null?m.cv:0,pe:m.pe,cap:m.cap,signal:m.signal||'',signalNote:m.signalNote||'',confidence:m.confidence||''};
     });
+    const dashFund=computed(()=>dashCard.value&&dashCard.value.fundamentalSnapshot?dashCard.value.fundamentalSnapshot:{});
+    const qualityNote=(card)=>{
+      const f=(card&&card.fundamentalSnapshot)||{};
+      if(!f.qualityLabel)return'ROE、毛利率、营收/利润增速暂未核实。';
+      const parts=[];
+      if(f.roe!=null)parts.push(`ROE ${f.roe}%`);
+      if(f.grossMargin!=null)parts.push(`毛利率 ${f.grossMargin}%`);
+      if(f.revenueGrowth!=null)parts.push(`营收增速 ${f.revenueGrowth}%`);
+      if(f.profitGrowth!=null)parts.push(`利润增速 ${f.profitGrowth}%`);
+      if(f.pb!=null)parts.push(`PB ${f.pb}`);
+      return parts.join(' / ')||f.qualityLabel;
+    };
     const dashPlan=computed(()=>dashCard.value&&dashCard.value.decisionProfile?dashCard.value.decisionProfile.timingPlan:null);
     const planClass=(plan)=>{
       const s=(plan&&plan.stance)||'';
@@ -1700,7 +1725,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionCandidates,displayPe,pickDash,dashCard,dashQuote,dashPlan,planClass,valueDecision,timingDecision};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionCandidates,displayPe,qualityLabel,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashPlan,planClass,valueDecision,timingDecision};
   }
 }).mount('#app');
 

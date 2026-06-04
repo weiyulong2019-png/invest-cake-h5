@@ -48,6 +48,154 @@ def _valuation_adjustment(pe):
     return -18, "expensive", f"PE {pe:g} 显著偏高"
 
 
+def _split_metric(value) -> tuple[float | None, str]:
+    if value in (None, "", "-", "—"):
+        return None, ""
+    text = str(value).strip()
+    if "|" in text:
+        raw, period = text.split("|", 1)
+    else:
+        raw, period = text, ""
+    return _num(raw), period.strip()
+
+
+def _quality_label(score: float) -> str:
+    if score >= 75:
+        return "高质量成长"
+    if score >= 62:
+        return "质量良好"
+    if score >= 45:
+        return "质量待确认"
+    return "基本面承压"
+
+
+def _quality_adjustment(fundamental: dict) -> tuple[int, str]:
+    score = _num(fundamental.get("qualityScore"))
+    label = fundamental.get("qualityLabel") or "基本面未核实"
+    if score is None:
+        return -5, label
+    if score >= 75:
+        return 12, label
+    if score >= 62:
+        return 7, label
+    if score >= 50:
+        return 3, label
+    if score < 40:
+        return -12, label
+    return 0, label
+
+
+def _fundamental_snapshot_from_mx(row: dict, now: str) -> dict:
+    def find(*needles):
+        for key, value in row.items():
+            k = str(key)
+            if all(n in k for n in needles):
+                return value
+        return None
+
+    roe, roe_period = _split_metric(find("净资产收益率"))
+    gross, gross_period = _split_metric(find("毛利率"))
+    revenue_growth, revenue_period = _split_metric(find("营业收入", "同比"))
+    profit_growth, profit_period = _split_metric(find("净利润", "同比"))
+    pb, _ = _split_metric(find("市净率"))
+
+    score = 50
+    reasons: list[str] = []
+    if roe is not None:
+        if roe >= 15:
+            score += 20
+        elif roe >= 10:
+            score += 12
+        elif roe >= 5:
+            score += 5
+        elif roe < 3:
+            score -= 10
+        reasons.append(f"ROE {roe:g}%")
+    if gross is not None:
+        if gross >= 35:
+            score += 12
+        elif gross >= 20:
+            score += 6
+        elif gross < 10:
+            score -= 8
+        reasons.append(f"毛利率 {gross:g}%")
+    if profit_growth is not None:
+        if profit_growth >= 30:
+            score += 15
+        elif profit_growth >= 10:
+            score += 8
+        elif profit_growth < 0:
+            score -= 12
+        reasons.append(f"利润增速 {profit_growth:g}%")
+    if revenue_growth is not None:
+        if revenue_growth >= 30:
+            score += 12
+        elif revenue_growth >= 10:
+            score += 6
+        elif revenue_growth < 0:
+            score -= 10
+        reasons.append(f"营收增速 {revenue_growth:g}%")
+    if pb is not None:
+        if pb > 15:
+            score -= 8
+        elif 0 < pb <= 3:
+            score += 4
+        reasons.append(f"PB {pb:g}")
+
+    score = round(_clamp(score), 1)
+    return {
+        "roe": roe,
+        "roePeriod": roe_period,
+        "grossMargin": gross,
+        "grossMarginPeriod": gross_period,
+        "revenueGrowth": revenue_growth,
+        "revenueGrowthPeriod": revenue_period,
+        "profitGrowth": profit_growth,
+        "profitGrowthPeriod": profit_period,
+        "pb": pb,
+        "qualityScore": score,
+        "qualityLabel": _quality_label(score),
+        "reasons": reasons[:5],
+        "source": "mx_iwencai",
+        "updateTime": now,
+    }
+
+
+def _fetch_fundamentals(mod, a_cards: list[tuple[str, dict]], now: str) -> dict[str, dict]:
+    if not os.environ.get("MX_APIKEY"):
+        return {}
+    out: dict[str, dict] = {}
+    for i in range(0, len(a_cards), BATCH_SIZE):
+        batch = a_cards[i:i + BATCH_SIZE]
+        names = [card["name"] for _, card in batch]
+        name_set = {card["name"] for _, card in batch}
+        code_by_name = {card["name"]: code for code, card in batch}
+        code_set = {code for code, _ in batch}
+        query = (
+            f"{' '.join(names)} 净资产收益率 毛利率 营业收入同比增长 "
+            "净利润同比增长 市净率 动态市盈率 总市值"
+        )
+        print(f"  基本面: {query}")
+        rows = mod.parse_mx_response(mod.mx_query(query))
+        for row in rows:
+            row_code = str(row.get("代码") or "").strip()
+            if row_code in code_set:
+                out[row_code] = _fundamental_snapshot_from_mx(row, now)
+                continue
+            name = ""
+            for key in ("股票简称", "名称", "股票名称", "简称"):
+                if key in row:
+                    name = str(row[key]).strip()
+                    break
+            if not name or name not in name_set:
+                continue
+            out[code_by_name[name]] = _fundamental_snapshot_from_mx(row, now)
+        if i + BATCH_SIZE < len(a_cards):
+            time.sleep(0.3)
+    print(f"[ok] strategy fundamentals: {len(out)}/{len(a_cards)}")
+    return out
+
+
 def _timing_state(quant: dict) -> tuple[str, str]:
     label = str(quant.get("label") or "")
     signal = str(quant.get("signal") or "")
@@ -168,12 +316,14 @@ def _decision_profile(card: dict) -> dict:
     selection = card.get("selectionProfile") or {}
     market = card.get("marketSnapshot") or {}
     quant = card.get("quantSnapshot") or {}
+    fundamental = card.get("fundamentalSnapshot") or {}
 
     selection_score = _num(selection.get("score"))
     base_value = selection_score if selection_score is not None else 50
     pe = _num(market.get("pe"))
     pe_adj, valuation_state, valuation_note = _valuation_adjustment(pe)
-    value_score = _clamp(base_value + pe_adj)
+    quality_adj, quality_note = _quality_adjustment(fundamental)
+    value_score = _clamp(base_value + pe_adj + quality_adj)
 
     quant_score = _num(quant.get("score"))
     timing_state, timing_label = _timing_state(quant)
@@ -215,6 +365,8 @@ def _decision_profile(card: dict) -> dict:
         if len(reasons) >= 3:
             break
     reasons.append(valuation_note)
+    if fundamental:
+        reasons.append(quality_note)
     if quant:
         reasons.append(f"{timing_label} / 量化分 {timing_score:g}")
 
@@ -225,6 +377,7 @@ def _decision_profile(card: dict) -> dict:
         "valueScore": round(value_score, 1),
         "timingScore": round(timing_score, 1),
         "valuationState": valuation_state,
+        "qualityState": fundamental.get("qualityLabel") or "基本面未核实",
         "timingState": timing_state,
         "timingPlan": plan,
         "reasons": reasons[:5],
@@ -327,6 +480,8 @@ def main() -> int:
         return 0
 
     mod = _load_refresh_data()
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    fundamentals = _fetch_fundamentals(mod, a_cards, now)
     mx_by_name: dict[str, dict] = {}
     if os.environ.get("MX_APIKEY"):
         for i in range(0, len(a_cards), BATCH_SIZE):
@@ -343,7 +498,6 @@ def main() -> int:
     sina = mod.fetch_sina_quotes(codes)
     tencent = mod.fetch_tencent_quotes(codes)
     ak_quotes = mod.fetch_akshare_quotes(codes, [])
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     enhanced = 0
     pe_count = 0
 
@@ -389,9 +543,14 @@ def main() -> int:
                 snap[f"{sticky_field}Source"] = old_snap.get("source") or "previous_verified"
         snap["updateTime"] = now
         card["marketSnapshot"] = snap
+        if code in fundamentals:
+            card["fundamentalSnapshot"] = fundamentals[code]
         enhanced += 1
         if snap.get("pe") and snap.get("pe") != "-":
             pe_count += 1
+    for code, fundamental in fundamentals.items():
+        if code in cards:
+            cards[code]["fundamentalSnapshot"] = fundamental
 
     final_market = sum(1 for card in cards.values() if card.get("marketSnapshot"))
     final_pe = sum(
@@ -399,9 +558,11 @@ def main() -> int:
         if (card.get("marketSnapshot") or {}).get("pe")
         and (card.get("marketSnapshot") or {}).get("pe") != "-"
     )
+    final_fundamental = sum(1 for card in cards.values() if card.get("fundamentalSnapshot"))
     data.setdefault("stockCards", {})["marketCoverage"] = {
         "enhanced": final_market,
         "pe": final_pe,
+        "fundamental": final_fundamental,
         "total": len(a_cards),
         "updateTime": now,
         "sources": ["mx_iwencai", "sina", "tencent", "akshare"],
