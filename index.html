@@ -864,6 +864,14 @@ a:active{opacity:.6;}
               <div class="dash-cell"><div class="dash-k">蛋糕层</div><div class="dash-v">{{ dashCard.cakeLayerName||'未归层' }}</div></div>
               <div class="dash-cell"><div class="dash-k">链上层级</div><div class="dash-v">tier{{ dashCard.tier!=null?dashCard.tier:'?' }}</div></div>
             </div>
+            <div class="plan-box" v-if="dashDecision">
+              <div class="plan-title">当前动作
+                <span class="decision-tag" :class="actionTypeClass(dashCard)">{{ actionTypeLabel(dashCard) }}</span>
+              </div>
+              <div class="plan-foot">
+                {{ dashDecision.label }} · {{ dashDecision.actionHint }} · {{ timingSourceLabel(dashCard) }} · 置信 {{ dashDecision.timingConfidence||'待确认' }}
+              </div>
+            </div>
             <div class="decision-split">
               <div class="decision-card">
                 <div class="dt">价值选股</div>
@@ -1376,6 +1384,7 @@ createApp({
       return{p:m.p&&m.p!=='-'?m.p:'',c:m.c||'',cv:m.cv!=null?m.cv:0,pe:m.pe,cap:m.cap,signal:m.signal||'',signalNote:m.signalNote||'',confidence:m.confidence||''};
     });
     const dashFund=computed(()=>dashCard.value&&dashCard.value.fundamentalSnapshot?dashCard.value.fundamentalSnapshot:{});
+    const dashDecision=computed(()=>dashCard.value&&dashCard.value.decisionProfile?dashCard.value.decisionProfile:null);
     const qualityNote=(card)=>{
       const f=(card&&card.fundamentalSnapshot)||{};
       if(!f.qualityLabel)return'ROE、毛利率、营收/利润增速暂未核实。';
@@ -1401,6 +1410,15 @@ createApp({
     };
     const valueDecision=(card,quote)=>{
       if(!card)return{label:'待核实',cls:'flat',note:'缺少结构化标的信息。'};
+      const decision=card.decisionProfile||{};
+      if(decision.valueScore!=null){
+        const cls=decision.valueRank>=3?'up':(decision.valuationState==='expensive'||decision.valuationState==='loss_or_invalid'?'down':'flat');
+        const note=(decision.reasons||[]).slice(0,3).join(' / ')||'结构、估值与基本面已归入统一决策口径。';
+        if(decision.valueRank>=3)return{label:'价值观察',cls,note};
+        if(decision.actionability==='needs_fundamental_check')return{label:'先核实基本面',cls:'flat',note};
+        if(decision.valuationState==='pricey'||decision.valuationState==='expensive')return{label:'估值偏贵',cls:'down',note};
+        return{label:'候选观察',cls,note};
+      }
       const profile=card.selectionProfile||{};
       const pe=parseNum(quote&&quote.pe);
       const strengths=[...(profile.reasons||[])];
@@ -1423,6 +1441,13 @@ createApp({
       return{label:score&&score>=70?baseLabel:'估值中性',cls:score&&score>=70?'up':'flat',note:`PE ${pe}；${strengths.slice(0,2).join(' / ')||'产业链位置已归档'}，暂以观察为主。`};
     };
     const timingDecision=(quote,card)=>{
+      const decision=(card&&card.decisionProfile)||{};
+      if(decision.timingPlan){
+        const plan=decision.timingPlan||{};
+        const cls=decision.actionability==='defensive'?'down':(decision.actionability==='action_candidate'?'up':(String(plan.stance||'').includes('回撤')?'flat':'flat'));
+        const note=plan.entry||decision.actionHint||'等待择时条件确认。';
+        return{label:actionTypeLabel(card),cls,note};
+      }
       const signal=quote&&quote.signal;
       const cv=parseNum(quote&&quote.cv);
       const profile=(card&&card.timingProfile)||{};
@@ -1893,7 +1918,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionCandidates,actionCandidates,displayPe,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashPlan,planClass,valueDecision,timingDecision};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionCandidates,actionCandidates,displayPe,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,valueDecision,timingDecision};
   }
 }).mount('#app');
 
