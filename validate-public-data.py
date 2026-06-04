@@ -203,6 +203,8 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
             "买点" in str((card.get("decisionProfile") or {}).get("label") or "")
             or "买点" in str((card.get("decisionProfile") or {}).get("actionHint") or "")
             or ((card.get("decisionProfile") or {}).get("timingPlan") or {}).get("stance") == "买点候选"
+            or "买点待确认" in str((card.get("quoteTimingSnapshot") or {}).get("label") or "")
+            or "可等买点" in str((card.get("quoteTimingSnapshot") or {}).get("label") or "")
         )
     ]
     six_factor_actionable = [

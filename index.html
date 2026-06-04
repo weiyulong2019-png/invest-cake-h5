@@ -963,7 +963,7 @@ a:active{opacity:.6;}
             <div class="plan-box" v-if="dashPlan">
               <div class="plan-title">{{ planTitle(dashPlan,dashCard) }} <span class="plan-badge" :class="planClass(dashPlan)">{{ dashPlan.stance }}</span></div>
               <div class="plan-grid">
-                <div class="plan-cell"><div class="plan-k">入场触发</div><div class="plan-v">{{ dashPlan.entry }}</div></div>
+                <div class="plan-cell"><div class="plan-k">{{ planEntryLabel(dashPlan,dashCard) }}</div><div class="plan-v">{{ dashPlan.entry }}</div></div>
                 <div class="plan-cell"><div class="plan-k">防守失效</div><div class="plan-v">{{ dashPlan.invalid }}</div></div>
                 <div class="plan-cell"><div class="plan-k">止盈/减仓</div><div class="plan-v">{{ dashPlan.takeProfit }}</div></div>
                 <div class="plan-cell"><div class="plan-k">仓位提示</div><div class="plan-v">{{ dashPlan.positionHint }}</div></div>
@@ -1443,9 +1443,9 @@ createApp({
       const d=(card&&card.decisionProfile)||{};
       const held=card&&card.held;
       if(held&&d.actionability==='defensive')return '持仓防守';
-      if(held&&d.actionability==='action_candidate')return '持仓买点';
+      if(held&&d.actionability==='action_candidate')return '持仓确认点';
       if(held&&d.actionability==='tracking_candidate')return '持仓跟踪';
-      if(!held&&d.actionability==='action_candidate')return '新机会';
+      if(!held&&d.actionability==='action_candidate')return '新机会确认';
       if(!held&&d.actionability==='tracking_candidate')return '等回撤';
       if(!held&&d.actionability==='defensive')return '不介入';
       if(d.actionability==='needs_fundamental_check')return '先核实';
@@ -1615,6 +1615,14 @@ createApp({
       if(d.timingSource==='quote_fallback'||s.includes('等待六维'))return'确认计划';
       return'买卖点计划';
     };
+    const planEntryLabel=(plan,card)=>{
+      const d=(card&&card.decisionProfile)||{};
+      const s=(plan&&plan.stance)||'';
+      if(d.actionability==='defensive'||s.includes('防守')||s.includes('减仓'))return'防守条件';
+      if(d.timingSource==='quote_fallback'||s.includes('等待')||d.actionability==='watch_only')return'确认条件';
+      if(d.actionability==='tracking_candidate')return'跟踪条件';
+      return'入场触发';
+    };
     const parseNum=(v)=>{
       if(v==null||v===''||v==='-'||v==='—')return null;
       const n=parseFloat(String(v).replace(/[,%＋+]/g,''));
@@ -1670,9 +1678,9 @@ createApp({
       const quant=(card&&(card.quantSnapshot||card.quoteTimingSnapshot))||{};
       const qSignal=quant.signal||'';
       const note=(quote&&quote.signalNote)||quant.note||profile.label||'技术数据不足，暂不判断买卖点。';
-      if(signal==='buy')return{label:'可等买点',cls:'up',note};
+      if(signal==='buy')return{label:'买点待确认',cls:'up',note};
       if(signal==='risk')return{label:'规避/减仓',cls:'down',note};
-      if(!signal&&qSignal==='buy')return{label:quant.label||'可等买点',cls:'up',note};
+      if(!signal&&qSignal==='buy')return{label:quant.label||'买点待确认',cls:'up',note};
       if(!signal&&qSignal==='risk')return{label:quant.label||'规避/减仓',cls:'down',note};
       if(!signal&&quant.label)return{label:quant.label,cls:quant.score>=75?'flat':'flat',note};
       if(cv!=null&&cv<=-3)return{label:'回撤观察',cls:'down',note:`当日回撤较大；${note}`};
@@ -2140,7 +2148,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,chainTitle,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDataOverview,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,valueCandidates,verificationCandidates,actionCandidates,displayPe,valueMetric,timingMetric,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,candidateLabel,candidateNote,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,planTitle,valueDecision,timingDecision};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,chainTitle,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDataOverview,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,valueCandidates,verificationCandidates,actionCandidates,displayPe,valueMetric,timingMetric,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,candidateLabel,candidateNote,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,planTitle,planEntryLabel,valueDecision,timingDecision};
   }
 }).mount('#app');
 
