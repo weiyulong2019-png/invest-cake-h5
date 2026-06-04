@@ -431,6 +431,16 @@ a:active{opacity:.6;}
 .st-decision-pill.warn{color:#E8A30A;background:#FFF7E8;}
 .st-decision-pill.down{color:var(--red);background:#FFF0F0;}
 .st-decision-note{font-size:11px;color:var(--text3);}
+.plan-box{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:10px;margin:10px 0;}
+.plan-title{font-size:12px;font-weight:800;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.plan-badge{font-size:11px;font-weight:800;color:var(--green);background:#E8F5EC;border-radius:4px;padding:1px 6px;white-space:nowrap;}
+.plan-badge.warn{color:#E8A30A;background:#FFF7E8;}
+.plan-badge.down{color:var(--red);background:#FFF0F0;}
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:6px;overflow:hidden;margin-top:8px;}
+.plan-cell{background:#fff;padding:8px;}
+.plan-k{font-size:11px;color:var(--text3);font-weight:700;}
+.plan-v{font-size:12px;color:var(--text);line-height:1.45;margin-top:3px;}
+.plan-foot{font-size:11px;color:var(--text3);line-height:1.4;margin-top:7px;}
 .search-inner input{color:var(--text);}
 </style>
 </head>
@@ -487,7 +497,7 @@ a:active{opacity:.6;}
                 <div class="decision-meta">{{ c.segment||c.chain_label }} · tier{{ c.tier!=null?c.tier:'?' }}</div>
                 <div class="decision-tags">
                   <span class="decision-tag">PE {{ displayPe(c) }}</span>
-                  <span class="decision-tag">{{ c.quantSnapshot?c.quantSnapshot.label:'量化待确认' }}</span>
+                  <span class="decision-tag">{{ c.decisionProfile.timingPlan?c.decisionProfile.timingPlan.stance:(c.quantSnapshot?c.quantSnapshot.label:'量化待确认') }}</span>
                 </div>
               </div>
               <div>
@@ -540,7 +550,7 @@ a:active{opacity:.6;}
                 <div class="st-signal-note">{{ s.signalNote }}</div>
                 <div class="st-decision" v-if="s.decisionLabel">
                   <span class="st-decision-pill" :class="s.decisionClass">{{ s.decisionLabel }}</span>
-                  <span class="st-decision-note">综合 {{ s.decisionScore }} · {{ s.actionHint }}</span>
+                  <span class="st-decision-note">综合 {{ s.decisionScore }} · {{ s.planStance||s.actionHint }}</span>
                 </div>
               </div>
             </div>
@@ -744,7 +754,7 @@ a:active{opacity:.6;}
                 <div class="decision-meta">{{ c.chain_label }} · {{ c.segment||'未归段' }}</div>
                 <div class="decision-tags">
                   <span class="decision-tag">PE {{ displayPe(c) }}</span>
-                  <span class="decision-tag">{{ c.quantSnapshot?c.quantSnapshot.label:'量化待确认' }}</span>
+                  <span class="decision-tag">{{ c.decisionProfile.timingPlan?c.decisionProfile.timingPlan.stance:(c.quantSnapshot?c.quantSnapshot.label:'量化待确认') }}</span>
                 </div>
               </div>
               <div>
@@ -806,6 +816,16 @@ a:active{opacity:.6;}
                 <div class="dv" :class="timingDecision(dashQuote,dashCard).cls">{{ timingDecision(dashQuote,dashCard).label }}</div>
                 <div class="dn">{{ timingDecision(dashQuote,dashCard).note }}</div>
               </div>
+            </div>
+            <div class="plan-box" v-if="dashPlan">
+              <div class="plan-title">买卖点计划 <span class="plan-badge" :class="planClass(dashPlan)">{{ dashPlan.stance }}</span></div>
+              <div class="plan-grid">
+                <div class="plan-cell"><div class="plan-k">入场触发</div><div class="plan-v">{{ dashPlan.entry }}</div></div>
+                <div class="plan-cell"><div class="plan-k">防守失效</div><div class="plan-v">{{ dashPlan.invalid }}</div></div>
+                <div class="plan-cell"><div class="plan-k">止盈/减仓</div><div class="plan-v">{{ dashPlan.takeProfit }}</div></div>
+                <div class="plan-cell"><div class="plan-k">仓位提示</div><div class="plan-v">{{ dashPlan.positionHint }}</div></div>
+              </div>
+              <div class="plan-foot">依据：{{ (dashPlan.basis||[]).join(' / ') }}。仅作人工决策参考，不自动交易。</div>
             </div>
             <!-- 多维结论 -->
             <div class="dash-rows">
@@ -1232,6 +1252,13 @@ createApp({
       const m=priceIndex.value[dashCard.value.code]||priceIndex.value[String(dashCard.value.code).replace(/^HK\./,'')]||{};
       return{p:m.p&&m.p!=='-'?m.p:'',c:m.c||'',cv:m.cv!=null?m.cv:0,pe:m.pe,cap:m.cap,signal:m.signal||'',signalNote:m.signalNote||'',confidence:m.confidence||''};
     });
+    const dashPlan=computed(()=>dashCard.value&&dashCard.value.decisionProfile?dashCard.value.decisionProfile.timingPlan:null);
+    const planClass=(plan)=>{
+      const s=(plan&&plan.stance)||'';
+      if(s.includes('防守')||s.includes('减仓'))return'down';
+      if(s.includes('回撤')||s.includes('等待'))return'warn';
+      return'';
+    };
     const parseNum=(v)=>{
       if(v==null||v===''||v==='-'||v==='—')return null;
       const n=parseFloat(String(v).replace(/[,%＋+]/g,''));
@@ -1392,6 +1419,7 @@ createApp({
               decisionLabel:decision.label||'',
               decisionScore:decision.score||'—',
               actionHint:decision.actionHint||'继续观察',
+              planStance:(decision.timingPlan||{}).stance||'',
               decisionClass:decision.timingState==='risk'?'down':(decision.actionHint==='等回撤'?'warn':''),
             });
           });
@@ -1598,7 +1626,7 @@ createApp({
         const resp=await fetch('strategy.json?t='+Date.now());
         if(!resp.ok)throw new Error('no strategy.json');
         const d=await resp.json();
-        strat.updateTime=d.updateTime||'';
+        strat.updateTime=((d.stockCards&&d.stockCards.marketCoverage)||{}).updateTime||d.marketUpdateTime||d.updateTime||'';
         strat.disclaimer=d.disclaimer||'';
         ['waterSellers','chainTree','usMapping','funding','winRate','intel','heldStocks','usAshIndex','stockCards'].forEach(k=>{if(d[k])Object.assign(strat[k],d[k]);});
         strat.heldEtfCodes=Array.isArray(d.heldEtfCodes)?d.heldEtfCodes:[];
@@ -1672,7 +1700,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionCandidates,displayPe,pickDash,dashCard,dashQuote,valueDecision,timingDecision};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrStart,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionCandidates,displayPe,pickDash,dashCard,dashQuote,dashPlan,planClass,valueDecision,timingDecision};
   }
 }).mount('#app');
 

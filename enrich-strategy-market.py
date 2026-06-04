@@ -68,6 +68,102 @@ def _timing_state(quant: dict) -> tuple[str, str]:
     return "wait_confirm", "量化数据待确认"
 
 
+def _price_level(price, multiplier: float):
+    p = _num(price)
+    if p is None or p <= 0:
+        return None
+    return round(p * multiplier, 2)
+
+
+def _fmt_level(value) -> str:
+    return f"{value:.2f}" if isinstance(value, (int, float)) else "待行情确认"
+
+
+def _timing_plan(*, timing_state: str, timing_label: str, action_hint: str,
+                 market: dict, quant: dict) -> dict:
+    price = _num(market.get("p"))
+    score = _num(quant.get("score"))
+    momentum = _num(quant.get("momentum"))
+    flow = _num(quant.get("flow"))
+    rsi = _num(quant.get("rsi"))
+    basis = []
+    if score is not None:
+        basis.append(f"六维 {score:g}")
+    if momentum is not None:
+        basis.append(f"动量 {momentum:g}")
+    if flow is not None:
+        basis.append(f"资金 {flow:g}")
+    if rsi is not None:
+        basis.append(f"RSI {rsi:g}")
+    if not basis:
+        basis.append("量化快照待补")
+
+    if timing_state == "risk":
+        return {
+            "stance": "防守/减仓观察",
+            "entry": "不新增；等待量化风险解除",
+            "invalid": "六维或动量仍处风险区",
+            "riskControl": "已持有只做人工减仓评估；未持有不介入",
+            "takeProfit": "风险状态不设进攻止盈",
+            "positionHint": "降仓或空仓观察",
+            "basis": basis,
+        }
+
+    if timing_state == "wait_pullback":
+        low = _fmt_level(_price_level(price, 0.95))
+        high = _fmt_level(_price_level(price, 0.97))
+        stop = _fmt_level(_price_level(price, 0.92))
+        tp = _fmt_level(_price_level(price, 1.08))
+        return {
+            "stance": "强势等回撤",
+            "entry": f"回落至 {low}-{high} 且量化不转弱再评估",
+            "invalid": f"跌破 {stop} 或六维转 risk",
+            "riskControl": f"追高禁入；若已持有，以 {stop} 作为人工防守参考",
+            "takeProfit": f"重新放量上攻至 {tp} 附近开始分批止盈评估",
+            "positionHint": "小仓观察，不追高",
+            "basis": basis,
+        }
+
+    if timing_state == "entry_candidate":
+        entry = _fmt_level(_price_level(price, 0.99))
+        stop = _fmt_level(_price_level(price, 0.94))
+        tp = _fmt_level(_price_level(price, 1.10))
+        return {
+            "stance": "买点候选",
+            "entry": f"现价附近或回踩 {entry} 企稳后人工确认",
+            "invalid": f"跌破 {stop} 或资金流转弱",
+            "riskControl": f"以 {stop} 为初始防守参考",
+            "takeProfit": f"上冲至 {tp} 附近观察分批止盈",
+            "positionHint": "轻仓试错，确认后再加",
+            "basis": basis,
+        }
+
+    if timing_state == "trend_watch":
+        breakout = _fmt_level(_price_level(price, 1.02))
+        pullback = _fmt_level(_price_level(price, 0.98))
+        stop = _fmt_level(_price_level(price, 0.94))
+        tp = _fmt_level(_price_level(price, 1.10))
+        return {
+            "stance": "趋势确认",
+            "entry": f"突破 {breakout} 或回踩 {pullback} 企稳再评估",
+            "invalid": f"跌破 {stop} 或动量低于 45",
+            "riskControl": f"以 {stop} 为人工防守参考",
+            "takeProfit": f"趋势延续至 {tp} 附近分批兑现评估",
+            "positionHint": "等待确认，不提前重仓",
+            "basis": basis,
+        }
+
+    return {
+        "stance": "等待量化确认",
+        "entry": "等待六维评分>=70且动量>=70",
+        "invalid": "出现 risk 信号或结构逻辑证伪",
+        "riskControl": "没有量化确认前不加仓",
+        "takeProfit": "暂无有效进攻计划",
+        "positionHint": "观察仓或空仓",
+        "basis": basis,
+    }
+
+
 def _decision_profile(card: dict) -> dict:
     selection = card.get("selectionProfile") or {}
     market = card.get("marketSnapshot") or {}
@@ -102,6 +198,13 @@ def _decision_profile(card: dict) -> dict:
     else:
         label = "候选观察"
         action_hint = "继续观察"
+    plan = _timing_plan(
+        timing_state=timing_state,
+        timing_label=timing_label,
+        action_hint=action_hint,
+        market=market,
+        quant=quant,
+    )
 
     reasons: list[str] = []
     if selection.get("label"):
@@ -123,6 +226,7 @@ def _decision_profile(card: dict) -> dict:
         "timingScore": round(timing_score, 1),
         "valuationState": valuation_state,
         "timingState": timing_state,
+        "timingPlan": plan,
         "reasons": reasons[:5],
     }
 
@@ -133,11 +237,14 @@ def _attach_decision_profiles(data: dict, now: str) -> None:
     resonance = 0
     value_high = 0
     timing_ready = 0
+    timing_plan = 0
 
     for card in cards.values():
         profile = _decision_profile(card)
         card["decisionProfile"] = profile
         decision_count += 1
+        if profile.get("timingPlan"):
+            timing_plan += 1
         if profile["valueScore"] >= 75:
             value_high += 1
         if profile["timingState"] in ("entry_candidate", "trend_watch", "wait_pullback"):
@@ -149,6 +256,7 @@ def _attach_decision_profiles(data: dict, now: str) -> None:
         "profiled": decision_count,
         "valueHigh": value_high,
         "timingReady": timing_ready,
+        "timingPlan": timing_plan,
         "resonance": resonance,
         "total": len(cards),
         "updateTime": now,
@@ -285,12 +393,18 @@ def main() -> int:
         if snap.get("pe") and snap.get("pe") != "-":
             pe_count += 1
 
+    final_market = sum(1 for card in cards.values() if card.get("marketSnapshot"))
+    final_pe = sum(
+        1 for card in cards.values()
+        if (card.get("marketSnapshot") or {}).get("pe")
+        and (card.get("marketSnapshot") or {}).get("pe") != "-"
+    )
     data.setdefault("stockCards", {})["marketCoverage"] = {
-        "enhanced": enhanced,
-        "pe": pe_count,
+        "enhanced": final_market,
+        "pe": final_pe,
         "total": len(a_cards),
         "updateTime": now,
-        "sources": ["mx_iwencai", "sina"],
+        "sources": ["mx_iwencai", "sina", "tencent", "akshare"],
     }
     _attach_decision_profiles(data, now)
     STRATEGY_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
