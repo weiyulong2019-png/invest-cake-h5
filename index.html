@@ -521,7 +521,7 @@ a:active{opacity:.6;}
       </div>
       <div class="chain-sigs" v-if="chainDecisionCandidates.length">
         <div class="chain-sig-box">
-          <div class="chain-sig-h"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16l3-4 3 2 4-7"/></svg>{{ chainTitle(homeTab) }} 决策候选
+          <div class="chain-sig-h"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16l3-4 3 2 4-7"/></svg>{{ chainTitle(homeTab) }} 观察候选
             <span style="font-size:11px;color:var(--text2);font-weight:400;">{{ chainDecisionSummary.text }}</span></div>
           <div class="decision-pool">
             <div class="decision-row" v-for="c in chainDecisionCandidates" :key="homeTab+'-'+c.code" @click="pickDash(c.code);tab='strategy';">
@@ -537,8 +537,8 @@ a:active{opacity:.6;}
                 </div>
               </div>
               <div>
-                <div class="decision-label">{{ c.decisionProfile.label }}</div>
-                <div class="decision-note">{{ c.decisionProfile.actionHint }} · {{ (c.decisionProfile.reasons||[]).slice(0,2).join(' / ') }}</div>
+                <div class="decision-label">{{ candidateLabel(c) }}</div>
+                <div class="decision-note">{{ candidateNote(c) }}</div>
               </div>
               <div class="decision-score"><b>{{ c.decisionProfile.score }}</b><span>综合分</span></div>
             </div>
@@ -830,8 +830,8 @@ a:active{opacity:.6;}
                 </div>
               </div>
               <div>
-                <div class="decision-label">{{ c.decisionProfile.label }}</div>
-                <div class="decision-note">{{ c.decisionProfile.actionHint }} · {{ (c.decisionProfile.timingPlan&&c.decisionProfile.timingPlan.entry)||((c.decisionProfile.reasons||[]).slice(0,2).join(' / ')) }}</div>
+                <div class="decision-label">{{ candidateLabel(c) }}</div>
+                <div class="decision-note">{{ candidateNote(c, true) }}</div>
               </div>
               <div class="decision-score"><b>{{ c.decisionProfile.score }}</b><span>综合分</span></div>
             </div>
@@ -857,8 +857,8 @@ a:active{opacity:.6;}
                 </div>
               </div>
               <div>
-                <div class="decision-label">{{ c.decisionProfile.label }}</div>
-                <div class="decision-note">{{ c.decisionProfile.actionHint }} · {{ (c.decisionProfile.reasons||[]).slice(0,2).join(' / ') }}</div>
+                <div class="decision-label">{{ candidateLabel(c) }}</div>
+                <div class="decision-note">{{ candidateNote(c) }}</div>
               </div>
               <div class="decision-score"><b>{{ c.decisionProfile.score }}</b><span>综合分</span></div>
             </div>
@@ -1401,6 +1401,40 @@ createApp({
       if(d.actionability==='needs_fundamental_check')return 'action-pass';
       return 'action-pass';
     };
+    const candidateLabel=(card)=>{
+      const d=(card&&card.decisionProfile)||{};
+      if(d.timingSource==='quote_fallback'){
+        if((Number(d.valueRank)||0)>=3)return '价值观察，等六维确认';
+        if(d.actionability==='needs_fundamental_check')return '结构候选，先核实基本面';
+        return '观察，等六维确认';
+      }
+      return d.label||actionTypeLabel(card);
+    };
+    const candidateNote=(card, preferPlan=false)=>{
+      const d=(card&&card.decisionProfile)||{};
+      const reasons=(d.reasons||[]).slice(0,2).join(' / ');
+      if(d.timingSource==='quote_fallback'){
+        const reason=reasons||'仅有行情择时兜底，未取得六维评分';
+        return `${reason} · 不生成进攻买点`;
+      }
+      const plan=(d.timingPlan&&d.timingPlan.entry)||'';
+      const hint=d.actionHint||'继续观察';
+      return `${hint} · ${(preferPlan&&plan)||plan||reasons||'等待量化条件继续确认'}`;
+    };
+    const candidateDisplayPriority=(card)=>{
+      const d=(card&&card.decisionProfile)||{};
+      const held=!!(card&&card.held);
+      if(held&&d.actionability==='defensive')return 9000;
+      if(held&&['action_candidate','tracking_candidate'].includes(d.actionability))return 8500;
+      if(d.timingSource==='six_factor'&&d.actionability==='action_candidate')return 8000;
+      if(d.timingSource==='six_factor'&&d.actionability==='tracking_candidate')return 7600;
+      if(d.timingSource==='six_factor'&&d.actionability==='defensive')return 7200;
+      if(d.timingSource==='six_factor')return 6500;
+      if((Number(d.valueRank)||0)>=3)return 5200;
+      if(d.actionability==='needs_fundamental_check')return 4200;
+      if(d.timingSource==='quote_fallback')return 2500;
+      return 1000;
+    };
     const codeVariants=(code)=>{
       const raw=String(code||'').trim();
       if(!raw)return[];
@@ -1446,7 +1480,12 @@ createApp({
     });
     const chainDecisionCandidates=computed(()=>{
       return chainCards.value.filter(c=>c&&c.decisionProfile)
-        .sort((a,b)=>((b.decisionProfile&&Number(b.decisionProfile.rankScore||b.decisionProfile.score))||0)-((a.decisionProfile&&Number(a.decisionProfile.rankScore||a.decisionProfile.score))||0))
+        .sort((a,b)=>{
+          const bd=b.decisionProfile||{},ad=a.decisionProfile||{};
+          const bp=candidateDisplayPriority(b)+(Number(bd.score)||0);
+          const ap=candidateDisplayPriority(a)+(Number(ad.score)||0);
+          return bp-ap;
+        })
         .slice(0,6);
     });
     const chainDecisionSummary=computed(()=>{
@@ -1458,7 +1497,9 @@ createApp({
         const d=c.decisionProfile||{};
         return d.timingSource==='six_factor'&&['action_candidate','tracking_candidate'].includes(d.actionability);
       }).length;
-      return{total,pe,timing,ready,text:`${total} 只 · PE ${pe} · 择时 ${timing} · 可跟踪 ${ready}`};
+      const value=cards.filter(c=>((c.decisionProfile||{}).valueRank||0)>=3).length;
+      const wait=cards.filter(c=>(c.decisionProfile||{}).timingSource==='quote_fallback').length;
+      return{total,pe,timing,ready,value,wait,text:`${total} 只 · 六维 ${ready} · 价值 ${value} · 等六维 ${wait}`};
     });
     const pickDash=(code)=>{dashPicked.value=code;const c=stockCardOf(code);if(c){dashPicked.value=c.code;dashQuery.value=c.name;}};
     const dashCard=computed(()=>{
@@ -2009,7 +2050,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,chainTitle,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDataOverview,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,decisionCandidates,actionCandidates,displayPe,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,valueDecision,timingDecision};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,chainTitle,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDataOverview,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,decisionCandidates,actionCandidates,displayPe,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,candidateLabel,candidateNote,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,valueDecision,timingDecision};
   }
 }).mount('#app');
 
