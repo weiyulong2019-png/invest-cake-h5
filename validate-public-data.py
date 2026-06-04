@@ -145,6 +145,21 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         if (card.get("decisionProfile") or {}).get("label") in ("价值优先，等待买点", "价值+量化共振")
         and (card.get("fundamentalSnapshot") or {}).get("qualityScore") is None
     ]
+    value_with_bad_valuation = [
+        code for code, card in cards.items()
+        if (card.get("decisionProfile") or {}).get("label") in ("价值优先，等待买点", "价值+量化共振")
+        and (card.get("decisionProfile") or {}).get("valuationState") not in ("reasonable", "neutral_or_growth_priced")
+    ]
+    expensive_score_too_high = [
+        code for code, card in cards.items()
+        if (card.get("decisionProfile") or {}).get("valuationState") == "expensive"
+        and ((card.get("decisionProfile") or {}).get("score") or 0) > 69
+    ]
+    pricey_score_too_high = [
+        code for code, card in cards.items()
+        if (card.get("decisionProfile") or {}).get("valuationState") == "pricey"
+        and ((card.get("decisionProfile") or {}).get("score") or 0) > 74
+    ]
     min_market = min(20, len(cards))
     min_pe = min(10, len(cards))
     min_fundamental = min(20, len(cards))
@@ -164,6 +179,12 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         errors.append(f"strategy 候选 timingPlan 缺失 {len(missing_timing_plan)} 只")
     if value_without_quality:
         errors.append(f"价值优先标签缺少基本面质量核实: {len(value_without_quality)} 只")
+    if value_with_bad_valuation:
+        errors.append(f"价值优先标签估值状态不合格: {len(value_with_bad_valuation)} 只")
+    if expensive_score_too_high:
+        errors.append(f"高估值标的综合分未封顶: {len(expensive_score_too_high)} 只")
+    if pricey_score_too_high:
+        errors.append(f"偏贵标的综合分未封顶: {len(pricey_score_too_high)} 只")
     decision_coverage = stock_cards.get("decisionCoverage") or {}
     if cards and decision_coverage.get("profiled", 0) < min_decision:
         errors.append("stockCards.decisionCoverage 缺失或覆盖过低")

@@ -331,18 +331,33 @@ def _decision_profile(card: dict) -> dict:
     quant_score = _num(quant.get("score"))
     timing_state, timing_label = _timing_state(quant)
     timing_score = quant_score if quant_score is not None else 50
-    decision_score = round(_clamp(value_score * 0.6 + timing_score * 0.4), 1)
+    decision_score = _clamp(value_score * 0.6 + timing_score * 0.4)
+    if valuation_state == "expensive":
+        decision_score = min(decision_score, 69)
+    elif valuation_state == "pricey":
+        decision_score = min(decision_score, 74)
+    elif valuation_state == "loss_or_invalid":
+        decision_score = min(decision_score, 55)
+    elif valuation_state == "missing":
+        decision_score = min(decision_score, 65)
+    if not has_quality:
+        decision_score = min(decision_score, 74)
+    decision_score = round(decision_score, 1)
+    valuation_ok = valuation_state in ("reasonable", "neutral_or_growth_priced")
 
     if timing_state == "risk":
         label = "量化风险，暂缓"
         action_hint = "暂缓"
+    elif value_score >= 75 and valuation_state in ("pricey", "expensive"):
+        label = "估值偏贵，等待回撤"
+        action_hint = "等回撤"
     elif value_score >= 75 and not has_quality:
         label = "结构候选，基本面待核实"
         action_hint = "先核实基本面"
-    elif value_score >= 75 and timing_state == "entry_candidate":
+    elif value_score >= 75 and valuation_ok and timing_state == "entry_candidate":
         label = "价值+量化共振"
         action_hint = "加入观察"
-    elif value_score >= 75 and timing_state in ("trend_watch", "wait_pullback"):
+    elif value_score >= 75 and valuation_ok and timing_state in ("trend_watch", "wait_pullback"):
         label = "价值优先，等待买点"
         action_hint = "等回撤" if timing_state == "wait_pullback" else "等买点确认"
     elif valuation_state == "expensive":
