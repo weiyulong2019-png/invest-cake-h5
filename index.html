@@ -1871,6 +1871,7 @@ createApp({
     const heldActionRows=computed(()=>{
       const cards=(strat.stockCards&&strat.stockCards.cards)||{};
       const severity={high:0,mid:1,low:2};
+      const compactNote=(...parts)=>parts.filter(Boolean).join('；');
       return heldStockRows.value.map(s=>{
         const key=String(s.code);
         const card=cards[key]||cards[key.replace(/^HK\./,'')];
@@ -1885,32 +1886,35 @@ createApp({
           const note=s.signalNote||((s.c||s.hasQuote)?`当日涨跌 ${s.c||'0%'}`:'暂无可用行情，不生成买卖点。');
           const weakTrend=/空头排列|跌破MA60|六维或动量仍处风险区/.test(note);
           const waitPullback=/注意回调|短线偏热|RSI偏高|5日涨/.test(note);
-          if(!s.hasQuote)return{code:s.code,name:s.name,level:'low',tag:'未取数',action:'人工跟踪',quality:kind,hasPlan:false,note};
-          if(signal==='risk'||s.cv<=-3||weakTrend)return{code:s.code,name:s.name,level:'high',tag:'防守',action:'减仓观察',quality:kind,hasPlan:false,note};
-          if(s.cv>=5)return{code:s.code,name:s.name,level:'mid',tag:'过热',action:'分批止盈观察',quality:kind,hasPlan:false,note};
-          if(signal==='buy'&&waitPullback)return{code:s.code,name:s.name,level:'mid',tag:'等回撤',action:'不追高',quality:kind,hasPlan:false,note};
-          if(signal==='buy')return{code:s.code,name:s.name,level:'low',tag:'趋势',action:'持有观察',quality:kind,hasPlan:false,note};
-          return{code:s.code,name:s.name,level:'low',tag:'观察',action:'持有观察',quality:kind,hasPlan:false,note};
+          if(!s.hasQuote)return null;
+          if(signal==='risk'||s.cv<=-3||weakTrend)return{code:s.code,name:s.name,level:'high',tag:'防守',action:'减仓观察',quality:kind,hasPlan:false,priority:10,note};
+          if(s.cv>=5)return{code:s.code,name:s.name,level:'mid',tag:'过热',action:'分批止盈观察',quality:kind,hasPlan:false,priority:30,note};
+          if(signal==='buy'&&waitPullback)return{code:s.code,name:s.name,level:'mid',tag:'等回撤',action:'不追高',quality:kind,hasPlan:false,priority:35,note};
+          if(signal==='buy')return{code:s.code,name:s.name,level:'low',tag:'趋势',action:'持仓跟踪',quality:kind,hasPlan:false,priority:60,note};
+          return null;
         }
         if(/防守|减仓|风险|规避/.test(stance)){
-          return{code:s.code,name:s.name,level:'high',tag:'防守',action:'减仓观察',quality,hasPlan:true,
-            note:plan.riskControl||plan.invalid||'量化风险抬升，先控制仓位。'};
+          return{code:s.code,name:s.name,level:'high',tag:'防守',action:'减仓观察',quality,hasPlan:true,priority:10,
+            note:compactNote(plan.riskControl, plan.invalid&&`失效: ${plan.invalid}`)||'量化风险抬升，先控制仓位。'};
         }
         if(/回撤/.test(stance)){
-          return{code:s.code,name:s.name,level:'mid',tag:'等回撤',action:'不追高',quality,hasPlan:true,
-            note:plan.entry||plan.invalid||'强势标的等待回撤或量价确认。'};
+          return{code:s.code,name:s.name,level:'mid',tag:'等回撤',action:'不追高',quality,hasPlan:true,priority:30,
+            note:compactNote(plan.entry, plan.riskControl)||'强势标的等待回撤或量价确认。'};
         }
-        if(/趋势|确认/.test(stance)){
-          return{code:s.code,name:s.name,level:'low',tag:'趋势',action:'持有观察',quality,hasPlan:true,
-            note:plan.invalid||plan.riskControl||'趋势仍需跟踪，破位再处理。'};
+        if(/等待/.test(stance)||decision.actionability==='watch_only'){
+          return null;
         }
-        if(/等待/.test(stance)){
-          return{code:s.code,name:s.name,level:'low',tag:'等待',action:'不加仓',quality,hasPlan:true,
-            note:plan.entry||'等待量化条件确认。'};
+        if(/趋势|强势/.test(stance)){
+          const hot=/估值偏贵|等待回撤/.test(String(decision.label||decision.actionHint||''));
+          return{code:s.code,name:s.name,level:hot?'mid':'low',tag:hot?'等回撤':'趋势',action:'持仓跟踪',quality,hasPlan:true,priority:hot?32:50,
+            note:compactNote(plan.riskControl, plan.takeProfit&&`止盈: ${plan.takeProfit}`, plan.invalid&&`失效: ${plan.invalid}`)||'趋势仍需跟踪，破位再处理。'};
         }
-        return{code:s.code,name:s.name,level:'low',tag:'观察',action:'持有观察',quality,hasPlan:true,
-          note:plan.entry||plan.invalid||'保持观察，等待更清晰买卖点。'};
-      }).sort((a,b)=>(severity[a.level]??9)-(severity[b.level]??9)||Number(b.hasPlan)-Number(a.hasPlan)).slice(0,17);
+        return null;
+      }).filter(Boolean).sort((a,b)=>
+        (a.priority??99)-(b.priority??99)||
+        (severity[a.level]??9)-(severity[b.level]??9)||
+        Number(b.hasPlan)-Number(a.hasPlan)
+      ).slice(0,12);
     });
     const filteredHeld=computed(()=>{
       let list=heldStockRows.value;
