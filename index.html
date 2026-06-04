@@ -1352,7 +1352,6 @@ createApp({
         if(held&&d.actionability==='tracking_candidate')return 4;
         if(!held&&d.actionability==='action_candidate')return 3;
         if(!held&&d.actionability==='tracking_candidate')return 2;
-        if(!held&&d.actionability==='defensive')return 1;
         return 0;
       };
       return cards.filter(c=>priority(c)>0)
@@ -1428,7 +1427,8 @@ createApp({
       if(held&&['action_candidate','tracking_candidate'].includes(d.actionability))return 8500;
       if(d.timingSource==='six_factor'&&d.actionability==='action_candidate')return 8000;
       if(d.timingSource==='six_factor'&&d.actionability==='tracking_candidate')return 7600;
-      if(d.timingSource==='six_factor'&&d.actionability==='defensive')return 7200;
+      if(held&&d.timingSource==='six_factor'&&d.actionability==='defensive')return 7200;
+      if(!held&&d.actionability==='defensive')return 1800;
       if(d.timingSource==='six_factor')return 6500;
       if((Number(d.valueRank)||0)>=3)return 5200;
       if(d.actionability==='needs_fundamental_check')return 4200;
