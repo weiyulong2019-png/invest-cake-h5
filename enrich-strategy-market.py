@@ -326,6 +326,7 @@ def _decision_profile(card: dict) -> dict:
     pe_adj, valuation_state, valuation_note = _valuation_adjustment(pe)
     quality_adj, quality_note = _quality_adjustment(fundamental)
     value_score = _clamp(base_value + pe_adj + quality_adj)
+    has_quality = _num(fundamental.get("qualityScore")) is not None
 
     quant_score = _num(quant.get("score"))
     timing_state, timing_label = _timing_state(quant)
@@ -335,6 +336,9 @@ def _decision_profile(card: dict) -> dict:
     if timing_state == "risk":
         label = "量化风险，暂缓"
         action_hint = "暂缓"
+    elif value_score >= 75 and not has_quality:
+        label = "结构候选，基本面待核实"
+        action_hint = "先核实基本面"
     elif value_score >= 75 and timing_state == "entry_candidate":
         label = "价值+量化共振"
         action_hint = "加入观察"

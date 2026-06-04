@@ -140,6 +140,11 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         or not ((card.get("decisionProfile") or {}).get("timingPlan") or {}).get("takeProfit")
         or not ((card.get("decisionProfile") or {}).get("timingPlan") or {}).get("positionHint")
     ]
+    value_without_quality = [
+        code for code, card in cards.items()
+        if (card.get("decisionProfile") or {}).get("label") in ("价值优先，等待买点", "价值+量化共振")
+        and (card.get("fundamentalSnapshot") or {}).get("qualityScore") is None
+    ]
     min_market = min(20, len(cards))
     min_pe = min(10, len(cards))
     min_fundamental = min(20, len(cards))
@@ -157,6 +162,8 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         errors.append(f"strategy 候选 decisionProfile 覆盖过低: {len(decision_covered)}/{len(cards)}")
     if missing_timing_plan:
         errors.append(f"strategy 候选 timingPlan 缺失 {len(missing_timing_plan)} 只")
+    if value_without_quality:
+        errors.append(f"价值优先标签缺少基本面质量核实: {len(value_without_quality)} 只")
     decision_coverage = stock_cards.get("decisionCoverage") or {}
     if cards and decision_coverage.get("profiled", 0) < min_decision:
         errors.append("stockCards.decisionCoverage 缺失或覆盖过低")
