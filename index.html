@@ -498,7 +498,7 @@ a:active{opacity:.6;}
                 <div class="decision-tags">
                   <span class="decision-tag">PE {{ displayPe(c) }}</span>
                   <span class="decision-tag">{{ qualityLabel(c) }}</span>
-                  <span class="decision-tag">{{ c.decisionProfile.timingPlan?c.decisionProfile.timingPlan.stance:(c.quantSnapshot?c.quantSnapshot.label:'量化待确认') }}</span>
+                  <span class="decision-tag">{{ c.decisionProfile.timingPlan?c.decisionProfile.timingPlan.stance:((c.quantSnapshot||c.quoteTimingSnapshot)?(c.quantSnapshot||c.quoteTimingSnapshot).label:'择时待确认') }}</span>
                 </div>
               </div>
               <div>
@@ -775,7 +775,7 @@ a:active{opacity:.6;}
                 <div class="decision-tags">
                   <span class="decision-tag">PE {{ displayPe(c) }}</span>
                   <span class="decision-tag">{{ qualityLabel(c) }}</span>
-                  <span class="decision-tag">{{ c.decisionProfile.timingPlan?c.decisionProfile.timingPlan.stance:(c.quantSnapshot?c.quantSnapshot.label:'量化待确认') }}</span>
+                  <span class="decision-tag">{{ c.decisionProfile.timingPlan?c.decisionProfile.timingPlan.stance:((c.quantSnapshot||c.quoteTimingSnapshot)?(c.quantSnapshot||c.quoteTimingSnapshot).label:'择时待确认') }}</span>
                 </div>
               </div>
               <div>
@@ -1266,9 +1266,9 @@ createApp({
       const chainCards=chainCardCodes.value.map(code=>cards[code]).filter(Boolean);
       const total=chainCards.length;
       const pe=chainCards.filter(c=>displayPe(c)!=='—').length;
-      const quant=chainCards.filter(c=>c.quantSnapshot).length;
+      const timing=chainCards.filter(c=>c.quantSnapshot||c.quoteTimingSnapshot).length;
       const ready=chainCards.filter(c=>['价值优先，等待买点','价值+量化共振','结构候选，趋势观察'].includes((c.decisionProfile||{}).label)).length;
-      return{total,pe,quant,ready,text:`${total} 只 · PE ${pe} · 量化 ${quant} · 可跟踪 ${ready}`};
+      return{total,pe,timing,ready,text:`${total} 只 · PE ${pe} · 择时 ${timing} · 可跟踪 ${ready}`};
     });
     const pickDash=(code)=>{dashPicked.value=code;const c=(strat.stockCards.cards||{})[code];if(c)dashQuery.value=c.name;};
     const dashCard=computed(()=>{
@@ -1335,7 +1335,7 @@ createApp({
       const signal=quote&&quote.signal;
       const cv=parseNum(quote&&quote.cv);
       const profile=(card&&card.timingProfile)||{};
-      const quant=(card&&card.quantSnapshot)||{};
+      const quant=(card&&(card.quantSnapshot||card.quoteTimingSnapshot))||{};
       const qSignal=quant.signal||'';
       const note=(quote&&quote.signalNote)||quant.note||profile.label||'技术数据不足，暂不判断买卖点。';
       if(signal==='buy')return{label:'可等买点',cls:'up',note};
@@ -1562,10 +1562,11 @@ createApp({
       };
       Object.values((strat.stockCards&&strat.stockCards.cards)||{}).forEach(c=>{
         if(c&&c.marketSnapshot)put(c.code,{...c.marketSnapshot,name:c.name,sector:c.segment});
-        if(c&&c.quantSnapshot)put(c.code,{
-          signal:c.quantSnapshot.signal,
-          signalNote:c.quantSnapshot.note,
-          confidence:c.quantSnapshot.confidence,
+        const timing=c&&((c.quantSnapshot)||c.quoteTimingSnapshot);
+        if(timing)put(c.code,{
+          signal:timing.signal,
+          signalNote:timing.note,
+          confidence:timing.confidence,
         });
       });
       layers.forEach(L=>L.stocks.forEach(s=>put(s.code,s)));

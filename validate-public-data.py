@@ -129,6 +129,14 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         code for code, card in cards.items()
         if card.get("quantSnapshot")
     ]
+    timing_covered = [
+        code for code, card in cards.items()
+        if card.get("quantSnapshot") or card.get("quoteTimingSnapshot")
+    ]
+    quote_timing_buy = [
+        code for code, card in cards.items()
+        if (card.get("quoteTimingSnapshot") or {}).get("signal") == "buy"
+    ]
     decision_covered = [
         code for code, card in cards.items()
         if card.get("decisionProfile")
@@ -173,6 +181,10 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         errors.append(f"strategy 候选 fundamentalSnapshot 覆盖过低: {len(fundamental_covered)}/{len(cards)}")
     if cards and len(quant_covered) < min_quant:
         errors.append(f"strategy 候选 quantSnapshot 覆盖过低: {len(quant_covered)}/{len(cards)}")
+    if cards and len(timing_covered) < min_decision:
+        errors.append(f"strategy 候选择时覆盖过低: {len(timing_covered)}/{len(cards)}")
+    if quote_timing_buy:
+        errors.append(f"行情兜底择时不允许生成 buy 信号: {len(quote_timing_buy)} 只")
     if cards and len(decision_covered) < min_decision:
         errors.append(f"strategy 候选 decisionProfile 覆盖过低: {len(decision_covered)}/{len(cards)}")
     if missing_timing_plan:

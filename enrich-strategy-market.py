@@ -236,23 +236,30 @@ def _timing_plan(*, timing_state: str, timing_label: str, action_hint: str,
     momentum = _num(quant.get("momentum"))
     flow = _num(quant.get("flow"))
     rsi = _num(quant.get("rsi"))
+    cv = _num(quant.get("cv"))
+    source = str(quant.get("source") or "")
     basis = []
-    if score is not None:
+    if source == "market_snapshot_fallback":
+        basis.append(f"行情择时 {timing_label}")
+        if cv is not None:
+            basis.append(f"当日涨跌 {cv:g}%")
+    elif score is not None:
         basis.append(f"六维 {score:g}")
-    if momentum is not None:
-        basis.append(f"动量 {momentum:g}")
-    if flow is not None:
-        basis.append(f"资金 {flow:g}")
-    if rsi is not None:
-        basis.append(f"RSI {rsi:g}")
+        if momentum is not None:
+            basis.append(f"动量 {momentum:g}")
+        if flow is not None:
+            basis.append(f"资金 {flow:g}")
+        if rsi is not None:
+            basis.append(f"RSI {rsi:g}")
     if not basis:
         basis.append("量化快照待补")
 
     if timing_state == "risk":
+        risk_source = "行情" if source == "market_snapshot_fallback" else "六维或动量"
         return {
             "stance": "防守/减仓观察",
-            "entry": "不新增；等待量化风险解除",
-            "invalid": "六维或动量仍处风险区",
+            "entry": f"不新增；等待{risk_source}风险解除",
+            "invalid": f"{risk_source}仍处风险区",
             "riskControl": "已持有只做人工减仓评估；未持有不介入",
             "takeProfit": "风险状态不设进攻止盈",
             "positionHint": "降仓或空仓观察",
@@ -266,8 +273,8 @@ def _timing_plan(*, timing_state: str, timing_label: str, action_hint: str,
         tp = _fmt_level(_price_level(price, 1.08))
         return {
             "stance": "强势等回撤",
-            "entry": f"回落至 {low}-{high} 且量化不转弱再评估",
-            "invalid": f"跌破 {stop} 或六维转 risk",
+            "entry": f"回落至 {low}-{high} 且择时不转弱再评估",
+            "invalid": f"跌破 {stop} 或后续择时转 risk",
             "riskControl": f"追高禁入；若已持有，以 {stop} 作为人工防守参考",
             "takeProfit": f"重新放量上攻至 {tp} 附近开始分批止盈评估",
             "positionHint": "小仓观察，不追高",
@@ -303,6 +310,17 @@ def _timing_plan(*, timing_state: str, timing_label: str, action_hint: str,
             "basis": basis,
         }
 
+    if source == "market_snapshot_fallback":
+        return {
+            "stance": "等待六维确认",
+            "entry": "行情兜底不生成买点；等待六维评分>=70且动量>=70",
+            "invalid": "出现 risk 信号或结构逻辑证伪",
+            "riskControl": "没有六维确认前不加仓",
+            "takeProfit": "暂无有效进攻计划",
+            "positionHint": "观察仓或空仓",
+            "basis": basis,
+        }
+
     return {
         "stance": "等待量化确认",
         "entry": "等待六维评分>=70且动量>=70",
@@ -314,10 +332,58 @@ def _timing_plan(*, timing_state: str, timing_label: str, action_hint: str,
     }
 
 
+def _quote_timing_snapshot(market: dict) -> dict | None:
+    """Conservative timing fallback when six-factor data is unavailable.
+
+    This never promotes a buy signal. It only marks defensive or wait states
+    from public quote movement so H5 can show an explicit low-confidence plan.
+    """
+    price = _num(market.get("p"))
+    cv = _num(market.get("cv"))
+    if cv is None:
+        cv = _num(market.get("c"))
+    if price is None and cv is None:
+        return None
+
+    label = "行情待确认"
+    signal = "neutral"
+    score = 50
+    note = "仅行情择时兜底；未取得六维评分，不生成进攻买点"
+
+    if cv is not None and cv <= -5:
+        label = "急跌防守"
+        signal = "risk"
+        score = 42
+        note = f"当日跌幅 {cv:g}%；先做防守观察，等待企稳"
+    elif cv is not None and cv <= -3:
+        label = "回撤观察"
+        score = 48
+        note = f"当日回撤 {cv:g}%；不直接视为买点，等待量价企稳"
+    elif cv is not None and cv >= 5:
+        label = "强势但等回撤"
+        score = 47
+        note = f"当日涨幅 {cv:g}%；追高风险较高，等待回撤"
+    elif cv is not None and cv >= 2:
+        label = "短线偏强"
+        score = 52
+        note = f"当日涨幅 {cv:g}%；仅作趋势观察，等待六维确认"
+
+    return {
+        "label": label,
+        "signal": signal,
+        "note": note,
+        "score": score,
+        "cv": cv,
+        "confidence": "低",
+        "source": "market_snapshot_fallback",
+        "ts": market.get("updateTime"),
+    }
+
+
 def _decision_profile(card: dict) -> dict:
     selection = card.get("selectionProfile") or {}
     market = card.get("marketSnapshot") or {}
-    quant = card.get("quantSnapshot") or {}
+    quant = card.get("quantSnapshot") or card.get("quoteTimingSnapshot") or {}
     fundamental = card.get("fundamentalSnapshot") or {}
 
     selection_score = _num(selection.get("score"))
@@ -345,8 +411,10 @@ def _decision_profile(card: dict) -> dict:
     decision_score = round(decision_score, 1)
     valuation_ok = valuation_state in ("reasonable", "neutral_or_growth_priced")
 
+    is_quote_timing = quant.get("source") == "market_snapshot_fallback"
+
     if timing_state == "risk":
-        label = "量化风险，暂缓"
+        label = "行情风险，暂缓" if is_quote_timing else "量化风险，暂缓"
         action_hint = "暂缓"
     elif value_score >= 75 and valuation_state in ("pricey", "expensive"):
         label = "估值偏贵，等待回撤"
@@ -389,7 +457,8 @@ def _decision_profile(card: dict) -> dict:
     if fundamental:
         reasons.append(quality_note)
     if quant:
-        reasons.append(f"{timing_label} / 量化分 {timing_score:g}")
+        prefix = "行情择时" if is_quote_timing else "量化"
+        reasons.append(f"{timing_label} / {prefix}分 {timing_score:g}")
 
     return {
         "label": label,
@@ -414,6 +483,10 @@ def _attach_decision_profiles(data: dict, now: str) -> None:
     timing_plan = 0
 
     for card in cards.values():
+        if not card.get("quantSnapshot") and not card.get("quoteTimingSnapshot"):
+            quote_timing = _quote_timing_snapshot(card.get("marketSnapshot") or {})
+            if quote_timing:
+                card["quoteTimingSnapshot"] = quote_timing
         profile = _decision_profile(card)
         card["decisionProfile"] = profile
         decision_count += 1
