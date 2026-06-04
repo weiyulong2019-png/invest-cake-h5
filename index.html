@@ -443,6 +443,14 @@ a:active{opacity:.6;}
 .decision-tag.action-new{color:var(--link);background:#EBF3FF;border-color:#D4E7FF;font-weight:800;}
 .decision-tag.action-value{color:#8E44AD;background:#F8F0FF;border-color:#E8D7F7;font-weight:800;}
 .decision-tag.action-pass{color:var(--text3);background:#F5F5F5;border-color:var(--border);font-weight:700;}
+.chain-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:8px 0;}
+.chain-stat{background:#fff;border:1px solid var(--border);border-radius:8px;padding:9px 8px;min-width:0;}
+.chain-stat .cv{font-size:18px;line-height:1;font-weight:900;color:var(--text);}
+.chain-stat .ck{font-size:11px;color:var(--text3);font-weight:700;margin-top:5px;white-space:nowrap;}
+.chain-stat.good .cv{color:var(--green);}
+.chain-stat.value .cv{color:#8E44AD;}
+.chain-stat.wait .cv{color:var(--text2);}
+.chain-stat.warn .cv{color:#E8A30A;}
 .st-decision{display:flex;gap:6px;align-items:center;margin-top:5px;flex-wrap:wrap;}
 .st-decision-pill{font-size:11px;font-weight:700;color:var(--green);background:#E8F5EC;border-radius:4px;padding:1px 6px;}
 .st-decision-pill.warn{color:#E8A30A;background:#FFF7E8;}
@@ -492,9 +500,17 @@ a:active{opacity:.6;}
     <!-- 产业链首页：所有 tab 统一使用 strategy.json.chains 的 tier 分层结构。 -->
     <div class="cake-wrap">
       <div v-if="!stratReady && !hasChains" class="chain-empty-cake">产业链数据同步中，请稍候。</div>
-      <div class="chain-sigs" v-else-if="chainSignals.length">
+      <div class="chain-overview" v-if="stratReady && chainDataOverview.segments">
+        <div class="chain-stat"><div class="cv">{{ chainDataOverview.segments }}</div><div class="ck">已建环节</div></div>
+        <div class="chain-stat"><div class="cv">{{ chainDataOverview.targets }}</div><div class="ck">映射标的</div></div>
+        <div class="chain-stat good"><div class="cv">{{ chainDataOverview.sixFactor }}</div><div class="ck">六维确认</div></div>
+        <div class="chain-stat value"><div class="cv">{{ chainDataOverview.valueWatch }}</div><div class="ck">价值观察</div></div>
+        <div class="chain-stat wait"><div class="cv">{{ chainDataOverview.quoteWait }}</div><div class="ck">等六维</div></div>
+        <div class="chain-stat warn"><div class="cv">{{ chainDataOverview.needVerify }}</div><div class="ck">先核实</div></div>
+      </div>
+      <div class="chain-sigs" v-if="stratReady && chainSignals.length">
         <div class="chain-sig-box">
-          <div class="chain-sig-h"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3c1 3-1 4-1 6a3 3 0 0 0 6 .5c0-1.5-.5-2.5-.5-2.5 2 1.5 3 4 3 6.5a7 7 0 1 1-14 0c0-3.5 2.5-5.5 3.5-8 .8-2 .5-2.5 0-4 1.5.5 2.5 2 3.5 3.5Z"/></svg>非共识机会 <span style="font-size:11px;color:var(--text2);font-weight:400;">{{ chainLabel(homeTab) }} · 被忽略的环节标的</span></div>
+          <div class="chain-sig-h"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3c1 3-1 4-1 6a3 3 0 0 0 6 .5c0-1.5-.5-2.5-.5-2.5 2 1.5 3 4 3 6.5a7 7 0 1 1-14 0c0-3.5 2.5-5.5 3.5-8 .8-2 .5-2.5 0-4 1.5.5 2.5 2 3.5 3.5Z"/></svg>非共识机会 <span style="font-size:11px;color:var(--text2);font-weight:400;">{{ chainTitle(homeTab) }} · 被忽略的环节标的</span></div>
           <div class="chain-sig-chips">
             <span class="cake-chip" v-for="h in chainSignals" :key="h.code"
                   style="background:#E8F5EC;color:var(--down);" @click="openTarget(h,{name:h.segment})">
@@ -505,7 +521,7 @@ a:active{opacity:.6;}
       </div>
       <div class="chain-sigs" v-if="chainDecisionCandidates.length">
         <div class="chain-sig-box">
-          <div class="chain-sig-h"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16l3-4 3 2 4-7"/></svg>{{ chainLabel(homeTab) }} 决策候选
+          <div class="chain-sig-h"><svg class="ic" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16l3-4 3 2 4-7"/></svg>{{ chainTitle(homeTab) }} 决策候选
             <span style="font-size:11px;color:var(--text2);font-weight:400;">{{ chainDecisionSummary.text }}</span></div>
           <div class="decision-pool">
             <div class="decision-row" v-for="c in chainDecisionCandidates" :key="homeTab+'-'+c.code" @click="pickDash(c.code);tab='strategy';">
@@ -530,7 +546,7 @@ a:active{opacity:.6;}
         </div>
       </div>
       <template v-if="homeChainLayers.length">
-      <div class="layer-card" v-for="L in homeChainLayers" :key="L.id">
+      <div class="layer-card" v-for="L in homeChainLayers" :key="homeTab+'-'+L.id">
         <div class="layer-top" @click="treeOpen[L.id]=!L.open">
           <div class="layer-badge" :style="{background:L.color}">{{ L.id }}</div>
           <div class="layer-info">
@@ -587,7 +603,7 @@ a:active{opacity:.6;}
 
     <div class="insight-wrap">
       <div class="insight-card">
-        <div class="insight-title"><svg class="ic" viewBox="0 0 24 24"><path d="M9 3a4 4 0 0 0-4 4 3.5 3.5 0 0 0-1 6.5A3.5 3.5 0 0 0 8 19h1Z"/><path d="M15 3a4 4 0 0 1 4 4 3.5 3.5 0 0 1 1 6.5A3.5 3.5 0 0 1 16 19h-1Z"/><path d="M12 3v16"/></svg>{{ chainLabel(homeTab) }} 汇总观点</div>
+        <div class="insight-title"><svg class="ic" viewBox="0 0 24 24"><path d="M9 3a4 4 0 0 0-4 4 3.5 3.5 0 0 0-1 6.5A3.5 3.5 0 0 0 8 19h1Z"/><path d="M15 3a4 4 0 0 1 4 4 3.5 3.5 0 0 1 1 6.5A3.5 3.5 0 0 1 16 19h-1Z"/><path d="M12 3v16"/></svg>{{ chainTitle(homeTab) }} 汇总观点</div>
         <div class="insight-text">
           {{ chainInsight }}
         </div>
@@ -1191,6 +1207,10 @@ createApp({
 
     // 首页顶部产业链 tab（与 strategy.json chains key 对齐）
     const homeTab=ref('ai_server');
+    const hasChains=computed(()=>!!(strat.chains && strat.chainOrder && strat.chainOrder.length));
+    const chainOrder=computed(()=>strat.chainOrder||[]);
+    const chainLabel=(k)=>(strat.chains&&strat.chains[k]&&strat.chains[k].label)||k;
+    const chainTitle=(k)=>k==='ai_server'?'AI产业链':chainLabel(k);
     const homeTabs=computed(()=>{
       const fallback=[
         {key:'ai_server',label:'AI产业链'},
@@ -1202,7 +1222,7 @@ createApp({
       if(!hasChains.value)return fallback;
       return (strat.chainOrder||[]).map(k=>({
         key:k,
-        label:k==='ai_server'?'AI产业链':chainLabel(k),
+        label:chainTitle(k),
       }));
     });
     const selectHomeTab=(k)=>{
@@ -1210,9 +1230,6 @@ createApp({
       activeChain.value=k;
       Object.keys(treeOpen).forEach(id=>delete treeOpen[id]);
     };
-    const hasChains=computed(()=>!!(strat.chains && strat.chainOrder && strat.chainOrder.length));
-    const chainOrder=computed(()=>strat.chainOrder||[]);
-    const chainLabel=(k)=>(strat.chains&&strat.chains[k]&&strat.chains[k].label)||k;
     // 当前链：新数据用 chains[activeChain]，旧数据回退 chainTree
     const curChain=computed(()=>{
       const k=activeChain.value||homeTab.value||strat.defaultChain||'ai_server';
@@ -1384,6 +1401,20 @@ createApp({
       if(d.actionability==='needs_fundamental_check')return 'action-pass';
       return 'action-pass';
     };
+    const codeVariants=(code)=>{
+      const raw=String(code||'').trim();
+      if(!raw)return[];
+      const out=[raw];
+      const noPrefix=raw.replace(/^HK\./,'').replace(/^(SH|SZ)\./,'');
+      if(noPrefix&&noPrefix!==raw)out.push(noPrefix);
+      if(/^\d{5}$/.test(noPrefix))out.push(`HK.${noPrefix}`);
+      return [...new Set(out)];
+    };
+    const stockCardOf=(code)=>{
+      const cards=(strat.stockCards&&strat.stockCards.cards)||{};
+      for(const k of codeVariants(code)){if(cards[k])return cards[k];}
+      return null;
+    };
     const chainCardCodes=computed(()=>{
       const c=curChain.value||{};const out=[];const seen=new Set();
       (c.segments||[]).forEach(seg=>(seg.holdings||[]).forEach(h=>{
@@ -1391,25 +1422,45 @@ createApp({
       }));
       return out;
     });
+    const chainCards=computed(()=>chainCardCodes.value.map(code=>stockCardOf(code)).filter(Boolean));
+    const chainDataOverview=computed(()=>{
+      const c=curChain.value||{};const stats=c.stats||{};
+      const cards=chainCards.value;
+      const out={
+        segments:(c.segments||[]).length,
+        targets:stats.total_targets||chainCardCodes.value.length,
+        mapped:cards.length,
+        sixFactor:0,
+        valueWatch:0,
+        quoteWait:0,
+        needVerify:0,
+      };
+      cards.forEach(card=>{
+        const d=(card&&card.decisionProfile)||{};
+        if(d.timingSource==='six_factor')out.sixFactor++;
+        if((Number(d.valueRank)||0)>=3)out.valueWatch++;
+        if(d.timingSource==='quote_fallback')out.quoteWait++;
+        if(d.actionability==='needs_fundamental_check')out.needVerify++;
+      });
+      return out;
+    });
     const chainDecisionCandidates=computed(()=>{
-      const cards=(strat.stockCards&&strat.stockCards.cards)||{};
-      return chainCardCodes.value.map(code=>cards[code]).filter(c=>c&&c.decisionProfile)
+      return chainCards.value.filter(c=>c&&c.decisionProfile)
         .sort((a,b)=>((b.decisionProfile&&Number(b.decisionProfile.rankScore||b.decisionProfile.score))||0)-((a.decisionProfile&&Number(a.decisionProfile.rankScore||a.decisionProfile.score))||0))
         .slice(0,6);
     });
     const chainDecisionSummary=computed(()=>{
-      const cards=(strat.stockCards&&strat.stockCards.cards)||{};
-      const chainCards=chainCardCodes.value.map(code=>cards[code]).filter(Boolean);
-      const total=chainCards.length;
-      const pe=chainCards.filter(c=>displayPe(c)!=='—').length;
-      const timing=chainCards.filter(c=>c.quantSnapshot||c.quoteTimingSnapshot).length;
-      const ready=chainCards.filter(c=>{
+      const cards=chainCards.value;
+      const total=cards.length;
+      const pe=cards.filter(c=>displayPe(c)!=='—').length;
+      const timing=cards.filter(c=>c.quantSnapshot||c.quoteTimingSnapshot).length;
+      const ready=cards.filter(c=>{
         const d=c.decisionProfile||{};
         return d.timingSource==='six_factor'&&['action_candidate','tracking_candidate'].includes(d.actionability);
       }).length;
       return{total,pe,timing,ready,text:`${total} 只 · PE ${pe} · 择时 ${timing} · 可跟踪 ${ready}`};
     });
-    const pickDash=(code)=>{dashPicked.value=code;const c=(strat.stockCards.cards||{})[code];if(c)dashQuery.value=c.name;};
+    const pickDash=(code)=>{dashPicked.value=code;const c=stockCardOf(code);if(c){dashPicked.value=c.code;dashQuery.value=c.name;}};
     const dashCard=computed(()=>{
       const cards=(strat.stockCards&&strat.stockCards.cards)||{};
       if(dashPicked.value&&cards[dashPicked.value])return cards[dashPicked.value];
@@ -1602,7 +1653,7 @@ createApp({
           (s.holdings||[]).forEach(h=>{
             if(seen.has(h.code))return;seen.add(h.code);
             const q=quoteOf(h.code);
-            const card=((strat.stockCards&&strat.stockCards.cards)||{})[h.code]||{};
+            const card=stockCardOf(h.code)||{};
             const decision=card.decisionProfile||{};
             stocks.push({
               ...h,
@@ -1641,7 +1692,7 @@ createApp({
           boomLabel:quoted.length?'有行情':'待核实',
           boomColor:quoted.length?'#E8F5EC':'#F0F0F0',
           boomTextColor:quoted.length?'var(--green)':'var(--text3)',
-          summary:`${chainLabel(homeTab.value)} · ${meta.name}: 覆盖 ${segNames.length} 个环节、${stocks.length} 只标的。${quoted.length ? `其中 ${quoted.length} 只已有行情映射，均涨跌 ${avg>0?'+':''}${avg}%。` : '行情映射待补，先作为结构化图谱观察。'}`,
+          summary:`${chainTitle(homeTab.value)} · ${meta.name}: 覆盖 ${segNames.length} 个环节、${stocks.length} 只标的。${quoted.length ? `其中 ${quoted.length} 只已有行情映射，均涨跌 ${avg>0?'+':''}${avg}%。` : '行情映射待补，先作为结构化图谱观察。'}`,
           summaryTime:(curChain.value&&curChain.value.consensus_live)?'实时共识':'结构图谱',
           sig:stocks.some(s=>s.consensus_state==='crowded')?{t:'warn',text:'存在拥挤环节，注意回撤风险'}:null,
           open:treeOpen[id]!==false,
@@ -1655,11 +1706,11 @@ createApp({
     const chainInsight=computed(()=>{
       const c=curChain.value||{};const stats=c.stats||{};
       const layers=homeChainLayers.value;
-      if(!layers.length)return `${chainLabel(homeTab.value)} 图谱待补，当前仅保留 tab 入口，不脑补结论。`;
+      if(!layers.length)return `${chainTitle(homeTab.value)} 图谱待补，当前仅保留 tab 入口，不脑补结论。`;
       const most=layers.slice().sort((a,b)=>b.stocks.length-a.stocks.length)[0];
       const total=stats.total_targets||layers.reduce((s,l)=>s+l.stocks.length,0);
       const todo=stats.nodes_todo||0;
-      return `${chainLabel(homeTab.value)} 当前覆盖 ${layers.length} 个层级、${total} 个标的映射；${most.name} 标的最密集。${todo ? `仍有 ${todo} 个上游节点待补，未核实数据不参与判断。` : '图谱节点已基本覆盖，后续重点看行情与共识状态变化。'}`;
+      return `${chainTitle(homeTab.value)} 当前覆盖 ${layers.length} 个层级、${total} 个标的映射；${most.name} 标的最密集。${todo ? `仍有 ${todo} 个上游节点待补，未核实数据不参与判断。` : '图谱节点已基本覆盖，后续重点看行情与共识状态变化。'}`;
     });
 
     // ── 市场情绪 gauge（item6）：优先 usMapping 锚 sentiment，无则用美股锚涨跌均值/胜率 ──
@@ -1958,7 +2009,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,decisionCandidates,actionCandidates,displayPe,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,valueDecision,timingDecision};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,chainTitle,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDataOverview,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,decisionCandidates,actionCandidates,displayPe,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,valueDecision,timingDecision};
   }
 }).mount('#app');
 
