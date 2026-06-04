@@ -436,6 +436,7 @@ a:active{opacity:.6;}
 .decision-score{text-align:right;}
 .decision-score b{display:block;font-size:18px;line-height:1;color:var(--green);}
 .decision-score span{font-size:11px;color:var(--text3);}
+.decision-score em{display:block;font-style:normal;font-size:10px;color:var(--text3);margin-top:3px;white-space:nowrap;}
 .decision-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;}
 .decision-tag{font-size:10px;color:var(--text2);background:#fff;border:1px solid var(--border);border-radius:4px;padding:1px 5px;}
 .decision-tag.action-defense{color:var(--red);background:#FFF0F0;border-color:#FFD6D6;font-weight:800;}
@@ -540,7 +541,7 @@ a:active{opacity:.6;}
                 <div class="decision-label">{{ candidateLabel(c) }}</div>
                 <div class="decision-note">{{ candidateNote(c) }}</div>
               </div>
-              <div class="decision-score"><b>{{ c.decisionProfile.score }}</b><span>综合分</span></div>
+              <div class="decision-score"><b>{{ valueMetric(c) }}</b><span>价值分</span><em>{{ timingMetric(c) }} 择时</em></div>
             </div>
           </div>
         </div>
@@ -814,7 +815,7 @@ a:active{opacity:.6;}
         <!-- 六维动作雷达：买卖点/防守优先，可能只是等回撤，不等于买入池 -->
         <div class="strat-block" v-if="actionCandidates.length">
           <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><path d="M4 17l5-5 4 3 7-8"/><path d="M20 7h-5M20 7v5"/><path d="M4 20h16"/></svg>六维动作雷达
-            <span class="badge" :style="badgeStyle(true)">买卖点确认</span>
+            <span class="badge" :style="badgeStyle(true)">择时/防守优先</span>
           </div>
           <div class="decision-pool">
             <div class="decision-row" v-for="c in actionCandidates" :key="'act-'+c.code" @click="pickDash(c.code)">
@@ -833,7 +834,7 @@ a:active{opacity:.6;}
                 <div class="decision-label">{{ candidateLabel(c) }}</div>
                 <div class="decision-note">{{ candidateNote(c, true) }}</div>
               </div>
-              <div class="decision-score"><b>{{ c.decisionProfile.score }}</b><span>综合分</span></div>
+              <div class="decision-score"><b>{{ timingMetric(c) }}</b><span>择时分</span><em>{{ valueMetric(c) }} 价值</em></div>
             </div>
           </div>
         </div>
@@ -860,7 +861,7 @@ a:active{opacity:.6;}
                 <div class="decision-label">{{ candidateLabel(c) }}</div>
                 <div class="decision-note">{{ candidateNote(c) }}</div>
               </div>
-              <div class="decision-score"><b>{{ c.decisionProfile.score }}</b><span>综合分</span></div>
+              <div class="decision-score"><b>{{ valueMetric(c) }}</b><span>价值分</span><em>{{ timingMetric(c) }} 择时</em></div>
             </div>
           </div>
         </div>
@@ -901,6 +902,8 @@ a:active{opacity:.6;}
               <div class="dash-cell"><div class="dash-k">涨跌幅</div><div class="dash-v" :class="chgClass(dashQuote.cv)">{{ dashQuote.c||'—' }}</div></div>
               <div class="dash-cell"><div class="dash-k">估值PE</div><div class="dash-v">{{ dashQuote.pe&&dashQuote.pe!=='-'?dashQuote.pe:'—' }}</div></div>
               <div class="dash-cell"><div class="dash-k">市值</div><div class="dash-v">{{ dashQuote.cap&&dashQuote.cap!=='-'?dashQuote.cap:'—' }}</div></div>
+              <div class="dash-cell"><div class="dash-k">价值分</div><div class="dash-v">{{ dashDecision?valueMetric(dashCard):'—' }}</div></div>
+              <div class="dash-cell"><div class="dash-k">择时分</div><div class="dash-v">{{ dashDecision?timingMetric(dashCard):'—' }}</div></div>
               <div class="dash-cell"><div class="dash-k">质量分</div><div class="dash-v">{{ dashFund.qualityScore!=null?dashFund.qualityScore:'—' }}</div></div>
               <div class="dash-cell"><div class="dash-k">ROE</div><div class="dash-v">{{ dashFund.roe!=null?(dashFund.roe+'%'):'—' }}</div></div>
               <div class="dash-cell"><div class="dash-k">蛋糕层</div><div class="dash-v">{{ dashCard.cakeLayerName||'未归层' }}</div></div>
@@ -1365,6 +1368,20 @@ createApp({
     const displayPe=(card)=>{
       const pe=(card&&card.marketSnapshot&&card.marketSnapshot.pe)||'—';
       return pe&&pe!=='-'?pe:'—';
+    };
+    const fmtScore=(v)=>{
+      if(v==null||v===''||v==='-'||v==='—')return '—';
+      const n=Number(v);
+      if(!Number.isFinite(n))return '—';
+      return Math.round(n*10)/10;
+    };
+    const valueMetric=(card)=>{
+      const d=(card&&card.decisionProfile)||{};
+      return fmtScore(d.valueScore!=null?d.valueScore:d.score);
+    };
+    const timingMetric=(card)=>{
+      const d=(card&&card.decisionProfile)||{};
+      return fmtScore(d.timingScore!=null?d.timingScore:d.score);
     };
     const qualityLabel=(card)=>{
       const f=(card&&card.fundamentalSnapshot)||{};
@@ -2065,7 +2082,7 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,chainTitle,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDataOverview,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,decisionCandidates,actionCandidates,displayPe,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,candidateLabel,candidateNote,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,planTitle,valueDecision,timingDecision};
+    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,chainTitle,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDataOverview,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,decisionCandidates,actionCandidates,displayPe,valueMetric,timingMetric,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,candidateLabel,candidateNote,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,planTitle,valueDecision,timingDecision};
   }
 }).mount('#app');
 
