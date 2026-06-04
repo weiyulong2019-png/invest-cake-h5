@@ -21,6 +21,31 @@ EXPECTED_CHAINS = {
     "physical_ai",
     "innovative_drug",
 }
+ACTIONABILITY_VALUES = {
+    "action_candidate",
+    "tracking_candidate",
+    "defensive",
+    "needs_fundamental_check",
+    "watch_only",
+}
+TIMING_SOURCE_VALUES = {"six_factor", "quote_fallback", "missing"}
+REQUIRED_DECISION_FIELDS = {
+    "label",
+    "score",
+    "rankScore",
+    "actionHint",
+    "actionability",
+    "valueRank",
+    "timingSource",
+    "timingConfidence",
+    "valueScore",
+    "timingScore",
+    "valuationState",
+    "qualityState",
+    "timingState",
+    "timingPlan",
+    "reasons",
+}
 
 
 def _load(name: str) -> dict:
@@ -137,6 +162,37 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         code for code, card in cards.items()
         if (card.get("quoteTimingSnapshot") or {}).get("signal") == "buy"
     ]
+    missing_decision_fields = [
+        code for code, card in cards.items()
+        if REQUIRED_DECISION_FIELDS - set((card.get("decisionProfile") or {}))
+    ]
+    bad_actionability = [
+        code for code, card in cards.items()
+        if (card.get("decisionProfile") or {}).get("actionability") not in ACTIONABILITY_VALUES
+    ]
+    bad_timing_source = [
+        code for code, card in cards.items()
+        if (card.get("decisionProfile") or {}).get("timingSource") not in TIMING_SOURCE_VALUES
+    ]
+    bad_value_rank = [
+        code for code, card in cards.items()
+        if not isinstance((card.get("decisionProfile") or {}).get("valueRank"), int)
+        or not 0 <= (card.get("decisionProfile") or {}).get("valueRank") <= 5
+    ]
+    bad_rank_score = [
+        code for code, card in cards.items()
+        if not isinstance((card.get("decisionProfile") or {}).get("rankScore"), (int, float))
+    ]
+    quote_action_candidate = [
+        code for code, card in cards.items()
+        if (card.get("decisionProfile") or {}).get("timingSource") == "quote_fallback"
+        and (card.get("decisionProfile") or {}).get("actionability") == "action_candidate"
+    ]
+    six_factor_actionable = [
+        code for code, card in cards.items()
+        if (card.get("decisionProfile") or {}).get("timingSource") == "six_factor"
+        and (card.get("decisionProfile") or {}).get("actionability") in {"action_candidate", "tracking_candidate", "defensive"}
+    ]
     decision_covered = [
         code for code, card in cards.items()
         if card.get("decisionProfile")
@@ -185,6 +241,20 @@ def validate_strategy() -> tuple[bool, list[str], list[str]]:
         errors.append(f"strategy 候选择时覆盖过低: {len(timing_covered)}/{len(cards)}")
     if quote_timing_buy:
         errors.append(f"行情兜底择时不允许生成 buy 信号: {len(quote_timing_buy)} 只")
+    if missing_decision_fields:
+        errors.append(f"decisionProfile 新字段缺失: {len(missing_decision_fields)} 只")
+    if bad_actionability:
+        errors.append(f"decisionProfile actionability 非法: {len(bad_actionability)} 只")
+    if bad_timing_source:
+        errors.append(f"decisionProfile timingSource 非法: {len(bad_timing_source)} 只")
+    if bad_value_rank:
+        errors.append(f"decisionProfile valueRank 非法: {len(bad_value_rank)} 只")
+    if bad_rank_score:
+        errors.append(f"decisionProfile rankScore 非法: {len(bad_rank_score)} 只")
+    if quote_action_candidate:
+        errors.append(f"行情兜底不允许进入 action_candidate: {len(quote_action_candidate)} 只")
+    if not six_factor_actionable:
+        warnings.append("没有六维确认的动作候选")
     if cards and len(decision_covered) < min_decision:
         errors.append(f"strategy 候选 decisionProfile 覆盖过低: {len(decision_covered)}/{len(cards)}")
     if missing_timing_plan:
