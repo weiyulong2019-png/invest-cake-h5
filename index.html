@@ -1550,11 +1550,14 @@ createApp({
     const valueDecision=(card,quote)=>{
       if(!card)return{label:'待核实',cls:'flat',note:'缺少结构化标的信息。'};
       const decision=card.decisionProfile||{};
+      const fund=card.fundamentalSnapshot||{};
       if(decision.valueScore!=null){
         const cls=decision.valueRank>=3?'up':(decision.valuationState==='expensive'||decision.valuationState==='loss_or_invalid'?'down':'flat');
         const note=(decision.reasons||[]).slice(0,3).join(' / ')||'结构、估值与基本面已归入统一决策口径。';
         if(decision.valueRank>=3)return{label:'价值观察',cls,note};
-        if(decision.actionability==='needs_fundamental_check')return{label:'先核实基本面',cls:'flat',note};
+        if(decision.actionability==='needs_fundamental_check'||decision.actionHint==='先核实基本面')return{label:'先核实基本面',cls:'flat',note};
+        if(decision.actionHint==='先核实质量'||String(decision.label||'').includes('质量待确认'))return{label:'质量待确认',cls:'flat',note};
+        if((fund.qualityScore!=null&&fund.qualityScore<62)&&decision.valueScore>=75)return{label:'质量待确认',cls:'flat',note};
         if(decision.valuationState==='pricey'||decision.valuationState==='expensive')return{label:'估值偏贵',cls:'down',note};
         return{label:'候选观察',cls,note};
       }
