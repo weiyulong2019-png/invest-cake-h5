@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-06-06 14:59:11",
-  "timestamp": 1780729151,
+  "updateTime": "2026-06-06 15:17:13",
+  "timestamp": 1780730233,
   "mode": "live",
   "disclaimer": "公开策略数据看板，仅含聚合/结构化信息，不构成投资建议。",
   "waterSellers": {
@@ -495,25 +495,25 @@
             "code": "688498",
             "name": "源杰科技",
             "is_leader": true,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           },
           {
             "code": "688313",
             "name": "仕佳光子",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           },
           {
             "code": "688048",
             "name": "长光华芯",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           },
           {
             "code": "002281",
             "name": "光迅科技",
             "is_leader": false,
-            "consensus_state": "unknown"
+            "consensus_state": "crowded"
           }
         ]
       },
@@ -1523,25 +1523,25 @@
               "code": "688498",
               "name": "源杰科技",
               "is_leader": true,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             },
             {
               "code": "688313",
               "name": "仕佳光子",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             },
             {
               "code": "688048",
               "name": "长光华芯",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             },
             {
               "code": "002281",
               "name": "光迅科技",
               "is_leader": false,
-              "consensus_state": "unknown"
+              "consensus_state": "crowded"
             }
           ]
         },
@@ -2263,7 +2263,7 @@
             {
               "code": "300750",
               "name": "宁德时代",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -2283,7 +2283,7 @@
             {
               "code": "002812",
               "name": "恩捷股份",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -2303,7 +2303,7 @@
             {
               "code": "002709",
               "name": "天赐材料",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -2323,7 +2323,7 @@
             {
               "code": "002850",
               "name": "科达利",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             }
           ]
@@ -2351,7 +2351,7 @@
             {
               "code": "688503",
               "name": "聚和材料",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -2371,7 +2371,7 @@
             {
               "code": "688503",
               "name": "聚和材料",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -2391,7 +2391,7 @@
             {
               "code": "603806",
               "name": "福斯特",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -2411,7 +2411,7 @@
             {
               "code": "688503",
               "name": "聚和材料",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -2431,7 +2431,7 @@
             {
               "code": "603806",
               "name": "福斯特",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -2451,7 +2451,7 @@
             {
               "code": "300274",
               "name": "阳光电源",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -2477,7 +2477,7 @@
             {
               "code": "300274",
               "name": "阳光电源",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -2503,7 +2503,7 @@
             {
               "code": "300750",
               "name": "宁德时代",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -2653,7 +2653,7 @@
             {
               "code": "688375",
               "name": "国博电子",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -2983,7 +2983,7 @@
             {
               "code": "688375",
               "name": "国博电子",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -3212,26 +3212,12 @@
       "entry": "整机集成",
       "stats": {
         "total_nodes": 50,
-        "nodes_with_targets": 31,
-        "nodes_todo": 19,
-        "total_targets": 60,
-        "unique_targets": 32
+        "nodes_with_targets": 30,
+        "nodes_todo": 20,
+        "total_targets": 61,
+        "unique_targets": 33
       },
       "segments": [
-        {
-          "name": "整机集成",
-          "tier": 0,
-          "depth": 0,
-          "kind": "tree",
-          "holdings": [
-            {
-              "code": "300607",
-              "name": "拓斯达",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            }
-          ]
-        },
         {
           "name": "具身智能大脑(端到端模型/域控/SoC)",
           "tier": 1,
@@ -3281,7 +3267,7 @@
             {
               "code": "603290",
               "name": "斯达半导",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -3313,6 +3299,12 @@
             {
               "code": "002747",
               "name": "埃斯顿",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002527",
+              "name": "新时达",
               "is_leader": false,
               "consensus_state": "unknown"
             }
@@ -3349,6 +3341,18 @@
               "name": "绿的谐波",
               "is_leader": true,
               "consensus_state": "unknown"
+            },
+            {
+              "code": "002472",
+              "name": "双环传动",
+              "is_leader": false,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002896",
+              "name": "中大力德",
+              "is_leader": false,
+              "consensus_state": "unknown"
             }
           ]
         },
@@ -3379,6 +3383,12 @@
           "kind": "raw",
           "holdings": [
             {
+              "code": "000970",
+              "name": "中科三环",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
               "code": "300748",
               "name": "金力永磁",
               "is_leader": false,
@@ -3387,12 +3397,6 @@
             {
               "code": "600366",
               "name": "宁波韵升",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "000970",
-              "name": "中科三环",
               "is_leader": false,
               "consensus_state": "unknown"
             }
@@ -3407,12 +3411,6 @@
             {
               "code": "603583",
               "name": "捷昌驱动",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "002472",
-              "name": "双环传动",
               "is_leader": false,
               "consensus_state": "unknown"
             }
@@ -3445,21 +3443,15 @@
           "kind": "tree",
           "holdings": [
             {
-              "code": "603728",
-              "name": "鸣志电器",
-              "is_leader": true,
-              "consensus_state": "unknown"
-            },
-            {
               "code": "300660",
               "name": "江苏雷利",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
               "code": "873593",
               "name": "鼎智科技",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             }
           ]
@@ -3471,6 +3463,12 @@
           "kind": "raw",
           "holdings": [
             {
+              "code": "000970",
+              "name": "中科三环",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
               "code": "300748",
               "name": "金力永磁",
               "is_leader": false,
@@ -3479,12 +3477,6 @@
             {
               "code": "600366",
               "name": "宁波韵升",
-              "is_leader": false,
-              "consensus_state": "unknown"
-            },
-            {
-              "code": "000970",
-              "name": "中科三环",
               "is_leader": false,
               "consensus_state": "unknown"
             }
@@ -3561,7 +3553,7 @@
             {
               "code": "688400",
               "name": "凌云光",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             }
           ]
@@ -3575,7 +3567,7 @@
             {
               "code": "603501",
               "name": "豪威集团",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -3621,6 +3613,12 @@
             {
               "code": "002747",
               "name": "埃斯顿",
+              "is_leader": true,
+              "consensus_state": "unknown"
+            },
+            {
+              "code": "002527",
+              "name": "新时达",
               "is_leader": false,
               "consensus_state": "unknown"
             }
@@ -3655,7 +3653,7 @@
             {
               "code": "603290",
               "name": "斯达半导",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -3701,7 +3699,7 @@
             {
               "code": "002920",
               "name": "德赛西威",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -3801,7 +3799,7 @@
             {
               "code": "603501",
               "name": "豪威集团",
-              "is_leader": false,
+              "is_leader": true,
               "consensus_state": "unknown"
             },
             {
@@ -3886,7 +3884,7 @@
           "tier": 3
         }
       ],
-      "theme": "人形机器人",
+      "theme": "物理AI",
       "consensus_live": false,
       "key": "physical_ai",
       "label": "物理AI"
@@ -4850,7 +4848,7 @@
       },
       {
         "scanner": "FactorAgent",
-        "count": 239,
+        "count": 243,
         "decided": 9,
         "win_rate": 0.667,
         "win_rate_metric": "excess_vs_hs300",
@@ -7614,7 +7612,7 @@
   "stockCards": {
     "available": true,
     "note": "",
-    "count": 167,
+    "count": 168,
     "cards": {
       "000034": {
         "code": "000034",
@@ -7689,7 +7687,7 @@
           "pe": "45.9",
           "cap": "248.5亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 2.12,
@@ -7711,7 +7709,7 @@
             "PB 2.2239"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -7823,7 +7821,7 @@
           "pe": "24.6",
           "cap": "1277.6亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 4.17,
@@ -7845,7 +7843,7 @@
             "PB 8.9425"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -7959,7 +7957,7 @@
           "pe": "36.1",
           "cap": "14696.5亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 6.18,
@@ -7981,7 +7979,7 @@
             "PB 8.34"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -8114,7 +8112,7 @@
           "pe": "233.7",
           "cap": "6370.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 2.99,
@@ -8136,7 +8134,7 @@
             "PB 27.1098"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -8277,7 +8275,7 @@
           "pe": "70.1",
           "cap": "1014.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 2.1,
@@ -8299,7 +8297,7 @@
             "PB 6.5293"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -8439,7 +8437,7 @@
           "pe": "81.9",
           "cap": "1353.7亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -8579,7 +8577,7 @@
           "pe": "54.4",
           "cap": "547.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，基本面待核实",
@@ -8741,7 +8739,7 @@
           "pe": "78.4",
           "cap": "4373.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 4.25,
@@ -8763,7 +8761,7 @@
             "PB 11.1297"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -8912,7 +8910,7 @@
           "pe": "67.0",
           "cap": "193.9亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 1.59,
@@ -8934,7 +8932,7 @@
             "PB 8.3522"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -8944,7 +8942,7 @@
           "cv": 0.07,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -9098,7 +9096,7 @@
           "pe": "274.0",
           "cap": "376.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "短线偏强",
@@ -9108,7 +9106,7 @@
           "cv": 4.69,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -9227,7 +9225,7 @@
           "pe": "-",
           "cap": "941.6亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -9237,7 +9235,7 @@
           "cv": -1.25,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -9368,7 +9366,7 @@
           "pe": "446.4",
           "cap": "644.2亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 0.35,
@@ -9390,7 +9388,7 @@
             "PB 12.1856"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -9544,7 +9542,7 @@
           "pe": "84.9",
           "cap": "3336.6亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 6.68,
@@ -9566,7 +9564,7 @@
             "PB 20.8743"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -9708,7 +9706,7 @@
           "pe": "150.1",
           "cap": "554.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 5.08,
@@ -9730,7 +9728,7 @@
             "PB 19.7185"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -9740,7 +9738,7 @@
           "cv": -4.41,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -9860,7 +9858,7 @@
           "pe": "25.6",
           "cap": "287.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -9870,7 +9868,7 @@
           "cv": -1.91,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -9989,7 +9987,7 @@
           "pe": "84.5",
           "cap": "209.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 1.84,
@@ -10011,7 +10009,7 @@
             "PB 7.8938"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -10021,7 +10019,7 @@
           "cv": -4.12,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -10140,7 +10138,7 @@
           "pe": "-",
           "cap": "195.9亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 0.71,
@@ -10162,7 +10160,7 @@
             "PB 3.4739"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -10172,7 +10170,7 @@
           "cv": -2.17,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -10291,7 +10289,7 @@
           "pe": "561.6",
           "cap": "922.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 1.95,
@@ -10313,7 +10311,7 @@
             "PB 16.7669"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -10323,7 +10321,7 @@
           "cv": 1.38,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -10461,7 +10459,7 @@
           "pe": "163.9",
           "cap": "3560.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 8.57,
@@ -10483,7 +10481,7 @@
             "PB 65.1349"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -10625,7 +10623,7 @@
           "pe": "88.0",
           "cap": "13155.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 17.54,
@@ -10647,7 +10645,7 @@
             "PB 37.9881"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -10788,7 +10786,7 @@
           "pe": "69.4",
           "cap": "7449.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 14.52,
@@ -10810,7 +10808,7 @@
             "PB 38.3722"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -10859,7 +10857,7 @@
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
         "is_leader": true,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
@@ -10910,11 +10908,12 @@
         "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
-          "score": 95,
+          "score": 80,
           "role": "上游材料设备",
           "reasons": [
             "卖水人/上游供给环节",
             "环节龙头",
+            "共识拥挤",
             "底层材料/设备（最上游卡点）"
           ],
           "valuation_required": true,
@@ -10939,7 +10938,7 @@
           "pe": "461.8",
           "cap": "1644.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 7.38,
@@ -10961,7 +10960,7 @@
             "PB 66.7124"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -10971,18 +10970,18 @@
           "cv": -3.87,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
-          "score": 69,
-          "rankScore": 195.9,
+          "score": 63.6,
+          "rankScore": 180.4,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 89.0,
+          "valueScore": 74.0,
           "timingScore": 48.0,
           "valuationState": "expensive",
           "qualityState": "高质量成长",
@@ -11018,7 +11017,7 @@
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
@@ -11068,11 +11067,12 @@
         ],
         "quantSnapshot": null,
         "selectionProfile": {
-          "label": "价值优先候选",
-          "score": 80,
+          "label": "结构候选",
+          "score": 65,
           "role": "上游材料设备",
           "reasons": [
             "卖水人/上游供给环节",
+            "共识拥挤",
             "底层材料/设备（最上游卡点）"
           ],
           "valuation_required": true,
@@ -11097,7 +11097,7 @@
           "pe": "179.3",
           "cap": "708.7亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 7.24,
@@ -11119,7 +11119,7 @@
             "PB 46.5349"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "急跌防守",
@@ -11129,18 +11129,18 @@
           "cv": -5.23,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "行情风险，暂缓",
-          "score": 58.2,
-          "rankScore": 74.8,
+          "score": 49.2,
+          "rankScore": 58.9,
           "actionHint": "暂缓",
           "actionability": "defensive",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 69.0,
+          "valueScore": 54.0,
           "timingScore": 42.0,
           "valuationState": "expensive",
           "qualityState": "质量良好",
@@ -11158,9 +11158,9 @@
             ]
           },
           "reasons": [
-            "价值优先候选",
+            "结构候选",
             "卖水人/上游供给环节",
-            "底层材料/设备（最上游卡点）",
+            "共识拥挤",
             "PE 179.3 显著偏高",
             "质量良好"
           ]
@@ -11176,7 +11176,7 @@
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
@@ -11226,11 +11226,12 @@
         ],
         "quantSnapshot": null,
         "selectionProfile": {
-          "label": "价值优先候选",
-          "score": 80,
+          "label": "结构候选",
+          "score": 65,
           "role": "上游材料设备",
           "reasons": [
             "卖水人/上游供给环节",
+            "共识拥挤",
             "底层材料/设备（最上游卡点）"
           ],
           "valuation_required": true,
@@ -11255,7 +11256,7 @@
           "pe": "1925.7",
           "cap": "649.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 0.15,
@@ -11277,7 +11278,7 @@
             "PB 21.5611"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "急跌防守",
@@ -11287,18 +11288,18 @@
           "cv": -5.46,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "行情风险，暂缓",
-          "score": 58.2,
-          "rankScore": 74.8,
+          "score": 49.2,
+          "rankScore": 58.9,
           "actionHint": "暂缓",
           "actionability": "defensive",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 69.0,
+          "valueScore": 54.0,
           "timingScore": 42.0,
           "valuationState": "expensive",
           "qualityState": "质量良好",
@@ -11316,9 +11317,9 @@
             ]
           },
           "reasons": [
-            "价值优先候选",
+            "结构候选",
             "卖水人/上游供给环节",
-            "底层材料/设备（最上游卡点）",
+            "共识拥挤",
             "PE 1925.7 显著偏高",
             "质量良好"
           ]
@@ -11334,7 +11335,7 @@
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
         "is_leader": false,
-        "consensus_state": "unknown",
+        "consensus_state": "crowded",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
         "held": false,
@@ -11384,11 +11385,12 @@
         ],
         "quantSnapshot": null,
         "selectionProfile": {
-          "label": "价值优先候选",
-          "score": 80,
+          "label": "结构候选",
+          "score": 65,
           "role": "上游材料设备",
           "reasons": [
             "卖水人/上游供给环节",
+            "共识拥挤",
             "底层材料/设备（最上游卡点）"
           ],
           "valuation_required": true,
@@ -11413,7 +11415,7 @@
           "pe": "177.2",
           "cap": "1835.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 2.35,
@@ -11435,7 +11437,7 @@
             "PB 17.754"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "短线偏强",
@@ -11445,18 +11447,18 @@
           "cv": 3.18,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
-          "score": 59.8,
-          "rankScore": 171.0,
+          "score": 50.8,
+          "rankScore": 155.1,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 65.0,
+          "valueScore": 50.0,
           "timingScore": 52.0,
           "valuationState": "expensive",
           "qualityState": "质量待确认",
@@ -11474,9 +11476,9 @@
             ]
           },
           "reasons": [
-            "价值优先候选",
+            "结构候选",
             "卖水人/上游供给环节",
-            "底层材料/设备（最上游卡点）",
+            "共识拥挤",
             "PE 177.2 显著偏高",
             "质量待确认"
           ]
@@ -11584,7 +11586,7 @@
           "pe": "316.0",
           "cap": "3656.6亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 3.53,
@@ -11606,7 +11608,7 @@
             "PB 25.693"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -11747,7 +11749,7 @@
           "pe": "73.4",
           "cap": "2370.7亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 3.44,
@@ -11769,7 +11771,7 @@
             "PB 7.315"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -11897,7 +11899,7 @@
           "pe": "49.2",
           "cap": "1572.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 2.43,
@@ -11919,7 +11921,7 @@
             "PB 4.1364"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -11929,7 +11931,7 @@
           "cv": 0.02,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "成长观察，估值已计价",
@@ -12067,7 +12069,7 @@
           "pe": "79.5",
           "cap": "275.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -12189,7 +12191,7 @@
           "pe": "-",
           "cap": "1078.4亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -12199,7 +12201,7 @@
           "cv": -4.34,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -12298,7 +12300,7 @@
           "pe": "70.4",
           "cap": "822.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 9.28,
@@ -12320,7 +12322,7 @@
             "PB 11.4078"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -12330,7 +12332,7 @@
           "cv": -4.7,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -12440,7 +12442,7 @@
           "pe": "69.9",
           "cap": "2540.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 4.83,
@@ -12462,7 +12464,7 @@
             "PB 15.44"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -12574,7 +12576,7 @@
           "pe": "61.7",
           "cap": "702.5亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -12674,7 +12676,7 @@
           "pe": "88.5",
           "cap": "473.2亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 12.93,
@@ -12696,7 +12698,7 @@
             "PB 21.079"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "急跌防守",
@@ -12706,7 +12708,7 @@
           "cv": -10.0,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "行情风险，暂缓",
@@ -12818,7 +12820,7 @@
           "pe": "59.6",
           "cap": "2563.6亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 7.81,
@@ -12840,7 +12842,7 @@
             "PB 16.1972"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "成长观察，等待回撤",
@@ -12953,7 +12955,7 @@
           "pe": "71.2",
           "cap": "3330.7亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 7.62,
@@ -12975,7 +12977,7 @@
             "PB 21.2633"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -13088,7 +13090,7 @@
           "pe": "198.8",
           "cap": "4055.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 5.05,
@@ -13110,7 +13112,7 @@
             "PB 17.9142"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -13211,7 +13213,7 @@
           "pe": "53.6",
           "cap": "1052.7亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 2.51,
@@ -13233,7 +13235,7 @@
             "PB 5.338"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -13243,7 +13245,7 @@
           "cv": -1.68,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "成长观察，估值已计价",
@@ -13341,7 +13343,7 @@
           "pe": "569.8",
           "cap": "1773.5亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 8.15,
@@ -13363,7 +13365,7 @@
             "PB 65.4423"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -13373,7 +13375,7 @@
           "cv": 0.54,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -13473,7 +13475,7 @@
           "pe": "38.7",
           "cap": "1479.6亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 4.0,
@@ -13495,7 +13497,7 @@
             "PB 4.6921"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -13505,7 +13507,7 @@
           "cv": -3.72,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "成长观察，估值已计价",
@@ -13604,7 +13606,7 @@
           "pe": "130.1",
           "cap": "626.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 3.06,
@@ -13626,7 +13628,7 @@
             "PB 13.1099"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -13636,7 +13638,7 @@
           "cv": -2.33,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -13735,7 +13737,7 @@
           "pe": "150.7",
           "cap": "573.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 3.06,
@@ -13757,7 +13759,7 @@
             "PB 9.4184"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -13767,7 +13769,7 @@
           "cv": -4.77,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -13865,7 +13867,7 @@
           "pe": "45.6",
           "cap": "446.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -13875,7 +13877,7 @@
           "cv": -3.12,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -13981,7 +13983,7 @@
           "pe": "-",
           "cap": "416.1亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "急跌防守",
@@ -13991,7 +13993,7 @@
           "cv": -5.34,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "行情风险，暂缓",
@@ -14097,7 +14099,7 @@
           "pe": "97.5",
           "cap": "884.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 1.43,
@@ -14119,7 +14121,7 @@
             "PB 3.8203"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "急跌防守",
@@ -14129,7 +14131,7 @@
           "cv": -8.28,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "行情风险，暂缓",
@@ -14234,7 +14236,7 @@
           "pe": "123.1",
           "cap": "565.0亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 1.73,
@@ -14256,7 +14258,7 @@
             "PB 4.6319"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -14266,7 +14268,7 @@
           "cv": -3.88,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -14364,7 +14366,7 @@
           "pe": "224.4",
           "cap": "408.2亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -14374,7 +14376,7 @@
           "cv": -2.76,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -14472,7 +14474,7 @@
           "pe": "227.8",
           "cap": "298.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 1.0,
@@ -14494,7 +14496,7 @@
             "PB 11.9323"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -14504,7 +14506,7 @@
           "cv": -1.38,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -14604,7 +14606,7 @@
           "pe": "556.2",
           "cap": "852.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 1.43,
@@ -14626,7 +14628,7 @@
             "PB 9.4988"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -14636,7 +14638,7 @@
           "cv": -4.94,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -14734,7 +14736,7 @@
           "pe": "87.2",
           "cap": "377.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 2.88,
@@ -14756,7 +14758,7 @@
             "PB 12.2822"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "强势但等回撤",
@@ -14766,7 +14768,7 @@
           "cv": 5.1,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -14864,7 +14866,7 @@
           "pe": "46.4",
           "cap": "448.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "强势但等回撤",
@@ -14874,7 +14876,7 @@
           "cv": 10.01,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -14972,7 +14974,7 @@
           "pe": "111.8",
           "cap": "765.5亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 2.55,
@@ -14994,7 +14996,7 @@
             "PB 12.333"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "急跌防守",
@@ -15004,7 +15006,7 @@
           "cv": -6.59,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "行情风险，暂缓",
@@ -15120,7 +15122,7 @@
           "pe": "191.1",
           "cap": "364.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -15227,7 +15229,7 @@
           "pe": "174.0",
           "cap": "839.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -15237,7 +15239,7 @@
           "cv": -4.8,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -15354,7 +15356,7 @@
           "pe": "367.2",
           "cap": "112.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -15461,7 +15463,7 @@
           "pe": "61.8",
           "cap": "237.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 1.89,
@@ -15483,7 +15485,7 @@
             "PB 5.7678"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -15493,7 +15495,7 @@
           "cv": -3.48,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -15598,7 +15600,7 @@
           "pe": "49.7",
           "cap": "169.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 2.95,
@@ -15620,7 +15622,7 @@
             "PB 8.4489"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -15630,7 +15632,7 @@
           "cv": 1.03,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "成长观察，估值已计价",
@@ -15735,7 +15737,7 @@
           "pe": "323.2",
           "cap": "364.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -15745,7 +15747,7 @@
           "cv": -0.52,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -15850,7 +15852,7 @@
           "pe": "249.2",
           "cap": "172.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 2.45,
@@ -15872,7 +15874,7 @@
             "PB 15.9014"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -15882,7 +15884,7 @@
           "cv": 1.3,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -15987,7 +15989,7 @@
           "pe": "52.1",
           "cap": "1102.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -15997,7 +15999,7 @@
           "cv": 0.6,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -16103,7 +16105,7 @@
           "pe": "25.5",
           "cap": "1060.2亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 5.58,
@@ -16125,7 +16127,7 @@
             "PB 5.1497"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "短线偏强",
@@ -16135,7 +16137,7 @@
           "cv": 2.69,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "价值观察，等六维确认",
@@ -16240,7 +16242,7 @@
           "pe": "42.5",
           "cap": "572.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 4.37,
@@ -16262,7 +16264,7 @@
             "PB 5.3874"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -16272,7 +16274,7 @@
           "cv": -2.96,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "成长观察，估值已计价",
@@ -16377,7 +16379,7 @@
           "pe": "41.7",
           "cap": "800.0亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -16387,7 +16389,7 @@
           "cv": -3.67,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -16503,7 +16505,7 @@
           "pe": "43.5",
           "cap": "807.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 31.53,
@@ -16525,7 +16527,7 @@
             "PB 16.3595"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -16643,7 +16645,7 @@
           "pe": "50.1",
           "cap": "600.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 1.83,
@@ -16665,7 +16667,7 @@
             "PB 4.6128"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -16784,7 +16786,7 @@
           "pe": "119.0",
           "cap": "3421.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 6.12,
@@ -16806,7 +16808,7 @@
             "PB 13.8249"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -16927,7 +16929,7 @@
           "pe": "114.4",
           "cap": "2925.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 5.39,
@@ -16949,7 +16951,7 @@
             "PB 14.0356"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -17057,7 +17059,7 @@
           "pe": "533.1",
           "cap": "163.0亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 0.62,
@@ -17079,7 +17081,7 @@
             "PB 7.6019"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -17089,7 +17091,7 @@
           "cv": -3.32,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -17194,7 +17196,7 @@
           "pe": "126.0",
           "cap": "379.6亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 4.11,
@@ -17216,7 +17218,7 @@
             "PB 22.9226"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "急跌防守",
@@ -17226,7 +17228,7 @@
           "cv": -6.87,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "行情风险，暂缓",
@@ -17331,7 +17333,7 @@
           "pe": "79.7",
           "cap": "661.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 4.71,
@@ -17353,7 +17355,7 @@
             "PB 12.1073"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -17363,7 +17365,7 @@
           "cv": -4.96,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -17461,7 +17463,7 @@
           "pe": "21.1",
           "cap": "1299.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 2.55,
@@ -17483,7 +17485,7 @@
             "PB 1.8054"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -17493,7 +17495,7 @@
           "cv": 0.23,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，质量待确认",
@@ -17591,7 +17593,7 @@
           "pe": "58.3",
           "cap": "770.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 1.5,
@@ -17613,7 +17615,7 @@
             "PB 3.299"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -17623,7 +17625,7 @@
           "cv": -3.72,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "成长观察，估值已计价",
@@ -17721,7 +17723,7 @@
           "pe": "22.2",
           "cap": "261.2亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -17731,7 +17733,7 @@
           "cv": -1.84,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -17829,7 +17831,7 @@
           "pe": "22.6",
           "cap": "1883.5亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 1.36,
@@ -17851,7 +17853,7 @@
             "PB 3.5209"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -17861,7 +17863,7 @@
           "cv": -1.47,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，质量待确认",
@@ -17959,7 +17961,7 @@
           "pe": "26.7",
           "cap": "1137.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 3.44,
@@ -17981,7 +17983,7 @@
             "PB 2.4254"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -17991,7 +17993,7 @@
           "cv": -2.81,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "价值观察，等六维确认",
@@ -18089,7 +18091,7 @@
           "pe": "12.3",
           "cap": "1250.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -18099,7 +18101,7 @@
           "cv": 0.35,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -18197,7 +18199,7 @@
           "pe": "-",
           "cap": "219.3亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -18207,7 +18209,7 @@
           "cv": 0.0,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -18305,7 +18307,7 @@
           "pe": "26.7",
           "cap": "3187.6亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "急跌防守",
@@ -18315,7 +18317,7 @@
           "cv": -6.45,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "行情风险，暂缓",
@@ -18413,7 +18415,7 @@
           "pe": "23.6",
           "cap": "18645.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 5.98,
@@ -18435,7 +18437,7 @@
             "PB 5.7051"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -18445,7 +18447,7 @@
           "cv": -1.27,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "价值观察，等六维确认",
@@ -18543,7 +18545,7 @@
           "pe": "165.0",
           "cap": "621.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "fundamentalSnapshot": {
           "roe": 1.02,
@@ -18565,7 +18567,7 @@
             "PB 2.4307"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -18575,7 +18577,7 @@
           "cv": -1.65,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -18673,7 +18675,7 @@
           "pe": "1101.7",
           "cap": "208.6亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -18683,7 +18685,7 @@
           "cv": -0.51,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -18781,7 +18783,7 @@
           "pe": "34.2",
           "cap": "212.2亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -18791,7 +18793,7 @@
           "cv": -3.01,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -18889,7 +18891,7 @@
           "pe": "91.2",
           "cap": "111.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -18899,7 +18901,7 @@
           "cv": -0.41,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -18981,7 +18983,7 @@
           "pe": "30.8",
           "cap": "8479.9亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -18991,7 +18993,7 @@
           "cv": -0.46,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -19036,7 +19038,7 @@
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
+        "is_leader": true,
         "consensus_state": "unknown",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
@@ -19044,11 +19046,12 @@
         "us_anchors": [],
         "quantSnapshot": null,
         "selectionProfile": {
-          "label": "结构候选",
-          "score": 77,
+          "label": "价值优先候选",
+          "score": 92,
           "role": "关键器件材料",
           "reasons": [
             "卖水人/上游供给环节",
+            "环节龙头",
             "关键器件/材料（潜在卡点）"
           ],
           "valuation_required": true,
@@ -19073,7 +19076,7 @@
           "pe": "34.6",
           "cap": "991.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -19083,18 +19086,18 @@
           "cv": -1.58,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
-          "score": 69.2,
-          "rankScore": 1188.9,
+          "score": 74,
+          "rankScore": 1204.4,
           "actionHint": "先核实基本面",
           "actionability": "needs_fundamental_check",
           "valueRank": 1,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 82.0,
+          "valueScore": 97.0,
           "timingScore": 50.0,
           "valuationState": "reasonable",
           "qualityState": "基本面未核实",
@@ -19112,9 +19115,9 @@
             ]
           },
           "reasons": [
-            "结构候选",
+            "价值优先候选",
             "卖水人/上游供给环节",
-            "关键器件/材料（潜在卡点）",
+            "环节龙头",
             "PE 34.6 相对可接受",
             "行情待确认 / 行情择时分 50"
           ]
@@ -19129,7 +19132,7 @@
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
+        "is_leader": true,
         "consensus_state": "unknown",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
@@ -19137,11 +19140,12 @@
         "us_anchors": [],
         "quantSnapshot": null,
         "selectionProfile": {
-          "label": "结构候选",
-          "score": 77,
+          "label": "价值优先候选",
+          "score": 92,
           "role": "关键器件材料",
           "reasons": [
             "卖水人/上游供给环节",
+            "环节龙头",
             "关键器件/材料（潜在卡点）"
           ],
           "valuation_required": true,
@@ -19166,7 +19170,7 @@
           "pe": "26.0",
           "cap": "478.5亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -19176,18 +19180,18 @@
           "cv": 0.46,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
-          "score": 69.2,
-          "rankScore": 1188.9,
+          "score": 74,
+          "rankScore": 1204.4,
           "actionHint": "先核实基本面",
           "actionability": "needs_fundamental_check",
           "valueRank": 1,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 82.0,
+          "valueScore": 97.0,
           "timingScore": 50.0,
           "valuationState": "reasonable",
           "qualityState": "基本面未核实",
@@ -19205,9 +19209,9 @@
             ]
           },
           "reasons": [
-            "结构候选",
+            "价值优先候选",
             "卖水人/上游供给环节",
-            "关键器件/材料（潜在卡点）",
+            "环节龙头",
             "PE 26 相对可接受",
             "行情待确认 / 行情择时分 50"
           ]
@@ -19222,7 +19226,7 @@
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
+        "is_leader": true,
         "consensus_state": "unknown",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
@@ -19230,11 +19234,12 @@
         "us_anchors": [],
         "quantSnapshot": null,
         "selectionProfile": {
-          "label": "结构候选",
-          "score": 77,
+          "label": "价值优先候选",
+          "score": 92,
           "role": "关键器件材料",
           "reasons": [
             "卖水人/上游供给环节",
+            "环节龙头",
             "关键器件/材料（潜在卡点）"
           ],
           "valuation_required": true,
@@ -19259,7 +19264,7 @@
           "pe": "66.1",
           "cap": "449.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -19269,18 +19274,18 @@
           "cv": -3.09,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "估值偏贵，等待回撤",
-          "score": 57.6,
-          "rankScore": 169.8,
-          "actionHint": "等六维确认",
-          "actionability": "watch_only",
-          "valueRank": 0,
+          "label": "结构候选，先核实基本面",
+          "score": 66.6,
+          "rankScore": 1185.7,
+          "actionHint": "先核实基本面",
+          "actionability": "needs_fundamental_check",
+          "valueRank": 1,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 64.0,
+          "valueScore": 79.0,
           "timingScore": 48.0,
           "valuationState": "pricey",
           "qualityState": "基本面未核实",
@@ -19298,9 +19303,9 @@
             ]
           },
           "reasons": [
-            "结构候选",
+            "价值优先候选",
             "卖水人/上游供给环节",
-            "关键器件/材料（潜在卡点）",
+            "环节龙头",
             "PE 66.1 偏高",
             "回撤观察 / 行情择时分 48"
           ]
@@ -19352,7 +19357,7 @@
           "pe": "-",
           "cap": "42.6亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -19362,7 +19367,7 @@
           "cv": -1.27,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -19444,7 +19449,7 @@
           "pe": "-",
           "cap": "114.8亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -19454,7 +19459,7 @@
           "cv": 0.05,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -19535,7 +19540,7 @@
           "pe": "-",
           "cap": "60.5亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -19545,7 +19550,7 @@
           "cv": 0.03,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -19626,7 +19631,7 @@
           "pe": "340.0",
           "cap": "1351.8亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "强势但等回撤",
@@ -19636,7 +19641,7 @@
           "cv": 6.35,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -19717,7 +19722,7 @@
           "pe": "5917.4",
           "cap": "1004.5亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "强势但等回撤",
@@ -19727,7 +19732,7 @@
           "cv": 5.82,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -19772,7 +19777,7 @@
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
+        "is_leader": true,
         "consensus_state": "unknown",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
@@ -19780,11 +19785,12 @@
         "us_anchors": [],
         "quantSnapshot": null,
         "selectionProfile": {
-          "label": "结构候选",
-          "score": 77,
+          "label": "价值优先候选",
+          "score": 92,
           "role": "关键器件材料",
           "reasons": [
             "卖水人/上游供给环节",
+            "环节龙头",
             "关键器件/材料（潜在卡点）"
           ],
           "valuation_required": true,
@@ -19809,7 +19815,7 @@
           "pe": "124.1",
           "cap": "559.7亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "短线偏强",
@@ -19819,18 +19825,18 @@
           "cv": 4.07,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
-          "score": 53.2,
-          "rankScore": 159.3,
+          "score": 62.2,
+          "rankScore": 175.2,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 54.0,
+          "valueScore": 69.0,
           "timingScore": 52.0,
           "valuationState": "expensive",
           "qualityState": "基本面未核实",
@@ -19848,9 +19854,9 @@
             ]
           },
           "reasons": [
-            "结构候选",
+            "价值优先候选",
             "卖水人/上游供给环节",
-            "关键器件/材料（潜在卡点）",
+            "环节龙头",
             "PE 124.1 显著偏高",
             "短线偏强 / 行情择时分 52"
           ]
@@ -19902,7 +19908,7 @@
           "pe": "162.6",
           "cap": "244.0亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "强势但等回撤",
@@ -19912,7 +19918,7 @@
           "cv": 6.84,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -19995,7 +20001,7 @@
           "pe": "214.8",
           "cap": "283.6亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -20005,7 +20011,7 @@
           "cv": 0.6,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -20088,7 +20094,7 @@
           "pe": "-",
           "cap": "48.0亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -20098,7 +20104,7 @@
           "cv": 1.61,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -20181,7 +20187,7 @@
           "pe": "614.5",
           "cap": "96.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -20191,7 +20197,7 @@
           "cv": 1.31,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -20274,7 +20280,7 @@
           "pe": "156.5",
           "cap": "295.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -20284,7 +20290,7 @@
           "cv": -4.58,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -20367,7 +20373,7 @@
           "pe": "-",
           "cap": "34.7亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -20377,7 +20383,7 @@
           "cv": -1.63,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -20460,7 +20466,7 @@
           "pe": "142.7",
           "cap": "142.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -20470,7 +20476,7 @@
           "cv": 0.62,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -20553,7 +20559,7 @@
           "pe": "394.7",
           "cap": "317.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "短线偏强",
@@ -20563,7 +20569,7 @@
           "cv": 3.98,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -20646,7 +20652,7 @@
           "pe": "179.4",
           "cap": "1129.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -20656,7 +20662,7 @@
           "cv": -0.89,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -20739,7 +20745,7 @@
           "pe": "39.4",
           "cap": "149.0亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -20749,7 +20755,7 @@
           "cv": 0.71,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -20832,7 +20838,7 @@
           "pe": "311.0",
           "cap": "710.7亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "强势但等回撤",
@@ -20842,7 +20848,7 @@
           "cv": 9.28,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -20925,7 +20931,7 @@
           "pe": "42.8",
           "cap": "243.7亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -20935,7 +20941,7 @@
           "cv": 0.38,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -21018,7 +21024,7 @@
           "pe": "60.6",
           "cap": "117.1亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -21028,7 +21034,7 @@
           "cv": -1.64,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -21111,7 +21117,7 @@
           "pe": "117.3",
           "cap": "186.4亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -21121,7 +21127,7 @@
           "cv": 0.16,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -21203,7 +21209,7 @@
           "pe": "-",
           "cap": "395.1亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "强势但等回撤",
@@ -21213,7 +21219,7 @@
           "cv": 6.77,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -21295,7 +21301,7 @@
           "pe": "-",
           "cap": "126.3亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "短线偏强",
@@ -21305,7 +21311,7 @@
           "cv": 3.53,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -21388,7 +21394,7 @@
           "pe": "-",
           "cap": "232.0亿",
           "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "强势但等回撤",
@@ -21398,7 +21404,7 @@
           "cv": 5.94,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -21481,7 +21487,7 @@
           "pe": "184.6",
           "cap": "292.3亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "短线偏强",
@@ -21491,7 +21497,7 @@
           "cv": 3.87,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -21574,7 +21580,7 @@
           "pe": "114.6",
           "cap": "269.9亿",
           "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -21584,7 +21590,7 @@
           "cv": 0.46,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -21664,10 +21670,10 @@
           "p": "25.86",
           "c": "+3.36%",
           "cv": 3.36,
-          "pe": "-",
-          "cap": "165.0亿",
-          "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "-185.58",
+          "cap": "165.04亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "短线偏强",
@@ -21677,20 +21683,20 @@
           "cv": 3.36,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
-          "score": 64.0,
-          "rankScore": 178.4,
+          "score": 55,
+          "rankScore": 165.5,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 72.0,
+          "valueScore": 60.0,
           "timingScore": 52.0,
-          "valuationState": "missing",
+          "valuationState": "loss_or_invalid",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -21709,7 +21715,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "估值未核实",
+            "PE -185.58 为负/不适用，盈利质量需核实",
             "短线偏强 / 行情择时分 52"
           ]
         }
@@ -21757,10 +21763,10 @@
           "p": "104.16",
           "c": "+2.71%",
           "cv": 2.71,
-          "pe": "1349.3",
-          "cap": "195.8亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "343.99",
+          "cap": "195.78亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "短线偏强",
@@ -21770,7 +21776,7 @@
           "cv": 2.71,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -21802,7 +21808,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 1349.3 显著偏高",
+            "PE 343.99 显著偏高",
             "短线偏强 / 行情择时分 52"
           ]
         }
@@ -21850,10 +21856,10 @@
           "p": "47.55",
           "c": "+3.5%",
           "cv": 3.5,
-          "pe": "73.0",
-          "cap": "191.0亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "1870.38",
+          "cap": "191.03亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "短线偏强",
@@ -21863,20 +21869,20 @@
           "cv": 3.5,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
-          "score": 59.2,
-          "rankScore": 169.9,
+          "score": 53.2,
+          "rankScore": 159.3,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 64.0,
+          "valueScore": 54.0,
           "timingScore": 52.0,
-          "valuationState": "pricey",
+          "valuationState": "expensive",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -21895,103 +21901,8 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 73 偏高",
+            "PE 1870.38 显著偏高",
             "短线偏强 / 行情择时分 52"
-          ]
-        }
-      },
-      "300607": {
-        "code": "300607",
-        "name": "拓斯达",
-        "chain": "physical_ai",
-        "chain_label": "物理AI",
-        "segment": "整机集成",
-        "tier": 0,
-        "cakeLayer": "L5",
-        "cakeLayerName": "L5 应用层",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "整机集成（下游需求侧）",
-        "water_seller": false,
-        "held": false,
-        "us_anchors": [],
-        "quantSnapshot": {
-          "label": "等待确认",
-          "signal": "neutral",
-          "note": "六维总分 60.4；动量 61.1；资金 63.0；RSI 37.5",
-          "score": 60.4,
-          "momentum": 61.1,
-          "flow": 63.0,
-          "rsi": 37.5,
-          "available_factors": 3,
-          "confidence": "中",
-          "source": "factor_scores",
-          "ts": "2026-06-04T16:56:40.923074"
-        },
-        "selectionProfile": {
-          "label": "观察",
-          "score": 45,
-          "role": "终端整机需求",
-          "reasons": [
-            "整机集成（下游需求侧）"
-          ],
-          "valuation_required": true,
-          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
-        },
-        "timingProfile": {
-          "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote / factor_scores",
-          "rules": [
-            "buy=可等买点",
-            "risk=规避/减仓",
-            "neutral=等待确认",
-            "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察",
-            "RSI过热=强势但等回撤"
-          ]
-        },
-        "marketSnapshot": {
-          "p": "32.59",
-          "c": "+4.69%",
-          "cv": 4.69,
-          "pe": "131.6",
-          "cap": "155.4亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
-        },
-        "decisionProfile": {
-          "label": "估值偏贵，等待回撤",
-          "score": 37.4,
-          "rankScore": 125.7,
-          "actionHint": "等回撤",
-          "actionability": "watch_only",
-          "valueRank": 0,
-          "timingSource": "six_factor",
-          "timingConfidence": "中",
-          "valueScore": 22.0,
-          "timingScore": 60.4,
-          "valuationState": "expensive",
-          "qualityState": "基本面未核实",
-          "timingState": "wait_confirm",
-          "timingPlan": {
-            "stance": "等待量化确认",
-            "entry": "等待六维评分>=70且动量>=70",
-            "invalid": "出现 risk 信号或结构逻辑证伪",
-            "riskControl": "没有量化确认前不加仓",
-            "takeProfit": "暂无有效进攻计划",
-            "positionHint": "观察仓或空仓",
-            "basis": [
-              "六维 60.4",
-              "动量 61.1",
-              "资金 63",
-              "RSI 37.5"
-            ]
-          },
-          "reasons": [
-            "观察",
-            "整机集成（下游需求侧）",
-            "PE 131.6 显著偏高",
-            "等待确认 / 量化分 60.4"
           ]
         }
       },
@@ -22049,10 +21960,10 @@
           "p": "63.17",
           "c": "+3.2%",
           "cv": 3.2,
-          "pe": "63.4",
-          "cap": "291.7亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "71.22",
+          "cap": "291.67亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -22085,7 +21996,7 @@
           "reasons": [
             "观察",
             "核心部件（议价中枢）",
-            "PE 63.4 偏高",
+            "PE 71.22 偏高",
             "规避/减仓 / 量化分 38.4"
           ]
         }
@@ -22144,23 +22055,23 @@
           "p": "37.41",
           "c": "+0.94%",
           "cv": 0.94,
-          "pe": "57.1",
-          "cap": "150.1亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "69.37",
+          "cap": "150.08亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "候选观察",
-          "score": 49.6,
-          "rankScore": 151.0,
+          "score": 44.8,
+          "rankScore": 142.5,
           "actionHint": "继续观察",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "six_factor",
           "timingConfidence": "低",
-          "valueScore": 46.0,
+          "valueScore": 38.0,
           "timingScore": 55.0,
-          "valuationState": "neutral_or_growth_priced",
+          "valuationState": "pricey",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -22177,7 +22088,7 @@
           "reasons": [
             "观察",
             "核心部件（议价中枢）",
-            "PE 57.1 已计入成长预期",
+            "PE 69.37 偏高",
             "等待确认 / 量化分 55"
           ]
         }
@@ -22225,10 +22136,10 @@
           "p": "139.36",
           "c": "-7.35%",
           "cv": -7.35,
-          "pe": "108.2",
-          "cap": "672.5亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "52.70",
+          "cap": "672.47亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "急跌防守",
@@ -22238,20 +22149,20 @@
           "cv": -7.35,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "行情风险，暂缓",
-          "score": 49.2,
-          "rankScore": 58.9,
+          "score": 60.0,
+          "rankScore": 78.0,
           "actionHint": "暂缓",
           "actionability": "defensive",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 54.0,
+          "valueScore": 72.0,
           "timingScore": 42.0,
-          "valuationState": "expensive",
+          "valuationState": "neutral_or_growth_priced",
           "qualityState": "基本面未核实",
           "timingState": "risk",
           "timingPlan": {
@@ -22270,7 +22181,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 108.2 显著偏高",
+            "PE 52.7 已计入成长预期",
             "急跌防守 / 行情择时分 42"
           ]
         }
@@ -22315,13 +22226,13 @@
           ]
         },
         "marketSnapshot": {
-          "p": "225.2",
+          "p": "225.20",
           "c": "-7.36%",
           "cv": -7.36,
-          "pe": "-",
-          "cap": "1184.4亿",
-          "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "-86.87",
+          "cap": "1184.36亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "急跌防守",
@@ -22331,20 +22242,20 @@
           "cv": -7.36,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "行情风险，暂缓",
-          "score": 60.0,
-          "rankScore": 78.0,
+          "score": 52.8,
+          "rankScore": 65.3,
           "actionHint": "暂缓",
           "actionability": "defensive",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 72.0,
+          "valueScore": 60.0,
           "timingScore": 42.0,
-          "valuationState": "missing",
+          "valuationState": "loss_or_invalid",
           "qualityState": "基本面未核实",
           "timingState": "risk",
           "timingPlan": {
@@ -22363,7 +22274,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "估值未核实",
+            "PE -86.87 为负/不适用，盈利质量需核实",
             "急跌防守 / 行情择时分 42"
           ]
         }
@@ -22377,7 +22288,7 @@
         "tier": 3,
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
-        "is_leader": false,
+        "is_leader": true,
         "consensus_state": "unknown",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
@@ -22386,10 +22297,11 @@
         "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
-          "score": 80,
+          "score": 95,
           "role": "上游材料设备",
           "reasons": [
             "卖水人/上游供给环节",
+            "环节龙头",
             "底层材料/设备（最上游卡点）"
           ],
           "valuation_required": true,
@@ -22411,10 +22323,10 @@
           "p": "113.18",
           "c": "-6.72%",
           "cv": -6.72,
-          "pe": "82.6",
-          "cap": "271.0亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "254.48",
+          "cap": "271.04亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "急跌防守",
@@ -22424,18 +22336,18 @@
           "cv": -6.72,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "行情风险，暂缓",
-          "score": 51.0,
-          "rankScore": 62.1,
+          "score": 60.0,
+          "rankScore": 78.0,
           "actionHint": "暂缓",
           "actionability": "defensive",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 57.0,
+          "valueScore": 72.0,
           "timingScore": 42.0,
           "valuationState": "expensive",
           "qualityState": "基本面未核实",
@@ -22455,8 +22367,8 @@
           "reasons": [
             "价值优先候选",
             "卖水人/上游供给环节",
-            "底层材料/设备（最上游卡点）",
-            "PE 82.6 显著偏高",
+            "环节龙头",
+            "PE 254.48 显著偏高",
             "急跌防守 / 行情择时分 42"
           ]
         }
@@ -22504,10 +22416,10 @@
           "p": "60.08",
           "c": "-5.8%",
           "cv": -5.8,
-          "pe": "65.7",
-          "cap": "249.5亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "65.98",
+          "cap": "249.53亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "急跌防守",
@@ -22517,7 +22429,7 @@
           "cv": -5.8,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "行情风险，暂缓",
@@ -22549,7 +22461,7 @@
             "价值优先候选",
             "卖水人/上游供给环节",
             "底层材料/设备（最上游卡点）",
-            "PE 65.7 偏高",
+            "PE 65.98 偏高",
             "急跌防守 / 行情择时分 42"
           ]
         }
@@ -22597,10 +22509,10 @@
           "p": "33.53",
           "c": "-2.73%",
           "cv": -2.73,
-          "pe": "421.8",
-          "cap": "71.5亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "1964.85",
+          "cap": "71.45亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -22610,7 +22522,7 @@
           "cv": -2.73,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -22642,7 +22554,7 @@
             "价值优先候选",
             "卖水人/上游供给环节",
             "底层材料/设备（最上游卡点）",
-            "PE 421.8 显著偏高",
+            "PE 1964.85 显著偏高",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -22703,10 +22615,10 @@
           "p": "75.08",
           "c": "+1.25%",
           "cv": 1.25,
-          "pe": "42.9",
-          "cap": "2032.9亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "50.15",
+          "cap": "2032.87亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，基本面待核实",
@@ -22740,7 +22652,7 @@
             "价值优先候选",
             "卖水人/上游供给环节",
             "环节龙头",
-            "PE 42.9 已计入成长预期",
+            "PE 50.15 已计入成长预期",
             "等待确认 / 量化分 54.7"
           ]
         }
@@ -22754,7 +22666,7 @@
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
+        "is_leader": true,
         "consensus_state": "unknown",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
@@ -22772,6 +22684,104 @@
           "confidence": "中",
           "source": "factor_scores",
           "ts": "2026-06-04T16:56:40.895338"
+        },
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 92,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote / factor_scores",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
+          ]
+        },
+        "marketSnapshot": {
+          "p": "31.02",
+          "c": "+5.19%",
+          "cv": 5.19,
+          "pe": "76.71",
+          "cap": "300.21亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 74,
+          "rankScore": 1186.4,
+          "actionHint": "等回撤",
+          "actionability": "needs_fundamental_check",
+          "valueRank": 1,
+          "timingSource": "six_factor",
+          "timingConfidence": "中",
+          "valueScore": 79.0,
+          "timingScore": 74.4,
+          "valuationState": "pricey",
+          "qualityState": "基本面未核实",
+          "timingState": "trend_watch",
+          "timingPlan": {
+            "stance": "趋势确认",
+            "entry": "突破 31.64 或回踩 30.40 企稳再评估",
+            "invalid": "跌破 29.16 或动量低于 45",
+            "riskControl": "以 29.16 为人工防守参考",
+            "takeProfit": "趋势延续至 34.12 附近分批兑现评估",
+            "positionHint": "等待确认，不提前重仓",
+            "basis": [
+              "六维 74.4",
+              "动量 96.7",
+              "资金 57.6",
+              "RSI 65.6"
+            ]
+          },
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 76.71 偏高",
+            "趋势观察 / 量化分 74.4"
+          ]
+        }
+      },
+      "002527": {
+        "code": "002527",
+        "name": "新时达",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "运动控制器",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 58.6；动量 60.4；资金 54.9；RSI 59.3",
+          "score": 58.6,
+          "momentum": 60.4,
+          "flow": 54.9,
+          "rsi": 59.3,
+          "available_factors": 2,
+          "confidence": "低",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.600502"
         },
         "selectionProfile": {
           "label": "结构候选",
@@ -22797,48 +22807,48 @@
           ]
         },
         "marketSnapshot": {
-          "p": "31.02",
-          "c": "+5.19%",
-          "cv": 5.19,
-          "pe": "230.6",
-          "cap": "300.2亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "p": "15.43",
+          "c": "+3.63%",
+          "cv": 3.63,
+          "pe": "-340.46",
+          "cap": "102.31亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "估值偏贵，等待回撤",
-          "score": 62.2,
-          "rankScore": 360.2,
-          "actionHint": "等回撤",
-          "actionability": "tracking_candidate",
+          "label": "候选观察",
+          "score": 55,
+          "rankScore": 165.5,
+          "actionHint": "继续观察",
+          "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "six_factor",
-          "timingConfidence": "中",
-          "valueScore": 54.0,
-          "timingScore": 74.4,
-          "valuationState": "expensive",
+          "timingConfidence": "低",
+          "valueScore": 60.0,
+          "timingScore": 58.6,
+          "valuationState": "loss_or_invalid",
           "qualityState": "基本面未核实",
-          "timingState": "trend_watch",
+          "timingState": "wait_confirm",
           "timingPlan": {
-            "stance": "趋势确认",
-            "entry": "突破 31.64 或回踩 30.40 企稳再评估",
-            "invalid": "跌破 29.16 或动量低于 45",
-            "riskControl": "以 29.16 为人工防守参考",
-            "takeProfit": "趋势延续至 34.12 附近分批兑现评估",
-            "positionHint": "等待确认，不提前重仓",
+            "stance": "等待量化确认",
+            "entry": "等待六维评分>=70且动量>=70",
+            "invalid": "出现 risk 信号或结构逻辑证伪",
+            "riskControl": "没有量化确认前不加仓",
+            "takeProfit": "暂无有效进攻计划",
+            "positionHint": "观察仓或空仓",
             "basis": [
-              "六维 74.4",
-              "动量 96.7",
-              "资金 57.6",
-              "RSI 65.6"
+              "六维 58.6",
+              "动量 60.4",
+              "资金 54.9",
+              "RSI 59.3"
             ]
           },
           "reasons": [
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 230.6 显著偏高",
-            "趋势观察 / 量化分 74.4"
+            "PE -340.46 为负/不适用，盈利质量需核实",
+            "等待确认 / 量化分 58.6"
           ]
         }
       },
@@ -22895,13 +22905,13 @@
           ]
         },
         "marketSnapshot": {
-          "p": "393.0",
+          "p": "393.00",
           "c": "+20.0%",
           "cv": 20.0,
-          "pe": "526.9",
-          "cap": "720.5亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "551.94",
+          "cap": "720.49亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -22935,8 +22945,202 @@
             "价值优先候选",
             "卖水人/上游供给环节",
             "环节龙头",
-            "PE 526.9 显著偏高",
+            "PE 551.94 显著偏高",
             "趋势观察 / 量化分 74.9"
+          ]
+        }
+      },
+      "002472": {
+        "code": "002472",
+        "name": "双环传动",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "谐波减速器",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 55.9；动量 56.4；资金 70.9；RSI 46.2",
+          "score": 55.9,
+          "momentum": 56.4,
+          "flow": 70.9,
+          "rsi": 46.2,
+          "available_factors": 2,
+          "confidence": "低",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.347505"
+        },
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote / factor_scores",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
+          ]
+        },
+        "marketSnapshot": {
+          "p": "42.86",
+          "c": "+3.55%",
+          "cv": 3.55,
+          "pe": "32.06",
+          "cap": "364.28亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
+        },
+        "decisionProfile": {
+          "label": "结构候选，基本面待核实",
+          "score": 71.6,
+          "rankScore": 1189.2,
+          "actionHint": "先核实基本面",
+          "actionability": "needs_fundamental_check",
+          "valueRank": 1,
+          "timingSource": "six_factor",
+          "timingConfidence": "低",
+          "valueScore": 82.0,
+          "timingScore": 55.9,
+          "valuationState": "reasonable",
+          "qualityState": "基本面未核实",
+          "timingState": "wait_confirm",
+          "timingPlan": {
+            "stance": "等待量化确认",
+            "entry": "等待六维评分>=70且动量>=70",
+            "invalid": "出现 risk 信号或结构逻辑证伪",
+            "riskControl": "没有量化确认前不加仓",
+            "takeProfit": "暂无有效进攻计划",
+            "positionHint": "观察仓或空仓",
+            "basis": [
+              "六维 55.9",
+              "动量 56.4",
+              "资金 70.9",
+              "RSI 46.2"
+            ]
+          },
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 32.06 相对可接受",
+            "等待确认 / 量化分 55.9"
+          ]
+        }
+      },
+      "002896": {
+        "code": "002896",
+        "name": "中大力德",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "谐波减速器",
+        "tier": 2,
+        "cakeLayer": "L3",
+        "cakeLayerName": "L3 通信基建",
+        "is_leader": false,
+        "consensus_state": "unknown",
+        "chokepoint": "关键器件/材料（潜在卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [],
+        "quantSnapshot": {
+          "label": "等待确认",
+          "signal": "neutral",
+          "note": "六维总分 60.0；动量 62.4；资金 52.1；RSI 48.0",
+          "score": 60.0,
+          "momentum": 62.4,
+          "flow": 52.1,
+          "rsi": 48.0,
+          "available_factors": 2,
+          "confidence": "低",
+          "source": "factor_scores",
+          "ts": "2026-06-04T16:56:41.755420"
+        },
+        "selectionProfile": {
+          "label": "结构候选",
+          "score": 77,
+          "role": "关键器件材料",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote / factor_scores",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
+          ]
+        },
+        "marketSnapshot": {
+          "p": "86.77",
+          "c": "+10.0%",
+          "cv": 10.0,
+          "pe": "385.38",
+          "cap": "170.52亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 56.4,
+          "rankScore": 159.6,
+          "actionHint": "等回撤",
+          "actionability": "watch_only",
+          "valueRank": 0,
+          "timingSource": "six_factor",
+          "timingConfidence": "低",
+          "valueScore": 54.0,
+          "timingScore": 60.0,
+          "valuationState": "expensive",
+          "qualityState": "基本面未核实",
+          "timingState": "wait_confirm",
+          "timingPlan": {
+            "stance": "等待量化确认",
+            "entry": "等待六维评分>=70且动量>=70",
+            "invalid": "出现 risk 信号或结构逻辑证伪",
+            "riskControl": "没有量化确认前不加仓",
+            "takeProfit": "暂无有效进攻计划",
+            "positionHint": "观察仓或空仓",
+            "basis": [
+              "六维 60",
+              "动量 62.4",
+              "资金 52.1",
+              "RSI 48"
+            ]
+          },
+          "reasons": [
+            "结构候选",
+            "卖水人/上游供给环节",
+            "关键器件/材料（潜在卡点）",
+            "PE 385.38 显著偏高",
+            "等待确认 / 量化分 60"
           ]
         }
       },
@@ -22992,13 +23196,13 @@
           ]
         },
         "marketSnapshot": {
-          "p": "122.0",
+          "p": "122.00",
           "c": "+11.35%",
           "cv": 11.35,
-          "pe": "148.4",
-          "cap": "110.8亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "208.09",
+          "cap": "110.82亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -23029,7 +23233,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 148.4 显著偏高",
+            "PE 208.09 显著偏高",
             "等待确认 / 量化分 55"
           ]
         }
@@ -23089,10 +23293,10 @@
           "p": "65.82",
           "c": "+3.62%",
           "cv": 3.62,
-          "pe": "406.9",
-          "cap": "275.7亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "498.85",
+          "cap": "275.71亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -23126,8 +23330,102 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 406.9 显著偏高",
+            "PE 498.85 显著偏高",
             "等待确认 / 量化分 58.7"
+          ]
+        }
+      },
+      "000970": {
+        "code": "000970",
+        "name": "中科三环",
+        "chain": "physical_ai",
+        "chain_label": "物理AI",
+        "segment": "稀土永磁材料",
+        "tier": 3,
+        "cakeLayer": "L2",
+        "cakeLayerName": "L2 算力芯片",
+        "is_leader": true,
+        "consensus_state": "unknown",
+        "chokepoint": "底层材料/设备（最上游卡点）",
+        "water_seller": true,
+        "held": false,
+        "us_anchors": [],
+        "quantSnapshot": null,
+        "selectionProfile": {
+          "label": "价值优先候选",
+          "score": 95,
+          "role": "上游材料设备",
+          "reasons": [
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "底层材料/设备（最上游卡点）"
+          ],
+          "valuation_required": true,
+          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
+        },
+        "timingProfile": {
+          "label": "等待实时量化信号",
+          "source": "data.json.signal / signalNote / factor_scores",
+          "rules": [
+            "buy=可等买点",
+            "risk=规避/减仓",
+            "neutral=等待确认",
+            "涨幅过大=追高谨慎",
+            "明显回撤=回撤观察",
+            "RSI过热=强势但等回撤"
+          ]
+        },
+        "marketSnapshot": {
+          "p": "11.48",
+          "c": "+2.96%",
+          "cv": 2.96,
+          "pe": "212.81",
+          "cap": "139.57亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
+        },
+        "quoteTimingSnapshot": {
+          "label": "短线偏强",
+          "signal": "neutral",
+          "note": "当日涨幅 2.96%；仅作趋势观察，等待六维确认",
+          "score": 52,
+          "cv": 2.96,
+          "confidence": "低",
+          "source": "market_snapshot_fallback",
+          "ts": "2026-06-06 15:17:27"
+        },
+        "decisionProfile": {
+          "label": "估值偏贵，等待回撤",
+          "score": 64.0,
+          "rankScore": 178.4,
+          "actionHint": "等六维确认",
+          "actionability": "watch_only",
+          "valueRank": 0,
+          "timingSource": "quote_fallback",
+          "timingConfidence": "低",
+          "valueScore": 72.0,
+          "timingScore": 52.0,
+          "valuationState": "expensive",
+          "qualityState": "基本面未核实",
+          "timingState": "wait_confirm",
+          "timingPlan": {
+            "stance": "等待六维确认",
+            "entry": "行情兜底不生成买点；等待六维评分>=70且动量>=70",
+            "invalid": "出现 risk 信号或结构逻辑证伪",
+            "riskControl": "没有六维确认前不加仓",
+            "takeProfit": "暂无有效进攻计划",
+            "positionHint": "观察仓或空仓",
+            "basis": [
+              "行情择时 短线偏强",
+              "当日涨跌 2.96%"
+            ]
+          },
+          "reasons": [
+            "价值优先候选",
+            "卖水人/上游供给环节",
+            "环节龙头",
+            "PE 212.81 显著偏高",
+            "短线偏强 / 行情择时分 52"
           ]
         }
       },
@@ -23186,10 +23484,10 @@
           "p": "31.12",
           "c": "+1.01%",
           "cv": 1.01,
-          "pe": "58.0",
-          "cap": "428.1亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "55.52",
+          "cap": "428.08亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -23223,7 +23521,7 @@
             "价值优先候选",
             "卖水人/上游供给环节",
             "底层材料/设备（最上游卡点）",
-            "PE 58 已计入成长预期",
+            "PE 55.52 已计入成长预期",
             "弱势等待 / 量化分 43.3"
           ]
         }
@@ -23271,10 +23569,10 @@
           "p": "12.73",
           "c": "+2.0%",
           "cv": 2.0,
-          "pe": "34.1",
-          "cap": "139.9亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "30.01",
+          "cap": "139.91亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "短线偏强",
@@ -23284,7 +23582,7 @@
           "cv": 2.0,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -23316,101 +23614,8 @@
             "价值优先候选",
             "卖水人/上游供给环节",
             "底层材料/设备（最上游卡点）",
-            "PE 34.1 相对可接受",
+            "PE 30.01 相对可接受",
             "短线偏强 / 行情择时分 52"
-          ]
-        }
-      },
-      "000970": {
-        "code": "000970",
-        "name": "中科三环",
-        "chain": "physical_ai",
-        "chain_label": "物理AI",
-        "segment": "稀土永磁材料",
-        "tier": 3,
-        "cakeLayer": "L2",
-        "cakeLayerName": "L2 算力芯片",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "底层材料/设备（最上游卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": [],
-        "quantSnapshot": null,
-        "selectionProfile": {
-          "label": "价值优先候选",
-          "score": 80,
-          "role": "上游材料设备",
-          "reasons": [
-            "卖水人/上游供给环节",
-            "底层材料/设备（最上游卡点）"
-          ],
-          "valuation_required": true,
-          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
-        },
-        "timingProfile": {
-          "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote / factor_scores",
-          "rules": [
-            "buy=可等买点",
-            "risk=规避/减仓",
-            "neutral=等待确认",
-            "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察",
-            "RSI过热=强势但等回撤"
-          ]
-        },
-        "marketSnapshot": {
-          "p": "11.48",
-          "c": "0.0%",
-          "cv": 0.0,
-          "pe": "148.1",
-          "cap": "139.6亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
-        },
-        "quoteTimingSnapshot": {
-          "label": "行情待确认",
-          "signal": "neutral",
-          "note": "仅行情择时兜底；未取得六维评分，不生成进攻买点",
-          "score": 50,
-          "cv": 0.0,
-          "confidence": "低",
-          "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
-        },
-        "decisionProfile": {
-          "label": "估值偏贵，等待回撤",
-          "score": 54.2,
-          "rankScore": 162.4,
-          "actionHint": "等六维确认",
-          "actionability": "watch_only",
-          "valueRank": 0,
-          "timingSource": "quote_fallback",
-          "timingConfidence": "低",
-          "valueScore": 57.0,
-          "timingScore": 50.0,
-          "valuationState": "expensive",
-          "qualityState": "基本面未核实",
-          "timingState": "wait_confirm",
-          "timingPlan": {
-            "stance": "等待六维确认",
-            "entry": "行情兜底不生成买点；等待六维评分>=70且动量>=70",
-            "invalid": "出现 risk 信号或结构逻辑证伪",
-            "riskControl": "没有六维确认前不加仓",
-            "takeProfit": "暂无有效进攻计划",
-            "positionHint": "观察仓或空仓",
-            "basis": [
-              "行情择时 行情待确认",
-              "当日涨跌 0%"
-            ]
-          },
-          "reasons": [
-            "价值优先候选",
-            "卖水人/上游供给环节",
-            "底层材料/设备（最上游卡点）",
-            "PE 148.1 显著偏高",
-            "行情待确认 / 行情择时分 50"
           ]
         }
       },
@@ -23457,10 +23662,10 @@
           "p": "26.11",
           "c": "+6.57%",
           "cv": 6.57,
-          "pe": "30.1",
-          "cap": "100.7亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "49.89",
+          "cap": "100.72亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "强势但等回撤",
@@ -23470,20 +23675,20 @@
           "cv": 6.57,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "结构候选，先核实基本面",
-          "score": 68.0,
-          "rankScore": 1188.8,
-          "actionHint": "先核实基本面",
-          "actionability": "needs_fundamental_check",
-          "valueRank": 1,
+          "label": "观察，等六维确认",
+          "score": 62.0,
+          "rankScore": 178.2,
+          "actionHint": "等六维确认",
+          "actionability": "watch_only",
+          "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 82.0,
+          "valueScore": 72.0,
           "timingScore": 47.0,
-          "valuationState": "reasonable",
+          "valuationState": "neutral_or_growth_priced",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -23502,105 +23707,8 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 30.1 相对可接受",
+            "PE 49.89 已计入成长预期",
             "强势但等回撤 / 行情择时分 47"
-          ]
-        }
-      },
-      "002472": {
-        "code": "002472",
-        "name": "双环传动",
-        "chain": "physical_ai",
-        "chain_label": "物理AI",
-        "segment": "行星滚柱丝杠",
-        "tier": 2,
-        "cakeLayer": "L3",
-        "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
-        "consensus_state": "unknown",
-        "chokepoint": "关键器件/材料（潜在卡点）",
-        "water_seller": true,
-        "held": false,
-        "us_anchors": [],
-        "quantSnapshot": {
-          "label": "等待确认",
-          "signal": "neutral",
-          "note": "六维总分 55.9；动量 56.4；资金 70.9；RSI 46.2",
-          "score": 55.9,
-          "momentum": 56.4,
-          "flow": 70.9,
-          "rsi": 46.2,
-          "available_factors": 2,
-          "confidence": "低",
-          "source": "factor_scores",
-          "ts": "2026-06-04T16:56:41.347505"
-        },
-        "selectionProfile": {
-          "label": "结构候选",
-          "score": 77,
-          "role": "关键器件材料",
-          "reasons": [
-            "卖水人/上游供给环节",
-            "关键器件/材料（潜在卡点）"
-          ],
-          "valuation_required": true,
-          "valuation_note": "需叠加 PE/市值/ROE/毛利率趋势后再做价值结论"
-        },
-        "timingProfile": {
-          "label": "等待实时量化信号",
-          "source": "data.json.signal / signalNote / factor_scores",
-          "rules": [
-            "buy=可等买点",
-            "risk=规避/减仓",
-            "neutral=等待确认",
-            "涨幅过大=追高谨慎",
-            "明显回撤=回撤观察",
-            "RSI过热=强势但等回撤"
-          ]
-        },
-        "marketSnapshot": {
-          "p": "42.86",
-          "c": "+3.55%",
-          "cv": 3.55,
-          "pe": "28.7",
-          "cap": "364.3亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
-        },
-        "decisionProfile": {
-          "label": "结构候选，基本面待核实",
-          "score": 71.6,
-          "rankScore": 1189.2,
-          "actionHint": "先核实基本面",
-          "actionability": "needs_fundamental_check",
-          "valueRank": 1,
-          "timingSource": "six_factor",
-          "timingConfidence": "低",
-          "valueScore": 82.0,
-          "timingScore": 55.9,
-          "valuationState": "reasonable",
-          "qualityState": "基本面未核实",
-          "timingState": "wait_confirm",
-          "timingPlan": {
-            "stance": "等待量化确认",
-            "entry": "等待六维评分>=70且动量>=70",
-            "invalid": "出现 risk 信号或结构逻辑证伪",
-            "riskControl": "没有量化确认前不加仓",
-            "takeProfit": "暂无有效进攻计划",
-            "positionHint": "观察仓或空仓",
-            "basis": [
-              "六维 55.9",
-              "动量 56.4",
-              "资金 70.9",
-              "RSI 46.2"
-            ]
-          },
-          "reasons": [
-            "结构候选",
-            "卖水人/上游供给环节",
-            "关键器件/材料（潜在卡点）",
-            "PE 28.7 相对可接受",
-            "等待确认 / 量化分 55.9"
           ]
         }
       },
@@ -23613,7 +23721,7 @@
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
+        "is_leader": true,
         "consensus_state": "unknown",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
@@ -23633,11 +23741,12 @@
           "ts": "2026-06-04T16:56:41.162650"
         },
         "selectionProfile": {
-          "label": "结构候选",
-          "score": 77,
+          "label": "价值优先候选",
+          "score": 92,
           "role": "关键器件材料",
           "reasons": [
             "卖水人/上游供给环节",
+            "环节龙头",
             "关键器件/材料（潜在卡点）"
           ],
           "valuation_required": true,
@@ -23659,21 +23768,21 @@
           "p": "33.84",
           "c": "+4.35%",
           "cv": 4.35,
-          "pe": "72.6",
-          "cap": "196.7亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "74.83",
+          "cap": "196.70亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
-          "score": 58.1,
-          "rankScore": 69.8,
+          "score": 67.1,
+          "rankScore": 1085.7,
           "actionHint": "暂缓",
           "actionability": "defensive",
-          "valueRank": 0,
+          "valueRank": 1,
           "timingSource": "six_factor",
           "timingConfidence": "中",
-          "valueScore": 64.0,
+          "valueScore": 79.0,
           "timingScore": 49.3,
           "valuationState": "pricey",
           "qualityState": "基本面未核实",
@@ -23693,10 +23802,10 @@
             ]
           },
           "reasons": [
-            "结构候选",
+            "价值优先候选",
             "卖水人/上游供给环节",
-            "关键器件/材料（潜在卡点）",
-            "PE 72.6 偏高",
+            "环节龙头",
+            "PE 74.83 偏高",
             "弱势等待 / 量化分 49.3"
           ]
         }
@@ -23710,7 +23819,7 @@
         "tier": 2,
         "cakeLayer": "L3",
         "cakeLayerName": "L3 通信基建",
-        "is_leader": false,
+        "is_leader": true,
         "consensus_state": "unknown",
         "chokepoint": "关键器件/材料（潜在卡点）",
         "water_seller": true,
@@ -23730,11 +23839,12 @@
           "ts": "2026-06-04T16:56:41.173763"
         },
         "selectionProfile": {
-          "label": "结构候选",
-          "score": 77,
+          "label": "价值优先候选",
+          "score": 92,
           "role": "关键器件材料",
           "reasons": [
             "卖水人/上游供给环节",
+            "环节龙头",
             "关键器件/材料（潜在卡点）"
           ],
           "valuation_required": true,
@@ -23752,18 +23862,27 @@
             "RSI过热=强势但等回撤"
           ]
         },
+        "marketSnapshot": {
+          "p": "31.70",
+          "c": "+13.21%",
+          "cv": 13.21,
+          "pe": "213.37",
+          "cap": "60.31亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
+        },
         "decisionProfile": {
-          "label": "候选观察",
-          "score": 65,
-          "rankScore": 178.5,
-          "actionHint": "继续观察",
+          "label": "估值偏贵，等待回撤",
+          "score": 63.4,
+          "rankScore": 175.3,
+          "actionHint": "等回撤",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "six_factor",
           "timingConfidence": "低",
-          "valueScore": 72.0,
+          "valueScore": 69.0,
           "timingScore": 55.0,
-          "valuationState": "missing",
+          "valuationState": "expensive",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -23778,10 +23897,10 @@
             ]
           },
           "reasons": [
-            "结构候选",
+            "价值优先候选",
             "卖水人/上游供给环节",
-            "关键器件/材料（潜在卡点）",
-            "估值未核实",
+            "环节龙头",
+            "PE 213.37 显著偏高",
             "等待确认 / 量化分 55"
           ]
         }
@@ -23829,10 +23948,10 @@
           "p": "24.82",
           "c": "-0.48%",
           "cv": -0.48,
-          "pe": "22.2",
-          "cap": "881.2亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "43.80",
+          "cap": "881.21亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -23842,20 +23961,20 @@
           "cv": -0.48,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "结构候选，先核实基本面",
-          "score": 69.2,
-          "rankScore": 1188.9,
-          "actionHint": "先核实基本面",
-          "actionability": "needs_fundamental_check",
-          "valueRank": 1,
+          "label": "观察，等六维确认",
+          "score": 63.2,
+          "rankScore": 178.3,
+          "actionHint": "等六维确认",
+          "actionability": "watch_only",
+          "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 82.0,
+          "valueScore": 72.0,
           "timingScore": 50.0,
-          "valuationState": "reasonable",
+          "valuationState": "neutral_or_growth_priced",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -23874,7 +23993,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 22.2 相对可接受",
+            "PE 43.8 已计入成长预期",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -23935,23 +24054,23 @@
           "p": "66.24",
           "c": "+5.26%",
           "cv": 5.26,
-          "pe": "60.8",
-          "cap": "186.0亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "113.10",
+          "cap": "186.02亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
-          "score": 71.0,
-          "rankScore": 1186.1,
+          "score": 65.0,
+          "rankScore": 175.5,
           "actionHint": "等回撤",
-          "actionability": "needs_fundamental_check",
-          "valueRank": 1,
+          "actionability": "watch_only",
+          "valueRank": 0,
           "timingSource": "six_factor",
           "timingConfidence": "低",
-          "valueScore": 79.0,
+          "valueScore": 69.0,
           "timingScore": 58.9,
-          "valuationState": "pricey",
+          "valuationState": "expensive",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -23972,7 +24091,7 @@
             "价值优先候选",
             "卖水人/上游供给环节",
             "环节龙头",
-            "PE 60.8 偏高",
+            "PE 113.1 显著偏高",
             "等待确认 / 量化分 58.9"
           ]
         }
@@ -24033,23 +24152,23 @@
           "p": "137.96",
           "c": "+0.98%",
           "cv": 0.98,
-          "pe": "87.7",
-          "cap": "168.6亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "66.00",
+          "cap": "168.64亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
-          "score": 67.9,
-          "rankScore": 175.8,
+          "score": 73.9,
+          "rankScore": 1186.4,
           "actionHint": "等回撤",
-          "actionability": "watch_only",
-          "valueRank": 0,
+          "actionability": "needs_fundamental_check",
+          "valueRank": 1,
           "timingSource": "six_factor",
           "timingConfidence": "中",
-          "valueScore": 69.0,
+          "valueScore": 79.0,
           "timingScore": 66.3,
-          "valuationState": "expensive",
+          "valuationState": "pricey",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -24070,7 +24189,7 @@
             "价值优先候选",
             "卖水人/上游供给环节",
             "环节龙头",
-            "PE 87.7 显著偏高",
+            "PE 66 偏高",
             "等待确认 / 量化分 66.3"
           ]
         }
@@ -24084,7 +24203,7 @@
         "tier": 3,
         "cakeLayer": "L2",
         "cakeLayerName": "L2 算力芯片",
-        "is_leader": false,
+        "is_leader": true,
         "consensus_state": "unknown",
         "chokepoint": "底层材料/设备（最上游卡点）",
         "water_seller": true,
@@ -24093,10 +24212,11 @@
         "quantSnapshot": null,
         "selectionProfile": {
           "label": "价值优先候选",
-          "score": 80,
+          "score": 95,
           "role": "上游材料设备",
           "reasons": [
             "卖水人/上游供给环节",
+            "环节龙头",
             "底层材料/设备（最上游卡点）"
           ],
           "valuation_required": true,
@@ -24118,10 +24238,10 @@
           "p": "95.39",
           "c": "-3.51%",
           "cv": -3.51,
-          "pe": "32.7",
-          "cap": "1203.2亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "59.81",
+          "cap": "1203.18亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -24131,20 +24251,20 @@
           "cv": -3.51,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
-          "score": 70.2,
-          "rankScore": 1192.0,
+          "score": 73.2,
+          "rankScore": 1197.3,
           "actionHint": "先核实基本面",
           "actionability": "needs_fundamental_check",
           "valueRank": 1,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 85.0,
+          "valueScore": 90.0,
           "timingScore": 48.0,
-          "valuationState": "reasonable",
+          "valuationState": "neutral_or_growth_priced",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -24162,8 +24282,8 @@
           "reasons": [
             "价值优先候选",
             "卖水人/上游供给环节",
-            "底层材料/设备（最上游卡点）",
-            "PE 32.7 相对可接受",
+            "环节龙头",
+            "PE 59.81 已计入成长预期",
             "回撤观察 / 行情择时分 48"
           ]
         }
@@ -24211,10 +24331,10 @@
           "p": "95.35",
           "c": "-4.34%",
           "cv": -4.34,
-          "pe": "36.6",
-          "cap": "383.6亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "40.51",
+          "cap": "383.60亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -24224,7 +24344,7 @@
           "cv": -4.34,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -24256,7 +24376,7 @@
             "价值优先候选",
             "卖水人/上游供给环节",
             "底层材料/设备（最上游卡点）",
-            "PE 36.6 已计入成长预期",
+            "PE 40.51 已计入成长预期",
             "回撤观察 / 行情择时分 48"
           ]
         }
@@ -24304,10 +24424,10 @@
           "p": "43.05",
           "c": "-4.16%",
           "cv": -4.16,
-          "pe": "22.2",
-          "cap": "315.2亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "-160.50",
+          "cap": "315.22亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -24317,20 +24437,20 @@
           "cv": -4.16,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "结构候选，先核实基本面",
-          "score": 68.4,
-          "rankScore": 1188.8,
-          "actionHint": "先核实基本面",
-          "actionability": "needs_fundamental_check",
-          "valueRank": 1,
+          "label": "观察，等六维确认",
+          "score": 55,
+          "rankScore": 165.5,
+          "actionHint": "等六维确认",
+          "actionability": "watch_only",
+          "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 82.0,
+          "valueScore": 60.0,
           "timingScore": 48.0,
-          "valuationState": "reasonable",
+          "valuationState": "loss_or_invalid",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -24349,7 +24469,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 22.2 相对可接受",
+            "PE -160.5 为负/不适用，盈利质量需核实",
             "回撤观察 / 行情择时分 48"
           ]
         }
@@ -24363,7 +24483,7 @@
         "tier": 1,
         "cakeLayer": "L4",
         "cakeLayerName": "L4 模型层",
-        "is_leader": false,
+        "is_leader": true,
         "consensus_state": "unknown",
         "chokepoint": "核心部件（议价中枢）",
         "water_seller": false,
@@ -24371,10 +24491,11 @@
         "us_anchors": [],
         "quantSnapshot": null,
         "selectionProfile": {
-          "label": "观察",
-          "score": 51,
+          "label": "结构候选",
+          "score": 66,
           "role": "核心系统平台",
           "reasons": [
+            "环节龙头",
             "核心部件（议价中枢）"
           ],
           "valuation_required": true,
@@ -24396,10 +24517,10 @@
           "p": "94.42",
           "c": "-3.58%",
           "cv": -3.58,
-          "pe": "24.2",
-          "cap": "563.5亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "30.53",
+          "cap": "563.51亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "回撤观察",
@@ -24409,18 +24530,18 @@
           "cv": -3.58,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
-          "score": 52.8,
-          "rankScore": 161.3,
+          "score": 61.8,
+          "rankScore": 177.2,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 56.0,
+          "valueScore": 71.0,
           "timingScore": 48.0,
           "valuationState": "reasonable",
           "qualityState": "基本面未核实",
@@ -24438,9 +24559,10 @@
             ]
           },
           "reasons": [
-            "观察",
+            "结构候选",
+            "环节龙头",
             "核心部件（议价中枢）",
-            "PE 24.2 相对可接受",
+            "PE 30.53 相对可接受",
             "回撤观察 / 行情择时分 48"
           ]
         }
@@ -24487,10 +24609,10 @@
           "p": "78.93",
           "c": "-0.24%",
           "cv": -0.24,
-          "pe": "221.6",
-          "cap": "94.7亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "-13.34",
+          "cap": "94.67亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -24500,20 +24622,20 @@
           "cv": -0.24,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "估值偏贵，等待回撤",
-          "score": 36.8,
-          "rankScore": 131.7,
+          "label": "观察，等六维确认",
+          "score": 40.4,
+          "rankScore": 138.0,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 28.0,
+          "valueScore": 34.0,
           "timingScore": 50.0,
-          "valuationState": "expensive",
+          "valuationState": "loss_or_invalid",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -24531,7 +24653,7 @@
           "reasons": [
             "观察",
             "核心部件（议价中枢）",
-            "PE 221.6 显著偏高",
+            "PE -13.34 为负/不适用，盈利质量需核实",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -24575,13 +24697,13 @@
           ]
         },
         "marketSnapshot": {
-          "p": "68.0",
+          "p": "68.00",
           "c": "+0.59%",
           "cv": 0.59,
-          "pe": "42.7",
-          "cap": "1181.7亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "53.54",
+          "cap": "1181.73亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -24591,7 +24713,7 @@
           "cv": 0.59,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -24622,7 +24744,7 @@
           "reasons": [
             "观察",
             "核心部件（议价中枢）",
-            "PE 42.7 已计入成长预期",
+            "PE 53.54 已计入成长预期",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -24669,10 +24791,10 @@
           "p": "30.35",
           "c": "+0.83%",
           "cv": 0.83,
-          "pe": "34.4",
-          "cap": "65.0亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "22.70",
+          "cap": "64.96亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -24682,7 +24804,7 @@
           "cv": 0.83,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -24713,7 +24835,7 @@
           "reasons": [
             "观察",
             "核心部件（议价中枢）",
-            "PE 34.4 相对可接受",
+            "PE 22.7 相对可接受",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -24760,10 +24882,10 @@
           "p": "96.56",
           "c": "-0.2%",
           "cv": -0.2,
-          "pe": "14.3",
-          "cap": "2881.1亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "15.48",
+          "cap": "2881.12亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -24773,7 +24895,7 @@
           "cv": -0.2,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -24804,7 +24926,7 @@
           "reasons": [
             "观察",
             "核心部件（议价中枢）",
-            "PE 14.3 相对可接受",
+            "PE 15.48 相对可接受",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -24851,10 +24973,10 @@
           "p": "116.27",
           "c": "-2.8%",
           "cv": -2.8,
-          "pe": "37.8",
-          "cap": "419.6亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "34.47",
+          "cap": "419.59亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -24864,20 +24986,20 @@
           "cv": -2.8,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
-          "score": 47.6,
-          "rankScore": 150.8,
+          "score": 53.6,
+          "rankScore": 161.4,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 46.0,
+          "valueScore": 56.0,
           "timingScore": 50.0,
-          "valuationState": "neutral_or_growth_priced",
+          "valuationState": "reasonable",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -24895,7 +25017,7 @@
           "reasons": [
             "观察",
             "核心部件（议价中枢）",
-            "PE 37.8 已计入成长预期",
+            "PE 34.47 相对可接受",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -24943,10 +25065,10 @@
           "p": "38.92",
           "c": "-1.67%",
           "cv": -1.67,
-          "pe": "43.4",
-          "cap": "335.1亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "170.82",
+          "cap": "335.11亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -24956,20 +25078,20 @@
           "cv": -1.67,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "观察，等六维确认",
-          "score": 63.2,
-          "rankScore": 178.3,
+          "label": "估值偏贵，等待回撤",
+          "score": 52.4,
+          "rankScore": 159.2,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 72.0,
+          "valueScore": 54.0,
           "timingScore": 50.0,
-          "valuationState": "neutral_or_growth_priced",
+          "valuationState": "expensive",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -24988,7 +25110,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 43.4 已计入成长预期",
+            "PE 170.82 显著偏高",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -25036,10 +25158,10 @@
           "p": "23.07",
           "c": "+0.39%",
           "cv": 0.39,
-          "pe": "25.0",
-          "cap": "423.9亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "31.60",
+          "cap": "423.86亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -25049,7 +25171,7 @@
           "cv": 0.39,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -25081,7 +25203,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 25 相对可接受",
+            "PE 31.6 相对可接受",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -25126,13 +25248,13 @@
           ]
         },
         "marketSnapshot": {
-          "p": "32.6",
+          "p": "32.60",
           "c": "-2.45%",
           "cv": -2.45,
-          "pe": "49.3",
-          "cap": "244.3亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "25.62",
+          "cap": "244.29亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -25142,20 +25264,20 @@
           "cv": -2.45,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "观察，等六维确认",
-          "score": 63.2,
-          "rankScore": 178.3,
-          "actionHint": "等六维确认",
-          "actionability": "watch_only",
-          "valueRank": 0,
+          "label": "结构候选，先核实基本面",
+          "score": 69.2,
+          "rankScore": 1188.9,
+          "actionHint": "先核实基本面",
+          "actionability": "needs_fundamental_check",
+          "valueRank": 1,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 72.0,
+          "valueScore": 82.0,
           "timingScore": 50.0,
-          "valuationState": "neutral_or_growth_priced",
+          "valuationState": "reasonable",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -25174,7 +25296,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 49.3 已计入成长预期",
+            "PE 25.62 相对可接受",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -25222,10 +25344,10 @@
           "p": "54.75",
           "c": "-1.99%",
           "cv": -1.99,
-          "pe": "-",
-          "cap": "73.6亿",
-          "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "117.77",
+          "cap": "73.56亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -25235,20 +25357,20 @@
           "cv": -1.99,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "观察，等六维确认",
-          "score": 63.2,
-          "rankScore": 178.3,
+          "label": "估值偏贵，等待回撤",
+          "score": 52.4,
+          "rankScore": 159.2,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 72.0,
+          "valueScore": 54.0,
           "timingScore": 50.0,
-          "valuationState": "missing",
+          "valuationState": "expensive",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -25267,7 +25389,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "估值未核实",
+            "PE 117.77 显著偏高",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -25315,10 +25437,10 @@
           "p": "26.91",
           "c": "+1.66%",
           "cv": 1.66,
-          "pe": "87.9",
-          "cap": "107.8亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "64.95",
+          "cap": "107.82亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -25328,20 +25450,20 @@
           "cv": 1.66,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
-          "score": 52.4,
-          "rankScore": 159.2,
+          "score": 58.4,
+          "rankScore": 169.8,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 54.0,
+          "valueScore": 64.0,
           "timingScore": 50.0,
-          "valuationState": "expensive",
+          "valuationState": "pricey",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -25360,7 +25482,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 87.9 显著偏高",
+            "PE 64.95 偏高",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -25408,10 +25530,10 @@
           "p": "33.18",
           "c": "-2.53%",
           "cv": -2.53,
-          "pe": "100.5",
-          "cap": "46.3亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "48.69",
+          "cap": "46.31亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -25421,20 +25543,20 @@
           "cv": -2.53,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "估值偏贵，等待回撤",
-          "score": 52.4,
-          "rankScore": 159.2,
+          "label": "观察，等六维确认",
+          "score": 63.2,
+          "rankScore": 178.3,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 54.0,
+          "valueScore": 72.0,
           "timingScore": 50.0,
-          "valuationState": "expensive",
+          "valuationState": "neutral_or_growth_priced",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -25453,7 +25575,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 100.5 显著偏高",
+            "PE 48.69 已计入成长预期",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -25501,10 +25623,10 @@
           "p": "61.16",
           "c": "+0.64%",
           "cv": 0.64,
-          "pe": "47.3",
-          "cap": "74.4亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "57.85",
+          "cap": "74.39亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -25514,7 +25636,7 @@
           "cv": 0.64,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -25546,7 +25668,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 47.3 已计入成长预期",
+            "PE 57.85 已计入成长预期",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -25591,13 +25713,13 @@
           ]
         },
         "marketSnapshot": {
-          "p": "38.1",
+          "p": "38.10",
           "c": "+1.9%",
           "cv": 1.9,
-          "pe": "37.2",
-          "cap": "63.7亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "34.42",
+          "cap": "63.69亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -25607,20 +25729,20 @@
           "cv": 1.9,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "观察，等六维确认",
-          "score": 63.2,
-          "rankScore": 178.3,
-          "actionHint": "等六维确认",
-          "actionability": "watch_only",
-          "valueRank": 0,
+          "label": "结构候选，先核实基本面",
+          "score": 69.2,
+          "rankScore": 1188.9,
+          "actionHint": "先核实基本面",
+          "actionability": "needs_fundamental_check",
+          "valueRank": 1,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 72.0,
+          "valueScore": 82.0,
           "timingScore": 50.0,
-          "valuationState": "neutral_or_growth_priced",
+          "valuationState": "reasonable",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -25639,7 +25761,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 37.2 已计入成长预期",
+            "PE 34.42 相对可接受",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -25687,10 +25809,10 @@
           "p": "33.24",
           "c": "-1.01%",
           "cv": -1.01,
-          "pe": "39.5",
-          "cap": "77.7亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "39.74",
+          "cap": "77.72亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -25700,7 +25822,7 @@
           "cv": -1.01,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "观察，等六维确认",
@@ -25732,7 +25854,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 39.5 已计入成长预期",
+            "PE 39.74 已计入成长预期",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -25780,10 +25902,10 @@
           "p": "8.24",
           "c": "+2.23%",
           "cv": 2.23,
-          "pe": "17.8",
-          "cap": "58.9亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "21.72",
+          "cap": "58.92亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "短线偏强",
@@ -25793,7 +25915,7 @@
           "cv": 2.23,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -25825,7 +25947,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 17.8 相对可接受",
+            "PE 21.72 相对可接受",
             "短线偏强 / 行情择时分 52"
           ]
         }
@@ -25873,10 +25995,10 @@
           "p": "11.33",
           "c": "+1.43%",
           "cv": 1.43,
-          "pe": "41.8",
-          "cap": "86.8亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "78.84",
+          "cap": "86.77亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -25886,20 +26008,20 @@
           "cv": 1.43,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "观察，等六维确认",
-          "score": 63.2,
-          "rankScore": 178.3,
+          "label": "估值偏贵，等待回撤",
+          "score": 58.4,
+          "rankScore": 169.8,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 72.0,
+          "valueScore": 64.0,
           "timingScore": 50.0,
-          "valuationState": "neutral_or_growth_priced",
+          "valuationState": "pricey",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -25918,7 +26040,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 41.8 已计入成长预期",
+            "PE 78.84 偏高",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -25966,10 +26088,10 @@
           "p": "42.03",
           "c": "+0.91%",
           "cv": 0.91,
-          "pe": "97.0",
-          "cap": "169.7亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "62.27",
+          "cap": "169.72亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -25979,20 +26101,20 @@
           "cv": 0.91,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
-          "score": 52.4,
-          "rankScore": 159.2,
+          "score": 58.4,
+          "rankScore": 169.8,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 54.0,
+          "valueScore": 64.0,
           "timingScore": 50.0,
-          "valuationState": "expensive",
+          "valuationState": "pricey",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -26011,7 +26133,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 97 显著偏高",
+            "PE 62.27 偏高",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -26059,10 +26181,10 @@
           "p": "37.45",
           "c": "-2.58%",
           "cv": -2.58,
-          "pe": "78.7",
-          "cap": "52.2亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "33.24",
+          "cap": "52.16亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -26072,20 +26194,20 @@
           "cv": -2.58,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "估值偏贵，等待回撤",
-          "score": 58.4,
-          "rankScore": 169.8,
-          "actionHint": "等六维确认",
-          "actionability": "watch_only",
-          "valueRank": 0,
+          "label": "结构候选，先核实基本面",
+          "score": 69.2,
+          "rankScore": 1188.9,
+          "actionHint": "先核实基本面",
+          "actionability": "needs_fundamental_check",
+          "valueRank": 1,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 64.0,
+          "valueScore": 82.0,
           "timingScore": 50.0,
-          "valuationState": "pricey",
+          "valuationState": "reasonable",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -26104,7 +26226,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 78.7 偏高",
+            "PE 33.24 相对可接受",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -26152,10 +26274,10 @@
           "p": "17.63",
           "c": "+1.67%",
           "cv": 1.67,
-          "pe": "45.2",
-          "cap": "72.3亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "38.36",
+          "cap": "72.28亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -26165,7 +26287,7 @@
           "cv": 1.67,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "结构候选，先核实基本面",
@@ -26197,7 +26319,7 @@
             "价值优先候选",
             "卖水人/上游供给环节",
             "底层材料/设备（最上游卡点）",
-            "PE 45.2 已计入成长预期",
+            "PE 38.36 已计入成长预期",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -26245,10 +26367,10 @@
           "p": "13.88",
           "c": "-0.72%",
           "cv": -0.72,
-          "pe": "58.7",
-          "cap": "75.4亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "67.67",
+          "cap": "75.43亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -26258,20 +26380,20 @@
           "cv": -0.72,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "观察，等六维确认",
-          "score": 63.2,
-          "rankScore": 178.3,
+          "label": "估值偏贵，等待回撤",
+          "score": 58.4,
+          "rankScore": 169.8,
           "actionHint": "等六维确认",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 72.0,
+          "valueScore": 64.0,
           "timingScore": 50.0,
-          "valuationState": "neutral_or_growth_priced",
+          "valuationState": "pricey",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -26290,7 +26412,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 58.7 已计入成长预期",
+            "PE 67.67 偏高",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -26338,10 +26460,10 @@
           "p": "8.57",
           "c": "+0.71%",
           "cv": 0.71,
-          "pe": "32.3",
-          "cap": "191.1亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "43.15",
+          "cap": "191.12亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "quoteTimingSnapshot": {
           "label": "行情待确认",
@@ -26351,20 +26473,20 @@
           "cv": 0.71,
           "confidence": "低",
           "source": "market_snapshot_fallback",
-          "ts": "2026-06-06 14:59:23"
+          "ts": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
-          "label": "结构候选，先核实基本面",
-          "score": 69.2,
-          "rankScore": 1188.9,
-          "actionHint": "先核实基本面",
-          "actionability": "needs_fundamental_check",
-          "valueRank": 1,
+          "label": "观察，等六维确认",
+          "score": 63.2,
+          "rankScore": 178.3,
+          "actionHint": "等六维确认",
+          "actionability": "watch_only",
+          "valueRank": 0,
           "timingSource": "quote_fallback",
           "timingConfidence": "低",
-          "valueScore": 82.0,
+          "valueScore": 72.0,
           "timingScore": 50.0,
-          "valuationState": "reasonable",
+          "valuationState": "neutral_or_growth_priced",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -26383,7 +26505,7 @@
             "结构候选",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 32.3 相对可接受",
+            "PE 43.15 已计入成长预期",
             "行情待确认 / 行情择时分 50"
           ]
         }
@@ -26441,26 +26563,26 @@
           ]
         },
         "marketSnapshot": {
-          "p": "40.5",
+          "p": "40.50",
           "c": "+0.05%",
           "cv": 0.05,
-          "pe": "-",
-          "cap": "520.4亿",
-          "source": "sina",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "-14.67",
+          "cap": "520.44亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
-          "score": 42.2,
-          "rankScore": 47.2,
+          "score": 35.0,
+          "rankScore": 34.5,
           "actionHint": "暂缓",
           "actionability": "defensive",
           "valueRank": 0,
           "timingSource": "six_factor",
           "timingConfidence": "中",
-          "valueScore": 43.0,
+          "valueScore": 31.0,
           "timingScore": 40.9,
-          "valuationState": "missing",
+          "valuationState": "loss_or_invalid",
           "qualityState": "基本面未核实",
           "timingState": "risk",
           "timingPlan": {
@@ -26481,7 +26603,7 @@
             "观察",
             "已纳入持仓跟踪",
             "持仓补充：产业链位置待归类",
-            "估值未核实",
+            "PE -14.67 为负/不适用，盈利质量需核实",
             "弱势等待 / 量化分 40.9"
           ]
         }
@@ -26539,26 +26661,26 @@
           ]
         },
         "marketSnapshot": {
-          "p": "80.5",
+          "p": "80.50",
           "c": "+2.25%",
           "cv": 2.25,
-          "pe": "51.1",
-          "cap": "668.8亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "17.26",
+          "cap": "668.75亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "候选观察",
-          "score": 48.6,
-          "rankScore": 147.9,
+          "score": 54.6,
+          "rankScore": 158.5,
           "actionHint": "继续观察",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "six_factor",
           "timingConfidence": "低",
-          "valueScore": 43.0,
+          "valueScore": 53.0,
           "timingScore": 56.9,
-          "valuationState": "neutral_or_growth_priced",
+          "valuationState": "reasonable",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -26579,7 +26701,7 @@
             "观察",
             "已纳入持仓跟踪",
             "持仓补充：产业链位置待归类",
-            "PE 51.1 已计入成长预期",
+            "PE 17.26 相对可接受",
             "等待确认 / 量化分 56.9"
           ]
         }
@@ -26637,13 +26759,13 @@
           ]
         },
         "marketSnapshot": {
-          "p": "38.9",
-          "c": "0.0%",
-          "cv": 0.0,
-          "pe": "27.4",
-          "cap": "640.1亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "p": "38.90",
+          "c": "-7.03%",
+          "cv": -7.03,
+          "pe": "18.44",
+          "cap": "640.07亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -26677,7 +26799,7 @@
             "观察",
             "已纳入持仓跟踪",
             "持仓补充：产业链位置待归类",
-            "PE 27.4 相对可接受",
+            "PE 18.44 相对可接受",
             "等待确认 / 量化分 53.7"
           ]
         }
@@ -26738,10 +26860,10 @@
           "p": "75.14",
           "c": "-2.76%",
           "cv": -2.76,
-          "pe": "38.6",
-          "cap": "638.4亿",
-          "source": "sina+tencent",
-          "updateTime": "2026-06-06 14:59:23"
+          "pe": "47.74",
+          "cap": "638.41亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-06 15:17:27"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -26775,18 +26897,18 @@
             "观察",
             "已纳入持仓跟踪",
             "持仓补充：产业链位置待归类",
-            "PE 38.6 已计入成长预期",
+            "PE 47.74 已计入成长预期",
             "等待确认 / 量化分 61.9"
           ]
         }
       }
     },
     "marketCoverage": {
-      "enhanced": 166,
-      "pe": 149,
+      "enhanced": 168,
+      "pe": 155,
       "fundamental": 58,
-      "total": 167,
-      "updateTime": "2026-06-06 14:59:23",
+      "total": 168,
+      "updateTime": "2026-06-06 15:17:27",
       "sources": [
         "mx_iwencai",
         "sina",
@@ -26795,13 +26917,13 @@
       ]
     },
     "decisionCoverage": {
-      "profiled": 167,
-      "valueHigh": 56,
+      "profiled": 168,
+      "valueHigh": 57,
       "timingReady": 16,
-      "timingPlan": 167,
+      "timingPlan": 168,
       "resonance": 0,
-      "total": 167,
-      "updateTime": "2026-06-06 14:59:23"
+      "total": 168,
+      "updateTime": "2026-06-06 15:17:27"
     }
   }
 }
