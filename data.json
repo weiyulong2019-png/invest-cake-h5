@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-06-08 14:55:39",
-  "timestamp": 1780901739,
+  "updateTime": "2026-06-08 15:00:58",
+  "timestamp": 1780902058,
   "market": {
     "index": "上证综指",
     "indexCode": "000001.SH",
@@ -27,7 +27,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "历史指标未取到；实时涨跌-0.19%，维持观察",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         },
         {
@@ -43,13 +43,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         }
       ],
       "avg": 0.0,
       "summary": "能源基建板块2只标的，方向不明确，保持观望。",
-      "summaryTime": "13:30"
+      "summaryTime": "15:01"
     },
     {
       "id": "L2",
@@ -70,7 +70,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         },
         {
@@ -86,7 +86,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         },
         {
@@ -102,7 +102,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         },
         {
@@ -118,7 +118,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         },
         {
@@ -134,13 +134,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         }
       ],
       "avg": 0.0,
       "summary": "算力芯片板块5只标的，方向不明确，保持观望。",
-      "summaryTime": "13:30"
+      "summaryTime": "15:01"
     },
     {
       "id": "L3",
@@ -161,7 +161,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         },
         {
@@ -177,7 +177,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         },
         {
@@ -193,13 +193,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         }
       ],
       "avg": 0.0,
       "summary": "通信基建板块3只标的，方向不明确，保持观望。",
-      "summaryTime": "13:30"
+      "summaryTime": "15:01"
     },
     {
       "id": "L4",
@@ -220,13 +220,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "数据不足，暂无信号",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         }
       ],
       "avg": 0.0,
       "summary": "模型层板块1只标的，方向不明确，保持观望。",
-      "summaryTime": "13:30"
+      "summaryTime": "15:01"
     },
     {
       "id": "L5",
@@ -247,7 +247,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "历史指标未取到；实时涨跌-0.58%，维持观察",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         },
         {
@@ -263,7 +263,7 @@
           "cap": "-",
           "signal": "risk",
           "signalNote": "历史指标未取到；实时跌幅-3.88%，先按防守处理",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         },
         {
@@ -279,7 +279,7 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "历史指标未取到；实时涨跌-2.29%，维持观察",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         },
         {
@@ -295,7 +295,7 @@
           "cap": "-",
           "signal": "risk",
           "signalNote": "历史指标未取到；实时跌幅-3.29%，先按防守处理",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         },
         {
@@ -311,13 +311,13 @@
           "cap": "-",
           "signal": "neutral",
           "signalNote": "历史指标未取到；实时涨跌-1.8%，维持观察",
-          "signalTime": "13:30",
+          "signalTime": "15:01",
           "confidence": "低"
         }
       ],
       "avg": -2.37,
       "summary": "应用层板块5只标的，整体偏弱（2只风险信号）。",
-      "summaryTime": "13:30"
+      "summaryTime": "15:01"
     }
   ],
   "etfs": [
@@ -330,7 +330,7 @@
       "cv": 0.52,
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌0.52%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -342,7 +342,7 @@
       "cv": -1.91,
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-1.91%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -354,7 +354,7 @@
       "cv": -2.25,
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-2.25%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -366,7 +366,7 @@
       "cv": -0.19,
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-0.19%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -378,7 +378,7 @@
       "cv": -1.41,
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-1.41%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -390,7 +390,7 @@
       "cv": -2.42,
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-2.42%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -402,7 +402,7 @@
       "cv": -1.8,
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-1.8%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -414,7 +414,7 @@
       "cv": -0.19,
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-0.19%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -426,7 +426,7 @@
       "cv": -1.74,
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-1.74%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -438,7 +438,7 @@
       "cv": -1.5,
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-1.5%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     }
   ],
@@ -456,7 +456,7 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-0.58%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -472,7 +472,7 @@
       "cap": "-",
       "signal": "risk",
       "signalNote": "历史指标未取到；实时跌幅-3.88%，先按防守处理",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -488,7 +488,7 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-2.29%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -504,7 +504,7 @@
       "cap": "-",
       "signal": "risk",
       "signalNote": "历史指标未取到；实时跌幅-3.29%，先按防守处理",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     },
     {
@@ -520,9 +520,9 @@
       "cap": "-",
       "signal": "neutral",
       "signalNote": "历史指标未取到；实时涨跌-1.8%，维持观察",
-      "signalTime": "13:30",
+      "signalTime": "15:01",
       "confidence": "低"
     }
   ],
-  "signalUpdateTime": "2026-06-08 13:30:59"
+  "signalUpdateTime": "2026-06-08 15:01:15"
 }
