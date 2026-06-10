@@ -1,13 +1,7 @@
 {
-  "date": "2026-06-07",
-  "updateTime": "2026-06-07 17:23:50",
+  "date": "2026-06-10",
+  "updateTime": "2026-06-10 22:14:10",
   "items": [
-    {
-      "type": "calendar",
-      "title": "非交易日复盘模式",
-      "detail": "A/H市场休市,行情类数据沿用最近交易日 2026-06-05;今日只更新结构化情报和待办",
-      "tag": "周末维护"
-    },
     {
       "type": "water_seller",
       "title": "卖水人环节 · ARM IP 授权",
@@ -27,10 +21,10 @@
       "tag": "产业链卖水人"
     },
     {
-      "type": "minimax_intel",
-      "title": "公开情报归档 3 轮",
-      "detail": "MiniMax 已完成今日公开情报归档,后续用于主题催化和数据缺口补证",
-      "tag": "情报归档"
+      "type": "signal_buy",
+      "title": "今日机会信号 54 条",
+      "detail": "今日机会提示:神州数码、广合科技、华正新材、雅克科技 等 54 只(触发:opportunity_tree 非共识候选: 整机与机柜集成)",
+      "tag": "买入提示"
     },
     {
       "type": "watchlist",
