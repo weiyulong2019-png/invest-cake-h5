@@ -36,6 +36,7 @@ import re
 import sys
 import collections
 from datetime import datetime, timezone, timedelta
+from datetime import date as Date
 from pathlib import Path
 
 # ---- 路径锚定 ----
@@ -53,6 +54,7 @@ SIGNALS_DIR = WORKSPACE / "scripts" / "data" / "signals"
 WATCHLIST_JSON = WORKSPACE / "data" / "watchlist.json"
 FUNDING_DB = WORKSPACE / "scripts" / "funding_tracker" / "funding.db"
 FUNDING_SAMPLE = WORKSPACE / "scripts" / "funding_tracker" / "sample_rounds.json"
+MINIMAX_DAILY = WORKSPACE / "data" / "intel" / "minimax" / "LATEST_DAILY.json"
 
 CN_TZ = timezone(timedelta(hours=8))
 
@@ -62,6 +64,21 @@ FORBIDDEN_SUBSTR = ["持仓", "shares", "成本", "盈亏", "token", "secret", "
 
 def _today() -> datetime:
     return datetime.now(CN_TZ)
+
+
+def _today_date() -> Date:
+    return _today().date()
+
+
+def _last_market_day(base: Date | None = None) -> str:
+    d = base or _today_date()
+    while d.weekday() >= 5:
+        d -= timedelta(days=1)
+    return d.isoformat()
+
+
+def _is_weekend(base: Date | None = None) -> bool:
+    return (base or _today_date()).weekday() >= 5
 
 
 def _safe_text(s: str) -> bool:
@@ -237,7 +254,36 @@ def collect_today_signals() -> list[dict]:
 
 
 # ============================================================
-# 源 4:自选异动 / 融资热度 (有则取层热度)
+# 源 4:MiniMax 5小时情报归档状态
+# 只读 LATEST_DAILY;不搬原文长内容,只给今日是否有公开情报归档
+# ============================================================
+def collect_minimax_daily() -> list[dict]:
+    try:
+        if not MINIMAX_DAILY.exists():
+            return []
+        data = json.loads(MINIMAX_DAILY.read_text(encoding="utf-8"))
+    except Exception:
+        return []
+    if data.get("day") != _today_date().isoformat():
+        return []
+    runs = int(data.get("source_run_count") or 0)
+    if runs <= 0:
+        return [{
+            "type": "minimax_intel",
+            "title": "公开情报归档待采集",
+            "detail": "MiniMax 5小时情报任务已就绪,等待首轮有效归档",
+            "tag": "情报归档",
+        }]
+    return [{
+        "type": "minimax_intel",
+        "title": f"公开情报归档 {runs} 轮",
+        "detail": "MiniMax 已完成今日公开情报归档,后续用于主题催化和数据缺口补证",
+        "tag": "情报归档",
+    }]
+
+
+# ============================================================
+# 源 5:自选异动 / 融资热度 (有则取层热度)
 # watchlist:取自选数量 + 板块构成;funding:取细分赛道融资热度 Top
 # 均不涉及任何个人持仓
 # ============================================================
@@ -338,6 +384,17 @@ def _funding_heat() -> list[tuple[str, int]]:
     return c.most_common()
 
 
+def collect_calendar_status() -> list[dict]:
+    if not _is_weekend():
+        return []
+    return [{
+        "type": "calendar",
+        "title": "非交易日复盘模式",
+        "detail": f"A/H市场休市,行情类数据沿用最近交易日 {_last_market_day()};今日只更新结构化情报和待办",
+        "tag": "周末维护",
+    }]
+
+
 # ============================================================
 # 主聚合
 # ============================================================
@@ -345,9 +402,11 @@ def build() -> dict:
     now = _today()
     all_items: list[dict] = []
     for collector in (
+        collect_calendar_status,
         collect_us_mapping,
         collect_water_seller,
         collect_today_signals,
+        collect_minimax_daily,
         collect_watchlist_funding,
     ):
         try:

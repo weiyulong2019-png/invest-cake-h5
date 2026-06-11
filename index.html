@@ -186,7 +186,7 @@ a:active{opacity:.6;}
 .wl-row{display:flex;align-items:center;padding:12px 16px;min-height:44px;border-bottom:1px solid var(--border);cursor:pointer;}
 .wl-row:last-child{border-bottom:none;}
 .wl-row:active{background:var(--surface-2);}
-.wl-info{flex:1;}.wl-name{font-size:13px;font-weight:600;display:flex;align-items:center;gap:4px;}
+.wl-info{flex:1;min-width:0;}.wl-name{font-size:13px;font-weight:600;display:flex;align-items:center;gap:4px;flex-wrap:wrap;line-height:1.35;}
 .wl-code{font-size:11px;color:var(--text3);margin-top:1px;}
 .wl-right{text-align:right;}.wl-price{font-size:14px;font-weight:600;}.wl-chg{font-size:12px;font-weight:600;margin-top:1px;}
 .wl-from{font-size:11px;padding:1px 5px;border-radius:2px;background:#F0F0F0;color:var(--text3);}
@@ -375,6 +375,11 @@ a:active{opacity:.6;}
 /* 持有标记（公开看板：只标"持有"，绝不含数量） */
 .held-pill{display:inline-block;font-size:11px;font-weight:700;color:#0B6FC2;background:#E9F2FB;border:1px solid #CFE3F6;border-radius:3px;padding:0 5px;margin-left:4px;vertical-align:1px;letter-spacing:.3px;}
 .wl-layer{display:inline-block;font-size:11px;font-weight:600;color:var(--text2);background:var(--bg);border-radius:3px;padding:0 5px;margin-left:6px;}
+.readiness-pill{display:inline-block;font-size:11px;font-weight:800;border-radius:3px;padding:0 5px;margin-left:4px;white-space:nowrap;border:1px solid var(--border);}
+.readiness-pill.ready{color:var(--green);background:#E8F5EC;border-color:#CDEBD6;}
+.readiness-pill.warn{color:#B7791F;background:#FFF7E8;border-color:#F5D49B;}
+.readiness-pill.observe{color:var(--text3);background:#F5F5F5;border-color:var(--border);}
+.readiness-note{font-size:11px;color:var(--text3);margin-top:3px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 /* 自选 — 预警行 */
 .alert-row{display:flex;gap:8px;padding:12px 0;border-top:1px dashed var(--border);}
 .alert-row:first-of-type{border-top:none;}
@@ -511,11 +516,11 @@ a:active{opacity:.6;}
       </div>
       <div class="chain-sigs" v-if="stratReady && chainSignals.length">
         <div class="chain-sig-box">
-          <div class="chain-sig-h"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3c1 3-1 4-1 6a3 3 0 0 0 6 .5c0-1.5-.5-2.5-.5-2.5 2 1.5 3 4 3 6.5a7 7 0 1 1-14 0c0-3.5 2.5-5.5 3.5-8 .8-2 .5-2.5 0-4 1.5.5 2.5 2 3.5 3.5Z"/></svg>非共识机会 <span style="font-size:11px;color:var(--text2);font-weight:400;">{{ chainTitle(homeTab) }} · 被忽略的环节标的</span></div>
+          <div class="chain-sig-h"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3c1 3-1 4-1 6a3 3 0 0 0 6 .5c0-1.5-.5-2.5-.5-2.5 2 1.5 3 4 3 6.5a7 7 0 1 1-14 0c0-3.5 2.5-5.5 3.5-8 .8-2 .5-2.5 0-4 1.5.5 2.5 2 3.5 3.5Z"/></svg>{{ chainSignalTitle }} <span style="font-size:11px;color:var(--text2);font-weight:400;">{{ chainSignalSubtitle }}</span></div>
           <div class="chain-sig-chips">
             <span class="cake-chip" v-for="h in chainSignals" :key="h.code"
-                  style="background:#E8F5EC;color:var(--down);" @click="openTarget(h,{name:h.segment})">
-              {{ h.name }}
+                  :style="oppTagStyle(h)" @click="openTarget(h,{name:h.segment})">
+              {{ h.name }}<template v-if="!isConfirmedOpp(h)"> · 待核实</template>
             </span>
           </div>
         </div>
@@ -618,22 +623,22 @@ a:active{opacity:.6;}
       <div class="header-left"><h1>自选</h1></div>
     </div>
 
-    <!-- 今日机会（各链非共识/被忽略环节标的）— 列表样式，与今日预警统一 -->
+    <!-- 今日机会（成交额确认非共识 + 结构性待验证候选）— 列表样式，与今日预警统一 -->
     <div class="wl-section">
       <div class="strat-block" style="margin-bottom:0;">
-        <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/></svg>今日机会<span class="strat-head-sub">· 非共识被忽略环节</span>
+        <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor" stroke="none"/></svg>今日机会<span class="strat-head-sub">{{ todayOppsSub }}</span>
           <span class="badge" :style="badgeStyle(todayOpps.length)">{{ todayOpps.length?(todayOpps.length+'只'):'暂无' }}</span>
         </div>
         <template v-if="todayOpps.length">
           <div class="alert-row" v-for="o in todayOpps" :key="o.chain+o.code" @click="openTarget(o,{name:o.segment})" style="cursor:pointer;">
-            <span class="alert-dot" style="background:var(--down);"></span>
+            <span class="alert-dot" :style="{background:isConfirmedOpp(o)?'var(--down)':'#C98000'}"></span>
             <div class="alert-body">
-              <div class="alert-name">{{ o.name }} <span class="alert-tag low" style="background:#E8F5EC;color:var(--down);">非共识</span><span v-if="isHeld(o.code)" class="held-pill">持有</span></div>
-              <div class="alert-note">{{ o.chainLabel }}<template v-if="o.segment"> · {{ o.segment }}</template></div>
+              <div class="alert-name">{{ o.name }} <span class="alert-tag low" :style="oppTagStyle(o)">{{ oppLabel(o) }}</span><span v-if="isHeld(o.code)" class="held-pill">持有</span></div>
+              <div class="alert-note">{{ o.chainLabel }}<template v-if="o.segment"> · {{ o.segment }}</template><template v-if="o.reason"> · {{ o.reason }}</template></div>
             </div>
           </div>
         </template>
-        <div v-else class="strat-note">暂无非共识机会（共识充分或图谱待补）。</div>
+        <div v-else class="strat-note">暂无可展示机会（共识充分、图谱待补或仍待数据核实）。</div>
       </div>
     </div>
 
@@ -712,9 +717,10 @@ a:active{opacity:.6;}
       <div class="wl-card" v-if="filteredHeld.length">
         <div class="wl-row" v-for="s in filteredHeld" :key="s.code" @click="goDetail2(s)">
           <div class="wl-info">
-            <div class="wl-name">{{ s.name }}<span class="wl-from">持有</span><span v-if="s.cakeLayerName" class="wl-layer">{{ s.cakeLayerName }}</span></div>
+            <div class="wl-name">{{ s.name }}<span class="wl-from">持有</span><span v-if="s.cakeLayerName" class="wl-layer">{{ s.cakeLayerName }}</span><span v-if="s.readinessLabel" class="readiness-pill" :class="s.readinessClass">{{ s.readinessLabel }}</span></div>
             <div class="wl-code">{{ s.code }}<template v-if="s.sector"> · {{ s.sector }}</template></div>
             <div v-if="s.signal" class="st-signal" :class="s.signal" style="margin-top:3px;">{{ signalLabel(s.signal) }}</div>
+            <div v-if="s.readinessNote" class="readiness-note">{{ s.readinessNote }}</div>
           </div>
           <div class="wl-right">
             <template v-if="s.hasQuote">
@@ -741,10 +747,11 @@ a:active{opacity:.6;}
       <div class="det-code">{{ ds.code }} · {{ ds.sector||'' }}</div>
       <div class="det-price-area">
         <span class="det-big-price">{{ ds.p }}</span>
-        <span class="det-big-chg" :class="dchgClass(s.cv)">{{ ds.c }}</span>
+        <span class="det-big-chg" :class="chgClass(ds.cv)">{{ ds.c }}</span>
       </div>
       <div class="det-tags">
         <div class="det-tag" v-if="ds.layerName">{{ ds.layerName }}</div>
+        <div class="det-tag" v-if="ds.readinessLabel">{{ ds.readinessLabel }}</div>
         <div class="det-tag" v-if="ds.pe && ds.pe!=='-'">PE {{ ds.pe }}</div>
         <div class="det-tag" v-if="ds.cap && ds.cap!=='-'">市值 {{ ds.cap }}</div>
       </div>
@@ -752,7 +759,7 @@ a:active{opacity:.6;}
     <div class="metrics" v-if="ds.pe && ds.pe!=='-'">
       <div class="m-cell"><div class="m-label">PE(TTM)</div><div class="m-val">{{ ds.pe }}</div></div>
       <div class="m-cell"><div class="m-label">市值</div><div class="m-val">{{ ds.cap||'-' }}</div></div>
-      <div class="m-cell"><div class="m-label">涨跌幅</div><div class="m-val" :class="dchgClass(s.cv)">{{ ds.c }}</div></div>
+      <div class="m-cell"><div class="m-label">涨跌幅</div><div class="m-val" :class="chgClass(ds.cv)">{{ ds.c }}</div></div>
     </div>
     <div class="agent-section">
       <div class="section-title"><svg class="ic" viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="12" rx="2"/><path d="M12 7V4M9 12h.01M15 12h.01M9 16h6"/></svg>AI多维分析</div>
@@ -812,10 +819,10 @@ a:active{opacity:.6;}
           </div>
         </div>
 
-        <!-- 六维动作雷达：买卖点/防守优先，可能只是等回撤，不等于买入池 -->
+        <!-- 六维动作雷达：只放持仓管理或价值/质量/估值均通过的新开仓候选 -->
         <div class="strat-block" v-if="actionCandidates.length">
           <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><path d="M4 17l5-5 4 3 7-8"/><path d="M20 7h-5M20 7v5"/><path d="M4 20h16"/></svg>六维动作雷达
-            <span class="badge" :style="badgeStyle(true)">择时/防守优先</span>
+            <span class="badge" :style="badgeStyle(true)">持仓/新开仓门槛</span>
           </div>
           <div class="decision-pool">
             <div class="decision-row" v-for="c in actionCandidates" :key="'act-'+c.code" @click="pickDash(c.code)">
@@ -824,6 +831,33 @@ a:active{opacity:.6;}
                 <div class="decision-meta">{{ c.chain_label }} · {{ c.segment||'未归段' }}</div>
                 <div class="decision-tags">
                   <span class="decision-tag" :class="actionTypeClass(c)">{{ actionTypeLabel(c) }}</span>
+                  <span class="decision-tag">PE {{ displayPe(c) }}</span>
+                  <span class="decision-tag">{{ qualityLabel(c) }}</span>
+                  <span class="decision-tag">{{ timingSourceLabel(c) }}</span>
+                  <span class="decision-tag">{{ c.decisionProfile.timingPlan?c.decisionProfile.timingPlan.stance:'择时待确认' }}</span>
+                </div>
+              </div>
+              <div>
+                <div class="decision-label">{{ candidateLabel(c) }}</div>
+                <div class="decision-note">{{ candidateNote(c, true) }}</div>
+              </div>
+              <div class="decision-score"><b>{{ timingMetric(c) }}</b><span>择时分</span><em>{{ valueMetric(c) }} 价值</em></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 强趋势观察：量化强但价值门槛未通过，不能当作买点 -->
+        <div class="strat-block" v-if="trendWatchCandidates.length">
+          <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 12h3l2-4 3 7 2-3h2"/></svg>强趋势观察
+            <span class="badge" :style="badgeStyle(false)">不进买入池</span>
+          </div>
+          <div class="decision-pool">
+            <div class="decision-row" v-for="c in trendWatchCandidates" :key="'trend-'+c.code" @click="pickDash(c.code)">
+              <div>
+                <div class="decision-name">{{ c.name }}</div>
+                <div class="decision-meta">{{ c.chain_label }} · {{ c.segment||'未归段' }}</div>
+                <div class="decision-tags">
+                  <span class="decision-tag action-pass">趋势观察</span>
                   <span class="decision-tag">PE {{ displayPe(c) }}</span>
                   <span class="decision-tag">{{ qualityLabel(c) }}</span>
                   <span class="decision-tag">{{ timingSourceLabel(c) }}</span>
@@ -1035,14 +1069,14 @@ a:active{opacity:.6;}
           <div v-else class="strat-note">{{ strat.winRate.note || '暂无胜率数据' }}</div>
         </div>
 
-        <!-- 情报速递：RSS/官方源 + Polymarket 概率，只读参考 -->
+        <!-- 情报速递：RSS/官方源 + Polymarket 概率 + MiniMax日内归档，只读参考 -->
         <div class="strat-block">
           <div class="strat-head"><svg class="ic ic-20" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>情报速递
-            <span class="badge" :style="badgeStyle(strat.intel.available && ((strat.intel.rss.items||[]).length || (strat.intel.polymarket.events||[]).length))">
-              {{ (strat.intel.rss.items||[]).length + (strat.intel.polymarket.events||[]).length ? '已更新' : '暂无数据' }}
+            <span class="badge" :style="badgeStyle(intelItemCount()>0)">
+              {{ intelItemCount() ? '已更新' : '暂无数据' }}
             </span>
           </div>
-          <template v-if="strat.intel.available && ((strat.intel.rss.items||[]).length || (strat.intel.polymarket.events||[]).length)">
+          <template v-if="intelItemCount()>0">
             <div class="strat-note" v-if="(strat.intel.rss.items||[]).length">官方/RSS 头条</div>
             <div class="seg-item" v-for="n in (strat.intel.rss.items||[]).slice(0,4)" :key="n.link || n.title">
               <div class="seg-name">
@@ -1059,6 +1093,12 @@ a:active{opacity:.6;}
                 <template v-if="p.implied_pct!=null"> · 隐含概率 {{ Number(p.implied_pct).toFixed(1) }}%</template>
                 <template v-if="p.change_24h!=null"> · 24h {{ p.change_24h>0?'+':'' }}{{ (p.change_24h*100).toFixed(1) }}pct</template>
               </div>
+            </div>
+            <div class="strat-note" v-if="minimaxIntelRuns().length">MiniMax 日内归档</div>
+            <div class="seg-item" v-for="r in minimaxIntelRuns().slice(0,3)" :key="r.run_id || r.mtime">
+              <div class="seg-name">公开情报归档 · {{ r.run_id || '未命名' }}</div>
+              <div class="seg-logic">{{ minimaxRunMeta(r) }}</div>
+              <div class="seg-logic">{{ minimaxRunSummary(r) }}</div>
             </div>
           </template>
           <div v-else class="strat-note">{{ strat.intel.note || '暂无情报数据' }}</div>
@@ -1168,6 +1208,7 @@ a:active{opacity:.6;}
     <div class="sheet-title">
       <svg class="crown ic" v-if="sheet.data.is_leader" viewBox="0 0 24 24" aria-label="龙头"><path d="M3 8l4 4 5-7 5 7 4-4-2 11H5L3 8Z"/></svg>{{ sheet.data.name || '—' }}
       <span v-if="sheet.data.consensus_state==='non_consensus'" style="font-size:11px;font-weight:600;color:var(--down);background:#E8F5EC;border-radius:3px;padding:1px 6px;">非共识</span>
+      <span v-else-if="sheet.data.candidate_source==='structural_non_consensus'" style="font-size:11px;font-weight:600;color:#9A5B00;background:#FFF7E6;border-radius:3px;padding:1px 6px;">结构候选</span>
     </div>
     <div class="sheet-code">{{ sheet.data.code || '代码未知' }}</div>
     <div style="margin-top:14px;">
@@ -1225,7 +1266,7 @@ createApp({
       usMapping:{available:false,note:'',quote_ok:false,anchors:[],big_movers:[]},
       funding:{available:false,note:'',months:12,total_events:0,layers:[]},
       winRate:{available:false,note:'',scanners:[]},
-      intel:{available:false,note:'',rss:{items:[]},polymarket:{events:[]}},
+      intel:{available:false,note:'',rss:{items:[]},polymarket:{events:[]},minimaxDaily:{available:false,note:'',source_run_count:0,runs:[]}},
       heldEtfCodes:[],
       heldStocks:{available:false,note:'',items:[]},
       usAshIndex:{available:false,note:'',byCode:{}},
@@ -1317,6 +1358,23 @@ createApp({
       });
       return out.slice(0,16);
     });
+    const isConfirmedOpp=(o)=>o && (
+      o.candidate_source==='turnover_consensus_meter' ||
+      o.verification_status==='confirmed_by_turnover' ||
+      o.consensus_state==='non_consensus'
+    );
+    const oppLabel=(o)=>isConfirmedOpp(o)?'非共识':'待核实';
+    const oppTagStyle=(o)=>isConfirmedOpp(o)
+      ? {background:'#E8F5EC',color:'var(--down)'}
+      : {background:'#FFF7E6',color:'#9A5B00'};
+    const todayOppsSub=computed(()=>{
+      const confirmed=todayOpps.value.filter(isConfirmedOpp).length;
+      const structural=todayOpps.value.length-confirmed;
+      if(confirmed&&structural)return `· ${confirmed}只确认 / ${structural}只待核实`;
+      if(confirmed)return '· 成交额确认非共识';
+      if(structural)return '· 结构候选待核实';
+      return '· 等待信号';
+    });
 
     // ── 预警（item6）：持仓股技术风险 + 拥挤交易 ──
     const moversFold=ref(false);
@@ -1360,6 +1418,30 @@ createApp({
       });
       return out;
     });
+    const isValueQualified=(card)=>{
+      const d=(card&&card.decisionProfile)||{};
+      const f=(card&&card.fundamentalSnapshot)||{};
+      const qualityScore=Number(f.qualityScore);
+      return d.valuationState==='reasonable' && Number.isFinite(qualityScore) && qualityScore>=62;
+    };
+    const isActionCandidatePool=(card)=>{
+      const d=(card&&card.decisionProfile)||{};
+      const held=!!(card&&card.held);
+      if(!d||d.timingSource!=='six_factor')return false;
+      if(d.actionability==='defensive' && held)return true;
+      if(d.actionability==='tracking_candidate' && held)return true;
+      if(d.actionability==='action_candidate' && (held||isValueQualified(card)))return true;
+      return false;
+    };
+    const isTrendWatch=(card)=>{
+      const d=(card&&card.decisionProfile)||{};
+      if(!d||d.timingSource!=='six_factor')return false;
+      const held=!!(card&&card.held);
+      if(held)return false;
+      if(d.actionability==='tracking_candidate')return true;
+      if(d.actionability==='action_candidate' && !isValueQualified(card))return true;
+      return false;
+    };
     const valueCandidates=computed(()=>{
       const cards=Object.values((strat.stockCards&&strat.stockCards.cards)||{});
       return cards.filter(c=>{
@@ -1371,6 +1453,16 @@ createApp({
           const bp=(b.decisionProfile&&Number(b.decisionProfile.rankScore||b.decisionProfile.score))||0;
           const ap=(a.decisionProfile&&Number(a.decisionProfile.rankScore||a.decisionProfile.score))||0;
           return bp-ap;
+        })
+        .slice(0,10);
+    });
+    const trendWatchCandidates=computed(()=>{
+      const cards=Object.values((strat.stockCards&&strat.stockCards.cards)||{});
+      return cards.filter(isTrendWatch)
+        .sort((a,b)=>{
+          const bd=(b.decisionProfile&&Number(b.decisionProfile.timingScore||b.decisionProfile.score))||0;
+          const ad=(a.decisionProfile&&Number(a.decisionProfile.timingScore||a.decisionProfile.score))||0;
+          return bd-ad;
         })
         .slice(0,10);
     });
@@ -1394,16 +1486,15 @@ createApp({
       const cards=Object.values((strat.stockCards&&strat.stockCards.cards)||{});
       const priority=(c)=>{
         const d=(c&&c.decisionProfile)||{};
-        if(d.timingSource!=='six_factor')return 0;
-        const held=c&&c.held;
+        const held=!!(c&&c.held);
+        if(!isActionCandidatePool(c))return 0;
         if(held&&d.actionability==='defensive')return 6;
         if(held&&d.actionability==='action_candidate')return 5;
         if(held&&d.actionability==='tracking_candidate')return 4;
         if(!held&&d.actionability==='action_candidate')return 3;
-        if(!held&&d.actionability==='tracking_candidate')return 2;
         return 0;
       };
-      return cards.filter(c=>priority(c)>0)
+      return cards.filter(c=>isActionCandidatePool(c)&&!isTrendWatch(c))
         .sort((a,b)=>{
           const bp=priority(b)*1000+((b.decisionProfile&&Number(b.decisionProfile.score))||0);
           const ap=priority(a)*1000+((a.decisionProfile&&Number(a.decisionProfile.score))||0);
@@ -1860,6 +1951,12 @@ createApp({
     const chainSignals=computed(()=>{
       const c=curChain.value;return (c&&c.non_consensus)||[];
     });
+    const chainSignalHasConfirmed=computed(()=>chainSignals.value.some(isConfirmedOpp));
+    const chainSignalTitle=computed(()=>chainSignalHasConfirmed.value?'非共识机会':'待验证结构候选');
+    const chainSignalSubtitle=computed(()=>{
+      if(chainSignalHasConfirmed.value)return `${chainTitle(homeTab.value)} · 成交额确认的低关注环节`;
+      return `${chainTitle(homeTab.value)} · 结构卡点线索，需补成交额/基本面核实`;
+    });
     const chainInsight=computed(()=>{
       const c=curChain.value||{};const stats=c.stats||{};
       const layers=homeChainLayers.value;
@@ -1961,16 +2058,28 @@ createApp({
         hasQuote
       };
     };
+    const normalizeReadiness=(raw)=>{
+      const r=raw||{};
+      const gate=String(r.buyGate||'');
+      if(!gate)return{label:'',cls:'observe',note:''};
+      if(gate==='buy_allowed_after_quant_trigger')return{label:r.label||'可择时',cls:'ready',note:r.nextAction||r.note||'价值论点已注册，等待量化触发。'};
+      if(gate==='value_ready_timing_incomplete')return{label:r.label||'待计划',cls:'warn',note:r.nextAction||r.note||'价值论点已注册，但买卖点计划未绑定。'};
+      if(String(r.valueStatus||'').startsWith('draft_'))return{label:r.label||'待确认',cls:'warn',note:r.nextAction||r.note||'研究草案已生成，等待人工确认。'};
+      return{label:r.label||'仅观察',cls:'observe',note:r.nextAction||r.note||'未补价值论点前，技术信号只作观察。'};
+    };
     const heldStockRows=computed(()=>{
       const items=(strat.heldStocks&&strat.heldStocks.items)||[];
       const idx=priceIndex.value;
       return items.map(h=>{
         const nameKey='NAME:'+String(h.name||'').replace(/[\s（）()·-]/g,'').replace(/国泰|ETF基金/g,'').toLowerCase();
         const m=idx[h.code]||idx[String(h.code).replace(/^HK\./,'')]||idx[nameKey]||{};
+        const readiness=normalizeReadiness(h.decisionReadiness);
         return{code:h.code,name:h.name,type:h.type,
           p:m.p||'—',c:m.c||'',cv:m.cv!=null?m.cv:0,
           sector:m.sector||'',hasQuote:m.p!=null&&m.p!=='-'&&m.p!=='—',
-          signal:m.signal||'',signalNote:m.signalNote||'',cakeLayerName:h.cakeLayerName||''};
+          signal:m.signal||'',signalNote:m.signalNote||'',cakeLayerName:h.cakeLayerName||'',
+          decisionReadiness:h.decisionReadiness||{},readinessLabel:readiness.label,
+          readinessClass:readiness.cls,readinessNote:readiness.note};
       });
     });
     const heldActionRows=computed(()=>{
@@ -2078,6 +2187,22 @@ createApp({
        tags:['L3通信','PCB','供需分析']},
     ]);
 
+    const minimaxIntelRuns=()=>((((strat.intel||{}).minimaxDaily||{}).runs)||[]);
+    const intelItemCount=()=>((strat.intel.rss.items||[]).length)+((strat.intel.polymarket.events||[]).length)+minimaxIntelRuns().length;
+    const minimaxRunSummary=(r)=>{
+      const s=(r&&r.sections)||{};
+      return s.market||s.themes||s.watchlist||s.macro||s.data_gaps||s.followups||'已归档，待提炼';
+    };
+    const minimaxRunMeta=(r)=>{
+      const counts=(r&&r.counts)||{};
+      const total=Object.values(counts).reduce((acc,v)=>acc+(typeof v==='number'?v:0),0);
+      const parts=[];
+      if(r&&r.mtime)parts.push(r.mtime);
+      if(total)parts.push(`结构化 ${total} 条`);
+      if(r&&r.bytes)parts.push(`${r.bytes} bytes`);
+      return parts.join(' · ')||'来源/时间待核验';
+    };
+
     // 加载watchlist.json
     async function loadWatchlist(){
       try{
@@ -2170,9 +2295,9 @@ createApp({
       setInterval(()=>{const h=new Date().getHours();if(h>=9&&h<=15){refreshData();loadWatchlist();loadBrief();}},60000);
     });
 
-    return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,chainTitle,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainDataOverview,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,valueCandidates,verificationCandidates,actionCandidates,displayPe,valueMetric,timingMetric,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,candidateLabel,candidateNote,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,planTitle,planEntryLabel,valueDecision,timingDecision};
-  }
-}).mount('#app');
+      return{tab,pt,ds,sq,wlFilter,layers,etfs,watchlist,goDetail,goDetail2,dAgents,obFolders,reports,loading,updateTime,marketIdx,refreshData,refreshAll,chgClass,signalLabel,brief,strat,stratLoading,stratReady,loadStrategy,badgeStyle,consClass,consLabel,evLabel,scannerLabel,wrTier,wrColor,usOpen,canExpandAnchor,sheet,sheetQuote,openTarget,closeSheet,ptrPull,ptrThreshold,ptrMove,ptrEnd,activeChain,hasChains,chainOrder,chainLabel,chainTitle,curChain,chainEmptyNote,homeTab,homeTabs,selectHomeTab,isHeldEtf,homeChainLayers,chainInsight,chainSignals,chainSignalTitle,chainSignalSubtitle,chainDataOverview,chainDecisionCandidates,chainDecisionSummary,sentimentGauge,heldStockRows,heldActionRows,filteredHeld,watchlistMovers,isHeld,quoteOf,usAnchorsFor,todayOpps,todayOppsSub,isConfirmedOpp,oppLabel,oppTagStyle,moversFold,alertList,dashQuery,coveredCount,dashSuggest,decisionOverview,valueCandidates,verificationCandidates,actionCandidates,trendWatchCandidates,displayPe,valueMetric,timingMetric,qualityLabel,timingSourceLabel,actionTypeLabel,actionTypeClass,candidateLabel,candidateNote,qualityNote,pickDash,dashCard,dashQuote,dashFund,dashDecision,dashPlan,planClass,planTitle,planEntryLabel,valueDecision,timingDecision,minimaxIntelRuns,intelItemCount,minimaxRunSummary,minimaxRunMeta};
+    }
+  }).mount('#app');
 
 if(window.wx&&window.__wxConfig){
   wx.ready(function(){

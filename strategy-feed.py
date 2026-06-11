@@ -42,12 +42,14 @@ OUTPUT_FILE = HERE / "strategy.json"
 
 # workspace-main 引擎路径（只读 import）。固定相对定位，找不到则该区块降级。
 WORKSPACE_SCRIPTS = Path("/Users/long/.openclaw/workspace-main/scripts")
+WORKSPACE_ROOT = WORKSPACE_SCRIPTS.parent
 
 # P0 数据模块的产出目录（本脚本【只读】这些 JSON，绝不运行/修改其源码）。
 #   美股情报: scripts/data/us_intel/  (sec_edgar / us_quote / 13F / 社媒情绪)
 #   宏观情报: scripts/data/intel/     (rss_intel / polymarket_odds)
 US_INTEL_DIR = WORKSPACE_SCRIPTS / "data" / "us_intel"
 INTEL_DIR = WORKSPACE_SCRIPTS / "data" / "intel"
+MINIMAX_INTEL_DIR = WORKSPACE_ROOT / "data" / "intel" / "minimax"
 SIGNALS_DIR = WORKSPACE_SCRIPTS / "data" / "signals"
 
 # 上游降级骨架里出现这些 status 即视为「未取到」（不当成真数据）。
@@ -103,16 +105,18 @@ def build_chain_tree(chain: str, dry_run: bool) -> dict:
         graph = ot.load_graph(chain)
         theme = ot.CHAIN_THEME.get(chain, graph.get("theme", ""))
         mapping = ot.load_mapping(theme)
-        tree_nodes = graph.get("tree", {})
-        entry = next((n for n, v in tree_nodes.items() if v.get("tier") == 0), None)
-        if entry is None:
-            segs = graph.get("segments") or list(tree_nodes)
-            entry = segs[0] if segs else None
-        if entry is None:
+        if hasattr(ot, "find_entries"):
+            entries = ot.find_entries(graph)
+        else:
+            tree_nodes = graph.get("tree", {})
+            entry = next((n for n, v in tree_nodes.items() if v.get("tier") == 0), None)
+            if entry is None:
+                segs = graph.get("segments") or list(tree_nodes)
+                entry = segs[0] if segs else None
+            entries = [entry] if entry else []
+        if not entries:
             block["note"] = "暂无数据（图谱无可用入口环节）"
             return block
-
-        root = ot.build_tree(graph, entry)
 
         turnover: dict = {}
         consensus_live = False
@@ -120,40 +124,59 @@ def build_chain_tree(chain: str, dry_run: bool) -> dict:
             all_codes = sorted({c for peers in mapping.values() for c in peers})
             turnover = ot.fetch_turnover(all_codes) or {}
             consensus_live = bool(turnover)
-        ot.annotate_consensus(root, mapping, turnover)
 
         acc = {"total_nodes": 0, "nodes_with_targets": 0, "nodes_todo": 0,
-               "all_targets": [], "non_consensus": [], "upstream_todo": []}
-        ot.collect_stats(root, acc)
+               "all_targets": [], "non_consensus": [], "upstream_todo": [],
+               "proposed_targets": []}
+        roots = []
+        for entry in entries:
+            root = ot.build_tree(graph, entry)
+            ot.annotate_consensus(root, mapping, turnover)
+            ot.collect_stats(root, acc)
+            roots.append(root)
 
         # 扁平化为前端友好的环节列表（只取有标的的环节，控制体积）
         segs_out: list = []
+        seen_segments: set[tuple] = set()
 
         def _walk(node: dict, depth: int):
             holds = node.get("holdings", []) or []
             if holds:
-                segs_out.append({
-                    "name": node["name"],
-                    "tier": node.get("tier"),
-                    "depth": depth,
-                    "kind": node.get("kind"),
-                    "holdings": [{
-                        "code": h["code"],
-                        "name": h["name"],
-                        "is_leader": bool(h.get("is_leader")),
-                        "consensus_state": h.get("consensus_state", "unknown"),
-                    } for h in holds],
-                })
+                key = (node["name"], node.get("tier"), tuple(sorted(str(h.get("code") or "") for h in holds)))
+                if key not in seen_segments:
+                    seen_segments.add(key)
+                    segs_out.append({
+                        "name": node["name"],
+                        "tier": node.get("tier"),
+                        "depth": depth,
+                        "kind": node.get("kind"),
+                        "target_source": node.get("target_source"),
+                        "holdings": [{
+                            "code": h["code"],
+                            "name": h["name"],
+                            "is_leader": bool(h.get("is_leader")),
+                            "consensus_state": h.get("consensus_state", "unknown"),
+                            "proposed": bool(h.get("proposed")),
+                            "status": h.get("status"),
+                            "role": h.get("role"),
+                            "evidence_grade": h.get("evidence_grade"),
+                        } for h in holds],
+                    })
             for ch in node.get("children", []) or []:
                 _walk(ch, depth + 1)
 
-        _walk(root, 0)
+        for root in roots:
+            _walk(root, 0)
+
+        non_consensus = _non_consensus_output(acc)
+        upstream_todo = _dedupe_upstream_todo(acc.get("upstream_todo", []))
 
         block.update({
             "available": True,
             "note": "",
             "theme": theme,
-            "entry": entry,
+            "entry": entries[0],
+            "entries": entries,
             "consensus_live": consensus_live,
             "stats": {
                 "total_nodes": acc["total_nodes"],
@@ -165,20 +188,131 @@ def build_chain_tree(chain: str, dry_run: bool) -> dict:
                     for r in acc["all_targets"]
                     if r.get("code")
                 }),
+                "non_consensus_confirmed": len(acc["non_consensus"]),
+                "structural_candidates": len(non_consensus) if not acc["non_consensus"] else 0,
+                "proposed_targets": len(acc.get("proposed_targets") or []),
             },
             "segments": segs_out[:60],  # 控制 payload 体积(ai_server 并入能源层后环节增多, 上调至 60)
-            "non_consensus": [{
-                "code": r["code"], "name": r["name"], "segment": r["segment"],
-                "tier": r.get("tier"), "tree_path": r.get("tree_path"),
-            } for r in acc["non_consensus"]][:20],
-            "upstream_todo": [{
-                "segment": u["segment"], "tier": u.get("tier"),
-            } for u in acc["upstream_todo"]][:20],
+            "non_consensus": non_consensus[:20],
+            "upstream_todo": upstream_todo[:20],
         })
         return block
     except Exception as exc:
         block["note"] = f"暂无数据（产业链树构建失败: {exc})"
         return block
+
+
+def _dedupe_upstream_todo(rows: list[dict]) -> list[dict]:
+    """Deduplicate graph gaps by segment/tier while preserving first evidence path."""
+    out: list[dict] = []
+    seen: set[tuple] = set()
+    for row in rows or []:
+        key = (row.get("segment"), row.get("tier"))
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append({
+            "segment": row.get("segment"),
+            "tier": row.get("tier"),
+            "tree_path": row.get("tree_path"),
+            "kind": row.get("kind"),
+        })
+    return out
+
+
+def _non_consensus_output(acc: dict, limit: int = 20) -> list[dict]:
+    """Return real turnover-confirmed non-consensus first; otherwise structural candidates.
+
+    The fallback is intentionally marked as a candidate so the H5 can surface
+    under-covered upstream opportunities without pretending they are confirmed
+    by live turnover data.
+    """
+    confirmed = []
+    for row in acc.get("non_consensus") or []:
+        confirmed.append({
+            "code": row.get("code"),
+            "name": row.get("name"),
+            "segment": row.get("segment"),
+            "tier": row.get("tier"),
+            "tree_path": row.get("tree_path"),
+            "consensus_state": "non_consensus",
+            "candidate_source": "turnover_consensus_meter",
+            "verification_status": "confirmed_by_turnover",
+            "reason": "成交额口径低关注",
+        })
+    if confirmed:
+        return confirmed[:limit]
+
+    ranked = []
+    seen: set[str] = set()
+    for row in acc.get("all_targets") or []:
+        code = str(row.get("code") or "")
+        if not code or code in seen:
+            continue
+        tier = row.get("tier")
+        state = row.get("consensus_state")
+        proposed = bool(row.get("proposed"))
+        is_leader = bool(row.get("is_leader"))
+        if state == "crowded":
+            continue
+        if not proposed and not (isinstance(tier, int) and tier >= 2) and is_leader:
+            continue
+        score = _structural_candidate_score(row)
+        if score <= 0:
+            continue
+        seen.add(code)
+        ranked.append((score, {
+            "code": code,
+            "name": row.get("name"),
+            "segment": row.get("segment"),
+            "tier": tier,
+            "tree_path": row.get("tree_path"),
+            "consensus_state": state or "unknown",
+            "candidate_source": "structural_non_consensus",
+            "verification_status": "needs_turnover_or_fundamental_check",
+            "reason": _structural_candidate_reason(row),
+            "proposed": proposed,
+        }))
+    ranked.sort(key=lambda item: (-item[0], item[1]["code"]))
+    return [item for _, item in ranked[:limit]]
+
+
+def _structural_candidate_score(row: dict) -> int:
+    tier = row.get("tier")
+    state = row.get("consensus_state")
+    score = 0
+    if row.get("proposed"):
+        score += 30
+    if isinstance(tier, int):
+        if tier >= 3:
+            score += 35
+        elif tier == 2:
+            score += 28
+        elif tier == 1:
+            score += 10
+    if not row.get("is_leader"):
+        score += 10
+    if state == "unknown":
+        score += 8
+    elif state == "normal":
+        score += 4
+    if any(key in str(row.get("segment") or "") for key in ("材料", "设备", "芯片", "元件", "原料", "结构件")):
+        score += 8
+    return score
+
+
+def _structural_candidate_reason(row: dict) -> str:
+    bits = []
+    tier = row.get("tier")
+    if row.get("proposed"):
+        bits.append("图谱提议标的")
+    if isinstance(tier, int) and tier >= 2:
+        bits.append("上游/卡点环节")
+    if not row.get("is_leader"):
+        bits.append("非龙头低关注")
+    if row.get("consensus_state") == "unknown":
+        bits.append("成交额口径待核实")
+    return "；".join(bits) or "结构候选，待核实"
 
 
 def build_all_chains(dry_run: bool) -> dict:
@@ -510,14 +644,17 @@ def summarize_sentiment(ticker: str) -> dict:
 
 
 def build_intel(top_rss: int = 12, top_poly: int = 2) -> dict:
-    """📰 情报速递块：聚合 RSS 最新头条 + Polymarket 事件赔率（皆为公开数据）。
+    """📰 情报速递块：聚合 RSS/Polymarket/MiniMax 日内归档（皆为公开数据）。
 
-    只读 scripts/data/intel/{rss_latest,polymarket_latest}.json；
+    只读 scripts/data/intel/{rss_latest,polymarket_latest}.json
+    与 data/intel/minimax/LATEST_DAILY.json；
     任一未产出/降级 → 该子块标 available=False / 未取到，整块不报错。
     """
     block = {"available": False, "note": "未取到",
              "rss": {"available": False, "note": "未取到", "generated_at": None, "items": []},
-             "polymarket": {"available": False, "note": "未取到", "generated_at": None, "events": []}}
+             "polymarket": {"available": False, "note": "未取到", "generated_at": None, "events": []},
+             "minimaxDaily": {"available": False, "note": "未取到", "generated_at": None,
+                              "day": None, "source_run_count": 0, "runs": []}}
 
     # ── RSS 头条（按源聚合后取最新 N 条，保留来源与证据等级）──
     rss = _read_json_safe(INTEL_DIR / "rss_latest.json")
@@ -582,7 +719,50 @@ def build_intel(top_rss: int = 12, top_poly: int = 2) -> dict:
     elif isinstance(poly, dict) and poly.get("degraded"):
         block["polymarket"]["note"] = "Polymarket 取数降级（未取到）"
 
-    block["available"] = block["rss"]["available"] or block["polymarket"]["available"]
+    # ── MiniMax 5小时公开情报归档：只读 daily digest，不暴露本机归档路径 ──
+    mini = _read_json_safe(MINIMAX_INTEL_DIR / "LATEST_DAILY.json")
+    if isinstance(mini, dict):
+        runs = []
+        for run in mini.get("runs", [])[:12]:
+            if not isinstance(run, dict):
+                continue
+            if run.get("quality_status") == "failed":
+                continue
+            sections = run.get("sections") if isinstance(run.get("sections"), dict) else {}
+            structured = run.get("structured") if isinstance(run.get("structured"), dict) else {}
+            runs.append({
+                "run_id": run.get("run_id"),
+                "mtime": run.get("mtime"),
+                "bytes": run.get("bytes"),
+                "quality_status": run.get("quality_status") or "ok",
+                "sections": {
+                    key: (sections.get(key) or "")[:420]
+                    for key in ("market", "macro", "themes", "watchlist", "data_gaps", "followups")
+                },
+                "counts": {
+                    key: len(value) for key, value in structured.items()
+                    if isinstance(value, list)
+                },
+            })
+        source_runs = int(mini.get("source_run_count") or 0)
+        usable_runs = int(mini.get("usable_run_count") or 0)
+        mini_available = usable_runs > 0 and bool(runs)
+        block["minimaxDaily"] = {
+            "available": mini_available,
+            "note": "" if mini_available else "MiniMax 日内情报暂无有效归档",
+            "generated_at": mini.get("generated_at"),
+            "day": mini.get("day"),
+            "digest_status": mini.get("status"),
+            "source_run_count": source_runs,
+            "usable_run_count": usable_runs,
+            "runs": runs,
+        }
+
+    block["available"] = (
+        block["rss"]["available"]
+        or block["polymarket"]["available"]
+        or block["minimaxDaily"]["available"]
+    )
     if block["available"]:
         block["note"] = ""
     return block
@@ -1142,12 +1322,31 @@ def _quant_signal_from_score(row: dict) -> dict:
 def build_quant_timing_index(now: datetime) -> dict:
     """读取同日六维评分结果，为 H5 候选卡补量化择时快照。"""
     target = SIGNALS_DIR / f"factor_scores_{now.strftime('%Y%m%d')}.json"
+
+    # 若同日文件尚未生成（例如盘后刷新早于引擎产出），回退到最近历史文件。
+    if not target.exists():
+        targets = sorted(
+            (p for p in SIGNALS_DIR.glob("factor_scores_*.json")),
+            key=lambda p: p.stem.split("_")[-1],
+            reverse=True,
+        )
+        today = now.strftime("%Y%m%d")
+        for p in targets:
+            candidate = p.stem.split("_")[-1]
+            if candidate <= today:
+                target = p
+                break
+
+    note = ""
     if not target.exists():
         return {
             "available": False,
             "note": "今日六维评分文件不存在，量化择时仅使用 data.json 实时信号",
             "byCode": {},
         }
+    if target and target.name != f"factor_scores_{now.strftime('%Y%m%d')}.json":
+        note = f"六维评分回退到 {target.name}"
+
     try:
         rows = json.loads(target.read_text(encoding="utf-8"))
     except Exception as exc:
@@ -1163,7 +1362,7 @@ def build_quant_timing_index(now: datetime) -> dict:
 
     return {
         "available": bool(by_code),
-        "note": "" if by_code else "六维评分为空",
+        "note": note if note and by_code else ("" if by_code else "六维评分为空"),
         "file": str(target),
         "count": len(by_code),
         "byCode": by_code,
@@ -1386,11 +1585,12 @@ def main() -> int:
     water = build_water_sellers()
     print(f"      {'OK' if water['available'] else 'SKIP'} · {water.get('note') or '—'}")
 
-    print("[6/6] 情报速递（RSS 头条 + Polymarket 赔率，只读 P0 产出） ...")
+    print("[6/6] 情报速递（RSS + Polymarket + MiniMax 日内归档，只读 P0 产出） ...")
     intel = build_intel()
     print(f"      {'OK' if intel['available'] else 'SKIP'} · "
           f"RSS {len(intel['rss'].get('items', []))} 条 / "
-          f"Polymarket {len(intel['polymarket'].get('events', []))} 事件 · "
+          f"Polymarket {len(intel['polymarket'].get('events', []))} 事件 / "
+          f"MiniMax {intel['minimaxDaily'].get('source_run_count', 0)} 轮 · "
           f"{intel.get('note') or '—'}")
     print("[派生] 今日六维量化择时快照 ...")
     quant_timing = build_quant_timing_index(now)
@@ -1429,7 +1629,7 @@ def main() -> int:
         "usMapping": us_mapping,
         "funding": funding,
         "winRate": win_rate,
-        "intel": intel,                     # 📰 情报速递：RSS 头条 + Polymarket 赔率
+        "intel": intel,                     # 📰 情报速递：RSS + Polymarket + MiniMax 日内归档
         "quantTiming": {k: v for k, v in quant_timing.items() if k != "byCode"},
         "heldEtfCodes": held_etf,           # 持仓 ETF 代码（公开安全：仅代码，前端据此排序，不含数量）
         "heldStocks": held_stocks,          # 持仓股清单（公开安全：仅代码+名称+蛋糕层映射，绝不含数量/成本/盈亏）

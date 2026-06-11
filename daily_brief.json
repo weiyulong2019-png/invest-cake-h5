@@ -1,6 +1,6 @@
 {
-  "date": "2026-06-10",
-  "updateTime": "2026-06-10 22:14:10",
+  "date": "2026-06-11",
+  "updateTime": "2026-06-11 13:40:23",
   "items": [
     {
       "type": "water_seller",
@@ -21,15 +21,15 @@
       "tag": "产业链卖水人"
     },
     {
-      "type": "signal_buy",
-      "title": "今日机会信号 54 条",
-      "detail": "今日机会提示:神州数码、广合科技、华正新材、雅克科技 等 54 只(触发:opportunity_tree 非共识候选: 整机与机柜集成)",
-      "tag": "买入提示"
+      "type": "signal_sell",
+      "title": "今日卖出预警 1 条",
+      "detail": "今日卖出预警:昆仑万维(触发:六维综合评分跌入风险区 (<40))",
+      "tag": "卖出预警"
     },
     {
       "type": "watchlist",
       "title": "自选池异动",
-      "detail": "自选池 56 只(ai_chain28、physical_ai_robot28)",
+      "detail": "自选池 56 只(ai_chain28、physical_ai_robot28);今日异动 11 次",
       "tag": "自选监控"
     }
   ],
