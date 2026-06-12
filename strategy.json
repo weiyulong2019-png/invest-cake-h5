@@ -1,6 +1,6 @@
 {
-  "updateTime": "2026-06-12 15:40:03",
-  "timestamp": 1781250003,
+  "updateTime": "2026-06-12 15:42:24",
+  "timestamp": 1781250144,
   "mode": "live",
   "disclaimer": "公开策略数据看板，仅含聚合/结构化信息，不构成投资建议。",
   "waterSellers": {
@@ -7185,7 +7185,7 @@
           "hasThesis": false,
           "hasAllocation": false,
           "hasTimingPlan": false,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       {
@@ -7209,7 +7209,7 @@
           "hasThesis": true,
           "hasAllocation": false,
           "hasTimingPlan": true,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       {
@@ -7233,7 +7233,7 @@
           "hasThesis": false,
           "hasAllocation": false,
           "hasTimingPlan": false,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       {
@@ -7251,7 +7251,7 @@
           "hasThesis": true,
           "hasAllocation": false,
           "hasTimingPlan": true,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       {
@@ -7275,7 +7275,7 @@
           "hasThesis": true,
           "hasAllocation": false,
           "hasTimingPlan": true,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       {
@@ -7293,7 +7293,7 @@
           "hasThesis": true,
           "hasAllocation": false,
           "hasTimingPlan": true,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       {
@@ -7317,7 +7317,7 @@
           "hasThesis": true,
           "hasAllocation": false,
           "hasTimingPlan": true,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       {
@@ -7335,7 +7335,7 @@
           "hasThesis": false,
           "hasAllocation": false,
           "hasTimingPlan": false,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       {
@@ -7353,7 +7353,7 @@
           "hasThesis": false,
           "hasAllocation": false,
           "hasTimingPlan": false,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       {
@@ -7371,7 +7371,7 @@
           "hasThesis": false,
           "hasAllocation": false,
           "hasTimingPlan": false,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       }
     ]
@@ -9735,7 +9735,7 @@
           "pe": "34.2",
           "cap": "13916.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 6.18,
@@ -9757,7 +9757,7 @@
             "PB 7.8974"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -9805,7 +9805,7 @@
           "hasThesis": true,
           "hasAllocation": false,
           "hasTimingPlan": true,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "300442": {
@@ -9881,7 +9881,7 @@
           "pe": "23.1",
           "cap": "1201.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 4.17,
@@ -9903,7 +9903,7 @@
             "PB 8.4117"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -9951,7 +9951,7 @@
           "hasThesis": true,
           "hasAllocation": false,
           "hasTimingPlan": true,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "000034": {
@@ -10026,7 +10026,7 @@
           "pe": "41.9",
           "cap": "227.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 2.12,
@@ -10048,7 +10048,7 @@
             "PB 2.0319"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -10181,7 +10181,7 @@
           "pe": "238.7",
           "cap": "6508.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 2.99,
@@ -10203,7 +10203,7 @@
             "PB 27.6973"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -10251,7 +10251,7 @@
           "hasThesis": false,
           "hasAllocation": false,
           "hasTimingPlan": false,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "002156": {
@@ -10356,7 +10356,7 @@
           "pe": "60.0",
           "cap": "868.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 2.1,
@@ -10378,7 +10378,7 @@
             "PB 5.5896"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "成长观察，等待回撤",
@@ -10518,7 +10518,7 @@
           "pe": "74.7",
           "cap": "1233.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -10658,7 +10658,7 @@
           "pe": "62.9",
           "cap": "632.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -10820,7 +10820,7 @@
           "pe": "86.7",
           "cap": "4836.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 4.25,
@@ -10842,7 +10842,7 @@
             "PB 12.3071"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -10890,7 +10890,7 @@
           "hasThesis": true,
           "hasAllocation": false,
           "hasTimingPlan": true,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "603186": {
@@ -11015,7 +11015,7 @@
           "pe": "92.3",
           "cap": "267.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 1.59,
@@ -11037,7 +11037,7 @@
             "PB 11.5023"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -11205,7 +11205,7 @@
           "pe": "279.6",
           "cap": "384.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -11339,7 +11339,7 @@
           "pe": "-50.61",
           "cap": "978.0亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -11387,7 +11387,7 @@
           "hasThesis": false,
           "hasAllocation": false,
           "hasTimingPlan": false,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "002436": {
@@ -11484,7 +11484,7 @@
           "pe": "445.2",
           "cap": "642.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 0.35,
@@ -11506,7 +11506,7 @@
             "PB 12.1534"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -11660,7 +11660,7 @@
           "pe": "93.5",
           "cap": "3674.8亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 6.68,
@@ -11682,7 +11682,7 @@
             "PB 22.9896"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -11836,7 +11836,7 @@
           "pe": "189.2",
           "cap": "698.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 5.08,
@@ -11858,7 +11858,7 @@
             "PB 24.8206"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -11992,7 +11992,7 @@
           "pe": "23.9",
           "cap": "268.6亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -12125,7 +12125,7 @@
           "pe": "69.5",
           "cap": "171.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 1.84,
@@ -12147,7 +12147,7 @@
             "PB 6.6283"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -12280,7 +12280,7 @@
           "pe": "140.02",
           "cap": "224.5亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 0.71,
@@ -12302,7 +12302,7 @@
             "PB 3.9816"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -12435,7 +12435,7 @@
           "pe": "715.7",
           "cap": "1175.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 1.95,
@@ -12457,7 +12457,7 @@
             "PB 21.3693"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -12598,7 +12598,7 @@
           "pe": "85.7",
           "cap": "12814.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 17.54,
@@ -12620,7 +12620,7 @@
             "PB 36.989"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -12668,7 +12668,7 @@
           "hasThesis": false,
           "hasAllocation": false,
           "hasTimingPlan": false,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "300502": {
@@ -12772,7 +12772,7 @@
           "pe": "65.8",
           "cap": "7061.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 14.52,
@@ -12794,7 +12794,7 @@
             "PB 36.3738"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -12842,7 +12842,7 @@
           "hasThesis": false,
           "hasAllocation": false,
           "hasTimingPlan": false,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "300394": {
@@ -12946,7 +12946,7 @@
           "pe": "141.1",
           "cap": "3064.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 8.57,
@@ -12968,7 +12968,7 @@
             "PB 56.0602"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -13016,7 +13016,7 @@
           "hasThesis": false,
           "hasAllocation": false,
           "hasTimingPlan": false,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "688498": {
@@ -13121,7 +13121,7 @@
           "pe": "489.6",
           "cap": "1743.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 7.38,
@@ -13143,7 +13143,7 @@
             "PB 70.7176"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -13283,7 +13283,7 @@
           "pe": "170.5",
           "cap": "673.8亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 7.24,
@@ -13305,7 +13305,7 @@
             "PB 44.2436"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -13445,7 +13445,7 @@
           "pe": "1746.7",
           "cap": "589.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 0.15,
@@ -13467,7 +13467,7 @@
             "PB 19.5572"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -13607,7 +13607,7 @@
           "pe": "159.6",
           "cap": "1653.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 2.35,
@@ -13629,7 +13629,7 @@
             "PB 15.9901"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -13770,7 +13770,7 @@
           "pe": "312.3",
           "cap": "3613.8亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 3.53,
@@ -13792,7 +13792,7 @@
             "PB 25.3922"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -13840,7 +13840,7 @@
           "hasThesis": false,
           "hasAllocation": false,
           "hasTimingPlan": false,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "600487": {
@@ -13944,7 +13944,7 @@
           "pe": "74.1",
           "cap": "2392.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 3.44,
@@ -13966,7 +13966,7 @@
             "PB 7.382"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -14014,7 +14014,7 @@
           "hasThesis": true,
           "hasAllocation": false,
           "hasTimingPlan": true,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "600522": {
@@ -14118,7 +14118,7 @@
           "pe": "51.9",
           "cap": "1658.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 2.43,
@@ -14140,7 +14140,7 @@
             "PB 4.3635"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "成长观察，等待回撤",
@@ -14280,7 +14280,7 @@
           "pe": "78.5",
           "cap": "271.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -14414,7 +14414,7 @@
           "pe": "-1522.48",
           "cap": "1037.1亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -14527,7 +14527,7 @@
           "pe": "56.0",
           "cap": "2409.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 7.81,
@@ -14549,7 +14549,7 @@
             "PB 15.2221"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "成长观察，等待回撤",
@@ -14661,7 +14661,7 @@
           "pe": "71.1",
           "cap": "2585.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 4.83,
@@ -14683,7 +14683,7 @@
             "PB 15.7091"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -14795,7 +14795,7 @@
           "pe": "68.7",
           "cap": "3215.8亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 7.62,
@@ -14817,7 +14817,7 @@
             "PB 20.5298"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -14929,7 +14929,7 @@
           "pe": "63.2",
           "cap": "719.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -15041,7 +15041,7 @@
           "pe": "72.2",
           "cap": "843.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 9.28,
@@ -15063,7 +15063,7 @@
             "PB 11.695"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -15175,7 +15175,7 @@
           "pe": "74.7",
           "cap": "399.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 12.93,
@@ -15197,7 +15197,7 @@
             "PB 17.7801"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -15309,7 +15309,7 @@
           "pe": "195.3",
           "cap": "3984.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 5.05,
@@ -15331,7 +15331,7 @@
             "PB 17.6019"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -15444,7 +15444,7 @@
           "pe": "52.9",
           "cap": "1039.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 2.51,
@@ -15466,7 +15466,7 @@
             "PB 5.2691"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "成长观察，等待回撤",
@@ -15579,7 +15579,7 @@
           "pe": "43.6",
           "cap": "1665.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 4.0,
@@ -15601,7 +15601,7 @@
             "PB 5.2824"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "成长观察，等待回撤",
@@ -15713,7 +15713,7 @@
           "pe": "604.1",
           "cap": "1880.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 8.15,
@@ -15735,7 +15735,7 @@
             "PB 69.391"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -15847,7 +15847,7 @@
           "pe": "129.8",
           "cap": "625.6亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 3.06,
@@ -15869,7 +15869,7 @@
             "PB 13.0835"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -15982,7 +15982,7 @@
           "pe": "162.2",
           "cap": "616.8亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 3.06,
@@ -16004,7 +16004,7 @@
             "PB 10.1319"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -16116,7 +16116,7 @@
           "pe": "50.5",
           "cap": "493.6亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -16236,7 +16236,7 @@
           "pe": "-47.82",
           "cap": "528.3亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -16356,7 +16356,7 @@
           "pe": "89.0",
           "cap": "807.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 1.43,
@@ -16378,7 +16378,7 @@
             "PB 3.4887"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -16497,7 +16497,7 @@
           "pe": "116.6",
           "cap": "535.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 1.73,
@@ -16519,7 +16519,7 @@
             "PB 4.3863"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -16632,7 +16632,7 @@
           "pe": "513.6",
           "cap": "786.8亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 1.43,
@@ -16654,7 +16654,7 @@
             "PB 8.7684"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -16766,7 +16766,7 @@
           "pe": "229.8",
           "cap": "418.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -16878,7 +16878,7 @@
           "pe": "200.1",
           "cap": "262.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 1.0,
@@ -16900,7 +16900,7 @@
             "PB 10.481"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -17012,7 +17012,7 @@
           "pe": "77.7",
           "cap": "336.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 2.88,
@@ -17034,7 +17034,7 @@
             "PB 10.951"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -17146,7 +17146,7 @@
           "pe": "46.9",
           "cap": "452.8亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -17258,7 +17258,7 @@
           "pe": "100.9",
           "cap": "691.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 2.55,
@@ -17280,7 +17280,7 @@
             "PB 11.134"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -17398,7 +17398,7 @@
           "pe": "192.5",
           "cap": "367.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -17517,7 +17517,7 @@
           "pe": "174.5",
           "cap": "842.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -17636,7 +17636,7 @@
           "pe": "341.5",
           "cap": "104.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -17755,7 +17755,7 @@
           "pe": "63.1",
           "cap": "242.2亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 1.89,
@@ -17777,7 +17777,7 @@
             "PB 5.8865"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -17896,7 +17896,7 @@
           "pe": "46.2",
           "cap": "157.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 2.95,
@@ -17918,7 +17918,7 @@
             "PB 7.8574"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -18037,7 +18037,7 @@
           "pe": "299.3",
           "cap": "337.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -18156,7 +18156,7 @@
           "pe": "236.0",
           "cap": "163.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 2.45,
@@ -18178,7 +18178,7 @@
             "PB 15.0636"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -18297,7 +18297,7 @@
           "pe": "48.4",
           "cap": "1023.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -18417,7 +18417,7 @@
           "pe": "27.6",
           "cap": "1144.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 5.58,
@@ -18439,7 +18439,7 @@
             "PB 5.5588"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -18558,7 +18558,7 @@
           "pe": "41.6",
           "cap": "560.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 4.37,
@@ -18580,7 +18580,7 @@
             "PB 5.2682"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "成长观察，等待回撤",
@@ -18699,7 +18699,7 @@
           "pe": "39.7",
           "cap": "762.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -18817,7 +18817,7 @@
           "pe": "117.4",
           "cap": "3375.6亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 6.12,
@@ -18839,7 +18839,7 @@
             "PB 13.6399"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -18957,7 +18957,7 @@
           "pe": "47.5",
           "cap": "880.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 31.53,
@@ -18979,7 +18979,7 @@
             "PB 17.8441"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -19097,7 +19097,7 @@
           "pe": "48.7",
           "cap": "583.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 1.83,
@@ -19119,7 +19119,7 @@
             "PB 4.487"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -19239,7 +19239,7 @@
           "pe": "107.5",
           "cap": "2748.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 5.39,
@@ -19261,7 +19261,7 @@
             "PB 13.1849"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -19309,7 +19309,7 @@
           "hasThesis": true,
           "hasAllocation": false,
           "hasTimingPlan": true,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "688535": {
@@ -19393,7 +19393,7 @@
           "pe": "552.8",
           "cap": "169.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 0.62,
@@ -19415,7 +19415,7 @@
             "PB 7.8827"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -19534,7 +19534,7 @@
           "pe": "150.7",
           "cap": "454.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 4.11,
@@ -19556,7 +19556,7 @@
             "PB 27.4209"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -19675,7 +19675,7 @@
           "pe": "90.7",
           "cap": "752.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 4.71,
@@ -19697,7 +19697,7 @@
             "PB 14.0251"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -19809,7 +19809,7 @@
           "pe": "18.9",
           "cap": "1163.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 2.55,
@@ -19831,7 +19831,7 @@
             "PB 1.6172"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -19943,7 +19943,7 @@
           "pe": "52.2",
           "cap": "690.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 1.5,
@@ -19965,7 +19965,7 @@
             "PB 2.9566"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -20077,7 +20077,7 @@
           "pe": "21.3",
           "cap": "250.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -20189,7 +20189,7 @@
           "pe": "22.4",
           "cap": "1866.6亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 1.36,
@@ -20211,7 +20211,7 @@
             "PB 3.4894"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -20323,7 +20323,7 @@
           "pe": "24.6",
           "cap": "1047.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 3.44,
@@ -20345,7 +20345,7 @@
             "PB 2.2351"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -20457,7 +20457,7 @@
           "pe": "12.9",
           "cap": "1311.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -20569,7 +20569,7 @@
           "pe": "264.65",
           "cap": "213.6亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -20681,7 +20681,7 @@
           "pe": "25.9",
           "cap": "3084.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -20793,7 +20793,7 @@
           "pe": "23.1",
           "cap": "18268.2亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 5.98,
@@ -20815,7 +20815,7 @@
             "PB 5.5897"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -20927,7 +20927,7 @@
           "pe": "176.0",
           "cap": "663.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "fundamentalSnapshot": {
           "roe": 1.02,
@@ -20949,7 +20949,7 @@
             "PB 2.5931"
           ],
           "source": "mx_iwencai",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -21061,7 +21061,7 @@
           "pe": "1291.5",
           "cap": "244.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -21173,7 +21173,7 @@
           "pe": "35.1",
           "cap": "217.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -21285,7 +21285,7 @@
           "pe": "86.2",
           "cap": "105.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -21381,7 +21381,7 @@
           "pe": "30.3",
           "cap": "8351.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -21478,7 +21478,7 @@
           "pe": "35.3",
           "cap": "1011.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -21576,7 +21576,7 @@
           "pe": "29.4",
           "cap": "540.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -21674,7 +21674,7 @@
           "pe": "56.8",
           "cap": "386.6亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -21771,7 +21771,7 @@
           "pe": "-27.71",
           "cap": "42.2亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -21867,7 +21867,7 @@
           "pe": "-43.4",
           "cap": "108.0亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -21960,7 +21960,7 @@
           "pe": "-23.16",
           "cap": "57.1亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -22053,7 +22053,7 @@
           "pe": "359.5",
           "cap": "1429.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -22146,7 +22146,7 @@
           "pe": "5433.2",
           "cap": "922.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -22241,7 +22241,7 @@
           "pe": "124.9",
           "cap": "563.2亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -22336,7 +22336,7 @@
           "pe": "155.4",
           "cap": "233.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -22431,7 +22431,7 @@
           "pe": "196.2",
           "cap": "259.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -22526,7 +22526,7 @@
           "pe": "-47.35",
           "cap": "45.8亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -22621,7 +22621,7 @@
           "pe": "595.4",
           "cap": "93.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -22716,7 +22716,7 @@
           "pe": "154.7",
           "cap": "291.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -22811,7 +22811,7 @@
           "pe": "-7.39",
           "cap": "32.0亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -22906,7 +22906,7 @@
           "pe": "140.6",
           "cap": "140.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -23001,7 +23001,7 @@
           "pe": "363.1",
           "cap": "291.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -23096,7 +23096,7 @@
           "pe": "164.4",
           "cap": "1034.8亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -23191,7 +23191,7 @@
           "pe": "37.6",
           "cap": "142.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -23286,7 +23286,7 @@
           "pe": "288.9",
           "cap": "660.2亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -23381,7 +23381,7 @@
           "pe": "41.1",
           "cap": "234.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -23476,7 +23476,7 @@
           "pe": "66.6",
           "cap": "128.6亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -23571,7 +23571,7 @@
           "pe": "117.6",
           "cap": "186.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -23665,7 +23665,7 @@
           "pe": "1456.52",
           "cap": "339.5亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -23759,7 +23759,7 @@
           "pe": "-252.59",
           "cap": "120.8亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -23854,7 +23854,7 @@
           "pe": "-130.16",
           "cap": "230.2亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -23949,7 +23949,7 @@
           "pe": "205.2",
           "cap": "324.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -24044,7 +24044,7 @@
           "pe": "86.2",
           "cap": "203.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -24139,7 +24139,7 @@
           "pe": "-179.98",
           "cap": "160.1亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -24234,7 +24234,7 @@
           "pe": "1314.1",
           "cap": "190.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -24329,7 +24329,7 @@
           "pe": "79.5",
           "cap": "207.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -24423,7 +24423,7 @@
           "pe": "60.0",
           "cap": "276.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -24518,7 +24518,7 @@
           "pe": "54.4",
           "cap": "143.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -24614,7 +24614,7 @@
           "pe": "113.3",
           "cap": "704.2亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -24709,7 +24709,7 @@
           "pe": "-86.07",
           "cap": "1173.5亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -24805,7 +24805,7 @@
           "pe": "79.5",
           "cap": "261.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -24900,7 +24900,7 @@
           "pe": "65.1",
           "cap": "247.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -24995,7 +24995,7 @@
           "pe": "437.6",
           "cap": "74.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -25091,7 +25091,7 @@
           "pe": "38.4",
           "cap": "1818.4亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -25189,7 +25189,7 @@
           "pe": "239.5",
           "cap": "311.8亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -25286,7 +25286,7 @@
           "pe": "1468.6",
           "cap": "90.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -25384,7 +25384,7 @@
           "pe": "470.6",
           "cap": "643.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -25481,7 +25481,7 @@
           "pe": "27.4",
           "cap": "348.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -25578,7 +25578,7 @@
           "pe": "272.9",
           "cap": "153.8亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -25675,7 +25675,7 @@
           "pe": "131.4",
           "cap": "98.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -25772,7 +25772,7 @@
           "pe": "375.3",
           "cap": "254.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -25870,7 +25870,7 @@
           "pe": "178.3",
           "cap": "168.0亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -25965,7 +25965,7 @@
           "pe": "56.3",
           "cap": "415.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -26062,7 +26062,7 @@
           "pe": "35.6",
           "cap": "145.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -26157,7 +26157,7 @@
           "pe": "27.8",
           "cap": "93.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -26253,7 +26253,7 @@
           "pe": "63.2",
           "cap": "171.2亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -26436,7 +26436,7 @@
           "pe": "20.6",
           "cap": "816.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -26532,7 +26532,7 @@
           "pe": "59.0",
           "cap": "180.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -26630,7 +26630,7 @@
           "pe": "79.2",
           "cap": "152.2亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -26728,7 +26728,7 @@
           "pe": "29.5",
           "cap": "1084.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -26823,7 +26823,7 @@
           "pe": "33.5",
           "cap": "350.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -26918,7 +26918,7 @@
           "pe": "19.7",
           "cap": "280.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -27013,7 +27013,7 @@
           "pe": "22.2",
           "cap": "518.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -27107,7 +27107,7 @@
           "pe": "207.5",
           "cap": "88.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -27200,7 +27200,7 @@
           "pe": "38.1",
           "cap": "1053.5亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -27293,7 +27293,7 @@
           "pe": "32.4",
           "cap": "61.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -27386,7 +27386,7 @@
           "pe": "14.8",
           "cap": "2975.1亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -27479,7 +27479,7 @@
           "pe": "38.0",
           "cap": "422.3亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -27573,7 +27573,7 @@
           "pe": "44.4",
           "cap": "342.9亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -27668,7 +27668,7 @@
           "pe": "24.3",
           "cap": "411.2亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -27763,7 +27763,7 @@
           "pe": "49.2",
           "cap": "243.7亿",
           "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -27858,7 +27858,7 @@
           "pe": "114.8",
           "cap": "71.7亿",
           "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "估值偏贵，等待回撤",
@@ -27950,23 +27950,23 @@
           "p": "26.11",
           "c": "+4.65%",
           "cv": 4.65,
-          "pe": "85.2",
-          "cap": "104.6亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "pe": "63.02",
+          "cap": "104.62亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
-          "label": "估值偏贵，等待回撤",
-          "score": 59.6,
-          "rankScore": 160.0,
-          "actionHint": "等回撤",
+          "label": "候选观察",
+          "score": 65.6,
+          "rankScore": 170.6,
+          "actionHint": "继续观察",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "six_factor",
           "timingConfidence": "高",
-          "valueScore": 54.0,
+          "valueScore": 64.0,
           "timingScore": 67.9,
-          "valuationState": "expensive",
+          "valuationState": "pricey",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -27985,7 +27985,7 @@
             "待补齐机会",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 85.2 显著偏高",
+            "PE 63.02 偏高",
             "等待确认 / 量化分 67.9"
           ]
         }
@@ -28045,23 +28045,23 @@
           "p": "34.46",
           "c": "+6.03%",
           "cv": 6.03,
-          "pe": "104.3",
-          "cap": "48.1亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "pe": "50.57",
+          "cap": "48.10亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
-          "label": "估值偏贵，等待回撤",
-          "score": 55.2,
-          "rankScore": 159.5,
-          "actionHint": "等回撤",
+          "label": "候选观察",
+          "score": 66.0,
+          "rankScore": 178.6,
+          "actionHint": "继续观察",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "six_factor",
           "timingConfidence": "高",
-          "valueScore": 54.0,
+          "valueScore": 72.0,
           "timingScore": 56.9,
-          "valuationState": "expensive",
+          "valuationState": "neutral_or_growth_priced",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -28080,7 +28080,7 @@
             "待补齐机会",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 104.3 显著偏高",
+            "PE 50.57 已计入成长预期",
             "等待确认 / 量化分 56.9"
           ]
         }
@@ -28140,10 +28140,10 @@
           "p": "60.12",
           "c": "+1.55%",
           "cv": 1.55,
-          "pe": "46.5",
-          "cap": "73.1亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "pe": "56.87",
+          "cap": "73.13亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -28175,7 +28175,7 @@
             "待补齐机会",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 46.5 已计入成长预期",
+            "PE 56.87 已计入成长预期",
             "等待确认 / 量化分 51.1"
           ]
         }
@@ -28235,23 +28235,23 @@
           "p": "37.16",
           "c": "+1.5%",
           "cv": 1.5,
-          "pe": "36.3",
-          "cap": "62.1亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "pe": "33.58",
+          "cap": "62.12亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
-          "label": "候选观察",
-          "score": 69.2,
-          "rankScore": 178.9,
-          "actionHint": "继续观察",
-          "actionability": "watch_only",
-          "valueRank": 0,
+          "label": "待补齐，质量待补齐",
+          "score": 74,
+          "rankScore": 1189.4,
+          "actionHint": "先核实基本面",
+          "actionability": "needs_fundamental_check",
+          "valueRank": 1,
           "timingSource": "six_factor",
           "timingConfidence": "高",
-          "valueScore": 72.0,
+          "valueScore": 82.0,
           "timingScore": 64.9,
-          "valuationState": "neutral_or_growth_priced",
+          "valuationState": "reasonable",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -28270,7 +28270,7 @@
             "待补齐机会",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 36.3 已计入成长预期",
+            "PE 33.58 相对可接受",
             "等待确认 / 量化分 64.9"
           ]
         }
@@ -28330,10 +28330,10 @@
           "p": "32.05",
           "c": "+2.56%",
           "cv": 2.56,
-          "pe": "38.1",
-          "cap": "74.9亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "pe": "38.32",
+          "cap": "74.94亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -28365,7 +28365,7 @@
             "待补齐机会",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 38.1 已计入成长预期",
+            "PE 38.32 已计入成长预期",
             "等待确认 / 量化分 52.2"
           ]
         }
@@ -28425,10 +28425,10 @@
           "p": "7.92",
           "c": "+2.33%",
           "cv": 2.33,
-          "pe": "17.1",
-          "cap": "56.6亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "pe": "20.88",
+          "cap": "56.64亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -28460,7 +28460,7 @@
             "待补齐机会",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 17.1 相对可接受",
+            "PE 20.88 相对可接受",
             "等待确认 / 量化分 56.6"
           ]
         }
@@ -28520,23 +28520,23 @@
           "p": "11.11",
           "c": "+3.16%",
           "cv": 3.16,
-          "pe": "41.0",
-          "cap": "85.1亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "pe": "77.31",
+          "cap": "85.08亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
-          "score": 61.4,
-          "rankScore": 178.1,
+          "score": 56.6,
+          "rankScore": 169.7,
           "actionHint": "继续观察",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "six_factor",
           "timingConfidence": "高",
-          "valueScore": 72.0,
+          "valueScore": 64.0,
           "timingScore": 45.6,
-          "valuationState": "neutral_or_growth_priced",
+          "valuationState": "pricey",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -28555,7 +28555,7 @@
             "待补齐机会",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 41 已计入成长预期",
+            "PE 77.31 偏高",
             "等待确认 / 量化分 45.6"
           ]
         }
@@ -28615,23 +28615,23 @@
           "p": "36.15",
           "c": "+6.95%",
           "cv": 6.95,
-          "pe": "83.5",
-          "cap": "146.0亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "pe": "53.56",
+          "cap": "145.98亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
-          "label": "估值偏贵，等待回撤",
-          "score": 56.9,
-          "rankScore": 159.7,
-          "actionHint": "等回撤",
+          "label": "候选观察",
+          "score": 67.7,
+          "rankScore": 178.8,
+          "actionHint": "继续观察",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "six_factor",
           "timingConfidence": "高",
-          "valueScore": 54.0,
+          "valueScore": 72.0,
           "timingScore": 61.3,
-          "valuationState": "expensive",
+          "valuationState": "neutral_or_growth_priced",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -28650,7 +28650,7 @@
             "待补齐机会",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 83.5 显著偏高",
+            "PE 53.56 已计入成长预期",
             "等待确认 / 量化分 61.3"
           ]
         }
@@ -28710,23 +28710,23 @@
           "p": "35.78",
           "c": "+3.68%",
           "cv": 3.68,
-          "pe": "75.2",
-          "cap": "49.8亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "pe": "31.76",
+          "cap": "49.83亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
-          "label": "候选观察",
-          "score": 62.9,
-          "rankScore": 170.3,
-          "actionHint": "继续观察",
-          "actionability": "watch_only",
-          "valueRank": 0,
+          "label": "待补齐，质量待补齐",
+          "score": 73.7,
+          "rankScore": 1189.4,
+          "actionHint": "先核实基本面",
+          "actionability": "needs_fundamental_check",
+          "valueRank": 1,
           "timingSource": "six_factor",
           "timingConfidence": "高",
-          "valueScore": 64.0,
+          "valueScore": 82.0,
           "timingScore": 61.2,
-          "valuationState": "pricey",
+          "valuationState": "reasonable",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -28745,7 +28745,7 @@
             "待补齐机会",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 75.2 偏高",
+            "PE 31.76 相对可接受",
             "等待确认 / 量化分 61.2"
           ]
         }
@@ -28803,12 +28803,12 @@
         },
         "marketSnapshot": {
           "p": "17.82",
-          "c": "+3.12%",
-          "cv": 3.12,
-          "pe": "45.7",
-          "cap": "73.1亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "c": "+3.13%",
+          "cv": 3.13,
+          "pe": "38.78",
+          "cap": "73.06亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "待补齐，质量待补齐",
@@ -28840,7 +28840,7 @@
             "价值优先候选",
             "卖水人/上游供给环节",
             "底层材料/设备（最上游卡点）",
-            "PE 45.7 已计入成长预期",
+            "PE 38.78 已计入成长预期",
             "等待确认 / 量化分 52.5"
           ]
         }
@@ -28900,23 +28900,23 @@
           "p": "14.18",
           "c": "+2.68%",
           "cv": 2.68,
-          "pe": "60.0",
-          "cap": "77.1亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "pe": "69.14",
+          "cap": "77.06亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
-          "score": 67.0,
-          "rankScore": 178.7,
+          "score": 62.2,
+          "rankScore": 170.2,
           "actionHint": "继续观察",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "six_factor",
           "timingConfidence": "高",
-          "valueScore": 72.0,
+          "valueScore": 64.0,
           "timingScore": 59.6,
-          "valuationState": "neutral_or_growth_priced",
+          "valuationState": "pricey",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -28935,7 +28935,7 @@
             "待补齐机会",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 60 已计入成长预期",
+            "PE 69.14 偏高",
             "等待确认 / 量化分 59.6"
           ]
         }
@@ -28995,23 +28995,23 @@
           "p": "8.65",
           "c": "+3.22%",
           "cv": 3.22,
-          "pe": "32.6",
-          "cap": "192.9亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "pe": "43.55",
+          "cap": "192.90亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
-          "label": "待补齐，质量待补齐",
-          "score": 66.8,
-          "rankScore": 1188.7,
-          "actionHint": "先核实基本面",
-          "actionability": "needs_fundamental_check",
-          "valueRank": 1,
+          "label": "候选观察",
+          "score": 60.8,
+          "rankScore": 178.1,
+          "actionHint": "继续观察",
+          "actionability": "watch_only",
+          "valueRank": 0,
           "timingSource": "six_factor",
           "timingConfidence": "高",
-          "valueScore": 82.0,
+          "valueScore": 72.0,
           "timingScore": 43.9,
-          "valuationState": "reasonable",
+          "valuationState": "neutral_or_growth_priced",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -29030,7 +29030,7 @@
             "待补齐机会",
             "卖水人/上游供给环节",
             "关键器件/材料（潜在卡点）",
-            "PE 32.6 相对可接受",
+            "PE 43.55 已计入成长预期",
             "等待确认 / 量化分 43.9"
           ]
         }
@@ -29092,9 +29092,9 @@
           "c": "+0.76%",
           "cv": 0.76,
           "pe": "-13.48",
-          "cap": "478.3亿",
-          "source": "sina+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "cap": "478.29亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "量化风险，暂缓",
@@ -29142,7 +29142,7 @@
           "hasThesis": false,
           "hasAllocation": false,
           "hasTimingPlan": false,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "300390": {
@@ -29198,26 +29198,26 @@
           ]
         },
         "marketSnapshot": {
-          "p": "96.1",
+          "p": "96.10",
           "c": "+2.2%",
           "cv": 2.2,
-          "pe": "61.0",
-          "cap": "798.4亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "pe": "20.60",
+          "cap": "798.35亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
-          "score": 44.4,
-          "rankScore": 139.4,
+          "score": 55.2,
+          "rankScore": 158.5,
           "actionHint": "继续观察",
           "actionability": "watch_only",
           "valueRank": 0,
           "timingSource": "six_factor",
           "timingConfidence": "高",
-          "valueScore": 35.0,
+          "valueScore": 53.0,
           "timingScore": 58.6,
-          "valuationState": "pricey",
+          "valuationState": "reasonable",
           "qualityState": "基本面未核实",
           "timingState": "wait_confirm",
           "timingPlan": {
@@ -29238,7 +29238,7 @@
             "观察",
             "已纳入持仓跟踪",
             "持仓补充：产业链位置待归类",
-            "PE 61 偏高",
+            "PE 20.6 相对可接受",
             "等待确认 / 量化分 58.6"
           ]
         },
@@ -29252,7 +29252,7 @@
           "hasThesis": true,
           "hasAllocation": false,
           "hasTimingPlan": true,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       },
       "000960": {
@@ -29309,12 +29309,12 @@
         },
         "marketSnapshot": {
           "p": "37.65",
-          "c": "0.0%",
-          "cv": 0.0,
-          "pe": "26.5",
-          "cap": "619.5亿",
-          "source": "sina+tencent+akshare",
-          "updateTime": "2026-06-12 15:40:03"
+          "c": "+8.0%",
+          "cv": 8.0,
+          "pe": "17.85",
+          "cap": "619.51亿",
+          "source": "mx_iwencai",
+          "updateTime": "2026-06-12 15:42:24"
         },
         "decisionProfile": {
           "label": "候选观察",
@@ -29348,7 +29348,7 @@
             "观察",
             "已纳入持仓跟踪",
             "持仓补充：产业链位置待归类",
-            "PE 26.5 相对可接受",
+            "PE 17.85 相对可接受",
             "等待确认 / 量化分 52.7"
           ]
         },
@@ -29362,7 +29362,7 @@
           "hasThesis": true,
           "hasAllocation": false,
           "hasTimingPlan": true,
-          "updateTime": "2026-06-12 15:40:03"
+          "updateTime": "2026-06-12 15:42:24"
         }
       }
     },
@@ -29371,7 +29371,7 @@
       "pe": 166,
       "fundamental": 58,
       "total": 167,
-      "updateTime": "2026-06-12 15:40:03",
+      "updateTime": "2026-06-12 15:42:24",
       "sources": [
         "mx_iwencai",
         "sina",
@@ -29381,12 +29381,12 @@
     },
     "decisionCoverage": {
       "profiled": 167,
-      "valueHigh": 63,
+      "valueHigh": 64,
       "timingReady": 0,
       "timingPlan": 167,
       "resonance": 0,
       "total": 167,
-      "updateTime": "2026-06-12 15:40:03"
+      "updateTime": "2026-06-12 15:42:24"
     },
     "decisionReadiness": {
       "available": true,
@@ -29396,7 +29396,7 @@
       "timingIncomplete": 0,
       "attachedCards": 14,
       "attachedHeld": 10,
-      "updateTime": "2026-06-12T15:40:03+08:00",
+      "updateTime": "2026-06-12T15:42:24+08:00",
       "source": "decision_readiness"
     },
     "thesisWorkQueue": {
