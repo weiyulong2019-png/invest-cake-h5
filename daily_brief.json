@@ -1,7 +1,13 @@
 {
-  "date": "2026-06-12",
-  "updateTime": "2026-06-12 16:05:08",
+  "date": "2026-06-13",
+  "updateTime": "2026-06-13 16:05:02",
   "items": [
+    {
+      "type": "calendar",
+      "title": "非交易日复盘模式",
+      "detail": "A/H市场休市,行情类数据沿用最近交易日 2026-06-12;今日只更新结构化情报和待办",
+      "tag": "周末维护"
+    },
     {
       "type": "water_seller",
       "title": "卖水人环节 · ARM IP 授权",
@@ -19,12 +25,6 @@
       "title": "卖水人环节 · HBM 晶圆",
       "detail": "持久卖水人环节,证据等级 B(只读研究,非交易信号)",
       "tag": "产业链卖水人"
-    },
-    {
-      "type": "minimax_intel",
-      "title": "公开情报归档待采集",
-      "detail": "MiniMax 5小时情报任务已就绪,等待首轮有效归档",
-      "tag": "情报归档"
     },
     {
       "type": "watchlist",
