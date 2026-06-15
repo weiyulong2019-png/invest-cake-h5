@@ -1,6 +1,6 @@
 {
   "date": "2026-06-15",
-  "updateTime": "2026-06-15 16:06:26",
+  "updateTime": "2026-06-15 22:55:00",
   "items": [
     {
       "type": "water_seller",
@@ -19,6 +19,12 @@
       "title": "卖水人环节 · HBM 晶圆",
       "detail": "持久卖水人环节,证据等级 B(只读研究,非交易信号)",
       "tag": "产业链卖水人"
+    },
+    {
+      "type": "signal_buy",
+      "title": "今日机会信号 53 条",
+      "detail": "今日机会提示:华正新材、雅克科技、生益科技、南亚新材 等 53 只(触发:graph_expansion 提议标的: ABF味之素膜)",
+      "tag": "买入提示"
     },
     {
       "type": "watchlist",
