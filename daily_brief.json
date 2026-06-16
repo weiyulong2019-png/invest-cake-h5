@@ -1,6 +1,6 @@
 {
-  "date": "2026-06-15",
-  "updateTime": "2026-06-15 23:06:27",
+  "date": "2026-06-16",
+  "updateTime": "2026-06-16 16:06:33",
   "items": [
     {
       "type": "water_seller",
@@ -21,15 +21,15 @@
       "tag": "产业链卖水人"
     },
     {
-      "type": "signal_buy",
-      "title": "今日机会信号 53 条",
-      "detail": "今日机会提示:华正新材、雅克科技、生益科技、南亚新材 等 53 只(触发:graph_expansion 提议标的: ABF味之素膜)",
-      "tag": "买入提示"
+      "type": "signal_sell",
+      "title": "今日卖出预警 6 条",
+      "detail": "今日卖出预警:瑞康医药、石药集团、惠博普、石药集团 等 6 只(触发:六维综合评分跌入风险区 (<40))",
+      "tag": "卖出预警"
     },
     {
       "type": "watchlist",
       "title": "自选池异动",
-      "detail": "自选池 56 只(ai_chain28、physical_ai_robot28)",
+      "detail": "自选池 56 只(ai_chain28、physical_ai_robot28);今日异动 11 次",
       "tag": "自选监控"
     }
   ],
