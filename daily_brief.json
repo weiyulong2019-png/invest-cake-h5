@@ -1,6 +1,6 @@
 {
-  "date": "2026-06-17",
-  "updateTime": "2026-06-17 16:05:04",
+  "date": "2026-06-18",
+  "updateTime": "2026-06-18 16:05:03",
   "items": [
     {
       "type": "water_seller",
@@ -23,7 +23,7 @@
     {
       "type": "watchlist",
       "title": "自选池异动",
-      "detail": "自选池 56 只(ai_chain28、physical_ai_robot28);今日异动 5 次",
+      "detail": "自选池 56 只(ai_chain28、physical_ai_robot28)",
       "tag": "自选监控"
     }
   ],
