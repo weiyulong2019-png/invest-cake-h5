@@ -6,13 +6,16 @@
 cd ~/.openclaw/投资工作室H5
 
 # 1. 刷新行情数据
-export MX_APIKEY=mkt_f-JSym1MjVyEBaoal60UkgLwEd69FhteaSCakjQE8Ic
+export MX_APIKEY=<你的妙想APIKey>   # 不要写进仓库，从环境变量或 .env.local 读取
 python3 refresh-data.py
 
 # 2. 启动本地服务
 python3 -m http.server 8080
 # 打开 http://localhost:8080
 ```
+
+> ⚠️ **秘钥不要写进仓库**：`MX_APIKEY` 一律用环境变量注入（本机：`.env.local`，见 `tools/windows/`）。
+> 历史版本曾把明文 key 写进本文件与 `deploy-init.sh`，2026-09-21 已清除 —— **该 key 视为已泄露，必须到妙想后台轮换**。
 
 ---
 

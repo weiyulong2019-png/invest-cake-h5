@@ -7,3 +7,7 @@ refresh.log
 .claude/
 *.bak
 *.bak.*
+
+# local maintenance (Windows)
+.env.local
+logs/
