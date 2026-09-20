@@ -72,7 +72,7 @@ powershell -File tools\windows\install-scheduled-task.ps1 -Uninstall
 - **行尾**：仓库含 `.sh` 脚本，建议 `git config core.autocrlf input`，避免 CRLF 提交。
 - **不要提交**：`.env.local`、`logs\`、`data.json.bak` 等（已在 .gitignore）。
 - **PowerShell 中文**：控制台默认 GBK，`git log` 中文会显示乱码。脚本输出统一落 `logs\*.log`（UTF-8），用编辑器看。
-- **代理**：脚本内已强制 `requests` 不走系统代理；若公司网络需要代理，先确认能直连 `hq.sinajs.cn`。
+- **代理（实测 2026-09-21）**：本机直连 `github.com:443` 会超时，git 必须走系统代理（`publish.ps1` 会自动从注册表读系统代理注入，不写进 git config，避免代理关闭后 git 静默挂住）。python 脚本侧相反——`refresh-data.py` 会主动清掉代理环境变量并禁 `trust_env`，保证行情源直连。两个方向不要搞混。
 
 ## 7. 待处理
 
