@@ -53,6 +53,12 @@ OUTPUT_FILE = OUTPUT_DIR / "data.json"
 SIGNAL_FIELDS = ("signal", "signalNote", "signalTime", "confidence")
 QUOTE_FIELDS = ("p", "c", "cv", "pe", "cap")
 
+# ========== 扶摇（同花顺）源：第一优先级，缺失时降级到新浪/AKShare ==========
+try:
+    import fuyao_source as fuyao  # noqa: E402  key 来自环境变量 FUYAO_API_KEY
+except Exception:  # 模块缺失/无 key 都不影响原链路
+    fuyao = None
+
 # 持仓标的 — 与H5五层蛋糕对应
 HOLDINGS = {
     "L1": {
@@ -758,17 +764,30 @@ def build_output_auto(skip_a=False, skip_hk=False):
     etf_codes = [e["code"] for e in ETFS]
     hk_codes = [s["code"] for s in HK_STOCKS]
 
-    # ===== 第1步: 新浪接口获取（主力源） =====
+    # ===== 第0步: 扶摇（同花顺）—— 第一优先级 =====
+    fy_index = {}
+    fy_all = {}
     sina_index = {}
     sina_all = {}
     sina_hk = {}
     ak_quotes = {}
     ak_etfs_data = {}
 
+    if not skip_a and fuyao is not None and fuyao.available():
+        print("[0/3] 扶摇(同花顺): 指数+A股+ETF...")
+        fy_index = fuyao.fetch_index("000001")
+        fy_all = fuyao.fetch_quotes(all_a_codes + etf_codes)
+        print(f"  扶摇结果: 指数={'有' if fy_index else '无'}, A股+ETF={len(fy_all)}/{len(all_a_codes)+len(etf_codes)}")
+    elif not skip_a:
+        print("[0/3] 扶摇(同花顺): 未配置 FUYAO_API_KEY，跳过")
+
+    # ===== 第1步: 新浪接口补齐扶摇缺失（兜底源） =====
     if not skip_a:
-        print("[1/3] 新浪财经: A股+指数+ETF...")
-        sina_index = fetch_sina_quotes(["000001"])
-        sina_all = fetch_sina_quotes(all_a_codes + etf_codes)
+        todo_a = [c for c in (all_a_codes + etf_codes) if c not in fy_all]
+        print(f"[1/3] 新浪财经: 补齐{len(todo_a)}个缺失标的...")
+        if not fy_index:
+            sina_index = fetch_sina_quotes(["000001"])
+        sina_all = fetch_sina_quotes(todo_a) if todo_a else {}
     else:
         print("[1/3] 跳过A股")
 
@@ -780,12 +799,17 @@ def build_output_auto(skip_a=False, skip_hk=False):
 
     print(f"  新浪结果: 指数={'有' if sina_index else '跳过'}, A股+ETF={len(sina_all)}/{len(all_a_codes)+len(etf_codes)}, 港股={len(sina_hk)}/{len(hk_codes)}")
 
-    # ===== 第1.5步: 腾讯行情补充新浪缺失 =====
+    # 合并主源：扶摇优先，新浪兜底（同 key 扶摇覆盖新浪）
+    merged_all = dict(sina_all)
+    merged_all.update(fy_all)
+
+    # ===== 第1.5步: 腾讯行情补充仍然缺失的 =====
     if not skip_a:
-        missing_a = [c for c in (all_a_codes + etf_codes) if c not in sina_all]
+        missing_a = [c for c in (all_a_codes + etf_codes) if c not in merged_all]
         if missing_a:
             print(f"[1.5/3] 腾讯行情补充{len(missing_a)}个新浪缺失...")
             tc_quotes = fetch_tencent_quotes(missing_a)
+            merged_all.update(tc_quotes)
             sina_all.update(tc_quotes)
             print(f"  腾讯补充: {len(tc_quotes)}/{len(missing_a)}")
 
@@ -812,7 +836,7 @@ def build_output_auto(skip_a=False, skip_hk=False):
         print("[3/3] 跳过AKShare")
 
     # ===== 组装大盘指数 =====
-    idx = sina_index.get("000001")
+    idx = fy_index or sina_index.get("000001")
     if not idx:
         idx = fetch_akshare_index()  # fallback
     if idx:
@@ -835,16 +859,19 @@ def build_output_auto(skip_a=False, skip_hk=False):
         count = 0
         for s in stocks:
             code = s["code"]
-            # 优先新浪价格，AKShare补充PE/市值
-            sina_q = sina_all.get(code)
+            # 价格源：扶摇 > 新浪/腾讯 > AKShare；PE 优先用扶摇，市值仅 AKShare 有
+            sina_q = merged_all.get(code)
             ak_q = ak_quotes.get(code)
             if sina_q and sina_q["price"] != "-":
                 cv = sina_q["cv"]
+                pe = sina_q.get("pe", "-")
+                if pe in (None, "-") and ak_q:
+                    pe = ak_q["pe"]
                 item = {
                     "code": code, "name": s["name"], "sector": s["sector"],
                     "held": s.get("held", False), "pick": s.get("pick", False),
                     "p": sina_q["price"], "c": sina_q["chg"], "cv": cv,
-                    "pe": ak_q["pe"] if ak_q else "-",
+                    "pe": pe,
                     "cap": ak_q["cap"] if ak_q else "-",
                 }
             elif ak_q and ak_q["price"] != "-":
@@ -875,7 +902,7 @@ def build_output_auto(skip_a=False, skip_hk=False):
     # ===== ETF =====
     for e in ETFS:
         code = e["code"]
-        sina_q = sina_all.get(code)
+        sina_q = merged_all.get(code)
         ak_q = ak_etfs_data.get(code)
         if sina_q and sina_q["price"] != "-":
             output["etfs"].append({
