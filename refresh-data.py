@@ -767,6 +767,7 @@ def build_output_auto(skip_a=False, skip_hk=False):
     # ===== 第0步: 扶摇（同花顺）—— 第一优先级 =====
     fy_index = {}
     fy_all = {}
+    fy_caps = {}
     sina_index = {}
     sina_all = {}
     sina_hk = {}
@@ -777,7 +778,8 @@ def build_output_auto(skip_a=False, skip_hk=False):
         print("[0/3] 扶摇(同花顺): 指数+A股+ETF...")
         fy_index = fuyao.fetch_index("000001")
         fy_all = fuyao.fetch_quotes(all_a_codes + etf_codes)
-        print(f"  扶摇结果: 指数={'有' if fy_index else '无'}, A股+ETF={len(fy_all)}/{len(all_a_codes)+len(etf_codes)}")
+        fy_caps = fuyao.fetch_market_caps(all_a_codes)
+        print(f"  扶摇结果: 指数={'有' if fy_index else '无'}, A股+ETF={len(fy_all)}/{len(all_a_codes)+len(etf_codes)}, 流通市值={len(fy_caps)}")
     elif not skip_a:
         print("[0/3] 扶摇(同花顺): 未配置 FUYAO_API_KEY，跳过")
 
@@ -867,12 +869,18 @@ def build_output_auto(skip_a=False, skip_hk=False):
                 pe = sina_q.get("pe", "-")
                 if pe in (None, "-") and ak_q:
                     pe = ak_q["pe"]
+                # 市值: AKShare 总市值优先，否则用扶摇流通市值（标注口径）
+                cap, cap_scope = "-", ""
+                if ak_q and ak_q.get("cap") not in (None, "-"):
+                    cap, cap_scope = ak_q["cap"], "total"
+                elif code in fy_caps:
+                    cap, cap_scope = fy_caps[code], "float"
                 item = {
                     "code": code, "name": s["name"], "sector": s["sector"],
                     "held": s.get("held", False), "pick": s.get("pick", False),
                     "p": sina_q["price"], "c": sina_q["chg"], "cv": cv,
                     "pe": pe,
-                    "cap": ak_q["cap"] if ak_q else "-",
+                    "cap": cap, "capScope": cap_scope,
                 }
             elif ak_q and ak_q["price"] != "-":
                 cv = ak_q["cv"]
@@ -880,7 +888,9 @@ def build_output_auto(skip_a=False, skip_hk=False):
                     "code": code, "name": s["name"], "sector": s["sector"],
                     "held": s.get("held", False), "pick": s.get("pick", False),
                     "p": ak_q["price"], "c": ak_q["chg"], "cv": cv,
-                    "pe": ak_q.get("pe", "-"), "cap": ak_q.get("cap", "-"),
+                    "pe": ak_q.get("pe", "-"),
+                    "cap": ak_q.get("cap", "-") if ak_q.get("cap") not in (None, "-") else fy_caps.get(code, "-"),
+                    "capScope": "total" if ak_q.get("cap") not in (None, "-") else ("float" if code in fy_caps else ""),
                 }
             else:
                 cv = 0

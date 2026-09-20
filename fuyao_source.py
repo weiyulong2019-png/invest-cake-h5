@@ -174,6 +174,89 @@ def fetch_etfs(codes: list) -> dict:
     return out
 
 
+def _fmt_cap(value: float) -> str:
+    """市值格式化：与 AKShare 口径一致（万亿/亿/元）"""
+    if value >= 1e12:
+        return f"{round(value / 1e12, 2)}万亿"
+    if value >= 1e8:
+        return f"{round(value / 1e8, 2)}亿"
+    return str(round(value))
+
+
+def fetch_market_caps(codes: list) -> dict:
+    """流通市值（元→亿/万亿字符串）→ {code: cap_str}
+    来源 `/api/a-share/auction/snapshot` 的 float_market_cap。
+    ⚠️ 是**流通市值**，不是总市值；ETF/港股不支持。
+    """
+    codes = [c for c in (codes or []) if c and not c.startswith("HK.") and not is_etf(c)]
+    if not codes:
+        return {}
+
+    items = _get("/api/a-share/auction/snapshot",
+                 thscodes=",".join(to_thscode(c) for c in codes), stage="final")
+    if not items and len(codes) > 1:
+        for c in codes:
+            items += _get("/api/a-share/auction/snapshot", thscodes=to_thscode(c), stage="final")
+
+    out = {}
+    for it in items:
+        code = str(it.get("ticker") or "").replace(".SH", "").replace(".SZ", "")
+        v = it.get("float_market_cap")
+        if not code or v in (None, ""):
+            continue
+        try:
+            fv = float(v)
+        except (TypeError, ValueError):
+            continue
+        if fv > 0:
+            out[code] = _fmt_cap(fv)
+    return out
+
+
+def fetch_history(code: str, days: int = 200) -> dict:
+    """日线历史（单只，前复权）→ {close,high,low,volume,amount,date}，不足 30 根返回 {}
+    A股走 /api/a-share/prices/historical，ETF/LOF 走 /api/fund/market/historical。
+    港股不支持 → 返回 {}
+    """
+    if not code or code.startswith("HK."):
+        return {}
+    import time
+
+    etf = is_etf(code)
+    path = "/api/fund/market/historical" if etf else "/api/a-share/prices/historical"
+    end_ms = int(time.time() * 1000)
+    start_ms = end_ms - int(days * 24 * 3600 * 1000)
+    params = {"thscode": to_thscode(code), "interval": "1d", "start": start_ms, "end": end_ms}
+    if not etf:
+        params["adjust"] = "forward"
+
+    items = _get(path, **params)
+    if not items:
+        return {}
+    items = sorted(items, key=lambda x: x.get("date_ms") or 0)
+
+    bars = {"close": [], "high": [], "low": [], "open": [], "volume": [], "amount": [], "date": []}
+    for it in items:
+        try:
+            c = float(it.get("close_price"))
+            h = float(it.get("high_price"))
+            lo = float(it.get("low_price"))
+        except (TypeError, ValueError):
+            continue
+        if c <= 0:
+            continue
+        bars["close"].append(c)
+        bars["high"].append(h)
+        bars["low"].append(lo)
+        bars["open"].append(float(it.get("open_price") or 0))
+        bars["volume"].append(float(it.get("volume") or 0))
+        bars["amount"].append(float(it.get("turnover") or 0))
+        bars["date"].append(it.get("date_ms"))
+    if len(bars["close"]) < 30:
+        return {}
+    return bars
+
+
 def fetch_index(code: str = "000001") -> dict:
     """大盘指数快照 → 单条行情 dict 或 {}"""
     ths = f"{code}.SH" if code.startswith("000") else to_thscode(code)

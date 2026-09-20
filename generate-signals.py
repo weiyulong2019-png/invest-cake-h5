@@ -42,6 +42,12 @@ _requests.Session.__init__ = _patched_session_init
 
 import requests
 
+# 扶摇（同花顺）源：历史K线第一优先级，缺失降级 AKShare
+try:
+    import fuyao_source as fuyao  # noqa: E402
+except Exception:
+    fuyao = None
+
 DATA_FILE = Path(__file__).parent / "data.json"
 NOW = datetime.now()
 HHMM = NOW.strftime("%H%M")
@@ -236,9 +242,76 @@ def calc_atr(highs, lows, closes, period=14):
 # ============================================================
 # 3. A股/港股/ETF 技术指标获取
 # ============================================================
+def _bars_from_fuyao(code, days=200):
+    """扶摇日线 → (closes, highs, lows, volumes, amounts)；不可用返回 None"""
+    if fuyao is None or not fuyao.available():
+        return None
+    try:
+        b = fuyao.fetch_history(code, days=days)
+    except Exception as e:
+        print(f"  [WARN] {code} 扶摇历史获取失败: {e}")
+        return None
+    if not b or len(b.get("close", [])) < 30:
+        return None
+    return b["close"], b["high"], b["low"], b.get("volume", []), b.get("amount", [])
+
+
+def _fill_indicators(result, closes, highs, lows, volumes, amounts, trading_days=None):
+    """用 OHLCV 序列填充技术指标（与数据源无关）"""
+    latest = closes[-1]
+    result["price"] = latest
+    result["ma5"] = calc_ma(closes, 5)
+    result["ma10"] = calc_ma(closes, 10)
+    result["ma20"] = calc_ma(closes, 20)
+    result["ma60"] = calc_ma(closes, 60)
+    result["rsi"] = calc_rsi(closes, 14)
+    result["macd"], result["macd_signal"], result["macd_hist"] = calc_macd(closes)
+    result["adx"] = calc_adx(highs, lows, closes, 14)
+    result["atr"] = calc_atr(highs, lows, closes, 14)
+
+    # ATR占价格百分比 → 预期日波动
+    if result["atr"] and latest > 0:
+        result["atr_pct"] = round(result["atr"] / latest * 100, 2)
+
+    # 量比: 今日成交量 / 过去5日均量
+    if len(volumes) >= 6:
+        avg_vol = sum(volumes[-6:-1]) / 5
+        if avg_vol > 0:
+            result["vol_ratio"] = round(volumes[-1] / avg_vol, 2)
+
+    # 近5日涨跌幅
+    if len(closes) >= 6:
+        result["chg5d"] = round((closes[-1] - closes[-6]) / closes[-6] * 100, 2)
+
+    # 日均成交额（20日）— 用于流动性排除
+    if amounts and len(amounts) >= 20:
+        result["avg_amount_20d"] = round(sum(amounts[-20:]) / 20, 0)
+    elif amounts and len(amounts) >= 5:
+        result["avg_amount_20d"] = round(sum(amounts[-5:]) / len(amounts[-5:]), 0)
+
+    # 上市天数（用数据条数估算）
+    result["trading_days"] = trading_days if trading_days else len(closes)
+    result["ok"] = True
+    return result
+
+
 def fetch_a_stock_indicators(code):
-    """获取A股技术指标: MA/RSI/MACD/ADX/ATR + 基础信息"""
+    """获取A股技术指标: MA/RSI/MACD/ADX/ATR + 基础信息
+    数据源优先级: 扶摇(同花顺)历史K线 → AKShare
+    """
     result = {"code": code, "ok": False}
+
+    # --- 第一优先级: 扶摇 ---
+    bars = _bars_from_fuyao(code)
+    if bars:
+        try:
+            closes, highs, lows, volumes, amounts = bars
+            return _fill_indicators(result, closes, highs, lows, volumes, amounts, len(closes))
+        except Exception as e:
+            print(f"[WARN] {code} 扶摇指标计算失败: {e}")
+            result = {"code": code, "ok": False}
+
+    # --- 兜底: AKShare ---
     try:
         import akshare as ak
         df = ak.stock_zh_a_hist(
@@ -255,42 +328,7 @@ def fetch_a_stock_indicators(code):
         lows = df["最低"].astype(float).tolist()
         volumes = df["成交量"].astype(float).tolist()
         amounts = df["成交额"].astype(float).tolist() if "成交额" in df.columns else []
-        latest = closes[-1]
-
-        result["price"] = latest
-        result["ma5"] = calc_ma(closes, 5)
-        result["ma10"] = calc_ma(closes, 10)
-        result["ma20"] = calc_ma(closes, 20)
-        result["ma60"] = calc_ma(closes, 60)
-        result["rsi"] = calc_rsi(closes, 14)
-        result["macd"], result["macd_signal"], result["macd_hist"] = calc_macd(closes)
-        result["adx"] = calc_adx(highs, lows, closes, 14)
-        result["atr"] = calc_atr(highs, lows, closes, 14)
-
-        # ATR占价格百分比 → 预期日波动
-        if result["atr"] and latest > 0:
-            result["atr_pct"] = round(result["atr"] / latest * 100, 2)
-
-        # 量比: 今日成交量 / 过去5日均量
-        if len(volumes) >= 6:
-            avg_vol = sum(volumes[-6:-1]) / 5
-            if avg_vol > 0:
-                result["vol_ratio"] = round(volumes[-1] / avg_vol, 2)
-
-        # 近5日涨跌幅
-        if len(closes) >= 6:
-            result["chg5d"] = round((closes[-1] - closes[-6]) / closes[-6] * 100, 2)
-
-        # 日均成交额（20日）— 用于流动性排除
-        if amounts and len(amounts) >= 20:
-            result["avg_amount_20d"] = round(sum(amounts[-20:]) / 20, 0)
-        elif amounts and len(amounts) >= 5:
-            result["avg_amount_20d"] = round(sum(amounts[-5:]) / len(amounts[-5:]), 0)
-
-        # 上市天数（用数据条数估算）
-        result["trading_days"] = len(df)
-
-        result["ok"] = True
+        return _fill_indicators(result, closes, highs, lows, volumes, amounts, len(df))
     except ImportError:
         print("[WARN] akshare未安装")
     except Exception as e:
@@ -343,6 +381,20 @@ def fetch_hk_stock_indicators(hk_code):
 def fetch_etf_indicators(code):
     """ETF技术指标 — 与A股同源，但不做ST/次新排除"""
     result = {"code": code, "ok": False, "is_etf": True}
+
+    # --- 第一优先级: 扶摇（自动走 fund/market/historical） ---
+    bars = _bars_from_fuyao(code)
+    if bars:
+        try:
+            closes, highs, lows, volumes, amounts = bars
+            _fill_indicators(result, closes, highs, lows, volumes, amounts, len(closes))
+            result["is_etf"] = True
+            return result
+        except Exception as e:
+            print(f"[WARN] {code} 扶摇ETF指标计算失败: {e}")
+            result = {"code": code, "ok": False, "is_etf": True}
+
+    # --- 兜底: AKShare ---
     try:
         import akshare as ak
         df = ak.fund_etf_hist_sina(symbol=f"sz{code}" if code.startswith("1") else f"sh{code}")

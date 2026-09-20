@@ -62,8 +62,8 @@ powershell -File tools\windows\install-scheduled-task.ps1 -Uninstall
 | A股 PE | 扶摇 `/api/a-share/valuations/snapshot` | AKShare | 扶摇给 `pe_ttm`，AKShare 常连不上东财 |
 | ETF | 扶摇 `/api/fund/market/snapshot` | 新浪 → AKShare | 只支持单只查询；非交易时段返回 3002「未就绪」→ 自动走兜底 |
 | 指数 | 扶摇 `/api/a-share-index/prices/snapshot` | 新浪 → AKShare | 上证 `000001.SH` |
-| 市值 `cap` | AKShare | — | **扶摇无市值字段**，目前仍依赖 AKShare，东财不通时为 `-` |
-| 港股 | 新浪 → 腾讯 | 富途 OpenD（需本机运行） | **扶摇不支持港股** |
+| 市值 `cap` | AKShare 总市值 → 扶摇竞价 `float_market_cap` | — | 扶摇给的是**流通市值**，写入时标注 `capScope` = `total`/`float` |
+| 历史K线（信号） | 扶摇 `prices/historical`（A股）/ `fund/market/historical`（ETF） | AKShare | `generate-signals.py` 的 MA/RSI/MACD/ADX/ATR 全部改用扶摇 K 线；港股无解，仍走 AKShare |
 
 代码映射：6/5 开头 → `.SH`，其余 → `.SZ`；ETF/LOF（1/5 开头）走基金接口。
 
@@ -77,7 +77,8 @@ powershell -File tools\windows\install-scheduled-task.ps1 -Uninstall
 ## 7. 待处理
 
 - [x] ~~`DEPLOY.md` 明文 `MX_APIKEY`~~ → 已清除，仍需**去妙想后台轮换 key**（历史 commit 里还在）。
-- [ ] 市值 `cap` 仍缺：扶摇无市值字段，AKShare 连不上东财时为 `-`。可选方案：每日采集扶摇竞价接口 `float_market_cap` 反推。
-- [ ] 港股实时仍走新浪/富途，扶摇不支持。
-- [ ] `generate-signals.py` 的历史 K 线仍用 AKShare（东财常失败 → 信号降级为 quote-fallback），可改用扶摇 `/api/a-share/prices/historical`（单只、仅日线）自建指标。
+- [x] ~~市值 `cap` 缺失~~ → 已接扶摇竞价接口 `float_market_cap`（流通市值，`capScope` 标注口径）。
+- [x] ~~`generate-signals.py` 历史 K 线用 AKShare~~ → 已改扶摇，指标覆盖率从"部分数据不足"提升到全 A股+ETF。
+- [ ] 港股行情与指标仍走新浪/AKShare，扶摇不支持 → 港股信号仍是 quote-fallback。
+- [ ] 总市值口径：扶摇只给流通市值，若要总市值需另找源（或按流通比例估算）。
 - [ ] Windows 计划任务（工作日每 5 分钟刷新并自动 push）尚未注册。
