@@ -11,3 +11,9 @@ refresh.log
 # local maintenance (Windows)
 .env.local
 logs/
+
+# 信号追踪数据库（实盘复盘数据，不外泄）
+.tracker/
+# 回测中间产物（样本量大，按需本地生成）
+backtest_result.json
+backtest_*.json

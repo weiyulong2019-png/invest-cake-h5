@@ -69,10 +69,14 @@ def _get(path: str, **params):
 
 
 def to_thscode(code: str) -> str:
-    """6 位代码 → 扶摇 thscode。6/5 开头沪市，其余深市。"""
-    code = code.strip()
+    """6 位代码 → 扶摇 thscode。6/5 开头沪市，其余深市。
+    zfill(6) 防前导 0 丢失：code 若经 int 中转（如 JSON 数字），
+    002409 会变 2409 → 服务端报 Unknown thscode。
+    """
+    code = str(code).strip()
     if "." in code:
         return code
+    code = code.zfill(6)
     if code.startswith(("6", "5")):
         return f"{code}.SH"
     return f"{code}.SZ"
@@ -211,6 +215,47 @@ def fetch_market_caps(codes: list) -> dict:
         if fv > 0:
             out[code] = _fmt_cap(fv)
     return out
+
+
+def fetch_index_history(code: str, days: int = 200) -> dict:
+    """指数历史 K 线 → {close,high,low,open,volume,amount,date}
+    指数走 /api/a-share-index/prices/historical；代码需显式带后缀
+    （000300 沪深300=沪市 .SH，399001 深证成指=.SZ —— 不能靠代码前缀推断，
+    因为 000001 既是上证指数也是平安银行）。
+    """
+    if not code:
+        return {}
+    import time
+    ths = code if "." in str(code) else f"{str(code).zfill(6)}.SH"
+    end_ms = int(time.time() * 1000)
+    start_ms = end_ms - int(days * 24 * 3600 * 1000)
+    try:
+        items = _get("/api/a-share-index/prices/historical", thscode=ths,
+                     interval="1d", start=start_ms, end=end_ms)
+    except Exception:
+        items = None
+    if not items:
+        return {}
+    items = sorted(items, key=lambda x: x.get("date_ms") or 0)
+    bars = {"close": [], "high": [], "low": [], "open": [], "volume": [], "amount": [], "date": []}
+    for it in items:
+        try:
+            c = float(it.get("close_price"))
+            h = float(it.get("high_price"))
+            lo = float(it.get("low_price"))
+        except (TypeError, ValueError):
+            continue
+        if c <= 0:
+            continue
+        bars["close"].append(c)
+        bars["high"].append(h)
+        bars["low"].append(lo)
+        bars["open"].append(float(it.get("open_price") or c))
+        bars["volume"].append(float(it.get("volume") or 0))
+        bars["amount"].append(float(it.get("amount") or 0))
+        # 与个股 fetch_history 一致用 date_ms，便于按日期对齐（停牌等场景不能用位置对齐）
+        bars["date"].append(it.get("date_ms"))
+    return bars
 
 
 def fetch_history(code: str, days: int = 200) -> dict:
